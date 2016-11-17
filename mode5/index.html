@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>プライマル×バクテリア*ステップ</title>
+    <meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/susida.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+    <script type="text/javascript" src="js/towntypelib.js"></script>
+</head>
+
+<body>
+    <div class="head_menu">
+        <a id="menubutton" href="ranking_view.php" target="_blank">ランキング</a>
+        <a id="menubutton" href="wordadd/" target="_blank">タイピングワード追加</a>
+        <a id="menubutton" href="debug/" target="_blank">デバッグ</a>
+    </div>
+    <div class="bodybody" id="bodyid">
+
+
+        <div id="wrapper">
+            <div class="main">
+                <p id="debug"></p>
+                <div class="game_div" id="gamemain">
+                    <div class="menu_head">
+
+                        <form>
+                            <p>
+                                <input type="button" class="button" id="start-button" value="Start" onClick="onStartButtonClick()">
+                                <br>
+                                <span id="message">Press Start</span>
+                            </p>
+                        </form>
+                        <div class="score">
+                            <span id="score_area"></span>
+                        </div>
+                        <div id="img">
+                            <img id="image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
+                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                            <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
+                        </div>
+                        <div class="rank_div">
+                            <form name="ranking" id="form_ranking">
+                                <input type="text" id="name-text" name="username" class="rank_item">
+                                <br>
+                                <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
+                            </form>
+                        </div>
+                        <div class="ge-zi">
+                            <span id="charge"></span>
+                        </div>
+                    </div>
+                    <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+                    <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+                    <div id="type">
+                        <span id="type_Before">&nbsp;</span>
+                        <span id="type_After">&nbsp;</span>
+                    </div>
+                    <div id="deadly"></div>
+                </div>
+                <div class="img_area">
+                  <img src=""  onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                </div>
+            </div>
+
+            <div class="side01">
+                <img src="img/side1.jpg" id="side1" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+            </div>
+        </div>
+        <div class="side02">
+            <img src="img/side2.jpg" id="side2" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+        </div>
+
+    </div>
+
+    <div class="foot">
+      <div class="foot_item">
+        <img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+      </div>
+    </div>
+
+</body>
+
+</html>
