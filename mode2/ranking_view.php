@@ -100,7 +100,7 @@ $(function(){
 
       $dbh->query('SET NAMES utf8');
 
-      $sql = 'SELECT * FROM score ORDER BY score DESC';
+      $sql = 'SELECT * FROM score WHERE mode = 2 ORDER BY score DESC';
       $stmt = $dbh->query($sql);
 
       while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
