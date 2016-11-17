@@ -1,0 +1,192 @@
+body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.bodybody {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#wrapper {
+    float: left;
+}
+
+.main {
+    width: 600px;
+    height: auto;
+    float: right;
+}
+
+.main div {
+    width: 500px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.side01 {
+    width: 200px;
+    height: auto;
+    float: left;
+}
+
+.side02 {
+    width: 200px;
+    height: auto;
+    float: right;
+}
+
+.side01 img {
+    width: 200px;
+    height: auto;
+}
+
+.side02 img {
+    width: 200px;
+    height: auto;
+}
+
+#debug {
+    height: 20px;
+}
+
+.game_div {
+    border: 3px solid #ffcf00;
+    font-size: 1.2em;
+}
+
+.menu_head {
+    text-align: center;
+}
+
+.button {
+    background: #EEE;
+    color: #111;
+    -moz-box-shadow: 0px 0px 2px rgba(000, 000, 000, 0.3), inset 1px 1px 5px rgba(000, 153, 204, 1), inset -1px -1px 5px rgba(205, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 2px rgba(000, 000, 000, 0.3), inset 1px 1px 5px rgba(000, 153, 204, 1), inset -1px -1px 5px rgba(205, 0, 0, 1);
+    width: 100px;
+    padding: 10px 0;
+}
+
+#message {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.score {
+    height: 30px;
+}
+
+.ge-zi {
+    height: 30px;
+}
+
+#word_hiragana {
+    background: rgb(148, 160, 176);
+    font-size: 0.9em;
+    height: 26px;
+    font-size: 0.7em;
+    line-height: 26px;
+}
+
+#word_jp {
+    background: rgb(148, 160, 176);
+    height: 28px;
+    font-size: 0.9em;
+    line-height: 28px;
+}
+
+#img {
+    position: relative;
+    height: 100px;
+}
+
+#image {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 115px;
+}
+
+#safe_img {
+    width: 100px;
+    height: auto;
+    float: right;
+}
+
+#type {
+    background: #383838;
+    height: 30px;
+    font-size: 0.9em;
+    line-height: 30px;
+}
+
+#type_Before {
+    color: #565656;
+}
+
+#type_After {
+    color: white;
+}
+
+#menubutton {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+}
+
+.head_menu {
+    background: #FCCE30;
+}
+
+.head_menu a {
+    border-radius: 10px;
+    color: #CEA640;
+    background: #FFF79A;
+    border-bottom: 5px solid #E1B442;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.head_menu a:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.img_area {
+  height: 360px;
+}
+
+.foot {
+  width: 100%;
+  position:absolute;
+  bottom: 0;
+}
+.foot_item {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.foot img {
+  width: 100px;
+}
+
+#nontan {
+  position : absolute;
+  top: -110px;
+  left: 150px;
+  width: auto;
+  height: 400px;
+}

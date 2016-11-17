@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+#menubutton {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+}
+
+.head_menu {
+    background: #FCCE30;
+}
+
+.head_menu a {
+    border-radius: 10px;
+    color: #CEA640;
+    background: #FFF79A;
+    border-bottom: 5px solid #E1B442;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.head_menu a:hover {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.main {
+    width: 100%;
+    font-size: 1.3em;
+}
+
+.main div {
+    width: 80%;
+    margin: 0 auto;
+}
+.content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.t-line tr:nth-child(odd) {
+    background-color: #a5d8f6;
+}
+
+.t-line tr:nth-child(even) {
+    background-color: #fbffd9;
+}
+
+.pager span {}
+
+.pager span:hover {
+    color: #E48E00;
+}
+
+td {
+  width: 400px;
+}
+.num {
+  width: 50px;
+}
