@@ -404,12 +404,12 @@ window.onload = function() {
 
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
+    nontan.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    nontan.style.visibility = "hidden";
-
-
+    safe_img.src = "img/apple.png";
+    nontan.src = "img/nozomi_touka.png";
 
     getCSV_jp_File();
     getCSV_hira_File();
