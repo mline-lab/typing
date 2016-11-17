@@ -107,12 +107,11 @@ a:hover {
 	margin-bottom: 15px;
 	font-size: 100%;
 	color: #333;	/*文字色*/
-	background: #FFF;	/*背景色（古いブラウザ用）*/
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#ededed));	/*グラデーション*/
-	background: -webkit-linear-gradient(#FFF, #ededed);	/*同上*/
-	background: linear-gradient(#FFF, #ededed);			/*同上*/
+	background: #f6df7f;	/*背景色（古いブラウザ用）*/
+	background: -webkit-gradient(linear, left top, left bottom, from(#f6df7f), to(#f5d759));	/*グラデーション*/
+	background: -webkit-linear-gradient(#f6df7f, #f5d759);	/*同上*/
+	background: linear-gradient(#f6df7f, #f5d759);			/*同上*/
 	padding: 5px 15px;	/*上下、左右への余白*/
-	border-bottom: 4px solid #f5c911;	/*下線の幅、線種、色*/
 }
 /*コンテンツの段落タグ設定*/
 #main p {
