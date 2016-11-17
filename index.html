@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>mline_Typing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="mline制作タイピングゲーム">
+<meta name="keywords" content="タイピング">
+<link rel="stylesheet" href="css/slide.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/openclose.js"></script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+
+<div id="main">
+
+<section class="box">
+
+<aside id="mainimg">
+<img src="images/1.jpg" alt="" id="slide1"/>
+<img src="images/2.jpg" alt="" id="slide2"/>
+<img src="images/3.jpg" alt="" id="slide3"/>
+</aside>
+
+</section>
+<!--/box-->
+
+<section id="new" class="box">
+<h2 id="newinfo_hdr" class="close">更新情報・お知らせ</h2>
+<dl id="newinfo">
+<dt>2016/11/17</dt>
+<dd>お引越し</dd>
+</dl>
+</section>
+
+<section class="box">
+
+<h2>ゲームルール</h2>
+
+<h3>時間制限</h3>
+<p>******************<br>
+  ******************</p>
+<h3>個別スキル</h3>
+<p>******************</p>
+
+<h3>各デバイス用のスタイル変更は</h3>
+<p>******************<br>
+******************<br>
+******************</p>
+<h3>ランキング</h3>
+<p>******************</p>
+
+<h3>必殺技</h3>
+
+</section>
+<!--/box-->
+
+</div>
+<!--/main-->
+
+<div id="sub">
+
+<p id="logo"><a href="index.html"><img src="images/logo.png" alt="SAMPLE LOGO"></a></p>
+
+<!--PC用メニュー-->
+<nav id="menubar">
+<ul>
+<li><a href="mode1/">MODE1</a></li>
+<li><a href="mode2/">MODE2</a></li>
+<li><a href="mode3/">MODE3</a></li>
+<li><a href="mode4/">MODE4</a></li>
+</ul>
+</nav>
+<!--スマホ用メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="mode1/">MODE1</a></li>
+<li><a href="mode2/">MODE2</a></li>
+<li><a href="mode3/">MODE3</a></li>
+<li><a href="mode4/">MODE4</a></li>
+</ul>
+</nav>
+
+</div>
+<!--/sub-->
+
+</div>
+<!--/container-->
+
+<footer>
+<small>Copyright&copy; <a href="index.html">mline</a> All Rights Reserved.</small>
+<span class="pr"><a href="http://mline.tell.jp/" target="_blank">mline</a></span>
+</footer>
+
+<!--メニューの３本バー-->
+<div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
+<!--メニューの開閉処理条件設定　480px以下-->
+<script type="text/javascript">
+if (OCwindowWidth() <= 480) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+</body>
+</html>
