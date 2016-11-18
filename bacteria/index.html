@@ -1,0 +1,48 @@
+<?php
+$title = $_POST["title"];
+
+$db = new pdo("mysql:host=localhost;dbname=typing","root","manaki079");
+$db->query('SET NAMES utf8');
+$stmt = $db->prepare("SELECT * FROM word WHERE title = '$title'");
+$stmt->execute();
+
+while ($row = $stmt->fetch()){
+        $content = $row["content"];
+}
+?>
+
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>BacteriaDoctor</title>
+<meta name="keywords" content="mline,M||M,学生,プログラマ">
+<meta name="description" content="">
+<link rel="stylesheet" href="css/result.css" type="text/css" media="screen">
+</head>
+
+<body>
+
+<div id="bacground">
+
+  <header id="header">
+    <h1>診断結果</h1>
+  </header>
+
+  <div id="main">
+    <?php
+            echo "<p>";
+            echo $title;
+            echo "</p>";
+            echo "<p>";
+            echo $content;
+            echo "</p>";
+
+     ?>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url(../img/doc.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    font-family: "Helvetica Neue",Helvetica,Arial,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+
+/*食品名グループ*/
+
+#header{
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 45px;
+}
+
+#q_icon{
+  width:  50px;
+  hyphens: 50px;
+}
+
+#bacground{
+  background : #FFF;
+  width: 500px;
+  height: 350px;
+  margin-left: 100px;
+  margin-top: 100px;
+  position: relative;
+  border-top: 5px solid #C00;
+	border-left: 5px solid #09C;
+	border-right: 5px solid #9C0;
+	border-bottom: 5px solid #FC0;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 30px;
+  -webkit-border-bottom-left-radius: 40px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 30px;
+  -moz-border-radius-bottomleft: 40px;
+}
+
+p{
+  text-align: center;
+  width: 50%;
+  padding-left:25%;
+  padding-right: 25%;
+  font-family: "メイリオ", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+#search{
+  font-family: "メイリオ", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+#select_op{
+  text-align: center;
+  width: 60%;
+  padding-left:20%;
+  padding-right: 20%;
+}
+
+.btn{
+  background: #EEE;
+	border-top: 5px solid #C00;
+	border-left: 5px solid #09C;
+	border-right: 5px solid #9C0;
+	border-bottom: 5px solid #FC0;
+	color:#111;
+	width: 90%;
+	padding: 10px 0;
+  position: absolute;
+  right: 5%;
+  left: 5%;
+	bottom: 20px;
+  font-family: "メイリオ", sans-serif;
+  font-weight: bolder;
+}
+
+/*場所グループ*/
+
+#bacground2{
+  float: right;
+  background : #FFF;
+  width: 500px;
+  height: 350px;
+  margin-right: 100px;
+  margin-top: 100px;
+  position: relative;
+  border-top: 5px solid #C00;
+	border-left: 5px solid #09C;
+	border-right: 5px solid #9C0;
+	border-bottom: 5px solid #FC0;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 30px;
+  -webkit-border-bottom-left-radius: 40px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 30px;
+  -moz-border-radius-bottomleft: 40px;
+}

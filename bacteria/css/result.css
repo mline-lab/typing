@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background-image: url(../img/doc_result.jpg);
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    font-family: "Helvetica Neue",Helvetica,Arial,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+}
+
+#bacground{
+  background : #FFF;
+  width: 500px;
+  height: 420px;
+  margin-left: 100px;
+  margin-top: 100px;
+  position: relative;
+  border-top: 5px solid #C00;
+	border-left: 5px solid #09C;
+	border-right: 5px solid #9C0;
+	border-bottom: 5px solid #FC0;
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 30px;
+  -webkit-border-bottom-left-radius: 40px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 30px;
+  -moz-border-radius-bottomleft: 40px;
+}
+
+#header{
+  text-align: center;
+}
+
+#main {
+  width: 90%;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+p{
+  text-align: center;
+  width: 50%;
+  padding-left:25%;
+  padding-right: 25%;
+  font-family: "メイリオ", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
