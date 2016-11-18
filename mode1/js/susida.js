@@ -514,14 +514,13 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
-    charge.textContent = "";
     score_area.textContent = "";
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
-    charge.textContent = "";
+    charge.textContent = "コンボ";
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
