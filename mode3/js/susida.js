@@ -705,7 +705,7 @@ function moveImg() {
 
         //x座標に+1
         if (x < 400) {
-            x += 0.8;
+            x += 1.2;
         } else if (x >= 400) {
             nextWord();
         }
@@ -914,6 +914,8 @@ function hantei() {
 
         if (tableichi >= word.length) {
             downcount++;
+            score+=8;
+            score_area.textContent = score;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";
             textColor2 = "　";
