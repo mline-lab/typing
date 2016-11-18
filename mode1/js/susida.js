@@ -624,6 +624,7 @@ function stopTyping() {
     deadlygauge.textContent = "";
     charge.textContent = "";
     startButton.disabled = false;
+    nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     startButton.style.visibility = "visible";
