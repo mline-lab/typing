@@ -580,7 +580,7 @@ function startTyping() {
 function rank_push() {
 
     username = document.ranking.username.value;
-    mode = "1";
+    mode = "5";
     $.ajax({
         type: 'POST',
         url: 'rank_push.php',
