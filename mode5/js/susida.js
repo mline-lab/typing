@@ -606,6 +606,7 @@ function stopTyping() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
+    missCount = 0;
     if (score >= 350) {
         $("div.img_area").show();
         $("div.img_area").children("img").attr('src', 'img/good/nozomi1.jpg');
