@@ -348,7 +348,6 @@ var downcount;
 var timeLeft;
 var space_flag;
 var gauge;
-var deadly;
 var random2;
 var textColor1;
 var textColor2;
@@ -689,7 +688,9 @@ function moveImg() {
         if (x < 400) {
             x += 0.8;
         } else if (x >= 400) {
-            nextWord();
+          gauge = 0;
+          charge.textContent = gauge + "コンボ";
+          nextWord();
         }
 
         //変数ｘの値をCSSに適用
@@ -743,14 +744,8 @@ function moziHenkan(e) {
         if (seikaisuu != tempseikai) {
             hantei();
         } else {
-            if (deadly == 1) {
-                //連打ゲージMAXの状態でミスした時（ゲージは初期化されない）
-                charge.textContent = "●●●●●●●●●●";
-            } else {
-                //連打ゲージが0～9でミスした時（ゲージは初期化される）
-                gauge = 0;
-                charge.textContent = "○○○○○○○○○○";
-            }
+            gauge = 0;
+            charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
             side2.src = "img/lside/mode1_side2_1.png";
@@ -791,27 +786,6 @@ document.onkeydown = function(e) {
         if (space_flag == 1) {
             space_start();
         }
-    } else if (e.keyCode == 13) {
-        if (deadly == 1 && game_flag == 1) {
-            audioSP.currentTime = 0;
-            audioSP.play();
-            deadlygauge.textContent = "";
-            deadly = 0;
-            gauge = 0;
-            charge.textContent = "○○○○○○○○○○";
-            score++;
-            downcount++;
-            missCount--;
-            score_area.textContent = score;
-            textColor1 = "　";
-            textColor2 = "　";
-            wordArea_hiragana.textContent = "";
-            wordArea_jp.textContent = "　"
-            typeArea.textContent = textColor1;
-            typeArea2.textContent = textColor2;
-
-            setTimeout("nextWord();", 200);
-        }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
             stopTyping();
@@ -831,6 +805,7 @@ function hantei() {
         side2.src = "img/lside/mode1_side2_1.png";
 
         score = score + 2;
+
         score_area.textContent = score;
         charIndex++;
 
@@ -848,49 +823,21 @@ function hantei() {
             "border": "3px solid #ffcf00"
         });
 
-        if (gauge <= 10) {
-            gauge = gauge + 1;
-            switch (gauge) {
-                case 1:
-                    charge.textContent = "●○○○○○○○○○";
-                    break;
-                case 2:
-                    charge.textContent = "●●○○○○○○○○";
-                    break;
-                case 3:
-                    charge.textContent = "●●●○○○○○○○";
-                    break;
-                case 4:
-                    charge.textContent = "●●●●○○○○○○";
-                    break;
-                case 5:
-                    charge.textContent = "●●●●●○○○○○";
-                    break;
-                case 6:
-                    charge.textContent = "●●●●●●○○○○";
-                    break;
-                case 7:
-                    charge.textContent = "●●●●●●●○○○";
-                    break;
-                case 8:
-                    charge.textContent = "●●●●●●●●○○";
-                    break;
-                case 9:
-                    charge.textContent = "●●●●●●●●●○";
-                    break;
-                case 10:
-                    charge.textContent = "●●●●●●●●●●";
-                    break;
-            }
-
-            if (deadly == 0 && gauge == 10) {
-                audioSPcharge.currentTime = 0;
-                audioSPcharge.play();
-                deadly = 1;
-                timeLeft++;
-                charge.textContent = "●●●●●●●●●●";
-                deadlygauge.textContent = "必殺技が打てるぞ！";
-            }
+        gauge++;
+        charge.textContent = gauge + "コンボ";
+        if (gauge == 50) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft++;
+        } else if (gauge == 100) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft++;
+        } else if (gauge == 150) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft = timeLeft + 3;
+          score = score + 500;
         }
         if (charIndex == wordChars.length) {
             audioNextVoice.currentTime = 0;
