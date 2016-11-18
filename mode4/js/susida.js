@@ -528,6 +528,9 @@ function setvar() {
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
+    side1.src = "img/side1.jpg";
+    side2.src = "img/side2.jpg";
+
     $("div.img_area").hide();
 }
 
