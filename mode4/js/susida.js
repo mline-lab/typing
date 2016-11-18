@@ -819,6 +819,7 @@ document.onkeydown = function(e) {
             charge.textContent = "○○○○○○○○○○";
             score++;
             downcount++;
+            missCount--;
             score_area.textContent = score;
             textColor1 = "　";
             textColor2 = "　";
