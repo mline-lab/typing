@@ -441,12 +441,17 @@ function getCSV_story_File() {
     xhr2.send(null);
     xhr2.onload = function() {
         storyList = xhr2.responseText.split("\n");
-
-        for(var i = 0; i<tempArray.length;i++){
-          csvArray[i] = storyList[i].split(",");
-        }
     };
+
+    for ( var counterVarA = 0; counterVarA < storyList.length; counterVarA++ ) {
+      for ( var counterVarB = 0; counterVarB < storyList[counterVarA].length; counterVarB++ ) {
+          messageArea.textContent = storyList[counterVarA][counterVarB];
+      }
+    }
+
 }
+
+
 
 
 
@@ -552,11 +557,7 @@ function onStartButtonClick() {
     startButton.style.visibility = "hidden";
     //space_flag = 1;
     //messageArea.textContent = "スペースキーでスタート";
-    for (var i = 0; i < acsvArray.length; i++) {
-      for (var j = 0; j < acsvArray[i].length; j++) {
-        messageArea.textContent = acsvArray[i][0];
-      }
-    }
+    getCSV_story_File();
 }
 
 function space_start() {
