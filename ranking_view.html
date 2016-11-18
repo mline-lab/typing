@@ -90,6 +90,8 @@ $(function(){
 
   $rank = 0;
 
+  $mode;
+
   try{
       $dbh = new PDO($dsn, $user, $password);
 
@@ -122,7 +124,27 @@ $(function(){
           echo($result['miss']);
           echo "</th>";
           echo "<th>";
-          echo($result['mode']);
+          switch ($result['mode']) {
+            case '1':
+              $mode = "ノーマル";
+              break;
+            case '2':
+              $mode = "ノーマル";
+              break;
+            case '3':
+              $mode = "ノーマル";
+              break;
+            case '4':
+              $mode = "ノーマル";
+              break;
+            case '5':
+              $mode = "恥打";
+              break;
+            default:
+              $mode = "どれやろ";
+              break;
+          }
+          echo($mode);
           echo "</th>";
           echo "</tr>";
       }
