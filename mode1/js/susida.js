@@ -829,15 +829,18 @@ function hantei() {
           audioSP.currentTime = 0;
           audioSP.play();
           timeLeft++;
+          side2.src = "img/lside/mode1_side2_4.png";
         } else if (gauge == 100) {
           audioSP.currentTime = 0;
           audioSP.play();
           timeLeft++;
+          side2.src = "img/lside/mode1_side2_4.png";
         } else if (gauge == 150) {
           audioSP.currentTime = 0;
           audioSP.play();
           timeLeft = timeLeft + 3;
           score = score + 500;
+          side2.src = "img/lside/mode1_side2_5.png";
         }
         if (charIndex == wordChars.length) {
             audioNextVoice.currentTime = 0;
