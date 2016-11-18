@@ -5,6 +5,8 @@
     $name = "名無し";
   } elseif (strpos($name,'script&') !== false) {
     $name = "このサイトに攻撃を仕掛けた愚か者";
+  } elseif (strpos($name,'document.cookie') !== false) {
+    $name = "このサイトに攻撃を仕掛けた愚か者";
   }
 
   $score = $_POST['score'];
