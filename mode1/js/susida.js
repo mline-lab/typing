@@ -825,6 +825,7 @@ document.onkeydown = function(e) {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
+            
             setTimeout("nextWord();", 200);
         }
     } else if (e.keyCode == 27) {
@@ -921,6 +922,8 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
+            score = score + (word.length * 5);
+            score_area.textContent = score;
             setTimeout("nextWord();", 200);
 
         }
