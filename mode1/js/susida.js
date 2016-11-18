@@ -748,7 +748,7 @@ function moziHenkan(e) {
             charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_1.png";
+            side2.src = "img/lside/mode1_side2_2.png";
             missCount++;
             $('.game_div').css({
                 "border": "3px solid #e24408"
@@ -842,7 +842,7 @@ function hantei() {
           score = score + 500;
           side2.src = "img/lside/mode1_side2_5.png";
         }
-        
+
         if (charIndex == wordChars.length) {
             audioNextVoice.currentTime = 0;
             audioNextVoice.play();

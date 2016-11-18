@@ -668,21 +668,6 @@ function nextWord() {
     x = 0;
     image.style.left = 0 + "px";
 
-    var imgrandom1 = Math.floor(Math.random() * 12 + 1);
-    var imgrandom2 = Math.floor(Math.random() * 12 + 1);
-
-    side1.src = "img/nozomi/nozomi" + imgrandom1 + ".jpg";
-    side2.src = "img/nozomi/nozomi" + imgrandom2 + ".jpg";
-
-    if (imgrandom1 == imgrandom2) {
-      //$("div.img_area").show();
-      //$("div.img_area").children("img").attr('src', 'img/good/nozomi2.jpg');
-      nontan.style.visibility = "visible";
-    } else {
-      //$("div.img_area").hide();
-      nontan.style.visibility = "hidden";
-    }
-
     moveImg();
 }
 
@@ -763,7 +748,7 @@ function moziHenkan(e) {
             charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_1.png";
+            side2.src = "img/lside/mode1_side2_2.png";
             missCount++;
             $('.game_div').css({
                 "border": "3px solid #e24408"
