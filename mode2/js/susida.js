@@ -527,6 +527,7 @@ function setvar() {
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
+    nontan.style.visibility = "hidden";
     $("div.img_area").hide();
 }
 
@@ -576,7 +577,7 @@ function startTyping() {
 function rank_push() {
 
     username = document.ranking.username.value;
-    mode = "2";
+    mode = "1";
     $.ajax({
         type: 'POST',
         url: 'rank_push.php',
