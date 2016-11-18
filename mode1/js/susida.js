@@ -842,6 +842,7 @@ function hantei() {
           score = score + 500;
           side2.src = "img/lside/mode1_side2_5.png";
         }
+        
         if (charIndex == wordChars.length) {
             audioNextVoice.currentTime = 0;
             audioNextVoice.play();

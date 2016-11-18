@@ -703,7 +703,9 @@ function moveImg() {
         if (x < 400) {
             x += 0.8;
         } else if (x >= 400) {
-            nextWord();
+          gauge = 0;
+          charge.textContent = gauge + "コンボ";
+          nextWord();
         }
 
         //変数ｘの値をCSSに適用
@@ -757,25 +759,12 @@ function moziHenkan(e) {
         if (seikaisuu != tempseikai) {
             hantei();
         } else {
-            if (deadly == 1) {
-                //連打ゲージMAXの状態でミスした時（ゲージは初期化されない）
-                charge.textContent = "●●●●●●●●●●";
-            } else {
-                //連打ゲージが0～9でミスした時（ゲージは初期化される）
-                gauge = 0;
-                charge.textContent = "○○○○○○○○○○";
-            }
+            gauge = 0;
+            charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_2.png";
+            side2.src = "img/lside/mode1_side2_1.png";
             missCount++;
-            if(score > 0){
-              score -= 10;
-            }else{
-              score = 0;
-            }
-
-            score_area.textContent = score;
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -868,50 +857,26 @@ function hantei() {
             "border": "3px solid #ffcf00"
         });
 
-        if (gauge <= 10) {
-            gauge = gauge + 1;
-            switch (gauge) {
-                case 1:
-                    charge.textContent = "●○○○○○○○○○";
-                    break;
-                case 2:
-                    charge.textContent = "●●○○○○○○○○";
-                    break;
-                case 3:
-                    charge.textContent = "●●●○○○○○○○";
-                    break;
-                case 4:
-                    charge.textContent = "●●●●○○○○○○";
-                    break;
-                case 5:
-                    charge.textContent = "●●●●●○○○○○";
-                    break;
-                case 6:
-                    charge.textContent = "●●●●●●○○○○";
-                    break;
-                case 7:
-                    charge.textContent = "●●●●●●●○○○";
-                    break;
-                case 8:
-                    charge.textContent = "●●●●●●●●○○";
-                    break;
-                case 9:
-                    charge.textContent = "●●●●●●●●●○";
-                    break;
-                case 10:
-                    charge.textContent = "●●●●●●●●●●";
-                    break;
-            }
-
-            if (deadly == 0 && gauge == 10) {
-                audioSPcharge.currentTime = 0;
-                audioSPcharge.play();
-                deadly = 1;
-                timeLeft++;
-                charge.textContent = "●●●●●●●●●●";
-                deadlygauge.textContent = "必殺技が打てるぞ！";
-            }
+        gauge++;
+        charge.textContent = gauge + "コンボ";
+        if (gauge == 50) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft++;
+          side2.src = "img/lside/mode1_side2_4.png";
+        } else if (gauge == 100) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft++;
+          side2.src = "img/lside/mode1_side2_4.png";
+        } else if (gauge == 150) {
+          audioSP.currentTime = 0;
+          audioSP.play();
+          timeLeft = timeLeft + 3;
+          score = score + 500;
+          side2.src = "img/lside/mode1_side2_5.png";
         }
+
         if (charIndex == wordChars.length) {
             audioNextVoice.currentTime = 0;
             audioNextVoice.play();
