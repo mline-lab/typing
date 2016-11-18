@@ -616,7 +616,7 @@ function stopTyping() {
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
-    messageArea.textContent = "Score: " + score + "■倒した数" + downcount + "■ミスタイプ数" + missCount;
+    messageArea.textContent = "Score: " + score + "■倒した数" + downcount;
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
@@ -707,7 +707,7 @@ function moveImg() {
         if (x < 400) {
             x += 0.8;
         } else if (x >= 400) {
-            nextWord();
+            stopTyping();
         }
 
         //変数ｘの値をCSSに適用
@@ -772,6 +772,7 @@ function moziHenkan(e) {
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
+            stopTyping();
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -845,7 +846,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        score++;
+        score = score + 5;
         score_area.textContent = score;
         charIndex++;
 
@@ -913,6 +914,8 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
+            score = score + word.length * 10
+            score_area.textContent = score;
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";
