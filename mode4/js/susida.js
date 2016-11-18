@@ -514,7 +514,6 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
-    charge.textContent = "";
     score_area.textContent = "";
     typeArea.textContent = "";
     typeArea2.textContent = "";

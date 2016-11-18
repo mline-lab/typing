@@ -520,7 +520,6 @@ function setvar() {
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
-    charge.textContent = "コンボ";
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
