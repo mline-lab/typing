@@ -775,7 +775,7 @@ function moziHenkan(e) {
             if(score > 0){
               score -= 3;
             }else{
-              scoe = 0;
+              score = 0;
             }
 
             score_area.textContent = score;
@@ -822,7 +822,7 @@ document.onkeydown = function(e) {
             deadly = 0;
             gauge = 0;
             charge.textContent = "○○○○○○○○○○";
-            score += 3;
+            score ++;
             downcount++;
             score_area.textContent = score;
             textColor1 = "　";
