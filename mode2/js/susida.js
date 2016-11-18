@@ -772,6 +772,13 @@ function moziHenkan(e) {
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
+            if(score > 0){
+              score -= 3;
+            }else{
+              scoe = 0;
+            }
+
+            score_area.textContent = score;
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -779,7 +786,6 @@ function moziHenkan(e) {
     }
 
 }
-
 
 
 // 残り時間を計測
@@ -816,7 +822,7 @@ document.onkeydown = function(e) {
             deadly = 0;
             gauge = 0;
             charge.textContent = "○○○○○○○○○○";
-            score++;
+            score += 3;
             downcount++;
             score_area.textContent = score;
             textColor1 = "　";
@@ -845,7 +851,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        score++;
+        score += 3;
         score_area.textContent = score;
         charIndex++;
 
@@ -922,6 +928,9 @@ function hantei() {
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
             setTimeout("nextWord();", 200);
+            score += word.length*8;
+            score_area.textContent = score;
+
 
         }
     }
