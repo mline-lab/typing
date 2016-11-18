@@ -914,7 +914,7 @@ function hantei() {
 
         if (tableichi >= word.length) {
             downcount++;
-            score+=8;
+            score = score + word.length * 12;
             score_area.textContent = score;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";

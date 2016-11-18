@@ -825,7 +825,7 @@ document.onkeydown = function(e) {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            
+
             setTimeout("nextWord();", 200);
         }
     } else if (e.keyCode == 27) {
@@ -846,7 +846,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        score++;
+        score = score + 2;
         score_area.textContent = score;
         charIndex++;
 
@@ -914,6 +914,8 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
+            score = score + (word.length * 7);
+            score_area.textContent = score;
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";
@@ -922,8 +924,7 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            score = score + (word.length * 5);
-            score_area.textContent = score;
+
             setTimeout("nextWord();", 200);
 
         }

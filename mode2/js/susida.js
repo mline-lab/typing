@@ -773,7 +773,7 @@ function moziHenkan(e) {
             audioBad.play();
             missCount++;
             if(score > 0){
-              score -= 3;
+              score -= 10;
             }else{
               score = 0;
             }
@@ -919,6 +919,8 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
+            score += word.length*8;
+            score_area.textContent = score;
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";
@@ -928,8 +930,7 @@ function hantei() {
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
             setTimeout("nextWord();", 200);
-            score += word.length*8;
-            score_area.textContent = score;
+
 
 
         }
