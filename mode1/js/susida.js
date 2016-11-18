@@ -529,7 +529,6 @@ function setvar() {
     side1.src = "img/side1.jpg";
     side2.src = "img/lside/mode1_side2_1.png";
 
-    $("div.img_area").hide();
 }
 
 // 3秒後に開始
@@ -670,8 +669,6 @@ function nextWord() {
     x = 0;
     image.style.left = 0 + "px";
 
-
-
     moveImg();
 }
 
@@ -756,7 +753,7 @@ function moziHenkan(e) {
             }
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_2.png";
+            side2.src = "img/lside/mode1_side2_1.png";
             missCount++;
             $('.game_div').css({
                 "border": "3px solid #e24408"

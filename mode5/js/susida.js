@@ -913,15 +913,15 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-            downcount++;
-            //0.2秒間空白文字を表示してから次の文字を表示する。
-            textColor1 = "　";
-            textColor2 = "　";
-            wordArea_hiragana.textContent = "";
-            wordArea_jp.textContent = "　"
-            typeArea.textContent = textColor1;
-            typeArea2.textContent = textColor2;
-            setTimeout("nextWord();", 200);
+          downcount++;
+          //0.2秒間空白文字を表示してから次の文字を表示する。
+          textColor1 = "　";
+          textColor2 = "　";
+          wordArea_hiragana.textContent = "";
+          wordArea_jp.textContent = "　"
+          typeArea.textContent = textColor1;
+          typeArea2.textContent = textColor2;
+          setTimeout("nextWord();", 200);
 
         }
     }

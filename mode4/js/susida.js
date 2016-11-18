@@ -528,9 +528,7 @@ function setvar() {
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     side1.src = "img/side1.jpg";
-    side2.src = "img/side2.jpg";
-
-    $("div.img_area").hide();
+    side2.src = "img/lside/mode1_side2_1.png";
 }
 
 // 3秒後に開始
@@ -606,13 +604,13 @@ function stopTyping() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
-    if (score >= 350) {
-        $("div.img_area").show();
-        $("div.img_area").children("img").attr('src', 'img/good/nozomi1.jpg');
-        audioNozomi.play();
-    } else if (score <= 200) {
-        $("div.img_area").show();
-        $("div.img_area").children("img").attr('src', 'img/bad/bad1.jpg');
+    if (score >= 3000) {
+      side1.src = "img/good/good1.png";
+      side2.src = "img/good/good2.png";
+      audioNozomi.play();
+    } else if (score <= 1999) {
+      side1.src = "img/bad/bad1.png";
+      side2.src = "img/bad/bad2.png";
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
@@ -671,21 +669,6 @@ function nextWord() {
     typeArea2.textContent = textColor2;
     x = 0;
     image.style.left = 0 + "px";
-
-    var imgrandom1 = Math.floor(Math.random() * 12 + 1);
-    var imgrandom2 = Math.floor(Math.random() * 12 + 1);
-
-    side1.src = "img/nozomi/nozomi" + imgrandom1 + ".jpg";
-    side2.src = "img/nozomi/nozomi" + imgrandom2 + ".jpg";
-
-    if (imgrandom1 == imgrandom2) {
-      //$("div.img_area").show();
-      //$("div.img_area").children("img").attr('src', 'img/good/nozomi2.jpg');
-      nontan.style.visibility = "visible";
-    } else {
-      //$("div.img_area").hide();
-      nontan.style.visibility = "hidden";
-    }
 
     moveImg();
 }
@@ -771,6 +754,7 @@ function moziHenkan(e) {
             }
             audioBad.currentTime = 0;
             audioBad.play();
+            side2.src = "img/lside/mode1_side2_1.png";
             missCount++;
             stopTyping();
             $('.game_div').css({
@@ -843,9 +827,10 @@ function hantei() {
     if (game_flag == 1) {
 
         //正解文字を入力した時
-
         audioElem.currentTime = 0;
         audioElem.play();
+
+        side2.src = "img/lside/mode1_side2_1.png";
 
         score = score + 5;
         score_area.textContent = score;
@@ -915,17 +900,18 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-            score = score + word.length * 10
-            score_area.textContent = score;
-            downcount++;
-            //0.2秒間空白文字を表示してから次の文字を表示する。
-            textColor1 = "　";
-            textColor2 = "　";
-            wordArea_hiragana.textContent = "";
-            wordArea_jp.textContent = "　"
-            typeArea.textContent = textColor1;
-            typeArea2.textContent = textColor2;
-            setTimeout("nextWord();", 200);
+          side2.src = "img/lside/mode1_side2_3.png";
+          score = score + word.length * 10
+          score_area.textContent = score;
+          downcount++;
+          //0.2秒間空白文字を表示してから次の文字を表示する。
+          textColor1 = "　";
+          textColor2 = "　";
+          wordArea_hiragana.textContent = "";
+          wordArea_jp.textContent = "　"
+          typeArea.textContent = textColor1;
+          typeArea2.textContent = textColor2;
+          setTimeout("nextWord();", 200);
 
         }
     }
