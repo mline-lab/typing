@@ -81,9 +81,6 @@ body {
     height: 30px;
 }
 
-.ge-zi {
-    height: 30px;
-}
 
 #word_hiragana {
     background: rgb(148, 160, 176);
@@ -184,4 +181,18 @@ body {
   left: 150px;
   width: auto;
   height: 400px;
+}
+
+#redtext {
+  font-size: 10px;
+  color: rgb(255, 0, 0);
+}
+
+.rank_div {
+  height: 95px;
+}
+
+.ge-zi {
+  width: 500px;
+  height: 25px;
 }
