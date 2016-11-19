@@ -44,9 +44,9 @@
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
                         <div class="rank_div">
-                            <form name="ranking" id="form_ranking">
-                                <input type="text" id="name-text" name="username" class="rank_item">
-                                <br>
+                            <form name="ranking" id="form_ranking" visibility="hidden">
+                              <input type="text" id="name-text" name="username" class="rank_item" maxlength="12" placeholder="ユーザー名(12文字まで)" pattern="[^\x22\x27]*" title="は？？？？なめてんの？">
+                              <p>``,""利用禁止</p>
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
                         </div>
