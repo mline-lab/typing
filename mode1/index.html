@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+hazh<!DOCTYPE html>
 <html>
 
 <head>
@@ -43,14 +43,14 @@
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
                         <div class="rank_div">
-                            <form name="ranking" id="form_ranking" visibility="hidden">
-                              <input type="text" id="name-text" name="username" class="rank_item" maxlength="12" placeholder="ユーザー名(12文字まで)" pattern="[^\x22\x27]*" title="は？？？？なめてんの？">
-                                <p id="redtext">``,""利用禁止</p>
+                            <form name="ranking" id="form_ranking">
+                                <input type="text" id="name-text" name="username" class="rank_item">
+                                <br>
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
                         </div>
                         <div class="ge-zi">
-                            <span id="charge"></span>
+                            <span id="charge">コンボ</span>
                         </div>
                     </div>
                     <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
@@ -69,7 +69,9 @@
             </div>
         </div>
         <div class="side02">
-            <img src="img/lside/mode1_side2_1.png" id="side2" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+        	<div class="side02-default" id = "side02_id">
+           <!--<img src="img/lside/mode1_side2_1.png" id="side2" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>-->
+           </div>
         </div>
 
     </div>

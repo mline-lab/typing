@@ -369,7 +369,9 @@ var wordList_jp = new Array();
 var wordList_hiragana = new Array();
 //
 var csv;
-
+var rightImg;
+var rightImgStatus;
+var rightTime;
 
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
@@ -389,9 +391,10 @@ window.onload = function() {
     name_text = document.getElementById("name-text");
     form_ranking = document.getElementById("form_ranking");
     score_area = document.getElementById("score_area");
+    rightImg = document.getElementById("side02_id");
 
     side1 = document.getElementById("side1");
-    side2 = document.getElementById("side2");
+    //side2 = document.getElementById("side2");
 
     nontan = document.getElementById("nontan");
 
@@ -513,6 +516,7 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
+    rightImgStatus=0;
     score_area.textContent = "";
     typeArea.textContent = "";
     typeArea2.textContent = "";
@@ -526,7 +530,7 @@ function setvar() {
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     side1.src = "img/side1.jpg";
-    side2.src = "img/lside/mode1_side2_1.png";
+  //  side2.src = "img/lside/mode1_side2_1.png";
 
 }
 
@@ -576,28 +580,23 @@ function startTyping() {
 function rank_push() {
 
     username = document.ranking.username.value;
+    mode = "1";
+    $.ajax({
+        type: 'POST',
+        url: 'rank_push.php',
+        data: {
+            'name': username,
+            'score': score,
+            'count': downcount,
+            'miss': missCount,
+            'mode': mode
+        },
+        success: function(data) {
+            document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
+            alert("ランキング登録しました。");
+        }
+    });
 
-    if (username.match(/"/) || username.match(/'/)) {
-
-    } else {
-      mode = "4";
-      missCount = 0;
-      $.ajax({
-          type: 'POST',
-          url: 'rank_push.php',
-          data: {
-              'name': username,
-              'score': score,
-              'count': downcount,
-              'miss': missCount,
-              'mode': mode
-          },
-          success: function(data) {
-              document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-              alert("ランキング登録しました。");
-          }
-      });
-    }
 }
 
 // 終了
@@ -609,11 +608,11 @@ function stopTyping() {
     wordChars = [];
     if (score >= 3000) {
       side1.src = "img/good/good1.png";
-      side2.src = "img/good/good2.png";
+      //side2.src = "img/good/good2.png";
       audioNozomi.play();
     } else if (score <= 1999) {
       side1.src = "img/bad/bad1.png";
-      side2.src = "img/bad/bad2.png";
+    //  side2.src = "img/bad/bad2.png";
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
@@ -635,6 +634,7 @@ function stopTyping() {
     $('.game_div').css({
         "border": "3px solid #ffcf00"
     });
+    rightImg.className = "side02-default";
     clearInterval(time);
 
 }
@@ -695,6 +695,8 @@ function moveImg() {
         } else if (x >= 400) {
           gauge = 0;
           charge.textContent = gauge + "コンボ";
+          charImg(3);
+          setTimeout("charImg(1);", 1000);
           nextWord();
         }
 
@@ -753,8 +755,10 @@ function moziHenkan(e) {
             charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_2.png";
+          //  side2.src = "img/lside/mode1_side2_2.png";
             missCount++;
+            charImg(3);
+            setTimeout("charImg(1);", 1000);
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -807,7 +811,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        side2.src = "img/lside/mode1_side2_1.png";
+        //side2.src = "img/lside/mode1_side2_1.png";
 
         score = score + 2;
 
@@ -833,19 +837,25 @@ function hantei() {
         if (gauge == 50) {
           audioSP.currentTime = 0;
           audioSP.play();
+          charImg(4);
+          setTimeout("charImg(1);", 700);
           timeLeft++;
-          side2.src = "img/lside/mode1_side2_4.png";
+          //side2.src = "img/lside/mode1_side2_4.png";
         } else if (gauge == 100) {
           audioSP.currentTime = 0;
           audioSP.play();
+          charImg(5);
+          setTimeout("charImg(1);", 800);
           timeLeft++;
-          side2.src = "img/lside/mode1_side2_4.png";
+        //  side2.src = "img/lside/mode1_side2_4.png";
         } else if (gauge == 150) {
           audioSP.currentTime = 0;
           audioSP.play();
+          charImg(5);
+          setTimeout("charImg(1);", 800);
           timeLeft = timeLeft + 3;
           score = score + 500;
-          side2.src = "img/lside/mode1_side2_5.png";
+        //  side2.src = "img/lside/mode1_side2_5.png";
         }
 
         if (charIndex == wordChars.length) {
@@ -854,7 +864,7 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-          side2.src = "img/lside/mode1_side2_3.png";
+        //  side2.src = "img/lside/mode1_side2_3.png";
           score = score + (word.length * 7);
           score_area.textContent = score;
           downcount++;
@@ -865,9 +875,31 @@ function hantei() {
           wordArea_jp.textContent = "　"
           typeArea.textContent = textColor1;
           typeArea2.textContent = textColor2;
-
+          charImg(2);
+          setTimeout("charImg(1);", 1000);
           setTimeout("nextWord();", 200);
 
         }
     }
+}
+
+function charImg(i){
+  if(i == 1){
+    rightImgStatus = 0;
+    rightImg.className = "side02-default";
+  }else if(i == 2  && rightImgStatus == 0){
+    //攻撃
+    rightImgStatus = 1;
+    rightImg.className = "side02-atc";
+  }else if (i == 3 && rightImgStatus == 0) {
+    //ダメージ
+    rightImgStatus = 1;
+    rightImg.className = "side02-dmg";
+  }else if(i == 4){
+    rightImgStatus = 1;
+    rightImg.className = "side02-bonus";
+  }else if(i == 5){
+    rightImgStatus = 1;
+    rightImg.className = "side02-bonus2";
+  }
 }

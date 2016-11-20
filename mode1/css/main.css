@@ -36,7 +36,62 @@ body {
 
 .side02 {
     width: 200px;
-    height: auto;
+    height: 600px;
+    float: right;
+}
+
+.side02-bonus {
+	 background: url(../img/lside/bonus.jpg) no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+    animation: smile .7s steps(22) infinite;
+}
+
+@keyframes smile {
+  to {
+   background-position: -4400px 0;
+  }
+}
+
+.side02-bonus2 {
+	 background: url(../img/lside/spin.jpg) no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+    animation: spin .8s steps(26) infinite;
+}
+
+@keyframes spin {
+  to {
+   background-position: -5000px 0;
+  }
+}
+
+
+.side02-default {
+	 background: url(../img/lside/main.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+}
+
+.side02-dmg {
+	 background: url(../img/lside/dmg.jpg);
+    width: 200px;
+    height: 382px;
+     margin-top:74px;
+    float: right;
+}
+
+.side02-atc {
+	 background: url(../img/lside/atc.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
     float: right;
 }
 
@@ -81,6 +136,9 @@ body {
     height: 30px;
 }
 
+.ge-zi {
+    height: 30px;
+}
 
 #word_hiragana {
     background: rgb(148, 160, 176);
@@ -181,18 +239,4 @@ body {
   left: 150px;
   width: auto;
   height: 400px;
-}
-
-#redtext {
-  font-size: 10px;
-  color: rgb(255, 0, 0);
-}
-
-.rank_div {
-  height: 95px;
-}
-
-.ge-zi {
-  width: 500px;
-  height: 25px;
 }
