@@ -39,14 +39,24 @@ body {
     height: 600px;
     float: right;
 }
+.sude02_fake {
+  width: 150px;
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+}
+
+.side02_gaze {
+  height: 20px;
+  background: rgb(43, 221, 238);
+}
 
 .side02-bonus {
 	 background: url(../img/lside/bonus.jpg) no-repeat;
-    width: 200px;
-    height: 382px;
-    margin-top:74px;
-    float: right;
-    animation: smile .7s steps(22) infinite;
+  width: 200px;
+  height: 382px;
+  margin-top:74px;
+  float: right;
+  animation: smile .7s steps(22) infinite;
 }
 
 @keyframes smile {
@@ -136,13 +146,9 @@ body {
     height: 30px;
 }
 
-.ge-zi {
-    height: 30px;
-}
 
 #word_hiragana {
     background: rgb(148, 160, 176);
-    font-size: 0.9em;
     height: 26px;
     font-size: 0.7em;
     line-height: 26px;

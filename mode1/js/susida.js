@@ -383,7 +383,6 @@ window.onload = function() {
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
     startButton = document.getElementById("start-button");
-    charge = document.getElementById("charge");
     deadlygauge = document.getElementById("deadly");
     image = document.getElementById("image");
     safe_img = document.getElementById("safe_img");
@@ -394,9 +393,10 @@ window.onload = function() {
     rightImg = document.getElementById("side02_id");
 
     side1 = document.getElementById("side1");
-    //side2 = document.getElementById("side2");
 
     nontan = document.getElementById("nontan");
+
+    side02_gaze = document.getElementById("side02_gaze_id");
 
     shiftdown = 0;
     wordseikaisuu = 0;
@@ -415,6 +415,8 @@ window.onload = function() {
 
     getCSV_jp_File();
     getCSV_hira_File();
+
+    side02_gaze.style.width = "0px";
 }
 
 function getCSV_jp_File() {
@@ -486,22 +488,22 @@ function set_audio() {
 
     } else if (rand == 3) {
 
-      audioBGM = new Audio();
-      audioBGM.src = "audio/kouya.mp3";
+        audioBGM = new Audio();
+        audioBGM.src = "audio/kouya.mp3";
 
-      audioElem = new Audio();
-      audioElem.src = "audio/syan.ogg";
+        audioElem = new Audio();
+        audioElem.src = "audio/syan.ogg";
 
-      audioNextVoice = new Audio();
-      audioNextVoice.src = "audio/voice2.ogg";
+        audioNextVoice = new Audio();
+        audioNextVoice.src = "audio/voice2.ogg";
 
-      audioSPcharge = new Audio();
-      audioSPcharge.src = "audio/voice1.ogg";
+        audioSPcharge = new Audio();
+        audioSPcharge.src = "audio/voice1.ogg";
 
-      audioSP = new Audio();
-      audioSP.src = "audio/voice3.ogg";
+        audioSP = new Audio();
+        audioSP.src = "audio/voice3.ogg";
 
-      document.getElementById("debug").textContent = "♪~輝夜の城で踊りたい(NOZOMI.MIX)東條 希(CV.楠田 亜衣奈)~";
+        document.getElementById("debug").textContent = "♪~輝夜の城で踊りたい(NOZOMI.MIX)東條 希(CV.楠田 亜衣奈)~";
 
     }
 
@@ -516,7 +518,7 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
-    rightImgStatus=0;
+    rightImgStatus = 0;
     score_area.textContent = "";
     typeArea.textContent = "";
     typeArea2.textContent = "";
@@ -530,8 +532,6 @@ function setvar() {
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     side1.src = "img/side1.jpg";
-  //  side2.src = "img/lside/mode1_side2_1.png";
-
 }
 
 // 3秒後に開始
@@ -562,7 +562,7 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
-    audioBGM.volume = 0.3;
+    audioBGM.volume = 0.1;
 
     game_flag = 1;
 
@@ -607,12 +607,12 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 3000) {
-      side1.src = "img/good/good1.png";
-      //side2.src = "img/good/good2.png";
-      audioNozomi.play();
+        side1.src = "img/good/good1.png";
+        //side2.src = "img/good/good2.png";
+        audioNozomi.play();
     } else if (score <= 1999) {
-      side1.src = "img/bad/bad1.png";
-    //  side2.src = "img/bad/bad2.png";
+        side1.src = "img/bad/bad1.png";
+        //  side2.src = "img/bad/bad2.png";
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
@@ -622,7 +622,6 @@ function stopTyping() {
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
-    charge.textContent = "";
     startButton.disabled = false;
     nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
@@ -667,7 +666,6 @@ function nextWord() {
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
-    //extColor2 = wordList[random2];
     textColor2 = ro_ma;
     typeArea2.textContent = textColor2;
     x = 0;
@@ -693,11 +691,10 @@ function moveImg() {
         if (x < 400) {
             x += 0.8;
         } else if (x >= 400) {
-          gauge = 0;
-          charge.textContent = gauge + "コンボ";
-          charImg(3);
-          setTimeout("charImg(1);", 1000);
-          nextWord();
+            gauge = 0;
+            charImg(3);
+            setTimeout("charImg(1);", 1000);
+            nextWord();
         }
 
         //変数ｘの値をCSSに適用
@@ -752,10 +749,8 @@ function moziHenkan(e) {
             hantei();
         } else {
             gauge = 0;
-            charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-          //  side2.src = "img/lside/mode1_side2_2.png";
             missCount++;
             charImg(3);
             setTimeout("charImg(1);", 1000);
@@ -811,8 +806,6 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        //side2.src = "img/lside/mode1_side2_1.png";
-
         score = score + 2;
 
         score_area.textContent = score;
@@ -833,29 +826,27 @@ function hantei() {
         });
 
         gauge++;
-        charge.textContent = gauge + "コンボ";
+        side02_gaze.style.width = gauge + "px";
         if (gauge == 50) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          charImg(4);
-          setTimeout("charImg(1);", 700);
-          timeLeft++;
-          //side2.src = "img/lside/mode1_side2_4.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(4);
+            setTimeout("charImg(1);", 700);
+            timeLeft++;
         } else if (gauge == 100) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          charImg(5);
-          setTimeout("charImg(1);", 800);
-          timeLeft++;
-        //  side2.src = "img/lside/mode1_side2_4.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(5);
+            setTimeout("charImg(1);", 800);
+            timeLeft++;
         } else if (gauge == 150) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          charImg(5);
-          setTimeout("charImg(1);", 800);
-          timeLeft = timeLeft + 3;
-          score = score + 500;
-        //  side2.src = "img/lside/mode1_side2_5.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(5);
+            setTimeout("charImg(1);", 800);
+            timeLeft = timeLeft + 3;
+            score = score + 500;
+            gauge = 0;
         }
 
         if (charIndex == wordChars.length) {
@@ -864,42 +855,41 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-        //  side2.src = "img/lside/mode1_side2_3.png";
-          score = score + (word.length * 7);
-          score_area.textContent = score;
-          downcount++;
-          //0.2秒間空白文字を表示してから次の文字を表示する。
-          textColor1 = "　";
-          textColor2 = "　";
-          wordArea_hiragana.textContent = "";
-          wordArea_jp.textContent = "　"
-          typeArea.textContent = textColor1;
-          typeArea2.textContent = textColor2;
-          charImg(2);
-          setTimeout("charImg(1);", 1000);
-          setTimeout("nextWord();", 200);
+            score = score + (word.length * 7);
+            score_area.textContent = score;
+            downcount++;
+            //0.2秒間空白文字を表示してから次の文字を表示する。
+            textColor1 = "　";
+            textColor2 = "　";
+            wordArea_hiragana.textContent = "";
+            wordArea_jp.textContent = "　"
+            typeArea.textContent = textColor1;
+            typeArea2.textContent = textColor2;
+            charImg(2);
+            setTimeout("charImg(1);", 1000);
+            setTimeout("nextWord();", 200);
 
         }
     }
 }
 
-function charImg(i){
-  if(i == 1){
-    rightImgStatus = 0;
-    rightImg.className = "side02-default";
-  }else if(i == 2  && rightImgStatus == 0){
-    //攻撃
-    rightImgStatus = 1;
-    rightImg.className = "side02-atc";
-  }else if (i == 3 && rightImgStatus == 0) {
-    //ダメージ
-    rightImgStatus = 1;
-    rightImg.className = "side02-dmg";
-  }else if(i == 4){
-    rightImgStatus = 1;
-    rightImg.className = "side02-bonus";
-  }else if(i == 5){
-    rightImgStatus = 1;
-    rightImg.className = "side02-bonus2";
-  }
+function charImg(i) {
+    if (i == 1) {
+        rightImgStatus = 0;
+        rightImg.className = "side02-default";
+    } else if (i == 2 && rightImgStatus == 0) {
+        //攻撃
+        rightImgStatus = 1;
+        rightImg.className = "side02-atc";
+    } else if (i == 3 && rightImgStatus == 0) {
+        //ダメージ
+        rightImgStatus = 1;
+        rightImg.className = "side02-dmg";
+    } else if (i == 4) {
+        rightImgStatus = 1;
+        rightImg.className = "side02-bonus";
+    } else if (i == 5) {
+        rightImgStatus = 1;
+        rightImg.className = "side02-bonus2";
+    }
 }

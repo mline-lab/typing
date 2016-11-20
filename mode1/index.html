@@ -1,4 +1,4 @@
-hazh<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -35,11 +35,11 @@ hazh<!DOCTYPE html>
                             </p>
                         </form>
                         <div class="score">
-                            <span id="score_area"></span>
+                            <span id="score_area">スコア</span>
                         </div>
                         <div id="img">
                             <img id="image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
-                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
                         <div class="rank_div">
@@ -48,9 +48,6 @@ hazh<!DOCTYPE html>
                                 <br>
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
-                        </div>
-                        <div class="ge-zi">
-                            <span id="charge">コンボ</span>
                         </div>
                     </div>
                     <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
@@ -65,21 +62,25 @@ hazh<!DOCTYPE html>
             </div>
 
             <div class="side01">
-                <img src="img/side1.jpg" id="side1" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                <img src="img/side1.jpg" id="side1" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
             </div>
         </div>
         <div class="side02">
-        	<div class="side02-default" id = "side02_id">
-           <!--<img src="img/lside/mode1_side2_1.png" id="side2" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>-->
-           </div>
+            <div class="side02-default" id="side02_id">
+              <div class="sude02_fake">
+                <div class="side02_gaze" id="side02_gaze_id">
+                </div>
+              </div>
+
+            </div>
         </div>
 
     </div>
 
     <div class="foot">
-      <div class="foot_item">
-        <img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
-      </div>
+        <div class="foot_item">
+            <img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
+        </div>
     </div>
 
 </body>
