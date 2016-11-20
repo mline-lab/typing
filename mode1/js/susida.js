@@ -662,6 +662,12 @@ function nextWord() {
     random2 = random;
     image.src = imgList[Math.floor(Math.random() * 2)];
 
+    if (wordList_jp[random] == "大天使女神東條希") {
+      nontan.style.visibility = "visible";
+    } else {
+      nontan.style.visibility = "hidden";
+    }
+
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
     textColor2 = ro_ma;
