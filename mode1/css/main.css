@@ -7,7 +7,7 @@ body {
 }
 
 .bodybody {
-    width: 1000px;
+    width: 1024px;
     margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@ body {
 
 .main {
     width: 600px;
-    height: auto;
+    height: 768px;
     float: right;
 }
 
@@ -30,28 +30,56 @@ body {
 
 .side01 {
     width: 200px;
+    height: 460px;
     height: auto;
     float: left;
 }
 
+.side01-default {
+	 background: url(../img/side1.jpg);
+   background-repeat: no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: left;
+}
+
+
 .side02 {
     width: 200px;
-    height: 600px;
+    height: 500px;
     float: right;
 }
-.sude02_fake {
+
+.side02_item {
+  width: 200px;
+  float: right;
+}
+.side02_fake {
   width: 150px;
+  height: 20px;
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+}
+.side02_gaze {
+  height: 20px;
+  background: rgb(43, 221, 238);
+  float: right;
+}
+.side02_score {
+  width: 150px;
+  text-align: center;
   border: medium solid #ff00ff;
   margin: 0 auto;
 }
 
-.side02_gaze {
-  height: 20px;
-  background: rgb(43, 221, 238);
+#score_area {
+  height: 30px;
+
 }
 
 .side02-bonus {
-	 background: url(../img/lside/bonus.jpg) no-repeat;
+	background: url(../img/lside/bonus.jpg) no-repeat;
   width: 200px;
   height: 382px;
   margin-top:74px;
@@ -142,11 +170,6 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.score {
-    height: 30px;
-}
-
-
 #word_hiragana {
     background: rgb(148, 160, 176);
     height: 26px;
@@ -227,16 +250,12 @@ body {
 }
 
 
-.foot {
-  width: 100%;
-}
-.foot_item {
-  width: 80%;
+footer {
   text-align: center;
+  width: 600px;
+  height: auto;
   margin: 0 auto;
-}
-.foot img {
-  width: 100px;
+  bottom: 0;
 }
 
 #nontan {

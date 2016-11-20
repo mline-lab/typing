@@ -392,7 +392,7 @@ window.onload = function() {
     score_area = document.getElementById("score_area");
     rightImg = document.getElementById("side02_id");
 
-    side1 = document.getElementById("side1");
+    leftImg = document.getElementById("side01_id");
 
     nontan = document.getElementById("nontan");
 
@@ -519,7 +519,7 @@ function setvar() {
     flg = 0;
     missCount = 0;
     rightImgStatus = 0;
-    score_area.textContent = "";
+    score_area.textContent = "0000";
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
@@ -531,7 +531,6 @@ function setvar() {
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
-    side1.src = "img/side1.jpg";
 }
 
 // 3秒後に開始
@@ -607,12 +606,10 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 3000) {
-        side1.src = "img/good/good1.png";
-        //side2.src = "img/good/good2.png";
+        //ご褒美
         audioNozomi.play();
     } else if (score <= 1999) {
-        side1.src = "img/bad/bad1.png";
-        //  side2.src = "img/bad/bad2.png";
+      //スコア低過ぎ
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
@@ -807,8 +804,8 @@ function hantei() {
         audioElem.play();
 
         score = score + 2;
+        score_area.textContent = ('000' + score).slice(-4);
 
-        score_area.textContent = score;
         charIndex++;
 
         typeArea.textContent = typeArea.textContent + inputtype;
@@ -856,7 +853,7 @@ function hantei() {
 
         if (tableichi >= word.length) {
             score = score + (word.length * 7);
-            score_area.textContent = score;
+            score_area.textContent = ('000' + score).slice(-4);
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
             textColor1 = "　";
