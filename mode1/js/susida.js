@@ -531,6 +531,7 @@ function setvar() {
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
+    side02_gaze.style.width = "0px";
 }
 
 // 3秒後に開始
