@@ -421,7 +421,7 @@ window.onload = function() {
 
 function getCSV_jp_File() {
     var xhr = new XMLHttpRequest();
-    xhr.open("get", "csv/word.csv", true);
+    xhr.open("get", "../csv/word.csv", true);
     xhr.send(null);
     xhr.onload = function() {
         wordList_jp = xhr.responseText.split(";");
@@ -430,7 +430,7 @@ function getCSV_jp_File() {
 
 function getCSV_hira_File() {
     var xhr2 = new XMLHttpRequest();
-    xhr2.open("get", "csv/word_hiragana.csv", true);
+    xhr2.open("get", "../csv/word_hiragana.csv", true);
     xhr2.send(null);
     xhr2.onload = function() {
         wordList_hiragana = xhr2.responseText.split(";");

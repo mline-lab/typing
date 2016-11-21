@@ -42,7 +42,7 @@
         <?php
 
         $row = 1;
-        $handle = fopen("../csv/word.csv", "r");
+        $handle = fopen("../../csv/word.csv", "r");
         while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
           $num = count($data);
           $row++;
@@ -54,7 +54,7 @@
 
         echo "<table border=1 class=\"t-line\" align=\"center\">";
         $row = 1;
-        $handle = fopen("../csv/word_hiragana.csv", "r");
+        $handle = fopen("../../csv/word_hiragana.csv", "r");
         while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
           $num = count($data);
           $row++;
