@@ -1,0 +1,312 @@
+body {
+    width: 100%;
+    height: 768px;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    background: #ecfdff url(../../images/bg.jpg);	/*背景色、背景画像の読み込み*/
+  	-webkit-text-size-adjust: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(33, 33, 33);
+}
+
+.head_menu {
+  margin-top: 10px;
+  width: 100%;
+  height: 70px;
+}
+#menu {
+  width:1024px;
+  height: 70px;
+  padding:0;
+  margin:0 auto;
+  list-style-type: none;
+	text-align: center;
+}
+
+#menu li {
+  width:190px;
+  height: 70px;
+  line-height: 70px;
+  float:left;
+  border: 1px solid rgb(42, 42, 42);	/*枠線の幅、線種、色*/
+  border-radius: 10px;	/*角丸のサイズ*/
+  display: block;
+  margin-left: 10px;
+  text-decoration: none;
+  -webkit-transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+  transition: 0.5s;			/*同上*/
+}
+#menu li:hover {
+  color: #c80000;		/*文字色*/
+	background: #fff;	/*背景色*/
+}
+
+
+.bodybody {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+#wrapper {
+    float: left;
+}
+
+.main {
+    width: 600px;
+    height: 700px;
+    float: right;
+}
+
+.main div {
+    width: 500px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.side01 {
+    width: 200px;
+    height: 500px;
+    height: auto;
+    float: left;
+    background: rgb(255, 255, 255);
+}
+
+.side01-default {
+	 background: url(../img/sarumonera.png);
+   background-repeat: no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: left;
+}
+
+
+.side02 {
+    width: 200px;
+    height: 500px;
+    float: right;
+    background: rgb(255, 255, 255);
+}
+
+.side02_item {
+  width: 200px;
+  float: right;
+}
+.side02_fake {
+  width: 150px;
+  height: 20px;
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+}
+.side02_gaze {
+  height: 20px;
+  background: linear-gradient(-90deg, #0d8a06, #75ffb1);
+  float: right;
+}
+.side02_score {
+  width: 150px;
+  text-align: center;
+  border: medium solid #ff00ff;
+  margin: 0 auto;
+}
+
+#score_area {
+  height: 30px;
+
+}
+
+.side02-bonus {
+	background: url(../img/lside/bonus.jpg) no-repeat;
+  width: 200px;
+  height: 382px;
+  margin-top:74px;
+  float: right;
+  animation: smile .7s steps(22) infinite;
+}
+
+@keyframes smile {
+  to {
+   background-position: -4400px 0;
+  }
+}
+
+.side02-bonus2 {
+	 background: url(../img/lside/spin.jpg) no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+    animation: spin .8s steps(26) infinite;
+}
+
+@keyframes spin {
+  to {
+   background-position: -5000px 0;
+  }
+}
+
+
+.side02-default {
+	 background: url(../img/lside/main.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+}
+
+.side02-dmg {
+	 background: url(../img/lside/dmg.jpg);
+    width: 200px;
+    height: 382px;
+     margin-top:74px;
+    float: right;
+}
+
+.side02-atc {
+	 background: url(../img/lside/atc.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+}
+
+.side02-win {
+	 background: url(../img/lside/win.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+}
+
+.side02-lose {
+	 background: url(../img/lside/lose.jpg);
+    width: 200px;
+    height: 382px;
+    margin-top:74px;
+    float: right;
+}
+
+.side01 img {
+    width: 200px;
+    height: auto;
+}
+
+.side02 img {
+    width: 200px;
+    height: auto;
+}
+
+#debug {
+    height: 20px;
+}
+
+.game_div {
+    border: 3px solid #ffcf00;
+    font-size: 1.2em;
+    background: rgb(255, 255, 255);
+}
+
+.menu_head {
+    text-align: center;
+}
+
+.button {
+  width: 200px;
+  background-color: #333;
+  border: 2px solid #333;
+  color: #fff;
+  line-height: 50px;
+}
+.button:hover {
+  background-color: #fff;
+	border-color: #59b1eb;
+	color: #59b1eb;
+}
+
+#message {
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#word_hiragana {
+    background: rgb(148, 160, 176);
+    height: 26px;
+    font-size: 0.7em;
+    line-height: 26px;
+}
+
+#word_jp {
+    background: rgb(148, 160, 176);
+    height: 28px;
+    font-size: 0.9em;
+    line-height: 28px;
+}
+
+#img {
+    position: relative;
+    height: 100px;
+}
+
+#image {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 115px;
+}
+
+#safe_img {
+    width: 100px;
+    height: auto;
+    float: right;
+}
+
+#type {
+    background: #383838;
+    height: 30px;
+    font-size: 0.9em;
+    line-height: 30px;
+}
+
+#type_Before {
+    color: #565656;
+}
+
+#type_After {
+    color: white;
+}
+
+#menubutton {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-transition: 0.4s ease-in-out;
+    -o-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+}
+
+footer {
+  text-align: center;
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+#nontan {
+  position : absolute;
+  top: -110px;
+  left: 150px;
+  width: auto;
+  height: 400px;
+}
