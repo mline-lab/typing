@@ -105,7 +105,7 @@ a {
 }
 .side02_gaze {
   height: 20px;
-  background: rgb(43, 221, 238);
+  background: linear-gradient(-90deg, #0d8a06, #75ffb1);
   float: right;
 }
 .side02_score {
