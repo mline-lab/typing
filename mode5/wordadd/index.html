@@ -22,7 +22,7 @@
       <p>タイピングワード追加</p>
       <form action="add.php" method="POST">
         <input type="text" placeholder="タイピングワード" name="jp" required>
-        <input type="text" placeholder="ひらがな" name="kana" required maxlength='15'>
+        <input type="text" name="kana" pattern="^[ぁ-ん]+$ , [\u3041-\u309F]*" placeholder="ひらがな１５文字まで" maxlength='15' required >
         <input type=SUBMIT value="追加" class="btn btn-default full-width">
       </form>
     </div>
