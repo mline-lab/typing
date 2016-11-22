@@ -72,25 +72,6 @@ ul {
     top: -1em;
 }
 
-.spacial {
-    list-style-type: none;
-    border: 2px solid #fcd220;
-    border-radius: 4px;
-    margin: 2em 0;
-    padding: 2em;
-    position: relative;
-}
-
-.spacial ::before {
-    background-color: #fff;
-    color: #252525;
-    content: "スペシャル";
-    font-weight: bold;
-    left: 1em;
-    padding: 0 .5em;
-    position: absolute;
-    top: -1em;
-}
 
 img {
     border: none;
