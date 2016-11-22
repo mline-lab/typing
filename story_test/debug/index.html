@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>プライマル×バクテリア*ステップ</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+  <script type="text/javascript" src="js/susida.js"></script>
+  <script type="text/javascript" src="js/towntypelib.js"></script>
+</head>
+
+<body>
+  <div class="head_menu">
+    <a id="menubutton" href="ranking_view.php" target="_blank">ランキング</a>
+    <a id="menubutton" href="wordadd/" target="_blank">タイピングワード追加</a>
+  </div>
+  <div class="bodybody">
+
+
+  <div id="wrapper">
+  <div class="main">
+    <div class="debug_area">
+    <h1>デバック用ページ</h1>
+
+    <select id="word_select" size="1" onchange="dropsort(this)">
+      <option value="0">選択してください</option>
+    </select>
+  <input type="button" class="load" id="csv-button" value="csv読込み" onClick="csv_load()">
+</div>
+    <p id="debug"></p>
+    <div class="game_div" id="gamemain">
+      <div class="menu_head">
+        <form>
+          <p>
+            <input type="button" class="button" id="start-button" value="Start" onClick="onStartButtonClick()">
+            <br>
+            <span id="message">Press Start</span>
+          </p>
+        </form>
+        <div class="score">
+          <span id="score_area"></span>
+        </div>
+        <div id="img">
+          <img id="image" src="" />
+          <img id="safe_img" src="img/apple.png">
+        </div>
+        <div class="rank_div">
+          <form name="ranking" id="form_ranking">
+            <input type="text" id="name-text" name="username" class="rank_item">
+            <br>
+            <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
+          </form>
+        </div>
+        <div class="ge-zi">
+          <span id="charge"></span>
+        </div>
+      </div>
+      <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+      <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+      <div id="type">
+        <span id="type_Before">&nbsp;</span>
+        <span id="type_After">&nbsp;</span>
+      </div>
+      <div id="deadly"></div>
+    </div>
+  </div>
+
+  <div class="side01">
+
+  </div>
+ </div>
+ <div class="side02">
+
+ </div>
+ </div>
+
+</body>
+</html>
