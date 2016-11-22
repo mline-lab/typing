@@ -580,23 +580,27 @@ function startTyping() {
 function rank_push() {
 
     username = document.ranking.username.value;
-    mode = "2";
-    $.ajax({
-        type: 'POST',
-        url: 'rank_push.php',
-        data: {
-            'name': username,
-            'score': score,
-            'count': downcount,
-            'miss': missCount,
-            'mode': mode
-        },
-        success: function(data) {
-            document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-            alert("ランキング登録しました。");
-        }
-    });
 
+    if (username.match(/"/) || username.match(/'/)) {
+
+    } else {
+      mode = "2";
+      $.ajax({
+          type: 'POST',
+          url: 'rank_push.php',
+          data: {
+              'name': username,
+              'score': score,
+              'count': downcount,
+              'miss': missCount,
+              'mode': mode
+          },
+          success: function(data) {
+              document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
+              alert("ランキング登録しました。");
+          }
+      });
+    }
 }
 
 // 終了
