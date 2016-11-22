@@ -4,47 +4,55 @@ body {
     margin: 0;
     padding: 0;
     font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    background: #ecfdff url(../../images/bg.jpg);	/*背景色、背景画像の読み込み*/
-  	-webkit-text-size-adjust: none;
+    background: #ecfdff url(../../images/bg.jpg);
+    /*背景色、背景画像の読み込み*/
+    -webkit-text-size-adjust: none;
 }
 
 a {
-  text-decoration: none;
-  color: rgb(33, 33, 33);
+    text-decoration: none;
+    color: rgb(33, 33, 33);
 }
 
 .head_menu {
-  margin-top: 10px;
-  width: 100%;
-  height: 70px;
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
 }
+
 #menu {
-  width:1024px;
-  height: 70px;
-  padding:0;
-  margin:0 auto;
-  list-style-type: none;
-	text-align: center;
+    width: 1024px;
+    height: 70px;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    text-align: center;
 }
 
 #menu li {
-  width:190px;
-  height: 70px;
-  line-height: 70px;
-  float:left;
-  border: 1px solid rgb(42, 42, 42);	/*枠線の幅、線種、色*/
-  border-radius: 10px;	/*角丸のサイズ*/
-  display: block;
-  margin-left: 10px;
-  text-decoration: none;
-  -webkit-transition: 0.5s;	/*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
-  transition: 0.5s;			/*同上*/
-}
-#menu li:hover {
-  color: #c80000;		/*文字色*/
-	background: #fff;	/*背景色*/
+    width: 190px;
+    height: 70px;
+    line-height: 70px;
+    float: left;
+    border: 1px solid rgb(42, 42, 42);
+    /*枠線の幅、線種、色*/
+    border-radius: 10px;
+    /*角丸のサイズ*/
+    display: block;
+    margin-left: 10px;
+    text-decoration: none;
+    -webkit-transition: 0.5s;
+    /*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+    transition: 0.5s;
+    /*同上*/
 }
 
+#menu li:hover {
+    color: #c80000;
+    /*文字色*/
+    background: #fff;
+    /*背景色*/
+}
 
 .bodybody {
     width: 1024px;
@@ -77,14 +85,28 @@ a {
 }
 
 .side01-default {
-	 background: url(../img/sarumonera.png);
-   background-repeat: no-repeat;
+    background: url(../img/rside/sarumonera.png);
+    background-repeat: no-repeat;
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: left;
 }
 
+.side01-down {
+    background: url(../img/rside/down.jpg);
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top: 74px;
+    float: left;
+}
+
+.side01_check_default {
+  width: 200px;
+  height: 382px;
+  float: left;
+}
 
 .side02 {
     width: 200px;
@@ -94,101 +116,107 @@ a {
 }
 
 .side02_item {
-  width: 200px;
-  float: right;
+    width: 200px;
+    float: right;
 }
+
 .side02_fake {
-  width: 150px;
-  height: 20px;
-  border: medium solid #ff00ff;
-  margin: 0 auto;
+    width: 150px;
+    height: 20px;
+    border: medium solid #ff00ff;
+    margin: 0 auto;
 }
+
 .side02_gaze {
-  height: 20px;
-  background: linear-gradient(-90deg, #0d8a06, #75ffb1);
-  float: right;
+    height: 20px;
+    background: linear-gradient(-90deg, #0d8a06, #75ffb1);
+    float: right;
 }
+
 .side02_score {
-  width: 150px;
-  text-align: center;
-  border: medium solid #ff00ff;
-  margin: 0 auto;
+    width: 150px;
+    text-align: center;
+    border: medium solid #ff00ff;
+    margin: 0 auto;
 }
 
 #score_area {
-  height: 30px;
-
+    height: 30px;
 }
 
 .side02-bonus {
-	background: url(../img/lside/bonus.jpg) no-repeat;
-  width: 200px;
-  height: 382px;
-  margin-top:74px;
-  float: right;
-  animation: smile .7s steps(22) infinite;
+    background: url(../img/lside/bonus.jpg) no-repeat;
+    width: 200px;
+    height: 382px;
+    margin-top: 74px;
+    float: right;
+    animation: smile .7s steps(22) infinite;
 }
 
 @keyframes smile {
-  to {
-   background-position: -4400px 0;
-  }
+    to {
+        background-position: -4400px 0;
+    }
 }
 
 .side02-bonus2 {
-	 background: url(../img/lside/spin.jpg) no-repeat;
+    background: url(../img/lside/spin.jpg) no-repeat;
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: right;
     animation: spin .8s steps(26) infinite;
 }
 
 @keyframes spin {
-  to {
-   background-position: -5000px 0;
-  }
+    to {
+        background-position: -5000px 0;
+    }
 }
 
-
 .side02-default {
-	 background: url(../img/lside/main.jpg);
+    background: url(../img/lside/main.jpg);
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: right;
 }
 
 .side02-dmg {
-	 background: url(../img/lside/dmg.jpg);
+    background: url(../img/lside/dmg.jpg);
     width: 200px;
     height: 382px;
-     margin-top:74px;
+    margin-top: 74px;
     float: right;
 }
 
 .side02-atc {
-	 background: url(../img/lside/atc.jpg);
+    background: url(../img/lside/atc.jpg);
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: right;
 }
 
 .side02-win {
-	 background: url(../img/lside/win.jpg);
+    background: url(../img/lside/win.jpg);
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: right;
 }
 
 .side02-lose {
-	 background: url(../img/lside/lose.jpg);
+    background: url(../img/lside/lose.jpg);
     width: 200px;
     height: 382px;
-    margin-top:74px;
+    margin-top: 74px;
     float: right;
+}
+.side02_check_default {
+  width: 200px;
+  height: 382px;
+  float: left;
 }
 
 .side01 img {
@@ -216,16 +244,17 @@ a {
 }
 
 .button {
-  width: 200px;
-  background-color: #333;
-  border: 2px solid #333;
-  color: #fff;
-  line-height: 50px;
+    width: 200px;
+    background-color: #333;
+    border: 2px solid #333;
+    color: #fff;
+    line-height: 50px;
 }
+
 .button:hover {
-  background-color: #fff;
-	border-color: #59b1eb;
-	color: #59b1eb;
+    background-color: #fff;
+    border-color: #59b1eb;
+    color: #59b1eb;
 }
 
 #message {
@@ -296,17 +325,17 @@ a {
 }
 
 footer {
-  text-align: center;
-  width: 600px;
-  height: auto;
-  margin: 0 auto;
-  bottom: 0;
+    text-align: center;
+    width: 600px;
+    height: auto;
+    margin: 0 auto;
+    bottom: 0;
 }
 
 #nontan {
-  position : absolute;
-  top: -110px;
-  left: 150px;
-  width: auto;
-  height: 400px;
+    position: absolute;
+    top: -110px;
+    left: 150px;
+    width: auto;
+    height: 400px;
 }

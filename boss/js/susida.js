@@ -403,6 +403,9 @@ window.onload = function() {
 
     side02_gaze = document.getElementById("side02_gaze_id");
 
+    checkSide01 = document.getElementById("side01_check");
+    checkSide02 = document.getElementById("side02_check");
+
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -524,8 +527,8 @@ function setvar() {
     flg = 0;
     missCount = 0;
     rightImgStatus = 0;
-    bossmove = 0;//BOSS
-    winlose = 0;//BOSS
+    bossmove = 0; //BOSS
+    winlose = 0; //BOSS
     score_area.textContent = "0000";
     typeArea.textContent = "";
     typeArea2.textContent = "";
@@ -539,6 +542,8 @@ function setvar() {
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
+    charImg(1);
+    checkSide01.className = "";
 }
 
 // 3秒後に開始
@@ -617,7 +622,7 @@ function stopTyping() {
         //ご褒美
         audioNozomi.play();
     } else if (score <= 1999) {
-      //スコア低過ぎ
+        //スコア低過ぎ
     }
 
     audioBGM.pause();
@@ -641,11 +646,12 @@ function stopTyping() {
     });
 
     if (winlose == 0) {
-      //勝利
-      rightImg.className = "side02-win";
+        //勝利
+        checkSide02.className = "side02-win";
     } else {
-      //負け
-      rightImg.className = "side02-lose";
+        //負け
+        checkSide01.className = "side01-down";
+        checkSide02.className = "side02-lose";
     }
     clearInterval(time);
 
@@ -683,17 +689,16 @@ function nextWord() {
     typeArea2.textContent = textColor2;
 
     if (bossmove != 1) {
-      x = 0;
-      image.style.left = 0 + "px";
-      bossmove = 1;
-      moveImg();
+        x = 0;
+        image.style.left = 0 + "px";
+        bossmove = 1;
+        moveImg();
     }
 
 }
 
 function moveImg() {
     //画像移動
-
     if (flg == 1) {
         //flgが1ならば、処理を中断
         return;
@@ -701,21 +706,18 @@ function moveImg() {
         //flgがゼロならば、flgに１を代入して処理を継続
         flg = 1;
     }
-
     time = setInterval(function() {
-
         //x座標に+1
         if (x < 400) {
             x += 0.2;
+            //変数ｘの値をCSSに適用
+            image.style.left = x + "px";
         } else if (x >= 400) {
+            game_flag = 0;
             gauge = 0;
             winlose = 1;
             stopTyping();
         }
-
-        //変数ｘの値をCSSに適用
-        image.style.left = x + "px";
-
     }, 10);
 }
 
@@ -760,20 +762,19 @@ function moziHenkan(e) {
     townro_machange
     ro_ma = data[11];
     shiftdown = data[13];
-    if (game_flag == 1) {
-        if (seikaisuu != tempseikai) {
-            hantei();
-        } else {
-            gauge = 0;
-            audioBad.currentTime = 0;
-            audioBad.play();
-            missCount++;
-            charImg(3);
-            setTimeout("charImg(1);", 1000);
-            $('.game_div').css({
-                "border": "3px solid #e24408"
-            });
-        }
+
+    if (seikaisuu != tempseikai) {
+        hantei();
+    } else {
+        gauge = 0;
+        audioBad.currentTime = 0;
+        audioBad.play();
+        missCount++;
+        charImg(3);
+        setTimeout("charImg(1);", 1000);
+        $('.game_div').css({
+            "border": "3px solid #e24408"
+        });
     }
 
 }
@@ -812,7 +813,9 @@ document.onkeydown = function(e) {
             onStartButtonClick();
         }
     } else {
-        moziHenkan(e);
+        if (game_flag == 1) {
+            moziHenkan(e);
+        }
     }
 };
 
@@ -868,7 +871,7 @@ function hantei() {
             x -= 30;
             //変数ｘの値をCSSに適用
             image.style.left = x + "px";
-        }  else if (gauge == 80) {
+        } else if (gauge == 80) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
@@ -876,7 +879,7 @@ function hantei() {
             x -= 40;
             //変数ｘの値をCSSに適用
             image.style.left = x + "px";
-        }  else if (gauge == 100) {
+        } else if (gauge == 100) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
@@ -903,9 +906,16 @@ function hantei() {
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
 
-              charImg(2);
-              setTimeout("charImg(1);", 1000);
-              setTimeout("nextWord();", 200);
+            if (downcount == 10) {
+                game_flag = 0;
+                winlose = 0;
+                stopTyping();
+            } else {
+                charImg(2);
+                setTimeout("charImg(1);", 1000);
+                setTimeout("nextWord();", 200);
+            }
+
 
         }
     }
@@ -930,11 +940,11 @@ function charImg(i) {
         rightImgStatus = 1;
         rightImg.className = "side02-bonus2";
     } else if (i == 6) {
-      rightImgStatus = 1;
-      rightImg.className = "side02-win";
+        rightImgStatus = 1;
+        rightImg.className = "side02-win";
     } else if (i == 7) {
-      rightImgStatus = 1;
-      rightImg.className = "side02-lose";
+        rightImgStatus = 1;
+        rightImg.className = "side02-lose";
     }
 
 }
