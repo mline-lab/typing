@@ -14,10 +14,10 @@
 <body>
     <div class="head_menu">
             <ul id="menu">
-                <li><a href="../">HOME</a></li>
-                <li><a href="ranking_view.html">ランキング</a></li>
-                <li><a href="../ranking_view.html">ALLランキング</a></li>
-                <li><a href="wordadd/list.html">タイピングワード集</a></li>
+                <a href="../"><li>HOME</li></a>
+                <a href="ranking_view.html"><li>ランキング</li></a>
+                <a href="../ranking_view.html"><li>ALLランキング</li></a>
+                <a href="wordadd/list.html"><li>タイピングワード集</li></a>
                 <li id="mode_img"><img src="img/mode1_logo.png" /></li>
             </ul>
     </div>
@@ -42,8 +42,7 @@
                         </div>
                         <div class="rank_div">
                             <form name="ranking" id="form_ranking">
-                                <input type="text" id="name-text" name="username" class="rank_item">
-                                <br>
+<input type="text" id="name-text" name="username" class="rank_item" maxlength="12" placeholder="ユーザー名(12文字まで)" pattern="[^\x22\x27]*" title="は？？？？なめてんの？">                                <br>
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
                         </div>

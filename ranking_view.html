@@ -7,41 +7,6 @@
 <link rel="stylesheet" href="css/ranking.css" type="text/css">
 <script src="js/jquery.pagination.js"></script>
 <script>
-var flag_mrp = 0;
-var flag_moti = 0;
-var flag_scriptkide = 0;
-function mrp(){
-
-  if (flag_mrp == 0) {
-    $( "th:contains('MRP')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_mrp = 1;
-  } else {
-    $( "th:contains('MRP')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_mrp = 0;
-  }
-
-}
-function moti(){
-
-  if (flag_moti == 0) {
-    $( "th:contains('もち')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_moti = 1;
-  } else {
-    $( "th:contains('もち')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_moti = 0;
-  }
-}
-
-function scriptkide(){
-
-  if (flag_scriptkide == 0) {
-    $( "th:contains('このサイトに攻撃を仕掛けた愚か者')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_scriptkide = 1;
-  } else {
-    $( "th:contains('このサイトに攻撃を仕掛けた愚か者')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_scriptkide = 0;
-  }
-}
 
 $(function(){
   $('tr#list').pagination({
@@ -63,14 +28,17 @@ $(function(){
 </script>
 </head>
 <body>
-
+  <div class="head_menu">
+          <ul id="menu">
+              <a href="./"><li>HOME</li></a>
+              <a href="mode1/ranking_view.html"><li>ノーマル</li></a>
+              <a href="mode2/ranking_view.html"><li>正確重視</li></a>
+              <a href="mode3/ranking_view.htmll"><li>速度重視</li></a>
+              <a href="mode4/ranking_view.html"><li>ノーミス</li></a>
+          </ul>
+  </div>
   <div class="main">
     <div>
-      <div class="head">
-        <a href="#" onclick="mrp();return false;">MRP強調</a>
-        <a href="#" onclick="moti();return false;">もち強調</a>
-        <a href="#" onclick="scriptkide();return false;">スクリプトキディ強調</a>
-      </div>
 
       <div class="content">
         <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -107,6 +75,23 @@ $(function(){
       $stmt = $dbh->query($sql);
 
       while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+        switch ($result['mode']) {
+          case 1:
+            $mode = "ノーマル";
+            break;
+          case 2:
+            $mode = "正確重視";
+            break;
+          case 3:
+            $mode = "速度重視";
+            break;
+          case 4:
+            $mode = "ノーミス";
+            break;
+          default:
+            # code...
+            break;
+        }
           $rank++;
           echo "<tr id=\"list\">";
           echo "<th>";
@@ -124,26 +109,6 @@ $(function(){
           echo($result['miss']);
           echo "</th>";
           echo "<th>";
-          switch ($result['mode']) {
-            case '1':
-              $mode = "ノーマル";
-              break;
-            case '2':
-              $mode = "正確重視";
-              break;
-            case '3':
-              $mode = "速度重視";
-              break;
-            case '4':
-              $mode = "ノーミス";
-              break;
-            case '5':
-              $mode = "恥打";
-              break;
-            default:
-              $mode = "どれやろ";
-              break;
-          }
           echo($mode);
           echo "</th>";
           echo "</tr>";

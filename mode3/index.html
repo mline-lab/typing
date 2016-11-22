@@ -12,22 +12,22 @@
 </head>
 
 <body>
-  <div class="head_menu">
-      <a id="menubutton" href="../" target="_blank">HOME</a>
-      <a id="menubutton" href="ranking_view.php" target="_blank">ランキング</a>
-      <a id="menubutton" href="../ranking_view.php" target="_blank">ALLランキング</a>
-      <a id="menubutton" href="wordadd/list.html" target="_blank">タイピングワードリスト</a>
-      <a id="menubutton" href="debug/" target="_blank">デバッグ</a>
-  </div>
+    <div class="head_menu">
+            <ul id="menu">
+                <a href="../"><li>HOME</li></a>
+                <a href="ranking_view.html"><li>ランキング</li></a>
+                <a href="../ranking_view.html"><li>ALLランキング</li></a>
+                <a href="wordadd/list.html"><li>タイピングワード集</li></a>
+                <li id="mode_img"><img src="img/mode1_logo.png" /></li>
+            </ul>
+    </div>
     <div class="bodybody" id="bodyid">
-
 
         <div id="wrapper">
             <div class="main">
                 <p id="debug"></p>
                 <div class="game_div" id="gamemain">
                     <div class="menu_head">
-
                         <form>
                             <p>
                                 <input type="button" class="button" id="start-button" value="Start" onClick="onStartButtonClick()">
@@ -35,23 +35,16 @@
                                 <span id="message">Press Start</span>
                             </p>
                         </form>
-                        <div class="score">
-                            <span id="score_area"></span>
-                        </div>
                         <div id="img">
                             <img id="image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
-                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
                         <div class="rank_div">
                             <form name="ranking" id="form_ranking">
-                              <input type="text" id="name-text" name="username" class="rank_item" maxlength="12" placeholder="ユーザー名(12文字まで)" pattern="[^\x22\x27]*" title="は？？？？なめてんの？">
-                                <br>
+<input type="text" id="name-text" name="username" class="rank_item" maxlength="12" placeholder="ユーザー名(12文字まで)" pattern="[^\x22\x27]*" title="は？？？？なめてんの？">                                <br>
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
-                        </div>
-                        <div class="ge-zi">
-                            <span id="charge">コンボ</span>
                         </div>
                     </div>
                     <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
@@ -62,27 +55,34 @@
                     </div>
                     <div id="deadly"></div>
                 </div>
-                <div class="img_area">
-                  <img src=""  onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
-                </div>
             </div>
 
             <div class="side01">
-                <img src="img/side1.jpg" id="side1" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+                <div class="side01-default" id="side01_id">
+                </div>
             </div>
         </div>
         <div class="side02">
-            <img src="img/side2.jpg" id="side2" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
+            <div class="side02-default" id="side02_id">
+            </div>
+            <div class="side02_item">
+                <div class="side02_fake">
+                    <div class="side02_gaze" id="side02_gaze_id">
+                    </div>
+                </div>
+                <div class="side02_score">
+                    <span id="score_area">0000</span>
+                </div>
+            </div>
         </div>
 
-    </div>
 
-    <div class="foot">
-      <div class="foot_item">
-        <img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;"/>
-      </div>
-    </div>
+        <footer>
+            <small>Copyright&copy; <a href="https://mline.tell.jp/">mline</a> All Rights Reserved.</small></br>
+            <a href="https://mline.tell.jp/"><img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" /></a>
+        </footer>
 
+    </div>
 </body>
 
 </html>

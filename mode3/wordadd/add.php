@@ -51,12 +51,12 @@
 
 
   if ($flag1 == 1 && $flag2 == 1) {
-    $tuiki_jp = fopen("../csv/word.csv", "a");
+    $tuiki_jp = fopen("../../csv/word.csv", "a");
     fwrite($tuiki_jp, $jp);
     fclose($tuiki_jp);
 
 
-    $tuiki_kana = fopen("../csv/word_hiragana.csv", "a");
+    $tuiki_kana = fopen("../../csv/word_hiragana.csv", "a");
     fwrite($tuiki_kana, $kana);
     fclose($tuiki_kana);
 
