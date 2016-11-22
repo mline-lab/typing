@@ -348,7 +348,6 @@ var downcount;
 var timeLeft;
 var space_flag;
 var gauge;
-var deadly;
 var random2;
 var textColor1;
 var textColor2;
@@ -370,7 +369,9 @@ var wordList_jp = new Array();
 var wordList_hiragana = new Array();
 //
 var csv;
-
+var rightImg;
+var rightImgStatus;
+var rightTime;
 
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
@@ -382,7 +383,6 @@ window.onload = function() {
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
     startButton = document.getElementById("start-button");
-    charge = document.getElementById("charge");
     deadlygauge = document.getElementById("deadly");
     image = document.getElementById("image");
     safe_img = document.getElementById("safe_img");
@@ -390,11 +390,13 @@ window.onload = function() {
     name_text = document.getElementById("name-text");
     form_ranking = document.getElementById("form_ranking");
     score_area = document.getElementById("score_area");
+    rightImg = document.getElementById("side02_id");
 
-    side1 = document.getElementById("side1");
-    side2 = document.getElementById("side2");
+    leftImg = document.getElementById("side01_id");
 
     nontan = document.getElementById("nontan");
+
+    side02_gaze = document.getElementById("side02_gaze_id");
 
     shiftdown = 0;
     wordseikaisuu = 0;
@@ -413,11 +415,13 @@ window.onload = function() {
 
     getCSV_jp_File();
     getCSV_hira_File();
+
+    side02_gaze.style.width = "0px";
 }
 
 function getCSV_jp_File() {
     var xhr = new XMLHttpRequest();
-    xhr.open("get", "csv/word.csv", true);
+    xhr.open("get", "../csv/word.csv", true);
     xhr.send(null);
     xhr.onload = function() {
         wordList_jp = xhr.responseText.split(";");
@@ -426,7 +430,7 @@ function getCSV_jp_File() {
 
 function getCSV_hira_File() {
     var xhr2 = new XMLHttpRequest();
-    xhr2.open("get", "csv/word_hiragana.csv", true);
+    xhr2.open("get", "../csv/word_hiragana.csv", true);
     xhr2.send(null);
     xhr2.onload = function() {
         wordList_hiragana = xhr2.responseText.split(";");
@@ -439,67 +443,67 @@ function getCSV_hira_File() {
 function set_audio() {
 
     audioBad = new Audio();
-    audioBad.src = "audio/bad_se.ogg";
+    audioBad.src = "../audio/bad_se.ogg";
 
     audioNozomi = new Audio();
-    audioNozomi.src = "audio/nozomi/nozomi_voice1.mp3";
+    audioNozomi.src = "../audio/nozomi/nozomi_voice1.mp3";
 
     var rand = Math.floor(Math.random() * 3 + 1);
 
     if (rand == 1) {
         audioBGM = new Audio();
-        audioBGM.src = "audio/zyunai.mp3";
+        audioBGM.src = "../audio/zyunai.mp3";
 
         audioElem = new Audio();
-        audioElem.src = "audio/syan.ogg";
+        audioElem.src = "../audio/syan.ogg";
 
         audioNextVoice = new Audio();
-        audioNextVoice.src = "audio/voice2.ogg";
+        audioNextVoice.src = "../audio/voice2.ogg";
 
         audioSPcharge = new Audio();
-        audioSPcharge.src = "audio/voice1.ogg";
+        audioSPcharge.src = "../audio/voice1.ogg";
 
         audioSP = new Audio();
-        audioSP.src = "audio/voice3.ogg";
+        audioSP.src = "../audio/voice3.ogg";
 
         document.getElementById("debug").textContent = "♪~純愛レンズ/東條 希(CV.楠田 亜衣奈)~";
 
     } else if (rand == 2) {
         audioBGM = new Audio();
-        audioBGM.src = "audio/m.mp3";
+        audioBGM.src = "../audio/m.mp3";
 
         audioElem = new Audio();
-        audioElem.src = "audio/se_ok.ogg";
+        audioElem.src = "../audio/se_ok.ogg";
 
         audioNextVoice = new Audio();
-        audioNextVoice.src = "audio/voice_next.mp3";
+        audioNextVoice.src = "../audio/voice_next.mp3";
 
         audioSPcharge = new Audio();
-        audioSPcharge.src = "audio/voice_sp_charge.mp3";
+        audioSPcharge.src = "../audio/voice_sp_charge.mp3";
 
         audioSP = new Audio();
-        audioSP.src = "audio/voice_sp.mp3";
+        audioSP.src = "../audio/voice_sp.mp3";
 
         document.getElementById("debug").textContent = "♪~M♭/加藤 恵(安野 希世乃)~";
 
     } else if (rand == 3) {
 
-      audioBGM = new Audio();
-      audioBGM.src = "audio/kouya.mp3";
+        audioBGM = new Audio();
+        audioBGM.src = "../audio/kouya.mp3";
 
-      audioElem = new Audio();
-      audioElem.src = "audio/syan.ogg";
+        audioElem = new Audio();
+        audioElem.src = "../audio/syan.ogg";
 
-      audioNextVoice = new Audio();
-      audioNextVoice.src = "audio/voice2.ogg";
+        audioNextVoice = new Audio();
+        audioNextVoice.src = "../audio/voice2.ogg";
 
-      audioSPcharge = new Audio();
-      audioSPcharge.src = "audio/voice1.ogg";
+        audioSPcharge = new Audio();
+        audioSPcharge.src = "../audio/voice1.ogg";
 
-      audioSP = new Audio();
-      audioSP.src = "audio/voice3.ogg";
+        audioSP = new Audio();
+        audioSP.src = "../audio/voice3.ogg";
 
-      document.getElementById("debug").textContent = "♪~輝夜の城で踊りたい(NOZOMI.MIX)東條 希(CV.楠田 亜衣奈)~";
+        document.getElementById("debug").textContent = "♪~輝夜の城で踊りたい(NOZOMI.MIX)東條 希(CV.楠田 亜衣奈)~";
 
     }
 
@@ -514,7 +518,8 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
-    score_area.textContent = "";
+    rightImgStatus = 0;
+    score_area.textContent = "0000";
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
@@ -526,12 +531,7 @@ function setvar() {
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
-    side1.src = "img/side1.jpg";
-    side2.src = "img/lside/mode1_side2_1.png";
-
-    $('.game_div').css({
-        "border": "3px solid #ffcf00"
-    });
+    side02_gaze.style.width = "0px";
 }
 
 // 3秒後に開始
@@ -562,7 +562,7 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
-    audioBGM.volume = 0.3;
+    audioBGM.volume = 0.1;
 
     game_flag = 1;
 
@@ -580,28 +580,23 @@ function startTyping() {
 function rank_push() {
 
     username = document.ranking.username.value;
+    mode = "4";
+    $.ajax({
+        type: 'POST',
+        url: 'rank_push.php',
+        data: {
+            'name': username,
+            'score': score,
+            'count': downcount,
+            'miss': missCount,
+            'mode': mode
+        },
+        success: function(data) {
+            document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
+            alert("ランキング登録しました。");
+        }
+    });
 
-    if (username.match(/"/) || username.match(/'/)) {
-
-    } else {
-      mode = "4";
-      missCount = 0;
-      $.ajax({
-          type: 'POST',
-          url: 'rank_push.php',
-          data: {
-              'name': username,
-              'score': score,
-              'count': downcount,
-              'miss': missCount,
-              'mode': mode
-          },
-          success: function(data) {
-              document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-              alert("ランキング登録しました。");
-          }
-      });
-    }
 }
 
 // 終了
@@ -610,24 +605,22 @@ function stopTyping() {
     gauge = 0;
     deadly = 0;
     game_flag = 0;
+    missCount = 0;
     wordChars = [];
     if (score >= 3000) {
-      side1.src = "img/good/good1.png";
-      side2.src = "img/good/good2.png";
-      audioNozomi.play();
+        //ご褒美
+        audioNozomi.play();
     } else if (score <= 1999) {
-      side1.src = "img/bad/bad1.png";
-      side2.src = "img/bad/bad2.png";
+      //スコア低過ぎ
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
-    messageArea.textContent = "Score: " + score + "■倒した数" + downcount;
+    messageArea.textContent = "Score: " + score + "■倒した数" + downcount + "■ミスタイプ数" + missCount;
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
-    charge.textContent = "";
     startButton.disabled = false;
     nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
@@ -639,6 +632,7 @@ function stopTyping() {
     $('.game_div').css({
         "border": "3px solid #ffcf00"
     });
+    rightImg.className = "side02-default";
     clearInterval(time);
 
 }
@@ -671,7 +665,6 @@ function nextWord() {
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
-    //extColor2 = wordList[random2];
     textColor2 = ro_ma;
     typeArea2.textContent = textColor2;
     x = 0;
@@ -697,9 +690,10 @@ function moveImg() {
         if (x < 400) {
             x += 0.8;
         } else if (x >= 400) {
-          gauge = 0;
-          charge.textContent = gauge + "コンボ";
-          stopTyping();
+            gauge = 0;
+            charImg(3);
+            setTimeout("charImg(1);", 1000);
+            stopTyping();
         }
 
         //変数ｘの値をCSSに適用
@@ -754,14 +748,10 @@ function moziHenkan(e) {
             hantei();
         } else {
             gauge = 0;
-            charge.textContent = gauge + "コンボ";
             audioBad.currentTime = 0;
             audioBad.play();
-            side2.src = "img/lside/mode1_side2_2.png";
             missCount++;
-            $('.game_div').css({
-                "border": "3px solid #e24408"
-            });
+            charImg(3);
             stopTyping();
         }
     }
@@ -796,26 +786,6 @@ document.onkeydown = function(e) {
         if (space_flag == 1) {
             space_start();
         }
-    } else if (e.keyCode == 13) {
-        if (deadly == 1 && game_flag == 1) {
-            audioSP.currentTime = 0;
-            audioSP.play();
-            deadlygauge.textContent = "";
-            deadly = 0;
-            gauge = 0;
-            charge.textContent = "○○○○○○○○○○";
-            score++;
-            downcount++;
-            missCount--;
-            score_area.textContent = score;
-            textColor1 = "　";
-            textColor2 = "　";
-            wordArea_hiragana.textContent = "";
-            wordArea_jp.textContent = "　"
-            typeArea.textContent = textColor1;
-            typeArea2.textContent = textColor2;
-            setTimeout("nextWord();", 200);
-        }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
             stopTyping();
@@ -828,15 +798,13 @@ document.onkeydown = function(e) {
 
 function hantei() {
     if (game_flag == 1) {
-
         //正解文字を入力した時
         audioElem.currentTime = 0;
         audioElem.play();
 
-        side2.src = "img/lside/mode1_side2_1.png";
-
         score = score + 5;
-        score_area.textContent = score;
+        score_area.textContent = ('000' + score).slice(-4);
+
         charIndex++;
 
         typeArea.textContent = typeArea.textContent + inputtype;
@@ -854,23 +822,28 @@ function hantei() {
         });
 
         gauge++;
-        charge.textContent = gauge + "コンボ";
+        side02_gaze.style.width = gauge + "px";
         if (gauge == 50) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          timeLeft++;
-          side2.src = "img/lside/mode1_side2_4.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(4);
+            setTimeout("charImg(1);", 700);
+            timeLeft++;
         } else if (gauge == 100) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          timeLeft++;
-          side2.src = "img/lside/mode1_side2_4.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(5);
+            setTimeout("charImg(1);", 800);
+            timeLeft++;
         } else if (gauge == 150) {
-          audioSP.currentTime = 0;
-          audioSP.play();
-          timeLeft = timeLeft + 3;
-          score = score + 500;
-          side2.src = "img/lside/mode1_side2_5.png";
+            audioSP.currentTime = 0;
+            audioSP.play();
+            charImg(5);
+            setTimeout("charImg(1);", 800);
+            timeLeft = timeLeft + 3;
+            score = score + 500;
+            score_area.textContent = ('000' + score).slice(-4);
+            gauge = 0;
         }
 
         if (charIndex == wordChars.length) {
@@ -879,19 +852,41 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-          side2.src = "img/lside/mode1_side2_3.png";
-          score = score + word.length * 10
-          score_area.textContent = score;
-          downcount++;
-          //0.2秒間空白文字を表示してから次の文字を表示する。
-          textColor1 = "　";
-          textColor2 = "　";
-          wordArea_hiragana.textContent = "";
-          wordArea_jp.textContent = "　"
-          typeArea.textContent = textColor1;
-          typeArea2.textContent = textColor2;
-          setTimeout("nextWord();", 200);
+            score = score + (word.length * 10);
+            score_area.textContent = ('000' + score).slice(-4);
+            downcount++;
+            //0.2秒間空白文字を表示してから次の文字を表示する。
+            textColor1 = "　";
+            textColor2 = "　";
+            wordArea_hiragana.textContent = "";
+            wordArea_jp.textContent = "　"
+            typeArea.textContent = textColor1;
+            typeArea2.textContent = textColor2;
+            charImg(2);
+            setTimeout("charImg(1);", 1000);
+            setTimeout("nextWord();", 200);
 
         }
+    }
+}
+
+function charImg(i) {
+    if (i == 1) {
+        rightImgStatus = 0;
+        rightImg.className = "side02-default";
+    } else if (i == 2 && rightImgStatus == 0) {
+        //攻撃
+        rightImgStatus = 1;
+        rightImg.className = "side02-atc";
+    } else if (i == 3 && rightImgStatus == 0) {
+        //ダメージ
+        rightImgStatus = 1;
+        rightImg.className = "side02-dmg";
+    } else if (i == 4) {
+        rightImgStatus = 1;
+        rightImg.className = "side02-bonus";
+    } else if (i == 5) {
+        rightImgStatus = 1;
+        rightImg.className = "side02-bonus2";
     }
 }
