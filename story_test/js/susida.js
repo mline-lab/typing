@@ -380,8 +380,8 @@ var csv = new Array();
 
 var story_a  = 0;
 
-var len;
-
+var story_chapter = 1;
+var story_flg = 1;
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
@@ -454,7 +454,7 @@ function getCSV_hira_File() {
 
 function getCSV_Story(){
   var xhr3 = new XMLHttpRequest();
-  xhr3.open("get", "csv/story.csv", true);
+  xhr3.open("get", "csv/story" + story_chapter + ".csv", true);
   xhr3.send(null);
   xhr3.onload = function() {
     var csv = xhr3.responseText.split("\n");
@@ -491,6 +491,14 @@ function story_Message(){
   safe_img.style.visibility = "visible";
   safe_img.src = "img/story/" +  story[story_a][2] + ".jpg";
   wordArea_jp.textContent = story[story_a][1];
+}
+
+function nextChapter(){
+  startButton.value = "次のストーリーへ"
+  story_a = 0;
+  story_flg = 1;
+  story_chapter++;
+  getCSV_Story();
 }
 
 
@@ -598,7 +606,10 @@ function onStartButtonClick() {
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
 
-    load_Story();
+    if(story_flg == 1){
+      load_Story();
+      story_flg = 0;
+    }
 }
 
 function space_start() {
@@ -664,11 +675,14 @@ function stopTyping() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
-    if (score >= 3000) {
+    if (score >= 1000) {
         //ご褒美
         audioNozomi.play();
-    } else if (score <= 1999) {
+        nextChapter();
+    } else if (score <= 999) {
       //スコア低過ぎ
+      startButton.value = "Start";
+
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
