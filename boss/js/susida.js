@@ -642,10 +642,10 @@ function stopTyping() {
 
     if (winlose == 0) {
       //勝利
-      charImg(6);
+      rightImg.className = "side02-win";
     } else {
       //負け
-      charImg(7);
+      rightImg.className = "side02-lose";
     }
     clearInterval(time);
 
