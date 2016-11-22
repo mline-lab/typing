@@ -465,9 +465,9 @@ function getCSV_Story(){
 }
 
 function load_Story(){
-
+    messageArea.textContent = "";
+    space_flag = 0;
     doSomethingLoop(story.length-1,0);
-
 
 }
 
@@ -475,6 +475,12 @@ function doSomethingLoop(maxCount, i) {
   if (i <= maxCount) {
     story_Message();
     story_a++;
+    if(story_a > story.length-1){
+      safe_img.style.visibility = "hidden";
+      safe_img.src = "img/apple.png";
+      messageArea.textContent = "スペースキーでスタート";
+      space_flag = 1;
+    }
     setTimeout(function(){doSomethingLoop(maxCount, ++i)}, 3000);
   }
 }
@@ -482,6 +488,8 @@ function doSomethingLoop(maxCount, i) {
 
 
 function story_Message(){
+  safe_img.style.visibility = "visible";
+  safe_img.src = "img/story/" +  story[story_a][2] + ".jpg";
   wordArea_jp.textContent = story[story_a][1];
 }
 
