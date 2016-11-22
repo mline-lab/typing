@@ -754,6 +754,9 @@ function moziHenkan(e) {
             audioBad.currentTime = 0;
             audioBad.play();
             score = score - 10;
+            if (score <= 0) {
+              score = 0;
+            }
             score_area.textContent = ('000' + score).slice(-4);
             missCount++;
             charImg(3);
