@@ -543,7 +543,7 @@ function setvar() {
     nontan.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
     charImg(1);
-    checkSide01.className = "";
+
 }
 
 // 3秒後に開始
