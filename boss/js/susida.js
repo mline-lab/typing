@@ -539,6 +539,7 @@ function setvar() {
     name_text.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
+    charImg(1);
 }
 
 // 3秒後に開始
