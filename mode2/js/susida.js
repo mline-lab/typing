@@ -448,8 +448,8 @@ function set_audio() {
     audioNozomi = new Audio();
     audioNozomi.src = "../audio/nozomi/nozomi_voice1.mp3";
 
-    var rand = Math.floor(Math.random() * 3 + 1);
-
+    //var rand = Math.floor(Math.random() * 3 + 1);
+    /*
     if (rand == 1) {
         audioBGM = new Audio();
         audioBGM.src = "../audio/zyunai.mp3";
@@ -487,27 +487,28 @@ function set_audio() {
         document.getElementById("debug").textContent = "♪~M♭/加藤 恵(安野 希世乃)~";
 
     } else if (rand == 3) {
+    */
+    audioBGM = new Audio();
+    audioBGM.src = "../audio/perusona4_bgm.mp3";
 
-        audioBGM = new Audio();
-        audioBGM.src = "../audio/kouya.mp3";
+    audioElem = new Audio();
+    audioElem.src = "../audio/se_ok.ogg";
 
-        audioElem = new Audio();
-        audioElem.src = "../audio/syan.ogg";
+    audioNextVoice = new Audio();
+    audioNextVoice.src = "../audio/voice_next.mp3";
 
-        audioNextVoice = new Audio();
-        audioNextVoice.src = "../audio/voice2.ogg";
+    audioSPcharge = new Audio();
+    audioSPcharge.src = "../audio/voice_sp_charge.mp3";
 
-        audioSPcharge = new Audio();
-        audioSPcharge.src = "../audio/voice1.ogg";
+    audioSP = new Audio();
+    audioSP.src = "../audio/voice_sp.mp3";
 
-        audioSP = new Audio();
-        audioSP.src = "../audio/voice3.ogg";
+    document.getElementById("debug").textContent = "";
 
-        document.getElementById("debug").textContent = "♪~輝夜の城で踊りたい(NOZOMI.MIX)東條 希(CV.楠田 亜衣奈)~";
-
-    }
+    //}
 
 }
+
 
 function setvar() {
     startcount = 5;
