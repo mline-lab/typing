@@ -236,7 +236,7 @@ a {
 .game_div {
     border: 3px solid #ffcf00;
     font-size: 1.2em;
-    background: rgb(255, 255, 255);
+    background-image: url("../img/hosizora.jpg");
 }
 
 .menu_head {
@@ -260,6 +260,7 @@ a {
 #message {
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
+    color: rgb(244, 244, 244);
 }
 
 #word_hiragana {
