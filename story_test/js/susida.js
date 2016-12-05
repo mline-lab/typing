@@ -315,8 +315,6 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
-var imgList = ["img/kabi.png", "img/alc.png"];
-
 //BGM
 var audioBGM;
 //タイプ音
@@ -388,6 +386,7 @@ var worddata　 //3要素の配列。0番目に『文全体のローマ字』、
 
 window.onload = function() {
     messageArea = document.getElementById("message");
+    timeArea = document.getElementById("time");
     wordArea_jp = document.getElementById("word_jp");
     wordArea_hiragana = document.getElementById("word_hiragana");
     typeArea = document.getElementById("type_Before");
@@ -395,13 +394,14 @@ window.onload = function() {
     startButton = document.getElementById("start-button");
     deadlygauge = document.getElementById("deadly");
     image = document.getElementById("image");
+    time_image = document.getElementById("time_image");
+    kougeki = document.getElementById("kougeki");
     safe_img = document.getElementById("safe_img");
     rankButton = document.getElementById("rank-button");
     name_text = document.getElementById("name-text");
     form_ranking = document.getElementById("form_ranking");
     score_area = document.getElementById("score_area");
     rightImg = document.getElementById("side02_id");
-
     leftImg = document.getElementById("side01_id");
 
     nontan = document.getElementById("nontan");
@@ -418,12 +418,13 @@ window.onload = function() {
 
 
     image.style.visibility = "hidden";
+    time_image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     nontan.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    safe_img.src = "img/apple.png";
+    safe_img.src = "img/ayaka.png";
     nontan.src = "img/nozomi_touka.png";
 
     getCSV_jp_File();
@@ -467,10 +468,8 @@ function getCSV_Story(){
 }
 
 function load_Story(){
-    //anten();
     messageArea.textContent = "";
     space_flag = 0;
-    //doSomethingLoop(story.length-1,0);
 }
 
 
@@ -478,25 +477,8 @@ function anten(){
   var temp_color = window.getComputedStyle(black_area, '').color;
 
   black_area.style.backgroundColor = 'black';
-  //$('.menu_head').fadeIn();
 
 }
-
-/*
-function doSomethingLoop(maxCount, i) {
-  if (i <= maxCount) {
-    story_Message();
-    story_line++;
-    if(story_line > story.length-1){
-      safe_img.style.visibility = "hidden";
-      safe_img.src = "img/apple.png";
-      messageArea.textContent = "スペースキーでスタート";
-      space_flag = 1;
-    }
-    setTimeout(function(){doSomethingLoop(maxCount, ++i)}, 3000);
-  }
-}
-*/
 
 function nextMessage(){
   if(space_flag == 0){
@@ -642,7 +624,7 @@ function onStartButtonClick() {
 
 function space_start() {
 
-    safe_img.src = "img/apple.png";
+    safe_img.src = "img/ayaka.png";
     condition.textContent = "";
     space_flag = 0;
     startcount--;
@@ -653,6 +635,7 @@ function space_start() {
         messageArea.textContent = "GO!";
         startTyping();
     } else {
+        messageArea.textContent = "";
         messageArea.textContent = startcount;
         setTimeout("space_start()", 1000);
     }
@@ -665,8 +648,8 @@ function startTyping() {
     audioBGM.volume = 0.1;
 
     game_flag = 1;
-
     image.style.visibility = "visible";
+    time_image.style.visibility = "visible";
     safe_img.style.visibility = "visible";
 
     timeLeft = timeLimit;
@@ -732,6 +715,7 @@ function stopTyping() {
     startButton.disabled = false;
     nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
+    time_image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     startButton.style.visibility = "visible";
     form_ranking.style.visibility = "visible";
@@ -768,8 +752,8 @@ function nextWord() {
     jword = worddata[1];
     word = worddata[2];
 
-    random2 = random;
-    image.src = imgList[Math.floor(Math.random() * 2)];
+    image.src = "img/budou.png";
+    time_image.src = "img/budou.png";
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
@@ -777,6 +761,7 @@ function nextWord() {
     typeArea2.textContent = textColor2;
     x = 0;
     image.style.left = 0 + "px";
+    time_image.style.left = 0 + "px";
 
     moveImg();
 }
@@ -805,7 +790,7 @@ function moveImg() {
         }
 
         //変数ｘの値をCSSに適用
-        image.style.left = x + "px";
+        time_image.style.left = x + "px";
 
     }, 10);
 }
@@ -877,7 +862,8 @@ function countDown() {
         stopTyping();
         return;
     }
-    messageArea.textContent = timeLeft + " sec.";
+    messageArea.textContent = "";
+    timeArea.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 

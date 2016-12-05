@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>プライマル×バクテリア*ステップ</title>
     <meta charset="utf-8">
@@ -10,16 +9,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
     <script type="text/javascript" src="js/towntypelib.js"></script>
 </head>
-
 <body>
     <div class="head_menu">
-            <ul id="menu">
-                <li><a href="../">HOME</a></li>
-                <li><a href="ranking_view.html">ランキング</a></li>
-                <li><a href="../ranking_view.html">ALLランキング</a></li>
-                <li><a href="wordadd/list.html">タイピングワード集</a></li>
-                <li id="mode_img"><img src="img/mode1_logo.png" /></li>
-            </ul>
+        <ul id="menu">
+            <li><a href="../">HOME</a></li>
+            <li><a href="ranking_view.html">ランキング</a></li>
+            <li><a href="../ranking_view.html">ALLランキング</a></li>
+            <li><a href="wordadd/list.html">タイピングワード集</a></li>
+            <li id="mode_img"><img src="img/mode1_logo.png" /></li>
+        </ul>
     </div>
     <div class="bodybody" id="bodyid">
 
@@ -27,7 +25,22 @@
             <div class="main">
                 <p id="debug"></p>
                 <div class="game_div" id="gamemain" onClick="nextMessage()">
-                    <div class="menu_head" id="menu_head_id">
+                    <div class="data_var">
+                        <div class="box">
+                            <span id="score_area">0000</span>
+                        </div>
+                        <div class="box">
+                            <span id="time"></span>
+                        </div>
+                        <div class="box">
+                            <div class="side02_fake">
+                                <div class="side02_gaze" id="side02_gaze_id">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu_head">
+
                         <form>
                             <p>
                                 <input type="button" class="button" id="start-button" value="Start" onClick="onStartButtonClick()">
@@ -37,6 +50,8 @@
                         </form>
                         <div id="img">
                             <img id="image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
+                            <img id="time_image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
+                            <img id="kougeki" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
@@ -48,16 +63,17 @@
                             </form>
                         </div>
                     </div>
-                    <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
-                    <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
-                    <div id="type">
-                        <span id="type_Before">&nbsp;</span>
-                        <span id="type_After">&nbsp;</span>
+                    <div class="font_area">
+                        <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+                        <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+                        <div id="type">
+                            <span id="type_Before">&nbsp;</span>
+                            <span id="type_After">&nbsp;</span>
+                        </div>
+                        <div id="deadly"></div>
                     </div>
-                    <div id="deadly"></div>
                 </div>
             </div>
-
             <div class="side01">
                 <div class="side01-default" id="side01_id">
                 </div>
@@ -66,24 +82,12 @@
         <div class="side02">
             <div class="side02-default" id="side02_id">
             </div>
-            <div class="side02_item">
-                <div class="side02_fake">
-                    <div class="side02_gaze" id="side02_gaze_id">
-                    </div>
-                </div>
-                <div class="side02_score">
-                    <span id="score_area">0000</span>
-                </div>
-            </div>
         </div>
-
 
         <footer>
             <small>Copyright&copy; <a href="https://mline.tell.jp/">mline</a> All Rights Reserved.</small></br>
             <a href="https://mline.tell.jp/"><img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" /></a>
         </footer>
-
     </div>
 </body>
-
 </html>
