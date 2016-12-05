@@ -378,10 +378,11 @@ var rightTime;
 var story = [];
 var csv = new Array();
 
-var story_a  = 0;
+var story_line  = 0;
 
 var story_chapter = 1;
-var story_flg = 1;
+var story_flg = 99;
+var end_chapter = 2;
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
@@ -409,6 +410,9 @@ window.onload = function() {
 
     side02_gaze = document.getElementById("side02_gaze_id");
 
+    black_area = document.getElementById("menu_head_id");
+    condition = document.getElementById("img");
+
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -431,8 +435,6 @@ window.onload = function() {
 
     //ストーリー読み込み
     getCSV_Story();
-
-  //  load_Story();
 
     side02_gaze.style.width = "0px";
 }
@@ -468,17 +470,27 @@ function getCSV_Story(){
 }
 
 function load_Story(){
+    //anten();
     messageArea.textContent = "";
     space_flag = 0;
-    doSomethingLoop(story.length-1,0);
+    //doSomethingLoop(story.length-1,0);
+}
+
+
+function anten(){
+  var temp_color = window.getComputedStyle(black_area, '').color;
+
+  black_area.style.backgroundColor = 'black';
+  //$('.menu_head').fadeIn();
 
 }
 
+/*
 function doSomethingLoop(maxCount, i) {
   if (i <= maxCount) {
     story_Message();
-    story_a++;
-    if(story_a > story.length-1){
+    story_line++;
+    if(story_line > story.length-1){
       safe_img.style.visibility = "hidden";
       safe_img.src = "img/ayaka.png";
       messageArea.textContent = "スペースキーでスタート";
@@ -487,23 +499,39 @@ function doSomethingLoop(maxCount, i) {
     setTimeout(function(){doSomethingLoop(maxCount, ++i)}, 3000);
   }
 }
+*/
 
-
+function nextMessage(){
+  if(space_flag == 0){
+    story_Message();
+    story_line++;
+    if(story_line > story.length-1){
+      safe_img.style.visibility = "hidden";
+      image.style.visibility = "hidden";
+      messageArea.textContent = "スペースキーでスタート";
+      condition.textContent = "クリア条件\n 　スコア１０００以上"
+      space_flag = 1;
+    }
+  }
+}
 
 function story_Message(){
+
   safe_img.style.visibility = "visible";
-  safe_img.src = "img/story/" +  story[story_a][2] + ".jpg";
-  wordArea_jp.textContent = story[story_a][1];
+  image.style.visibility = "visible";
+  safe_img.src = "img/story/" +  story[story_line][2] + ".jpg";
+  image.src = "img/story/" +  story[story_line][3] + ".jpg";
+  wordArea_hiragana.textContent = story[story_line][0];
+  wordArea_jp.textContent = story[story_line][1];
 }
 
 function nextChapter(){
   startButton.value = "次のストーリーへ"
-  story_a = 0;
+  story_line = 0;
   story_flg = 1;
   story_chapter++;
   getCSV_Story();
 }
-
 
 
 
@@ -608,7 +636,7 @@ function onStartButtonClick() {
     startButton.style.visibility = "hidden";
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
-
+    story_flg = 1;
     if(story_flg == 1){
       load_Story();
       story_flg = 0;
@@ -616,6 +644,9 @@ function onStartButtonClick() {
 }
 
 function space_start() {
+
+    safe_img.src = "img/apple.png";
+    condition.textContent = "";
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -682,7 +713,13 @@ function stopTyping() {
     if (score >= 1000) {
         //ご褒美
         audioNozomi.play();
-        nextChapter();
+        if(end_chapter == story_chapter){
+          startButton.value = "Start";
+          story_flg = 0;
+          story_line = 0
+        }else{
+          nextChapter();
+        }
     } else if (score <= 999) {
       //スコア低過ぎ
       startButton.value = "Start";
