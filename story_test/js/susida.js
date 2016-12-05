@@ -409,7 +409,7 @@ window.onload = function() {
     side02_gaze = document.getElementById("side02_gaze_id");
 
     black_area = document.getElementById("menu_head_id");
-    condition = document.getElementById("img");
+    condition = document.getElementById("condition");
 
     shiftdown = 0;
     wordseikaisuu = 0;

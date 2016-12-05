@@ -315,7 +315,7 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
-var imgList = ["img/kabi.png", "img/alc.png"];
+var imgList = ["img/kabi.png", "img/kabi.png"];
 
 //BGM
 var audioBGM;
@@ -410,7 +410,7 @@ window.onload = function() {
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    safe_img.src = "img/apple.png";
+    safe_img.src = "img/pl.png";
     nontan.src = "img/nozomi_touka.png";
 
     getCSV_jp_File();
@@ -649,7 +649,7 @@ function moveImg() {
 
         //x座標に+1
         if (x < 400) {
-            x += 0.8;
+            x += 0.2;
         } else if (x >= 400) {
             gauge = 0;
             charImg(3);
