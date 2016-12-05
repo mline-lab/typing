@@ -383,6 +383,7 @@ var story_line  = 0;
 var story_chapter = 1;
 var story_flg = 99;
 var end_chapter = 2;
+var message_end_flg = 0;
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
@@ -499,7 +500,7 @@ function doSomethingLoop(maxCount, i) {
 */
 
 function nextMessage(){
-  if(space_flag == 0){
+  if(message_end_flg == 0){
     story_Message();
     story_line++;
     if(story_line > story.length-1){
@@ -510,6 +511,7 @@ function nextMessage(){
       messageArea.textContent = "スペースキーでスタート";
       condition.textContent = "クリア条件\n 　スコア１０００以上"
       space_flag = 1;
+      message_end_flg = 1;
     }
   }
 }
