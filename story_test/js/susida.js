@@ -381,9 +381,9 @@ var csv = new Array();
 var story_line  = 0;
 
 var story_chapter = 1;
-var story_flg = 99;
+var story_flg = 1;
 var end_chapter = 2;
-var message_end_flg = 0;
+var message_end_flg = 99;
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
@@ -471,7 +471,6 @@ function load_Story(){
     //anten();
     messageArea.textContent = "";
     space_flag = 0;
-    //doSomethingLoop(story.length-1,0);
 }
 
 
@@ -482,22 +481,6 @@ function anten(){
   //$('.menu_head').fadeIn();
 
 }
-
-/*
-function doSomethingLoop(maxCount, i) {
-  if (i <= maxCount) {
-    story_Message();
-    story_line++;
-    if(story_line > story.length-1){
-      safe_img.style.visibility = "hidden";
-      safe_img.src = "img/apple.png";
-      messageArea.textContent = "スペースキーでスタート";
-      space_flag = 1;
-    }
-    setTimeout(function(){doSomethingLoop(maxCount, ++i)}, 3000);
-  }
-}
-*/
 
 function nextMessage(){
   if(message_end_flg == 0){
@@ -637,10 +620,10 @@ function onStartButtonClick() {
     startButton.style.visibility = "hidden";
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
-    story_flg = 1;
     if(story_flg == 1){
       load_Story();
       story_flg = 0;
+      message_end_flg = 0;
     }
 }
 
@@ -723,7 +706,7 @@ function stopTyping() {
         }
     } else if (score <= 999) {
       //スコア低過ぎ
-      startButton.value = "Start";
+      startButton.value = "Retry";
 
     }
     audioBGM.pause();
@@ -899,9 +882,10 @@ document.onkeydown = function(e) {
     var keyStr;
 
     if (e.keyCode == 32) {
-        if (space_flag == 1) {
-            space_start();
-        }
+      e.preventDefault();
+      if (space_flag == 1) {
+        space_start();
+      }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
             stopTyping();
