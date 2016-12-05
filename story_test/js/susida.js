@@ -315,8 +315,6 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
-var imgList = ["img/kabi.png", "img/alc.png"];
-
 //BGM
 var audioBGM;
 //タイプ音
@@ -470,10 +468,8 @@ function getCSV_Story(){
 }
 
 function load_Story(){
-    //anten();
     messageArea.textContent = "";
     space_flag = 0;
-    //doSomethingLoop(story.length-1,0);
 }
 
 
@@ -481,25 +477,8 @@ function anten(){
   var temp_color = window.getComputedStyle(black_area, '').color;
 
   black_area.style.backgroundColor = 'black';
-  //$('.menu_head').fadeIn();
 
 }
-
-/*
-function doSomethingLoop(maxCount, i) {
-  if (i <= maxCount) {
-    story_Message();
-    story_line++;
-    if(story_line > story.length-1){
-      safe_img.style.visibility = "hidden";
-      safe_img.src = "img/ayaka.png";
-      messageArea.textContent = "スペースキーでスタート";
-      space_flag = 1;
-    }
-    setTimeout(function(){doSomethingLoop(maxCount, ++i)}, 3000);
-  }
-}
-*/
 
 function nextMessage(){
   if(space_flag == 0){
@@ -645,7 +624,7 @@ function onStartButtonClick() {
 
 function space_start() {
 
-    safe_img.src = "img/apple.png";
+    safe_img.src = "img/ayaka.png";
     condition.textContent = "";
     space_flag = 0;
     startcount--;
