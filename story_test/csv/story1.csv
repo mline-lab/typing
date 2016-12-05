@@ -1,8 +1,8 @@
-名前1;メッセージ1_1;nozomi1;
-名前2;メッセージ1_2;nozomi2;
-名前3;メッセージ1_3;nozomi3;
-名前4;メッセージ1_4;nozomi4;
-名前5;メッセージ1_5;nozomi5;
-名前6;メッセージ1_6;nozomi6;
-名前7;メッセージ1_7;nozomi7;
-名前8;メッセージ1_8;nozomi8;
+名前1;メッセージ1_1;nozomi1;nozomi8;
+名前2;メッセージ1_2;nozomi2;nozomi7;
+名前3;メッセージ1_3;nozomi3;nozomi6;
+名前4;メッセージ1_4;nozomi4;nozomi5;
+名前5;メッセージ1_5;nozomi5;nozomi4;
+名前6;メッセージ1_6;nozomi6;nozomi3;
+名前7;メッセージ1_7;nozomi7;nozomi2;
+名前8;メッセージ1_8;nozomi8;nozomi1;
