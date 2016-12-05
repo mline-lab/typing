@@ -217,29 +217,31 @@ a {
     line-height: 28px;
 }
 
-#img {
-    position: relative;
-    height: 100px;
-}
-
 #time_image {
   width: 30px;
   height: auto;
-  position: absolute;
+  position: relative;
   left: 115px;
   top: 150px;
 }
 
+#img {
+    position: absolute;
+    top: 200px;
+}
+
 #image {
     width: 150px;
-    position: relative;
+    position: absolute;
+    left: 100px;
     height: auto;
     float: left;
 }
 
 #safe_img {
     width: 150px;
-    position: relative;
+    position: absolute;
+    left: 250px;
     height: auto;
     float: right;
 }

@@ -384,6 +384,9 @@ var story_flg = 1;
 var end_chapter = 2;
 var message_end_flg = 99;
 
+//プレゼンゴリ押す用
+var netai
+
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
 window.onload = function() {
@@ -408,7 +411,7 @@ window.onload = function() {
     condition = document.getElementById("condition");
     time_gaze_id = document.getElementById("time_gaze_id");
     gamemain = document.getElementById("gamemain");
-
+    time_area = document.getElementById("time_area");
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -419,7 +422,6 @@ window.onload = function() {
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    safe_img.src = "img/ayaka.png";
 
     getCSV_jp_File();
     getCSV_hira_File();
@@ -482,10 +484,11 @@ function nextMessage(){
 
       safe_img.style.visibility = "hidden";
       image.style.visibility = "hidden";
-
-      messageArea.textContent = "スペースキーでスタート";
-      condition.textContent = "クリア条件\n 　スコア１０００以上"
-      space_flag = 1;
+      if (netai != 1){
+        messageArea.textContent = "スペースキーでスタート";
+        condition.textContent = "クリア条件\n 　スコア１０００以上"
+        space_flag = 1;
+      }
       message_end_flg = 1;
     }
   }
@@ -507,6 +510,7 @@ function nextChapter(){
   story_line = 0;
   story_flg = 1;
   story_chapter++;
+  netai = 1;
   getCSV_Story();
 }
 
@@ -556,6 +560,7 @@ function setvar() {
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
+    safe_img.src = "img/story/kaede_default.png";
 }
 
 // 3秒後に開始
@@ -573,8 +578,8 @@ function onStartButtonClick() {
 }
 
 function space_start() {
-    condition.textContent = "";
-    safe_img.src = "img/ayaka.png";
+    condition.textContent = "　\n";
+    safe_img.src = "img/story/kaede_default.png";
 
     space_flag = 0;
     startcount--;
@@ -598,6 +603,7 @@ function startTyping() {
     game_flag = 1;
     image.style.visibility = "visible";
     safe_img.style.visibility = "visible";
+    messageArea.textContent = "　";
 
     timeLeft = timeLimit;
     nextWord();
@@ -672,15 +678,13 @@ function nextWord() {
     jword = worddata[1];
     word = worddata[2];
 
-    image.src = "img/budou.png";
+    image.src = "img/story/budou_default.png";
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
     textColor2 = ro_ma;
     typeArea2.textContent = textColor2;
     x = 0;
-    image.style.left = 0 + "px";
-
     moveImg();
 }
 
@@ -784,7 +788,7 @@ function countDown() {
         stopTyping();
         return;
     }
-    messageArea.textContent = timeLeft + " sec.";
+    time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 
