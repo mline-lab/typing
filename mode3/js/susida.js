@@ -520,7 +520,7 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
-    audioBGM.volume = 0.1;
+    audioBGM.volume = 0.5;
 
     game_flag = 1;
 
