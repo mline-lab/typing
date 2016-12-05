@@ -503,8 +503,10 @@ function nextMessage(){
     story_Message();
     story_line++;
     if(story_line > story.length-1){
+
       safe_img.style.visibility = "hidden";
       image.style.visibility = "hidden";
+
       messageArea.textContent = "スペースキーでスタート";
       condition.textContent = "クリア条件\n 　スコア１０００以上"
       space_flag = 1;
@@ -641,9 +643,9 @@ function onStartButtonClick() {
 }
 
 function space_start() {
-
-    safe_img.src = "img/apple.png";
     condition.textContent = "";
+    safe_img.src = "img/apple.png";
+
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -665,6 +667,7 @@ function startTyping() {
     audioBGM.volume = 0.1;
 
     game_flag = 1;
+
 
     image.style.visibility = "visible";
     safe_img.style.visibility = "visible";
