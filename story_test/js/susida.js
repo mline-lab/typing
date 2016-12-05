@@ -315,7 +315,6 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
-var imgList = ["img/kabi.png", "img/alc.png"];
 
 //BGM
 var audioBGM;
@@ -397,44 +396,39 @@ window.onload = function() {
     deadlygauge = document.getElementById("deadly");
     image = document.getElementById("image");
     safe_img = document.getElementById("safe_img");
+    kougeki = document.getElementById("kougeki");
     rankButton = document.getElementById("rank-button");
     name_text = document.getElementById("name-text");
     form_ranking = document.getElementById("form_ranking");
     score_area = document.getElementById("score_area");
     rightImg = document.getElementById("side02_id");
-
     leftImg = document.getElementById("side01_id");
-
-    nontan = document.getElementById("nontan");
-
     side02_gaze = document.getElementById("side02_gaze_id");
-
     black_area = document.getElementById("menu_head_id");
     condition = document.getElementById("condition");
+    time_gaze_id = document.getElementById("time_gaze_id");
+    gamemain = document.getElementById("gamemain");
 
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
     keysettei = 1;
 
-
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
-    nontan.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    safe_img.src = "img/apple.png";
-    nontan.src = "img/nozomi_touka.png";
+    safe_img.src = "img/ayaka.png";
 
     getCSV_jp_File();
     getCSV_hira_File();
-
 
     //ストーリー読み込み
     getCSV_Story();
 
     side02_gaze.style.width = "0px";
+    time_gaze_id.style.width = "0px";
 }
 
 function getCSV_jp_File() {
@@ -478,8 +472,6 @@ function anten(){
   var temp_color = window.getComputedStyle(black_area, '').color;
 
   black_area.style.backgroundColor = 'black';
-  //$('.menu_head').fadeIn();
-
 }
 
 function nextMessage(){
@@ -503,8 +495,9 @@ function story_Message(){
 
   safe_img.style.visibility = "visible";
   image.style.visibility = "visible";
-  safe_img.src = "img/story/" +  story[story_line][2] + ".jpg";
-  image.src = "img/story/" +  story[story_line][3] + ".jpg";
+  safe_img.src = "img/story/" +  story[story_line][2] + ".png";
+  image.src = "img/story/" +  story[story_line][3] + ".png";
+  gamemain.style.backgroundImage = "url(" + "img/story/" + story[story_line][4] + ".jpg" + ")";
   wordArea_hiragana.textContent = story[story_line][0];
   wordArea_jp.textContent = story[story_line][1];
 }
@@ -562,7 +555,6 @@ function setvar() {
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    nontan.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
 }
 
@@ -582,7 +574,7 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
-    safe_img.src = "img/apple.png";
+    safe_img.src = "img/ayaka.png";
 
     space_flag = 0;
     startcount--;
@@ -615,28 +607,6 @@ function startTyping() {
 
 }
 
-function rank_push() {
-
-    username = document.ranking.username.value;
-    mode = "1";
-    $.ajax({
-        type: 'POST',
-        url: 'rank_push.php',
-        data: {
-            'name': username,
-            'score': score,
-            'count': downcount,
-            'miss': missCount,
-            'mode': mode
-        },
-        success: function(data) {
-            document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-            alert("ランキング登録しました。");
-        }
-    });
-
-}
-
 // 終了
 function stopTyping() {
     clearInterval(timer1);
@@ -666,14 +636,11 @@ function stopTyping() {
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
+    time_gaze_id.style.width = 0 + "px";
     startButton.disabled = false;
-    nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     startButton.style.visibility = "visible";
-    form_ranking.style.visibility = "visible";
-    rankButton.style.visibility = "visible";
-    name_text.style.visibility = "visible";
     $('.game_div').css({
         "border": "3px solid #ffcf00"
     });
@@ -705,8 +672,7 @@ function nextWord() {
     jword = worddata[1];
     word = worddata[2];
 
-    random2 = random;
-    image.src = imgList[Math.floor(Math.random() * 2)];
+    image.src = "img/budou.png";
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
@@ -732,17 +698,19 @@ function moveImg() {
     time = setInterval(function() {
 
         //x座標に+1
-        if (x < 400) {
+        if (x < 500) {
             x += 0.8;
-        } else if (x >= 400) {
+        } else if (x >= 500) {
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
+            safe_img.src = "img/story/kaede_miss.png"
             charImg(3);
             setTimeout("charImg(1);", 1000);
             nextWord();
         }
 
         //変数ｘの値をCSSに適用
-        image.style.left = x + "px";
+        time_gaze_id.style.width = x + "px";
 
     }, 10);
 }
@@ -793,9 +761,11 @@ function moziHenkan(e) {
             hantei();
         } else {
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
+            safe_img.src = "img/story/kaede_miss.png"
             charImg(3);
             setTimeout("charImg(1);", 1000);
             $('.game_div').css({
@@ -866,25 +836,27 @@ function hantei() {
         //入力後の文字を表示
         typeArea2.textContent = textColor2;
 
+        safe_img.src = "img/story/kaede_default.png"
+
         $('.game_div').css({
             "border": "3px solid #ffcf00"
         });
 
-        gauge++;
+        gauge = gauge + 0.5;
         side02_gaze.style.width = gauge + "px";
-        if (gauge == 50) {
+        if (gauge == 25) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(4);
             setTimeout("charImg(1);", 700);
             timeLeft++;
-        } else if (gauge == 100) {
+        } else if (gauge == 50) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
             setTimeout("charImg(1);", 800);
             timeLeft++;
-        } else if (gauge == 150) {
+        } else if (gauge >= 100) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
@@ -892,6 +864,7 @@ function hantei() {
             timeLeft = timeLeft + 3;
             score = score + 500;
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
         }
 
         if (charIndex == wordChars.length) {
@@ -910,6 +883,7 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
+            safe_img.src = "img/story/kaede_atk.png"
             charImg(2);
             setTimeout("charImg(1);", 1000);
             setTimeout("nextWord();", 200);

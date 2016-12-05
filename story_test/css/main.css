@@ -65,7 +65,7 @@ a {
 
 .main {
     width: 624px;
-    height: 700px;
+    height: 600px;
     float: right;
 }
 
@@ -231,14 +231,15 @@ a {
 }
 
 #image {
-    width: 100px;
+    width: 150px;
+    position: relative;
     height: auto;
-    position: absolute;
-    left: 115px;
+    float: left;
 }
 
 #safe_img {
-    width: 100px;
+    width: 150px;
+    position: relative;
     height: auto;
     float: right;
 }
@@ -278,15 +279,6 @@ footer {
     width: 600px;
     height: auto;
     margin: 0 auto;
-    bottom: 0;
-}
-
-#nontan {
-    position: absolute;
-    top: -110px;
-    left: 150px;
-    width: auto;
-    height: 400px;
 }
 
 .font_area {
@@ -303,7 +295,7 @@ footer {
     box-pack: center;
     -webkit-box-pack: center;
     -moz-box-pack: center;
-    background-color: rgb(5, 119, 230);
+    background-color: rgb(91, 174, 255);
 }
 
 .box {
@@ -319,14 +311,14 @@ footer {
 .side02_fake {
     width: 100px;
     height: 20px;
-    border: medium solid #ff00ff;
+    border: medium solid #242424;
     margin: 0 auto;
 }
 
 .side02_gaze {
   height: 20px;
-  background: linear-gradient(-90deg, #0d8a06, #75ffb1);
-  float: right;
+  background: linear-gradient(-90deg, #8a7d06, #f0ff75);
+  float: left;
 }
 
 .side02_score {
@@ -334,4 +326,16 @@ footer {
     text-align: center;
     border: medium solid #ff00ff;
     margin: 0 auto;
+}
+
+.time_fake {
+  width: 100%;
+  height: 10px;
+  margin: 0 auto;
+}
+
+.time_gaze {
+  height: 10px;
+  background: linear-gradient(-90deg, #06668a, #75eeff);
+  float: left;
 }
