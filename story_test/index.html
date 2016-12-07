@@ -13,10 +13,10 @@
     <div class="head_menu">
         <ul id="menu">
             <li><a href="../">HOME</a></li>
-            <li><a href="ranking_view.html">ランキング</a></li>
-            <li><a href="../ranking_view.html">ALLランキング</a></li>
-            <li><a href="wordadd/list.html">タイピングワード集</a></li>
-            <li id="mode_img"><img src="img/mode1_logo.png" /></li>
+            <li><a href="#">キャラクター</a></li>
+            <li><a href="#">イントロ</a></li>
+            <li><a href="#">PV</a></li>
+            <li>ストーリー</li>
         </ul>
     </div>
     <div class="bodybody" id="bodyid">
@@ -30,7 +30,7 @@
                             <span id="score_area">0000</span>
                         </div>
                         <div class="box">
-                            <span id="time"></span>
+                            <span id="time_area">Sec.</span>
                         </div>
                         <div class="box">
                             <div class="side02_fake">
@@ -46,13 +46,12 @@
                                 <input type="button" class="button" id="start-button" value="Start" onClick="onStartButtonClick()">
                                 <br>
                                 <span id="message">Press Start</span>
+                                <div style="font-weight: bold;" id="condition">&nbsp;</div>
                             </p>
                         </form>
                         <div id="img">
                             <img id="image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
-                            <img id="time_image" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="kougeki" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
-                            <img id="nontan" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                             <img id="safe_img" src="" visibility="hidden" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" />
                         </div>
                         <div class="rank_div">
@@ -62,6 +61,10 @@
                                 <input type="submit" class="button" id="rank-button" value="ランキング登録" onClick="rank_push()">
                             </form>
                         </div>
+                    </div>
+                    <div class="time_fake">
+                      <div class="time_gaze" id="time_gaze_id">
+                      </div>
                     </div>
                     <div class="font_area">
                         <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>

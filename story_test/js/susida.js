@@ -315,6 +315,7 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
+
 //BGM
 var audioBGM;
 //タイプ音
@@ -379,14 +380,17 @@ var csv = new Array();
 var story_line  = 0;
 
 var story_chapter = 1;
-var story_flg = 99;
+var story_flg = 1;
 var end_chapter = 2;
+var message_end_flg = 99;
+
+//プレゼンゴリ押す用
+var netai
 
 var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 
 window.onload = function() {
     messageArea = document.getElementById("message");
-    timeArea = document.getElementById("time");
     wordArea_jp = document.getElementById("word_jp");
     wordArea_hiragana = document.getElementById("word_hiragana");
     typeArea = document.getElementById("type_Before");
@@ -394,47 +398,39 @@ window.onload = function() {
     startButton = document.getElementById("start-button");
     deadlygauge = document.getElementById("deadly");
     image = document.getElementById("image");
-    time_image = document.getElementById("time_image");
-    kougeki = document.getElementById("kougeki");
     safe_img = document.getElementById("safe_img");
+    kougeki = document.getElementById("kougeki");
     rankButton = document.getElementById("rank-button");
     name_text = document.getElementById("name-text");
     form_ranking = document.getElementById("form_ranking");
     score_area = document.getElementById("score_area");
     rightImg = document.getElementById("side02_id");
     leftImg = document.getElementById("side01_id");
-
-    nontan = document.getElementById("nontan");
-
     side02_gaze = document.getElementById("side02_gaze_id");
-
     black_area = document.getElementById("menu_head_id");
-    condition = document.getElementById("img");
-
+    condition = document.getElementById("condition");
+    time_gaze_id = document.getElementById("time_gaze_id");
+    gamemain = document.getElementById("gamemain");
+    time_area = document.getElementById("time_area");
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
     keysettei = 1;
 
-
     image.style.visibility = "hidden";
-    time_image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
-    nontan.style.visibility = "hidden";
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    safe_img.src = "img/ayaka.png";
-    nontan.src = "img/nozomi_touka.png";
 
     getCSV_jp_File();
     getCSV_hira_File();
-
 
     //ストーリー読み込み
     getCSV_Story();
 
     side02_gaze.style.width = "0px";
+    time_gaze_id.style.width = "0px";
 }
 
 function getCSV_jp_File() {
@@ -468,6 +464,7 @@ function getCSV_Story(){
 }
 
 function load_Story(){
+    //anten();
     messageArea.textContent = "";
     space_flag = 0;
 }
@@ -477,19 +474,22 @@ function anten(){
   var temp_color = window.getComputedStyle(black_area, '').color;
 
   black_area.style.backgroundColor = 'black';
-
 }
 
 function nextMessage(){
-  if(space_flag == 0){
+  if(message_end_flg == 0){
     story_Message();
     story_line++;
     if(story_line > story.length-1){
+
       safe_img.style.visibility = "hidden";
       image.style.visibility = "hidden";
-      messageArea.textContent = "スペースキーでスタート";
-      condition.textContent = "クリア条件\n 　スコア１０００以上"
-      space_flag = 1;
+      if (netai != 1){
+        messageArea.textContent = "スペースキーでスタート";
+        condition.textContent = "クリア条件\n 　スコア１０００以上"
+        space_flag = 1;
+      }
+      message_end_flg = 1;
     }
   }
 }
@@ -498,8 +498,9 @@ function story_Message(){
 
   safe_img.style.visibility = "visible";
   image.style.visibility = "visible";
-  safe_img.src = "img/story/" +  story[story_line][2] + ".jpg";
-  image.src = "img/story/" +  story[story_line][3] + ".jpg";
+  safe_img.src = "img/story/" +  story[story_line][2] + ".png";
+  image.src = "img/story/" +  story[story_line][3] + ".png";
+  gamemain.style.backgroundImage = "url(" + "img/story/" + story[story_line][4] + ".jpg" + ")";
   wordArea_hiragana.textContent = story[story_line][0];
   wordArea_jp.textContent = story[story_line][1];
 }
@@ -509,6 +510,7 @@ function nextChapter(){
   story_line = 0;
   story_flg = 1;
   story_chapter++;
+  netai = 1;
   getCSV_Story();
 }
 
@@ -519,24 +521,20 @@ function set_audio() {
     audioBad = new Audio();
     audioBad.src = "audio/bad_se.ogg";
 
-    audioNozomi = new Audio();
-    audioNozomi.src = "audio/nozomi/nozomi_voice1.mp3";
+    audioBGM = new Audio();
+    audioBGM.src = "../audio/mangetunotikurin.mp3";
 
+    audioElem = new Audio();
+    audioElem.src = "audio/se_ok.ogg";
 
-        audioBGM = new Audio();
-        audioBGM.src = "audio/m.mp3";
+    audioNextVoice = new Audio();
+    audioNextVoice.src = "audio/voice_next.mp3";
 
-        audioElem = new Audio();
-        audioElem.src = "audio/se_ok.ogg";
+    audioSPcharge = new Audio();
+    audioSPcharge.src = "audio/voice_sp_charge.mp3";
 
-        audioNextVoice = new Audio();
-        audioNextVoice.src = "audio/voice_next.mp3";
-
-        audioSPcharge = new Audio();
-        audioSPcharge.src = "audio/voice_sp_charge.mp3";
-
-        audioSP = new Audio();
-        audioSP.src = "audio/voice_sp.mp3";
+    audioSP = new Audio();
+    audioSP.src = "audio/voice_sp.mp3";
 
 }
 
@@ -561,8 +559,8 @@ function setvar() {
     form_ranking.style.visibility = "hidden";
     rankButton.style.visibility = "hidden";
     name_text.style.visibility = "hidden";
-    nontan.style.visibility = "hidden";
     side02_gaze.style.width = "0px";
+    safe_img.src = "img/story/kaede_default.png";
 }
 
 // 3秒後に開始
@@ -572,17 +570,17 @@ function onStartButtonClick() {
     startButton.style.visibility = "hidden";
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
-    story_flg = 1;
     if(story_flg == 1){
       load_Story();
       story_flg = 0;
+      message_end_flg = 0;
     }
 }
 
 function space_start() {
+    condition.textContent = "　\n";
+    safe_img.src = "img/story/kaede_default.png";
 
-    safe_img.src = "img/ayaka.png";
-    condition.textContent = "";
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -592,7 +590,6 @@ function space_start() {
         messageArea.textContent = "GO!";
         startTyping();
     } else {
-        messageArea.textContent = "";
         messageArea.textContent = startcount;
         setTimeout("space_start()", 1000);
     }
@@ -602,40 +599,17 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
-    audioBGM.volume = 0.1;
-
+    audioBGM.volume = 0.5;
     game_flag = 1;
     image.style.visibility = "visible";
-    time_image.style.visibility = "visible";
     safe_img.style.visibility = "visible";
+    messageArea.textContent = "　";
 
     timeLeft = timeLimit;
     nextWord();
     countDown();
     timer1 = setInterval("countDown()", 1000);
     startButton.disabled = true;
-
-}
-
-function rank_push() {
-
-    username = document.ranking.username.value;
-    mode = "1";
-    $.ajax({
-        type: 'POST',
-        url: 'rank_push.php',
-        data: {
-            'name': username,
-            'score': score,
-            'count': downcount,
-            'miss': missCount,
-            'mode': mode
-        },
-        success: function(data) {
-            document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-            alert("ランキング登録しました。");
-        }
-    });
 
 }
 
@@ -647,8 +621,7 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 1000) {
-        //ご褒美
-        audioNozomi.play();
+
         if(end_chapter == story_chapter){
           startButton.value = "Start";
           story_flg = 0;
@@ -658,7 +631,7 @@ function stopTyping() {
         }
     } else if (score <= 999) {
       //スコア低過ぎ
-      startButton.value = "Start";
+      startButton.value = "Retry";
 
     }
     audioBGM.pause();
@@ -669,15 +642,11 @@ function stopTyping() {
     wordArea_hiragana.textContent = "";
     wordArea_jp.textContent = "";
     deadlygauge.textContent = "";
+    time_gaze_id.style.width = 0 + "px";
     startButton.disabled = false;
-    nontan.style.visibility = "hidden";
     image.style.visibility = "hidden";
-    time_image.style.visibility = "hidden";
     safe_img.style.visibility = "hidden";
     startButton.style.visibility = "visible";
-    form_ranking.style.visibility = "visible";
-    rankButton.style.visibility = "visible";
-    name_text.style.visibility = "visible";
     $('.game_div').css({
         "border": "3px solid #ffcf00"
     });
@@ -709,17 +678,13 @@ function nextWord() {
     jword = worddata[1];
     word = worddata[2];
 
-    image.src = "img/budou.png";
-    time_image.src = "img/budou.png";
+    image.src = "img/story/budou_default.png";
 
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
     textColor2 = ro_ma;
     typeArea2.textContent = textColor2;
     x = 0;
-    image.style.left = 0 + "px";
-    time_image.style.left = 0 + "px";
-
     moveImg();
 }
 
@@ -737,17 +702,19 @@ function moveImg() {
     time = setInterval(function() {
 
         //x座標に+1
-        if (x < 400) {
+        if (x < 500) {
             x += 0.8;
-        } else if (x >= 400) {
+        } else if (x >= 500) {
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
+            safe_img.src = "img/story/kaede_miss.png"
             charImg(3);
             setTimeout("charImg(1);", 1000);
             nextWord();
         }
 
         //変数ｘの値をCSSに適用
-        time_image.style.left = x + "px";
+        time_gaze_id.style.width = x + "px";
 
     }, 10);
 }
@@ -798,9 +765,11 @@ function moziHenkan(e) {
             hantei();
         } else {
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
+            safe_img.src = "img/story/kaede_miss.png"
             charImg(3);
             setTimeout("charImg(1);", 1000);
             $('.game_div').css({
@@ -819,8 +788,7 @@ function countDown() {
         stopTyping();
         return;
     }
-    messageArea.textContent = "";
-    timeArea.textContent = timeLeft + " sec.";
+    time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 
@@ -837,9 +805,10 @@ document.onkeydown = function(e) {
     var keyStr;
 
     if (e.keyCode == 32) {
-        if (space_flag == 1) {
-            space_start();
-        }
+      e.preventDefault();
+      if (space_flag == 1) {
+        space_start();
+      }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
             stopTyping();
@@ -871,25 +840,27 @@ function hantei() {
         //入力後の文字を表示
         typeArea2.textContent = textColor2;
 
+        safe_img.src = "img/story/kaede_default.png"
+
         $('.game_div').css({
             "border": "3px solid #ffcf00"
         });
 
-        gauge++;
+        gauge = gauge + 0.5;
         side02_gaze.style.width = gauge + "px";
-        if (gauge == 50) {
+        if (gauge == 25) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(4);
             setTimeout("charImg(1);", 700);
             timeLeft++;
-        } else if (gauge == 100) {
+        } else if (gauge == 50) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
             setTimeout("charImg(1);", 800);
             timeLeft++;
-        } else if (gauge == 150) {
+        } else if (gauge >= 100) {
             audioSP.currentTime = 0;
             audioSP.play();
             charImg(5);
@@ -897,6 +868,7 @@ function hantei() {
             timeLeft = timeLeft + 3;
             score = score + 500;
             gauge = 0;
+            side02_gaze.style.width = gauge + "px";
         }
 
         if (charIndex == wordChars.length) {
@@ -915,6 +887,7 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
+            safe_img.src = "img/story/kaede_atk.png"
             charImg(2);
             setTimeout("charImg(1);", 1000);
             setTimeout("nextWord();", 200);
