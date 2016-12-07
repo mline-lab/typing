@@ -408,6 +408,10 @@ window.onload = function() {
     time_gaze_id = document.getElementById("time_gaze_id");
     gamemain = document.getElementById("gamebody");
     time_area = document.getElementById("time_area");
+
+    teki_img = document.getElementById("teki_img");
+    player_img = document.getElementById("player_img");
+
     img1 = document.getElementById("img1");
     img2 = document.getElementById("img2");
     img3 = document.getElementById("img3");
@@ -497,7 +501,7 @@ function story_Message() {
     img3.src = "img/story/" + story[story_line][4] + ".png";
     img4.src = "img/story/" + story[story_line][5] + ".png";
     img5.src = "img/story/" + story[story_line][6] + ".png";
-    
+
     gamemain.style.backgroundImage = "url(" + "img/story/" + story[story_line][7] + ".jpg" + ")";
     wordArea_hiragana.textContent = story[story_line][0];
     wordArea_jp.textContent = story[story_line][1];
@@ -577,7 +581,8 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
-    safe_img.src = "img/story/kaede_default.png";
+    player_img.style.backgroundImage = "url(img/typing/kaede_default.png)";
+    teki_img.style.backgroundImage = "url(img/typing/budou_default.png)";
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -598,8 +603,6 @@ function startTyping() {
     audioBGM.play();
     audioBGM.volume = 0.3;
     game_flag = 1;
-    img1.style.visibility = "visible";
-    img5.style.visibility = "visible";
     game_messsage.style.visibility = "hidden";
 
     timeLeft = timeLimit;
@@ -674,8 +677,6 @@ function nextWord() {
     jword = worddata[1];
     word = worddata[2];
 
-    img1.src = "img/story/budou_default.png";
-
     typeArea.textContent = "";
     wordChars = ro_ma.toUpperCase().split('');
     textColor2 = ro_ma;
@@ -703,8 +704,7 @@ function moveImg() {
         } else if (x >= 500) {
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
-            img5.src = "img/story/kaede_miss.png"
-            charImg(3);
+            player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
             nextWord();
         }
 
@@ -764,7 +764,7 @@ function moziHenkan(e) {
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
-            img5.src = "img/story/kaede_miss.png"
+            player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -833,7 +833,7 @@ function hantei() {
         //入力後の文字を表示
         typeArea2.textContent = textColor2;
 
-        img5.src = "img/story/kaede_default.png"
+        player_img.style.backgroundImage = "url(img/typing/kaede_default.png)";
 
         $('.game_div').css({
             "border": "3px solid #ffcf00"
@@ -874,7 +874,8 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            img5.src = "img/story/kaede_atk.png"
+            player_img.style.backgroundImage = "url(img/typing/kaede_atk2.png)";
+            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
             setTimeout("nextWord();", 200);
 
         }
