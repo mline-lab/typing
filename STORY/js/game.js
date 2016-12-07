@@ -836,10 +836,14 @@ function hantei() {
         if (gauge == 25) {
             audioSP.currentTime = 0;
             audioSP.play();
+            player_img.style.backgroundImage = "url(img/typing/kaede_atk2.png)";
+            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
             timeLeft++;
         } else if (gauge == 50) {
             audioSP.currentTime = 0;
             audioSP.play();
+            player_img.style.backgroundImage = "url(img/typing/kaede_atk3.png)";
+            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
             timeLeft++;
         } else if (gauge >= 100) {
             audioSP.currentTime = 0;
@@ -866,7 +870,7 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            player_img.style.backgroundImage = "url(img/typing/kaede_atk2.png)";
+            player_img.style.backgroundImage = "url(img/typing/kaede_atk.png)";
             setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
             setTimeout("nextWord();", 200);
 
