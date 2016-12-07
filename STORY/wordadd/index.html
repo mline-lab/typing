@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>プライマル×バクテリア*ステップ</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+
+</head>
+
+<body>
+  <div class="head_menu">
+    <a id="menubutton" href="../">HOME</a>
+    <a id="menubutton" href="../ranking_view.php" target="_blank">ランキング</a>
+    <a id="menubutton" href="list.html">ワード一覧</a>
+  </div>
+  <div class="jumbotron">
+    <div class="box">
+      <p>タイピングワード追加</p>
+      <form action="add.php" method="POST">
+        <input type="text" placeholder="タイピングワード" name="jp" required>
+        <input type="text" placeholder="ひらがな" name="kana" required maxlength='15'>
+        <input type=SUBMIT value="追加" class="btn btn-default full-width">
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
