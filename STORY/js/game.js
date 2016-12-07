@@ -327,8 +327,6 @@ var audioNextVoice;
 //必殺音
 var audioSPcharge;
 var audioSP;
-//ハイスコアボイス
-var audioNozomi;
 
 // 時間制限
 var timeLimit = 60;
@@ -351,8 +349,6 @@ var random2;
 var textColor1;
 var textColor2;
 var missCount;
-var nextWeight;
-var weightOut
 
 //タイムゲージ
 var time; //タイマーＩＤ用
@@ -367,12 +363,6 @@ var mode;
 
 var wordList_jp = new Array();
 var wordList_hiragana = new Array();
-//
-var csv;
-var rightImg;
-var rightImgStatus;
-var rightTime;
-
 
 //ストーリー配列
 var story = [];
@@ -549,7 +539,6 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
-    rightImgStatus = 0;
     score_area.textContent = "0000";
     typeArea.textContent = "";
     typeArea2.textContent = "";
@@ -572,7 +561,6 @@ function onStartButtonClick() {
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
     if (story_flg == 1) {
-      messageArea.textContent = "OK";
         load_Story();
         story_flg = 0;
         message_end_flg = 0;
@@ -620,7 +608,11 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 1000) {
+      player_img.style.backgroundImage = "";
+      teki_img.style.backgroundImage = "";
 
+      startButton.style.visibility = "visible";
+      game_messsage.style.visibility = "visible";
         if (end_chapter == story_chapter) {
             startButton.value = "Start";
             story_flg = 0;
@@ -777,11 +769,11 @@ function moziHenkan(e) {
 
 // 残り時間を計測
 function countDown() {
+    time_area.textContent = timeLeft + " sec.";
     if (timeLeft <= 0) {
         stopTyping();
         return;
     }
-    time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 
