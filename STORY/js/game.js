@@ -793,13 +793,7 @@ document.onkeydown = function(e) {
         e.preventDefault();
         if (space_flag == 1) {
             space_start();
-        }
-    } else if (e.keyCode == 27) {
-        if (game_flag == 1) {
-            stopTyping();
-            onStartButtonClick();
-        }
-    } else {
+        } else {
         moziHenkan(e);
     }
 };
