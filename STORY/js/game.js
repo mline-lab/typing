@@ -790,10 +790,15 @@ document.onkeydown = function(e) {
     var keyStr;
 
     if (e.keyCode == 32) {
-        e.preventDefault();
         if (space_flag == 1) {
             space_start();
-        } else {
+        }
+    } else if (e.keyCode == 27) {
+        if (game_flag == 1) {
+            stopTyping();
+            onStartButtonClick();
+        }
+    } else {
         moziHenkan(e);
     }
 };
