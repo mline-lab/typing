@@ -55,6 +55,11 @@ a {
     text-align: center;
 }
 
+#mute_button {
+  width: 30%;
+  height: auto;
+}
+
 .side02 {
     width: 200px;
     height: 500px;

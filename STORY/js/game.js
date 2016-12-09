@@ -531,7 +531,7 @@ function nextChapter() {
 
 function on_mute() {
   if (mute == 0) {
-    mute_button.src = "img/mute_on.png";
+    mute_button.src = "img/volume_on.png";
     audioBad.volume = 0;
     audioBGM.volume = 0;
     audioElem.volume = 0;
@@ -540,7 +540,7 @@ function on_mute() {
     audioSP.volume = 0;
     mute = 1;
   } else {
-    mute_button.src = "img/mute.png";
+    mute_button.src = "img/volume_off.png";
     audioBad.volume = 0.5;
     audioBGM.volume = 0.5;
     audioElem.volume = 0.5;
