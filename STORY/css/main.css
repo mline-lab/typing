@@ -43,6 +43,12 @@ a {
     background: rgb(255, 255, 255);
 }
 
+.side01_menu_item li{
+  width: 200px;
+  text-align: center;
+  list-style: none;
+}
+
 .side02 {
     width: 200px;
     height: 500px;
@@ -200,6 +206,7 @@ a {
 .game_main {
   width: 500px;
   height: 350px;
+  background-repeat: no-repeat;
 }
 
 .left_img {

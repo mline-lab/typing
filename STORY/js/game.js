@@ -328,6 +328,10 @@ var audioNextVoice;
 var audioSPcharge;
 var audioSP;
 
+//ボリューム
+var mute = 0;
+var bgm_volume;
+
 // 時間制限
 var timeLimit = 60;
 var game_flag = 0;
@@ -368,7 +372,7 @@ var wordList_hiragana = new Array();
 var story = [];
 var csv = new Array();
 
-var story_line = 0;
+var story_line = -1;
 
 var story_chapter = 1;
 var story_flg = 1;
@@ -407,6 +411,8 @@ window.onload = function() {
     img3 = document.getElementById("img3");
     img4 = document.getElementById("img4");
     img5 = document.getElementById("img5");
+
+    mute_button = document.getElementById("mute_button");
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -417,6 +423,8 @@ window.onload = function() {
 
     //ストーリー読み込み
     getCSV_Story();
+
+    set_audio();
 
     skil_gaze.style.width = "0px";
     time_gaze_id.style.width = "0px";
@@ -460,8 +468,8 @@ function load_Story() {
 
 function nextMessage() {
     if (message_end_flg == 0) {
-        story_Message();
         story_line++;
+        story_Message();
         if (story_line > story.length - 1) {
             img1.style.visibility = "hidden";
             img2.style.visibility = "hidden";
@@ -469,6 +477,7 @@ function nextMessage() {
             img4.style.visibility = "hidden";
             img5.style.visibility = "hidden";
             if (netai != 1) {
+                gamemain.style.backgroundImage = "";
                 messageArea.textContent = "スペースキーでスタート";
                 condition.textContent = "クリア条件\n 　スコア１０００以上"
                 space_flag = 1;
@@ -476,6 +485,29 @@ function nextMessage() {
             message_end_flg = 1;
         }
     }
+}
+
+function BackMessage() {
+  if (story_line >= 1) {
+    if (message_end_flg == 0) {
+        story_line--;
+        story_Message();
+        if (story_line > story.length - 1) {
+            img1.style.visibility = "hidden";
+            img2.style.visibility = "hidden";
+            img3.style.visibility = "hidden";
+            img4.style.visibility = "hidden";
+            img5.style.visibility = "hidden";
+            if (netai != 1) {
+                gamemain.style.backgroundImage = "";
+                messageArea.textContent = "スペースキーでスタート";
+                condition.textContent = "クリア条件\n 　スコア１０００以上"
+                space_flag = 1;
+            }
+            message_end_flg = 1;
+        }
+    }
+  }
 }
 
 function story_Message() {
@@ -506,27 +538,55 @@ function nextChapter() {
     getCSV_Story();
 }
 
+function on_mute() {
+  alert();
+  if (mute == 0) {
+    mute_button.src = "img/mute_on.png";
+    audioBad.volume = 0;
+    audioBGM.volume = 0;
+    audioElem.volume = 0;
+    audioNextVoice.volume = 0;
+    audioSPcharge.volume = 0;
+    audioSP.volume = 0;
+    mute = 1;
+  } else {
+    mute_button.src = "img/mute.png";
+    audioBad.volume = 0.5;
+    audioBGM.volume = 0.5;
+    audioElem.volume = 0.5;
+    audioNextVoice.volume = 0.5;
+    audioSPcharge.volume = 0.5;
+    audioSP.volume = 0.5;
+    mute = 0;
+  }
+}
 
 
 function set_audio() {
 
     audioBad = new Audio();
     audioBad.src = "audio/bad_se.ogg";
+    audioBad.volume = 0.5;
 
     audioBGM = new Audio();
     audioBGM.src = "../audio/mangetunotikurin.mp3";
+    audioBGM.volume = 0.5;
 
     audioElem = new Audio();
     audioElem.src = "audio/se_ok.ogg";
+    audioElem.volume = 0.5;
 
     audioNextVoice = new Audio();
     audioNextVoice.src = "audio/voice_next.mp3";
+    audioNextVoice.volume = 0.5;
 
     audioSPcharge = new Audio();
     audioSPcharge.src = "audio/voice_sp_charge.mp3";
+    audioSPcharge.volume = 0.5;
 
     audioSP = new Audio();
     audioSP.src = "audio/voice_sp.mp3";
+    audioSP.volume = 0.5;
 
 }
 
@@ -557,7 +617,7 @@ function setvar() {
 
 function onStartButtonClick() {
     setvar();
-    set_audio();
+
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
     if (story_flg == 1) {
@@ -589,7 +649,7 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
-    audioBGM.volume = 0.3;
+
     game_flag = 1;
     game_messsage.style.visibility = "hidden";
 
