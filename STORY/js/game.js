@@ -539,7 +539,6 @@ function nextChapter() {
 }
 
 function on_mute() {
-  alert();
   if (mute == 0) {
     mute_button.src = "img/mute_on.png";
     audioBad.volume = 0;
