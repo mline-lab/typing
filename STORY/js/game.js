@@ -554,6 +554,43 @@ function on_mute() {
   }
 }
 
+function re_chapter(){
+
+  messageArea.textContent = "";
+  condition.textContent = "";
+  typeArea.textContent = "";
+  typeArea2.textContent = "";
+  wordArea_hiragana.textContent = "";
+  wordArea_jp.textContent = "";
+  time_gaze_id.style.width = 0 + "px";
+  gamemain.style.backgroundImage = "";
+
+  img1.style.visibility = "hidden";
+  img2.style.visibility = "hidden";
+  img3.style.visibility = "hidden";
+  img4.style.visibility = "hidden";
+  img5.style.visibility = "hidden";
+
+  startButton.style.visibility = "visible";
+
+  input_item.style.visibility = "visible";
+  $('.game_div').css({
+      "border": "3px solid #ffcf00"
+  });
+}
+
+function butonn_chapter(chapter_num){
+  if (space_flag != 0) {
+    story_line = 0;
+    story_flg = 1;
+    story = [];
+    story_chapter = chapter_num;
+    re_chapter();
+    getCSV_Story();
+    startButton.value = "第「" + story_chapter　+ "」話"
+  }
+}
+
 function bgm_volume_up(){
   if (bgm_volume != 10) {
     bgm_volume++;
@@ -625,7 +662,6 @@ function setvar() {
 
 function onStartButtonClick() {
     setvar();
-
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
     if (story_flg == 1) {
@@ -860,11 +896,6 @@ document.onkeydown = function(e) {
     if (e.keyCode == 32) {
         if (space_flag == 1) {
             space_start();
-        }
-    } else if (e.keyCode == 27) {
-        if (game_flag == 1) {
-            stopTyping();
-            onStartButtonClick();
         }
     } else {
         moziHenkan(e);
