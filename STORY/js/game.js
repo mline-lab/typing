@@ -468,8 +468,7 @@ function load_Story() {
 
 function nextMessage() {
     if (message_end_flg == 0) {
-        story_line++;
-        story_Message();
+
         if (story_line > story.length - 1) {
             img1.style.visibility = "hidden";
             img2.style.visibility = "hidden";
@@ -477,13 +476,19 @@ function nextMessage() {
             img4.style.visibility = "hidden";
             img5.style.visibility = "hidden";
             if (netai != 1) {
-                gamemain.style.backgroundImage = "";
-                messageArea.textContent = "スペースキーでスタート";
-                condition.textContent = "クリア条件\n 　スコア１０００以上"
-                space_flag = 1;
+              wordArea_hiragana.textContent = "";
+              wordArea_jp.textContent = "";
+              gamemain.style.backgroundImage = "";
+              messageArea.textContent = "スペースキーでスタート";
+              condition.textContent = "クリア条件\n 　スコア１０００以上"
+              space_flag = 1;
             }
             message_end_flg = 1;
+        } else {
+          story_line++;
+          story_Message();
         }
+
     }
 }
 
@@ -492,20 +497,6 @@ function BackMessage() {
     if (message_end_flg == 0) {
         story_line--;
         story_Message();
-        if (story_line > story.length - 1) {
-            img1.style.visibility = "hidden";
-            img2.style.visibility = "hidden";
-            img3.style.visibility = "hidden";
-            img4.style.visibility = "hidden";
-            img5.style.visibility = "hidden";
-            if (netai != 1) {
-                gamemain.style.backgroundImage = "";
-                messageArea.textContent = "スペースキーでスタート";
-                condition.textContent = "クリア条件\n 　スコア１０００以上"
-                space_flag = 1;
-            }
-            message_end_flg = 1;
-        }
     }
   }
 }

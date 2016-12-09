@@ -69,15 +69,19 @@ a {
 }
 
 .back_button {
+  width: 190px;
   margin-top: 20px;
   margin-left: 10px;
   float: left;
+  text-align: center;
 }
 
 .next_button {
+  width: 190px;
   margin-top: 20px;
   margin-right: 10px;
   float: right;
+  text-align: center;
 }
 
 
