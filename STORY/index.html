@@ -81,7 +81,14 @@
                 </div>
             </div>
             <div class="side01">
-                    <div onclick="on_mute()"><p>マスターボリューム</p><img src="img/volume_on.png" id="mute_button"/></div>
+                    <p>マスターボリューム</p>
+                    <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button"/></div>
+                    <p>ＢＧＭボリューム</p>
+                    <div class="bgm_volume">
+                      <div class="right_volume" onclick="bgm_volume_down()">DOWN</div>
+                        <img src="img/volume/v5.png" id="bgm_volume_button"/>
+                      <div class="left_volume" onclick="bgm_volume_up()">UP</div>
+                    </div>
             </div>
         </div>
         <div class="side02">

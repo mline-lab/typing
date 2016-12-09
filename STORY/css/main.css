@@ -49,16 +49,60 @@ a {
     -khtml-user-drag:none;
 }
 
-.side01 div{
-    margin-top: 20px;
+.side01 p {
+  width: 200px;
+  text-align: center;
+}
+
+.mas_volume{
     width: 200px;
     text-align: center;
 }
 
 #mute_button {
-  width: 30%;
+  width: 60px;
   height: auto;
 }
+.mas_volume:hover {
+  background: rgb(198, 255, 245);
+}
+
+.bgm_volume {
+  width: 200px;
+  text-align: center;
+}
+
+.left_volume {
+  width: 75px;
+  height: 50px;
+  height: auto;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+}
+
+.left_volume:hover{
+  background: rgb(198, 255, 245);
+}
+
+#bgm_volume_button {
+  width: 50px;
+  height: auto;
+}
+
+.right_volume {
+  width: 75px;
+  height: 50px;
+  height: auto;
+  float: right;
+  text-align: center;
+  line-height: 50px;
+}
+
+.right_volume:hover{
+  background: rgb(198, 255, 245);
+}
+
 
 .side02 {
     width: 200px;

@@ -330,7 +330,7 @@ var audioSP;
 
 //ボリューム
 var mute = 0;
-var bgm_volume;
+var bgm_volume = 5;
 
 // 時間制限
 var timeLimit = 60;
@@ -413,6 +413,8 @@ window.onload = function() {
     img5 = document.getElementById("img5");
 
     mute_button = document.getElementById("mute_button");
+    bgm_volume_button = document.getElementById("bgm_volume_button");
+
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -531,7 +533,8 @@ function nextChapter() {
 
 function on_mute() {
   if (mute == 0) {
-    mute_button.src = "img/volume_on.png";
+    mute_button.src = "img/volume_off.png";
+
     audioBad.volume = 0;
     audioBGM.volume = 0;
     audioElem.volume = 0;
@@ -540,7 +543,7 @@ function on_mute() {
     audioSP.volume = 0;
     mute = 1;
   } else {
-    mute_button.src = "img/volume_off.png";
+    mute_button.src = "img/volume_on.png";
     audioBad.volume = 0.5;
     audioBGM.volume = 0.5;
     audioElem.volume = 0.5;
@@ -551,6 +554,21 @@ function on_mute() {
   }
 }
 
+function bgm_volume_up(){
+  if (bgm_volume != 10) {
+    bgm_volume++;
+    audioBGM.volume = bgm_volume / 10;
+    bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+  }
+}
+
+function bgm_volume_down(){
+  if (bgm_volume != 0) {
+    bgm_volume--;
+    audioBGM.volume = bgm_volume / 10;
+    bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+  }
+}
 
 function set_audio() {
 
