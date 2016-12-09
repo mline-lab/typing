@@ -148,6 +148,7 @@ a {
 .chapter_item {
   width: 190px;
   margin: 15px 5px 0px 5px;
+  visibility: hidden;
 }
 
 .chapter_item:hover {

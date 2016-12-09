@@ -379,6 +379,9 @@ var story_flg = 1;
 var end_chapter = 2;
 var message_end_flg = 99;
 
+//クッキー
+var CookieCheck;
+
 //プレゼンゴリ押す用
 var netai
 
@@ -414,6 +417,43 @@ window.onload = function() {
 
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
+
+    chapter_1 = document.getElementById("chapter_1");
+    chapter_2 = document.getElementById("chapter_1");
+    chapter_3 = document.getElementById("chapter_1");
+    chapter_4 = document.getElementById("chapter_1");
+    chapter_5 = document.getElementById("chapter_1");
+
+
+    //ブラウザにあるクッキーの情報を取得
+    CookieCheck = document.cookie;
+
+    if (CookieCheck = 1) {
+      chapter_1.style.visibility = "visible";
+    } else if (CookieCheck = 2) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+    } else if (CookieCheck = 3) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+    } else if (CookieCheck = 4) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+      chapter_4.style.visibility = "visible";
+    } else if (CookieCheck = 5) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+      chapter_4.style.visibility = "visible";
+      chapter_5.style.visibility = "visible";
+    }
+
+
+
+
+
 
     shiftdown = 0;
     wordseikaisuu = 0;
@@ -451,6 +491,10 @@ function getCSV_hira_File() {
 }
 
 function getCSV_Story() {
+  var expire = new Date();
+  expire.setTime( expire.getTime() + 1000 * 3600 * 24 );
+
+  document.cookie = "chapter_save=" + story_chapter + "; expires=" + expire.toUTCString();
     var xhr3 = new XMLHttpRequest();
     xhr3.open("get", "csv/story" + story_chapter + ".csv", true);
     xhr3.send(null);
@@ -668,6 +712,7 @@ function onStartButtonClick() {
         load_Story();
         story_flg = 0;
         message_end_flg = 0;
+
     }
 }
 
