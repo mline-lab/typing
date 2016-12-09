@@ -41,12 +41,18 @@ a {
     height: 500px;
     float: left;
     background: rgb(255, 255, 255);
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
 }
 
-.side01_menu_item li{
-  width: 200px;
-  text-align: center;
-  list-style: none;
+.side01 div{
+    margin-top: 20px;
+    width: 200px;
+    text-align: center;
 }
 
 .side02 {
@@ -54,6 +60,24 @@ a {
     height: 500px;
     float: right;
     background: rgb(255, 255, 255);
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
+}
+
+.back_button {
+  margin-top: 20px;
+  margin-left: 10px;
+  float: left;
+}
+
+.next_button {
+  margin-top: 20px;
+  margin-right: 10px;
+  float: right;
 }
 
 
