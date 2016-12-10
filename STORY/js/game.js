@@ -315,7 +315,6 @@ var keydowntable2 = [
     [226, "_"]
 ];
 
-
 //BGM
 var audioBGM;
 //タイプ音
@@ -325,7 +324,6 @@ var audioBad;
 //ボイス音
 var audioNextVoice;
 //必殺音
-var audioSPcharge;
 var audioSP;
 
 //ボリューム
@@ -338,7 +336,6 @@ var game_flag = 0;
 
 var startcount;
 var timer1;
-var wordStr;
 var wordChars;
 var charIndex;
 var messageArea;
@@ -349,7 +346,6 @@ var downcount;
 var timeLeft;
 var space_flag;
 var gauge;
-var random2;
 var textColor1;
 var textColor2;
 var missCount;
@@ -362,18 +358,13 @@ var x; //ｘ座標
 //ランキング
 var username;
 
-//
-var mode;
-
 var wordList_jp = new Array();
 var wordList_hiragana = new Array();
 
 //ストーリー配列
 var story = [];
 var csv = new Array();
-
 var story_line = -1;
-
 var story_chapter = 1;
 var story_flg = 1;
 var end_chapter = 2;
@@ -382,10 +373,8 @@ var message_end_flg = 99;
 //クッキー
 var CookieCheck;
 
-//プレゼンゴリ押す用
-var netai
-
-var worddata　 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
+//3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
+var worddata
 
 window.onload = function() {
     input_item = document.getElementById("input_item");
@@ -405,19 +394,15 @@ window.onload = function() {
     time_gaze_id = document.getElementById("time_gaze_id");
     gamemain = document.getElementById("gamebody");
     time_area = document.getElementById("time_area");
-
     teki_img = document.getElementById("teki_img");
     player_img = document.getElementById("player_img");
-
     img1 = document.getElementById("img1");
     img2 = document.getElementById("img2");
     img3 = document.getElementById("img3");
     img4 = document.getElementById("img4");
     img5 = document.getElementById("img5");
-
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
-
     chapter_1 = document.getElementById("chapter_1");
     chapter_2 = document.getElementById("chapter_2");
     chapter_3 = document.getElementById("chapter_3");
@@ -430,17 +415,16 @@ window.onload = function() {
     keysettei = 1;
 
     GetCookie();
-
     getCSV_jp_File();
     getCSV_hira_File();
-
     //ストーリー読み込み
     getCSV_Story();
-
     set_audio();
 
     skil_gaze.style.width = "0px";
     time_gaze_id.style.width = "0px";
+
+    startButton.value = "第「１」話"
 }
 
 function GetCookie(){
@@ -532,19 +516,23 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
+            img1.src = "";
+            img2.src = "";
+            img3.src = "";
+            img4.src = "";
+            img5.src = "";
+            gamemain.style.backgroundImage = "";
             img1.style.visibility = "hidden";
             img2.style.visibility = "hidden";
             img3.style.visibility = "hidden";
             img4.style.visibility = "hidden";
             img5.style.visibility = "hidden";
-            if (netai != 1) {
-              wordArea_hiragana.textContent = "";
-              wordArea_jp.textContent = "";
-              gamemain.style.backgroundImage = "";
-              messageArea.textContent = "スペースキーでスタート";
-              condition.textContent = "クリア条件\n 　スコア１０００以上"
-              space_flag = 1;
-            }
+            wordArea_hiragana.textContent = "";
+            wordArea_jp.textContent = "";
+            gamemain.style.backgroundImage = "";
+            messageArea.textContent = "スペースキーでスタート";
+            condition.textContent = "クリア条件\n 　スコア１０００以上"
+            space_flag = 1;
             message_end_flg = 1;
         } else {
           story_line++;
@@ -565,6 +553,8 @@ function BackMessage() {
 
 function story_Message() {
 
+    condition.textContent = "";
+
     img1.style.visibility = "visible";
     img2.style.visibility = "visible";
     img3.style.visibility = "visible";
@@ -583,26 +573,23 @@ function story_Message() {
 }
 
 function nextChapter() {
-    startButton.value = "次のストーリーへ";
     story_line = 0;
     story_flg = 1;
     story = [];
     story_chapter++;
     SetCookie();
     GetCookie();
-    netai = 1;
     getCSV_Story();
+    startButton.value = "第「" + story_chapter　+ "」話"
 }
 
 function on_mute() {
   if (mute == 0) {
     mute_button.src = "img/volume_off.png";
-
     audioBad.volume = 0;
     audioBGM.volume = 0;
     audioElem.volume = 0;
     audioNextVoice.volume = 0;
-    audioSPcharge.volume = 0;
     audioSP.volume = 0;
     mute = 1;
   } else {
@@ -611,14 +598,12 @@ function on_mute() {
     audioBGM.volume = 0.5;
     audioElem.volume = 0.3;
     audioNextVoice.volume = 0.3;
-    audioSPcharge.volume = 0.3;
     audioSP.volume = 0.3;
     mute = 0;
   }
 }
 
 function re_chapter(){
-
   messageArea.textContent = "";
   condition.textContent = "";
   typeArea.textContent = "";
@@ -687,10 +672,6 @@ function set_audio() {
     audioNextVoice = new Audio();
     audioNextVoice.src = "audio/voice_next.mp3";
     audioNextVoice.volume = 0.3;
-
-    audioSPcharge = new Audio();
-    audioSPcharge.src = "audio/voice_sp_charge.mp3";
-    audioSPcharge.volume = 0.3;
 
     audioSP = new Audio();
     audioSP.src = "audio/voice_sp.mp3";
@@ -794,7 +775,8 @@ function stopTyping() {
     }
     audioBGM.pause();
     audioBGM.currentTime = 0;
-    messageArea.textContent = "Score: " + score + "■倒した数" + downcount + "■ミスタイプ数" + missCount;
+    messageArea.textContent = "Score: " + score + "■ミスタイプ数" + missCount;
+    condition.textContent = "第１話クリア";
     typeArea.textContent = "";
     typeArea2.textContent = "";
     wordArea_hiragana.textContent = "";
