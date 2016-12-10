@@ -419,46 +419,17 @@ window.onload = function() {
     bgm_volume_button = document.getElementById("bgm_volume_button");
 
     chapter_1 = document.getElementById("chapter_1");
-    chapter_2 = document.getElementById("chapter_1");
-    chapter_3 = document.getElementById("chapter_1");
-    chapter_4 = document.getElementById("chapter_1");
-    chapter_5 = document.getElementById("chapter_1");
-
-
-    //ブラウザにあるクッキーの情報を取得
-    CookieCheck = document.cookie;
-
-    if (CookieCheck = 1) {
-      chapter_1.style.visibility = "visible";
-    } else if (CookieCheck = 2) {
-      chapter_1.style.visibility = "visible";
-      chapter_2.style.visibility = "visible";
-    } else if (CookieCheck = 3) {
-      chapter_1.style.visibility = "visible";
-      chapter_2.style.visibility = "visible";
-      chapter_3.style.visibility = "visible";
-    } else if (CookieCheck = 4) {
-      chapter_1.style.visibility = "visible";
-      chapter_2.style.visibility = "visible";
-      chapter_3.style.visibility = "visible";
-      chapter_4.style.visibility = "visible";
-    } else if (CookieCheck = 5) {
-      chapter_1.style.visibility = "visible";
-      chapter_2.style.visibility = "visible";
-      chapter_3.style.visibility = "visible";
-      chapter_4.style.visibility = "visible";
-      chapter_5.style.visibility = "visible";
-    }
-
-
-
-
-
+    chapter_2 = document.getElementById("chapter_2");
+    chapter_3 = document.getElementById("chapter_3");
+    chapter_4 = document.getElementById("chapter_4");
+    chapter_5 = document.getElementById("chapter_5");
 
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
     keysettei = 1;
+
+    GetCookie();
 
     getCSV_jp_File();
     getCSV_hira_File();
@@ -470,6 +441,55 @@ window.onload = function() {
 
     skil_gaze.style.width = "0px";
     time_gaze_id.style.width = "0px";
+}
+
+function GetCookie(){
+    var result = null;
+
+    var cookieName = "chapter_save" + '=';
+    var allcookies = document.cookie;
+
+    var position = allcookies.indexOf( cookieName );
+    if( position != -1 )
+    {
+        var startIndex = position + cookieName.length;
+
+        var endIndex = allcookies.indexOf( ';', startIndex );
+        if( endIndex == -1 )
+        {
+            endIndex = allcookies.length;
+        }
+        result = decodeURIComponent(allcookies.substring( startIndex, endIndex ) );
+    }
+
+    if (result == 1) {
+      chapter_1.style.visibility = "visible";
+    } else if (result == 2) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+    } else if (result == 3) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+    } else if (result == 4) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+      chapter_4.style.visibility = "visible";
+    } else if (result == 5) {
+      chapter_1.style.visibility = "visible";
+      chapter_2.style.visibility = "visible";
+      chapter_3.style.visibility = "visible";
+      chapter_4.style.visibility = "visible";
+      chapter_5.style.visibility = "visible";
+    }
+}
+
+function SetCookie() {
+  var expire = new Date();
+  expire.setTime( expire.getTime() + 60*24*60*60*1000 );
+
+  document.cookie = "chapter_save=" + story_chapter + "; expires=" + expire.toUTCString();
 }
 
 function getCSV_jp_File() {
@@ -491,10 +511,6 @@ function getCSV_hira_File() {
 }
 
 function getCSV_Story() {
-  var expire = new Date();
-  expire.setTime( expire.getTime() + 1000 * 3600 * 24 );
-
-  document.cookie = "chapter_save=" + story_chapter + "; expires=" + expire.toUTCString();
     var xhr3 = new XMLHttpRequest();
     xhr3.open("get", "csv/story" + story_chapter + ".csv", true);
     xhr3.send(null);
@@ -567,10 +583,13 @@ function story_Message() {
 }
 
 function nextChapter() {
-    startButton.value = "次のストーリーへ"
+    startButton.value = "次のストーリーへ";
     story_line = 0;
     story_flg = 1;
+    story = [];
     story_chapter++;
+    SetCookie();
+    GetCookie();
     netai = 1;
     getCSV_Story();
 }
@@ -588,12 +607,12 @@ function on_mute() {
     mute = 1;
   } else {
     mute_button.src = "img/volume_on.png";
-    audioBad.volume = 0.5;
+    audioBad.volume = 0.3;
     audioBGM.volume = 0.5;
-    audioElem.volume = 0.5;
-    audioNextVoice.volume = 0.5;
-    audioSPcharge.volume = 0.5;
-    audioSP.volume = 0.5;
+    audioElem.volume = 0.3;
+    audioNextVoice.volume = 0.3;
+    audioSPcharge.volume = 0.3;
+    audioSP.volume = 0.3;
     mute = 0;
   }
 }
@@ -653,29 +672,29 @@ function bgm_volume_down(){
 
 function set_audio() {
 
-    audioBad = new Audio();
-    audioBad.src = "audio/bad_se.ogg";
-    audioBad.volume = 0.5;
-
     audioBGM = new Audio();
     audioBGM.src = "../audio/mangetunotikurin.mp3";
     audioBGM.volume = 0.5;
 
+    audioBad = new Audio();
+    audioBad.src = "audio/bad_se.ogg";
+    audioBad.volume = 0.3;
+
     audioElem = new Audio();
     audioElem.src = "audio/se_ok.ogg";
-    audioElem.volume = 0.5;
+    audioElem.volume = 0.3;
 
     audioNextVoice = new Audio();
     audioNextVoice.src = "audio/voice_next.mp3";
-    audioNextVoice.volume = 0.5;
+    audioNextVoice.volume = 0.3;
 
     audioSPcharge = new Audio();
     audioSPcharge.src = "audio/voice_sp_charge.mp3";
-    audioSPcharge.volume = 0.5;
+    audioSPcharge.volume = 0.3;
 
     audioSP = new Audio();
     audioSP.src = "audio/voice_sp.mp3";
-    audioSP.volume = 0.5;
+    audioSP.volume = 0.3;
 
 }
 
@@ -712,7 +731,6 @@ function onStartButtonClick() {
         load_Story();
         story_flg = 0;
         message_end_flg = 0;
-
     }
 }
 
