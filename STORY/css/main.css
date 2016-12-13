@@ -307,26 +307,14 @@ a {
   background-repeat: no-repeat;
 }
 
-.left_img {
-  width: 200px;
-  height: 350px;
-  float: left;
-}
-
-.left_img img {
+.right_img img {
   width: 100px;
   height: 350px;
   float: left;
   visibility: hidden;
 }
 
-.right_img {
-  width: 300px;
-  height: 350px;
-  float: left;
-}
-
-.right_img img {
+.left_img img {
   width: 100px;
   height: 350px;
   float: left;

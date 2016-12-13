@@ -667,6 +667,12 @@ function startTyping() {
     game_messsage.style.visibility = "hidden";
 
     timeLeft = timeLimit;
+
+    player_img.className = "right_img img";
+    setTimeout("player_img.className = \"right_img img\";","1000");
+    teki_img.className = "left_img img";
+    setTimeout("player_img.className = \"left_img img\";","1000");
+
     nextWord();
     countDown();
     timer1 = setInterval("countDown()", 1000);

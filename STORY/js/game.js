@@ -376,6 +376,10 @@ var CookieCheck;
 //3要素の配列。0番目に『文全体のローマ字』、 1番目に『ひらがなを単語毎に配列に入れたもの』、 2番目に『ローマ字を単語毎に配列に入れたもの』が入る
 var worddata
 
+//【MRP】アニメーション変数宣言
+var right_img_lock;
+var animation_random_state_number;
+
 window.onload = function() {
     input_item = document.getElementById("input_item");
     game_messsage = document.getElementById("game_messsage");
@@ -529,7 +533,6 @@ function nextMessage() {
             img5.style.visibility = "hidden";
             wordArea_hiragana.textContent = "";
             wordArea_jp.textContent = "";
-            gamemain.style.backgroundImage = "";
             messageArea.textContent = "スペースキーでスタート";
             condition.textContent = "クリア条件\n 　スコア１０００以上"
             space_flag = 1;
@@ -688,6 +691,8 @@ function setvar() {
     x = 0;
     flg = 0;
     missCount = 0;
+    right_img_lock = 0;
+    animation_random_state_number = 0;
     score_area.textContent = "0000";
     typeArea.textContent = "";
     typeArea2.textContent = "";
@@ -717,8 +722,7 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
-    player_img.style.backgroundImage = "url(img/typing/kaede_default.png)";
-    teki_img.style.backgroundImage = "url(img/typing/budou_default.png)";
+    animation(0);
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -742,6 +746,9 @@ function startTyping() {
     game_messsage.style.visibility = "hidden";
 
     timeLeft = timeLimit;
+
+    
+
     nextWord();
     countDown();
     timer1 = setInterval("countDown()", 1000);
@@ -845,7 +852,7 @@ function moveImg() {
         } else if (x >= 500) {
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
-            player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
+            //player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
             nextWord();
         }
 
@@ -905,7 +912,11 @@ function moziHenkan(e) {
             audioBad.currentTime = 0;
             audioBad.play();
             missCount++;
-            player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
+            animation_random_state_number = 0;
+            if(right_img_lock == 0){
+              animation(5);
+              setTimeout("animation(0)", 300);
+            }
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
@@ -968,8 +979,6 @@ function hantei() {
         //入力後の文字を表示
         typeArea2.textContent = textColor2;
 
-        player_img.style.backgroundImage = "url(img/typing/kaede_default.png)";
-
         $('.game_div').css({
             "border": "3px solid #ffcf00"
         });
@@ -979,14 +988,20 @@ function hantei() {
         if (gauge == 25) {
             audioSP.currentTime = 0;
             audioSP.play();
-            player_img.style.backgroundImage = "url(img/typing/kaede_atk2.png)";
-            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
+            animation_random_state_number++;
+            if(right_img_lock == 0){
+              animation(animation_random_state(animation_random_state_number));
+              setTimeout("animation(0)",1000);
+            }
             timeLeft++;
         } else if (gauge == 50) {
             audioSP.currentTime = 0;
             audioSP.play();
-            player_img.style.backgroundImage = "url(img/typing/kaede_atk3.png)";
-            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
+            animation_random_state_number++;
+            if(right_img_lock == 0){
+              animation(animation_random_state(animation_random_state_number));
+              setTimeout("animation(0)",1000);
+            }
             timeLeft++;
         } else if (gauge >= 100) {
             audioSP.currentTime = 0;
@@ -995,6 +1010,11 @@ function hantei() {
             score = score + 500;
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
+            animation_random_state_number++;
+            if(right_img_lock == 0){
+              animation(animation_random_state(animation_random_state_number));
+              setTimeout("animation(0)",1000);
+            }
         }
 
         if (charIndex == wordChars.length) {
@@ -1013,10 +1033,77 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            player_img.style.backgroundImage = "url(img/typing/kaede_atk.png)";
-            setTimeout("player_img.style.backgroundImage = \"url(img/typing/kaede_default.png)\"", 500);
+            if(right_img_lock == 0){
+              animation(animation_random_state(animation_random_state_number));
+              setTimeout("animation(0)",1000);
+            }
             setTimeout("nextWord();", 200);
 
         }
     }
+}
+
+//アニメーション管理用
+//■0:立ち絵
+//■1:攻撃1
+//■2攻撃2
+//■3:攻撃3
+//■4:攻撃4
+//■5:ミス
+//■6:ボーナス1
+//■7:ボーナス2
+//■8:ボーナス3
+function animation(motion_number){
+  switch (motion_number) {
+      case 0:
+        right_img_lock = 0;
+        player_img.className = "kaede_right_img_defalt";
+        teki_img.className = "left_img_default";
+      break;
+      case 1:
+        player_img.className = "kaede_right_img_atk";
+        teki_img.className = "left_img_dmg";
+        right_img_lock = 1;
+      break;
+      case 2:
+        player_img.className = "kaede_right_img_atk2";
+        teki_img.className = "left_img_dmg";
+        right_img_lock = 1;
+      break;
+      case 3:
+        player_img.className = "kaede_right_img_atk3";
+        teki_img.className = "left_img_dmg";
+        right_img_lock = 1;
+      break;
+      case 4:
+        player_img.className = "kaede_right_img_atk4";
+        teki_img.className = "left_img_dmg";
+        right_img_lock = 1;
+      break;
+      case 5:
+        player_img.className = "kaede_right_img_miss";
+        right_img_lock = 1;
+      break;
+      case 6:
+      break;
+      case 7:
+      break;
+      case 8:
+      break;
+    default:
+    break;
+  }
+}
+
+function animation_random_state(state){
+  if(state == 0){
+    var animation_random = Math.floor(Math.random() *2) +1;
+  }else if(state == 1){
+    var animation_random = Math.floor(Math.random() *3) +1;
+  }else if(state == 2){
+    var animation_random = Math.floor(Math.random() *4) +1;
+  }else if(state >= 3){
+    var animation_random = Math.floor(Math.random() *3) +2;
+  }
+  return animation_random;
 }
