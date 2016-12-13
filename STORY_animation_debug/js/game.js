@@ -895,6 +895,10 @@ document.onkeydown = function(e) {
           setTimeout("animation(0)",1000);
         }
       } else if (e.keyCode == 52) {
+        if(right_img_lock == 0){
+          animation(4);
+          setTimeout("animation(0)",1000);
+        }
       } else if (e.keyCode == 53) {
       if(right_img_lock == 0){
         animation(5);
@@ -1023,7 +1027,7 @@ function animation(motion_number){
         right_img_lock = 1;
       break;
       case 4:
-        player_img.className = "kaede_right_img_atk2";
+        player_img.className = "kaede_right_img_atk4";
         teki_img.className = "left_img_dmg";
         right_img_lock = 1;
       break;

@@ -30,17 +30,26 @@
   width: 300px;
   height: 350px;
   float: left;
-  animation: kaede_atk2 1.0s steps(42);
+  animation: kaede_atk 1.0s steps(42);
 }
 
 .kaede_right_img_atk3 {
-  background: url(../img/typing/kaede_atk3.png);
+  background: url(../img/typing/kaede-atk3-animation.png);
   width: 300px;
   height: 350px;
   float: left;
+  animation: kaede_atk 1.0s steps(42);
 }
 
-@keyframes kaede_atk2 {
+.kaede_right_img_atk4 {
+  background: url(../img/typing/kaede-atk4-animation.png);
+  width: 300px;
+  height: 350px;
+  float: left;
+  animation: kaede_atk 1.0s steps(42);
+}
+
+@keyframes kaede_atk {
   to {
    background-position: -12600px 0;
   }
