@@ -573,7 +573,12 @@ function story_Message() {
     img5.src = "img/story/" + story[story_line][6] + ".png";
 
     bgimg.style.backgroundImage = "url(" + "img/story/" + story[story_line][7] + ".jpg" + ")";
-    wordArea_hiragana.textContent = story[story_line][0];
+    if (story[story_line][0] == "") {
+      wordArea_hiragana.textContent = story[story_line][0];
+    } else {
+      wordArea_hiragana.textContent = "【 " + story[story_line][0] + " 】";
+    }
+
     wordArea_jp.textContent = story[story_line][1];
 }
 
