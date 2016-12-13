@@ -139,6 +139,21 @@ a {
   background: rgb(198, 255, 245);
 }
 
+.chapter_menu {
+  width: 200px;
+  font-size: 0.7rem;
+  margin-top: 50px;
+}
+
+.chapter_item {
+  width: 190px;
+  margin: 15px 5px 0px 5px;
+  visibility: hidden;
+}
+
+.chapter_item:hover {
+  background: rgb(198, 255, 245);
+}
 
 /* 上部ヘッダー */
 
