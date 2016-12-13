@@ -413,6 +413,8 @@ window.onload = function() {
     chapter_4 = document.getElementById("chapter_4");
     chapter_5 = document.getElementById("chapter_5");
 
+    bgimg = document.getElementById("bgimg");
+
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
@@ -525,7 +527,7 @@ function nextMessage() {
             img3.src = "";
             img4.src = "";
             img5.src = "";
-            gamemain.style.backgroundImage = "";
+            bgimg.style.backgroundImage = "";
             img1.style.visibility = "hidden";
             img2.style.visibility = "hidden";
             img3.style.visibility = "hidden";
@@ -570,7 +572,7 @@ function story_Message() {
     img4.src = "img/story/" + story[story_line][5] + ".png";
     img5.src = "img/story/" + story[story_line][6] + ".png";
 
-    gamemain.style.backgroundImage = "url(" + "img/story/" + story[story_line][7] + ".jpg" + ")";
+    bgimg.style.backgroundImage = "url(" + "img/story/" + story[story_line][7] + ".jpg" + ")";
     wordArea_hiragana.textContent = story[story_line][0];
     wordArea_jp.textContent = story[story_line][1];
 }
@@ -614,7 +616,7 @@ function re_chapter(){
   wordArea_hiragana.textContent = "";
   wordArea_jp.textContent = "";
   time_gaze_id.style.width = 0 + "px";
-  gamemain.style.backgroundImage = "";
+  bgimg.style.backgroundImage = "";
 
   img1.style.visibility = "hidden";
   img2.style.visibility = "hidden";
@@ -747,7 +749,7 @@ function startTyping() {
 
     timeLeft = timeLimit;
 
-    
+
 
     nextWord();
     countDown();
