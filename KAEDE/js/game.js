@@ -515,6 +515,7 @@ function setvar() {
     img5.style.visibility = "hidden";
 
     startButton.style.visibility = "hidden";
+    ranking_item.style.visibility = "hidden";
     skil_gaze.style.width = "0px";
 }
 

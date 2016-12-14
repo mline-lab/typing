@@ -680,11 +680,11 @@ function set_audio() {
     audioElem.volume = 0.3;
 
     audioNextVoice = new Audio();
-    audioNextVoice.src = "audio/voice_next.mp3";
+    audioNextVoice.src = "audio/kaede_voice/atk1.mp3";
     audioNextVoice.volume = 0.3;
 
     audioSP = new Audio();
-    audioSP.src = "audio/voice_sp.mp3";
+    audioSP.src = "audio/kaede_voice/sp1.mp3";
     audioSP.volume = 0.3;
 
 }
