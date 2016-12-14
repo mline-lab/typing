@@ -895,6 +895,13 @@ function moveImg() {
         } else if (x >= 500) {
             audioTimeOver.currentTime = 0;
             audioTimeOver.play();
+            if(right_img_lock == 0){
+              animation(5);
+              setTimeout("animation(0)", 300);
+            }
+            $('.game_div').css({
+                "border": "3px solid #e24408"
+            });
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
             nextWord();
@@ -1054,13 +1061,6 @@ function hantei() {
               setTimeout("animation(0)",1000);
             }
         }
-
-        /*
-        if (charIndex == wordChars.length) {
-            audioAtk1.currentTime = 0;
-            audioAtk1.play();
-        }
-        */
 
         if (tableichi >= word.length) {
             score = score + (word.length * 7);

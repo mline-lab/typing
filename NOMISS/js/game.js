@@ -707,9 +707,15 @@ function moveImg() {
         } else if (x >= 500) {
             audioTimeOver.currentTime = 0;
             audioTimeOver.play();
+            if(right_img_lock == 0){
+              animation(5);
+              setTimeout("animation(0)", 300);
+            }
+            $('.game_div').css({
+                "border": "3px solid #e24408"
+            });
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
-            //player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
             nextWord();
         }
 
