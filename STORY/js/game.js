@@ -656,7 +656,7 @@ function re_chapter(){
 
 function butonn_chapter(chapter_num){
   if (space_flag != 0) {
-    story_line = 0;
+    story_line = -1;
     story_flg = 1;
     story = [];
     story_chapter = chapter_num;
