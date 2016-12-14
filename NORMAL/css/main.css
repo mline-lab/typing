@@ -122,8 +122,8 @@ a {
   text-align: center;
 }
 
-.rank_top5 th{
-  width: 68;
+.rank_top5 tr{
+  width: 200px;
 }
 /* 上部ヘッダー */
 
