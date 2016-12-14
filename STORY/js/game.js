@@ -580,7 +580,7 @@ function story_Message() {
     img4.src = "img/story/" + story[story_line][5] + ".png";
     img5.src = "img/story/" + story[story_line][6] + ".png";
 
-    bgimg.style.backgroundImage = "url(" + "img/story/" + story[story_line][7] + ".jpg" + ")";
+    bgimg.style.backgroundImage = "url(" + "img/story/bg/" + story[story_line][7] + ".jpg" + ")";
     if (story[story_line][0] == "") {
       wordArea_hiragana.textContent = story[story_line][0];
     } else {
