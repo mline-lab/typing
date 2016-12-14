@@ -610,7 +610,7 @@ function on_mute() {
     audioAtk1.volume = 0;
     audioAtk2.volume = 0;
     audioAtk3.volume = 0;
-    audioAtk3.volume = 0;
+    audioAtk4.volume = 0;
     audioWin.volume = 0;
     audioLose.volume = 0;
     audioTimeOver.volume = 0;
@@ -623,7 +623,7 @@ function on_mute() {
     audioAtk1.volume = 0.3;
     audioAtk2.volume = 0.3;
     audioAtk3.volume = 0.3;
-    audioAtk3.volume = 0;
+    audioAtk4.volume = 0.3;
     audioWin.volume = 0.3;
     audioLose.volume = 0.3;
     audioTimeOver.volume = 0.3;
