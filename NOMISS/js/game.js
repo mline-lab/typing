@@ -636,7 +636,7 @@ function rank_push() {
     if (username.match(/"/) || username.match(/'/)) {
 
     } else {
-      mode = "2";
+      mode = "4";
       $.ajax({
           type: 'POST',
           url: 'rank_push.php',
