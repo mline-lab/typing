@@ -804,15 +804,30 @@ function stopTyping() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
+    input_item.style.visibility = "visible";
+    game_messsage.style.visibility = "visible";
+    audioBGM.pause();
+    audioBGM.currentTime = 0;
+    messageArea.textContent = "Score: " + score + "■ミスタイプ数" + missCount;
+    typeArea.textContent = "";
+    typeArea2.textContent = "";
+    wordArea_hiragana.textContent = "";
+    wordArea_jp.textContent = "";
+    time_gaze_id.style.width = 0 + "px";
+    img1.style.visibility = "hidden";
+    img2.style.visibility = "hidden";
+    img3.style.visibility = "hidden";
+    img4.style.visibility = "hidden";
+    img5.style.visibility = "hidden";
+    player_img.className = "kaede_right_img";
+    teki_img.className = "left_img";
+    $('.game_div').css({
+        "border": "3px solid #ffcf00"
+    });
+
     if (score >= 1000) {
-      player_img.className = "kaede_right_img";
-      teki_img.className = "left_img";
-
-      input_item.style.visibility = "visible";
-      game_messsage.style.visibility = "visible";
-
       audioWin.play();
-
+      condition.textContent = "第"+ story_chapter +"話クリア";
         if (end_chapter == story_chapter) {
             startButton.value = "Start";
             story_flg = 0;
@@ -826,23 +841,6 @@ function stopTyping() {
         startButton.value = "Retry";
 
     }
-    audioBGM.pause();
-    audioBGM.currentTime = 0;
-    messageArea.textContent = "Score: " + score + "■ミスタイプ数" + missCount;
-    condition.textContent = "第１話クリア";
-    typeArea.textContent = "";
-    typeArea2.textContent = "";
-    wordArea_hiragana.textContent = "";
-    wordArea_jp.textContent = "";
-    time_gaze_id.style.width = 0 + "px";
-    img1.style.visibility = "hidden";
-    img2.style.visibility = "hidden";
-    img3.style.visibility = "hidden";
-    img4.style.visibility = "hidden";
-    img5.style.visibility = "hidden";
-    $('.game_div').css({
-        "border": "3px solid #ffcf00"
-    });
     clearInterval(time);
 
 }
@@ -899,7 +897,6 @@ function moveImg() {
             audioTimeOver.play();
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
-            //player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
             nextWord();
         }
 
