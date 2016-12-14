@@ -1,47 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>LostColor-正確重視ランキング-</title>
+<title>LostColor-トータルランキング-</title>
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<link rel="stylesheet" href="css/ranking.css" type="text/css">
+<link rel="stylesheet" href="../css/ranking.css" type="text/css">
 <script src="js/jquery.pagination.js"></script>
 <script>
-var flag_mrp = 0;
-var flag_moti = 0;
-var flag_scriptkide = 0;
-function mrp(){
-
-  if (flag_mrp == 0) {
-    $( "th:contains('MRP')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_mrp = 1;
-  } else {
-    $( "th:contains('MRP')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_mrp = 0;
-  }
-
-}
-function moti(){
-
-  if (flag_moti == 0) {
-    $( "th:contains('もち')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_moti = 1;
-  } else {
-    $( "th:contains('もち')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_moti = 0;
-  }
-}
-
-function scriptkide(){
-
-  if (flag_scriptkide == 0) {
-    $( "th:contains('このサイトに攻撃を仕掛けた愚か者')" ).css( "background-color", "rgb(196, 255, 99)" );
-    flag_scriptkide = 1;
-  } else {
-    $( "th:contains('このサイトに攻撃を仕掛けた愚か者')" ).css( "background-color", "rgb(255, 255, 255)" );
-    flag_scriptkide = 0;
-  }
-}
 
 $(function(){
   $('tr#list').pagination({
@@ -63,14 +28,17 @@ $(function(){
 </script>
 </head>
 <body>
-
+  <div class="head_menu">
+          <ul id="menu">
+              <a href="../"><li>HOME</li></a>
+              <a href="../ranking/bacteria_ranking.html"><li>ALLランキング</li></a>
+              <a href="../NORMAL/ranking_view.html"><li>ノーマル</li></a>
+              <a href="../SPEED/ranking_view.html"><li>速度重視</li></a>
+              <a href="../NOMISS/ranking_view.html"><li>ノーミス</li></a>
+          </ul>
+  </div>
   <div class="main">
     <div>
-      <div class="head">
-        <a href="#" onclick="mrp();return false;">MRP強調</a>
-        <a href="#" onclick="moti();return false;">もち強調</a>
-        <a href="#" onclick="scriptkide();return false;">スクリプトキディ強調</a>
-      </div>
 
       <div class="content">
         <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
@@ -81,6 +49,8 @@ $(function(){
             <th bgcolor="#81fcf1">討伐数</th>
             <th bgcolor="#81fcf1">ミス数</th>
           </tr>
+  <?php
+
   <?php
 
   $dsn = 'mysql:dbname=typing;host=localhost';
