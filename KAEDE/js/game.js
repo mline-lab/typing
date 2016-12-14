@@ -322,9 +322,16 @@ var audioElem;
 //タイプミス音
 var audioBad;
 //ボイス音
-var audioNextVoice;
-//必殺音
-var audioSP;
+var audioAtk1;
+var audioAtk2;
+var audioAtk3;
+var audioAtk4;
+//勝ちボイス
+var audioWin;
+//負けボイス
+var audioLose;
+//タイムオーバー
+var audioTimeOver;
 
 //ボリューム
 var mute = 0;
@@ -415,7 +422,7 @@ window.onload = function() {
 
 function getCSV_jp_File() {
     var xhr = new XMLHttpRequest();
-    xhr.open("get", "csv/word.csv", true);
+    xhr.open("get", "../csv/word.csv", true);
     xhr.send(null);
     xhr.onload = function() {
         wordList_jp = xhr.responseText.split(";");
@@ -424,7 +431,7 @@ function getCSV_jp_File() {
 
 function getCSV_hira_File() {
     var xhr2 = new XMLHttpRequest();
-    xhr2.open("get", "csv/word_hiragana.csv", true);
+    xhr2.open("get", "../csv/word_hiragana.csv", true);
     xhr2.send(null);
     xhr2.onload = function() {
         wordList_hiragana = xhr2.responseText.split(";");
@@ -437,16 +444,26 @@ function on_mute() {
     audioBad.volume = 0;
     audioBGM.volume = 0;
     audioElem.volume = 0;
-    audioNextVoice.volume = 0;
-    audioSP.volume = 0;
+    audioAtk1.volume = 0;
+    audioAtk2.volume = 0;
+    audioAtk3.volume = 0;
+    audioAtk3.volume = 0;
+    audioWin.volume = 0;
+    audioLose.volume = 0;
+    audioTimeOver.volume = 0;
     mute = 1;
   } else {
     mute_button.src = "img/volume_on.png";
     audioBad.volume = 0.3;
     audioBGM.volume = 0.5;
     audioElem.volume = 0.3;
-    audioNextVoice.volume = 0.3;
-    audioSP.volume = 0.3;
+    audioAtk1.volume = 0.3;
+    audioAtk2.volume = 0.3;
+    audioAtk3.volume = 0.3;
+    audioAtk3.volume = 0;
+    audioWin.volume = 0.3;
+    audioLose.volume = 0.3;
+    audioTimeOver.volume = 0.3;
     mute = 0;
   }
 }
@@ -469,25 +486,45 @@ function bgm_volume_down(){
 
 function set_audio() {
 
-    audioBGM = new Audio();
-    audioBGM.src = "../audio/mangetunotikurin.mp3";
-    audioBGM.volume = 0.5;
+  audioBGM = new Audio();
+  audioBGM.src = "../audio/mangetunotikurin.mp3";
+  audioBGM.volume = 0.5;
 
-    audioBad = new Audio();
-    audioBad.src = "audio/bad_se.ogg";
-    audioBad.volume = 0.3;
+  audioBad = new Audio();
+  audioBad.src = "../audio/bad_se.mp3";
+  audioBad.volume = 0.3;
 
-    audioElem = new Audio();
-    audioElem.src = "audio/se_ok.ogg";
-    audioElem.volume = 0.3;
+  audioElem = new Audio();
+  audioElem.src = "../audio/se_ok.mp3";
+  audioElem.volume = 0.3;
 
-    audioNextVoice = new Audio();
-    audioNextVoice.src = "audio/voice_next.mp3";
-    audioNextVoice.volume = 0.3;
+  audioAtk1 = new Audio();
+  audioAtk1.src = "../audio/kaede_voice/atk1.mp3";
+  audioAtk1.volume = 0.3;
 
-    audioSP = new Audio();
-    audioSP.src = "audio/voice_sp.mp3";
-    audioSP.volume = 0.3;
+  audioAtk2 = new Audio();
+  audioAtk2.src = "../audio/kaede_voice/atk2.mp3";
+  audioAtk2.volume = 0.3;
+
+  audioAtk3 = new Audio();
+  audioAtk3.src = "../audio/kaede_voice/atk3.mp3";
+  audioAtk3.volume = 0.3;
+
+  audioAtk4 = new Audio();
+  audioAtk4.src = "../audio/kaede_voice/atk4.mp3"
+  audioAtk4.volume = 0.3;
+
+  audioWin  = new Audio();
+  audioWin.src = "../audio/kaede_voice/victory.mp3";
+  audioWin.volume = 0.3;
+
+  audioLose  = new Audio();
+  audioLose.src = "../audio/kaede_voice/lose.mp3";
+  audioLose.volume = 0.3;
+
+  audioTimeOver = new Audio();
+  audioTimeOver.src = "../audio/kaede_voice/timeover.mp3";
+  audioTimeOver.volume = 0.3;
 
 }
 
@@ -583,6 +620,7 @@ function stopTyping() {
     img3.style.visibility = "hidden";
     img4.style.visibility = "hidden";
     img5.style.visibility = "hidden";
+
     input_item.style.visibility = "visible";
     $('.game_div').css({
         "border": "3px solid #ffcf00"
@@ -665,6 +703,8 @@ function moveImg() {
         if (x < 500) {
             x += 0.8;
         } else if (x >= 500) {
+            audioTimeOver.currentTime = 0;
+            audioTimeOver.play();
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
             //player_img.style.backgroundImage = "url(img/typing/kaede_miss.png)";
@@ -769,6 +809,11 @@ document.onkeydown = function(e) {
         if (space_flag == 1) {
             space_start();
         }
+    } else if (e.keyCode == 27) {
+        if (game_flag == 1) {
+            stopTyping();
+            onStartButtonClick();
+        }
     } else {
         moziHenkan(e);
     }
@@ -802,8 +847,6 @@ function hantei() {
         gauge = gauge + 0.5;
         skil_gaze.style.width = gauge + "px";
         if (gauge == 25) {
-            audioSP.currentTime = 0;
-            audioSP.play();
             animation_random_state_number++;
             if(right_img_lock == 0){
               animation(animation_random_state(animation_random_state_number));
@@ -811,8 +854,6 @@ function hantei() {
             }
             timeLeft++;
         } else if (gauge == 50) {
-            audioSP.currentTime = 0;
-            audioSP.play();
             animation_random_state_number++;
             if(right_img_lock == 0){
               animation(animation_random_state(animation_random_state_number));
@@ -820,8 +861,6 @@ function hantei() {
             }
             timeLeft++;
         } else if (gauge >= 100) {
-            audioSP.currentTime = 0;
-            audioSP.play();
             timeLeft = timeLeft + 3;
             score = score + 500;
             gauge = 0;
@@ -831,11 +870,6 @@ function hantei() {
               animation(animation_random_state(animation_random_state_number));
               setTimeout("animation(0)",1000);
             }
-        }
-
-        if (charIndex == wordChars.length) {
-            audioNextVoice.currentTime = 0;
-            audioNextVoice.play();
         }
 
         if (tableichi >= word.length) {
@@ -877,21 +911,29 @@ function animation(motion_number){
         teki_img.className = "left_img_default";
       break;
       case 1:
+        audioAtk1.currentTime = 0;
+        audioAtk1.play();
         player_img.className = "kaede_right_img_atk";
         teki_img.className = "left_img_dmg";
         right_img_lock = 1;
       break;
       case 2:
+        audioAtk2.currentTime = 0;
+        audioAtk2.play();
         player_img.className = "kaede_right_img_atk2";
         teki_img.className = "left_img_dmg";
         right_img_lock = 1;
       break;
       case 3:
+        audioAtk3.currentTime = 0;
+        audioAtk3.play();
         player_img.className = "kaede_right_img_atk3";
         teki_img.className = "left_img_dmg";
         right_img_lock = 1;
       break;
       case 4:
+        audioAtk4.currentTime = 0;
+        audioAtk4.play();
         player_img.className = "kaede_right_img_atk4";
         teki_img.className = "left_img_dmg";
         right_img_lock = 1;
