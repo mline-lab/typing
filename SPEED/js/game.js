@@ -605,6 +605,8 @@ function stopTyping() {
 
     audioBGM.pause();
     audioBGM.currentTime = 0;
+    player_img.className = "kaede_right_img";
+    teki_img.className = "left_img";
     game_messsage.style.visibility = "visible";
     startButton.style.visibility = "visible";
     ranking_item.style.visibility = "visible";
