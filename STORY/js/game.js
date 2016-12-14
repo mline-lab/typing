@@ -805,8 +805,8 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 1000) {
-      //player_img.className = "kaede_right_img";
-      //teki_img.className = "left_img";
+      player_img.className = "kaede_right_img";
+      teki_img.className = "left_img";
 
       input_item.style.visibility = "visible";
       game_messsage.style.visibility = "visible";
