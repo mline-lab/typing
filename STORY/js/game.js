@@ -819,7 +819,7 @@ function stopTyping() {
     img3.style.visibility = "hidden";
     img4.style.visibility = "hidden";
     img5.style.visibility = "hidden";
-    player_img.className = "kaede_right_img";
+    player_img.className = "right_img";
     teki_img.className = "left_img";
     $('.game_div').css({
         "border": "3px solid #ffcf00"
