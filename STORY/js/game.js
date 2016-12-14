@@ -690,11 +690,11 @@ function set_audio() {
     audioBGM.volume = 0.5;
 
     audioBad = new Audio();
-    audioBad.src = "../audio/bad_se.ogg";
+    audioBad.src = "../audio/bad_se.mp3";
     audioBad.volume = 0.3;
 
     audioElem = new Audio();
-    audioElem.src = "../audio/se_ok.ogg";
+    audioElem.src = "../audio/se_ok.mp3";
     audioElem.volume = 0.3;
 
     audioAtk1 = new Audio();
