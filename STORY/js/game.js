@@ -397,6 +397,7 @@ window.onload = function() {
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
     startButton = document.getElementById("start_button");
+    input_item = document.getElementById("input_item");
     rankButton = document.getElementById("rank_button");
     name_text = document.getElementById("name-text");
     ranking_item = document.getElementById("ranking_item");
@@ -647,8 +648,6 @@ function re_chapter(){
   img4.style.visibility = "hidden";
   img5.style.visibility = "hidden";
 
-  startButton.style.visibility = "visible";
-
   input_item.style.visibility = "visible";
   $('.game_div').css({
       "border": "3px solid #ffcf00"
@@ -750,7 +749,7 @@ function setvar() {
     img4.style.visibility = "hidden";
     img5.style.visibility = "hidden";
 
-    startButton.style.visibility = "hidden";
+    input_item.style.visibility = "hidden";
     skil_gaze.style.width = "0px";
 }
 
@@ -806,10 +805,10 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     if (score >= 1000) {
-      player_img.className = "kaede_right_img";
-      teki_img.className = "left_img";
+      //player_img.className = "kaede_right_img";
+      //teki_img.className = "left_img";
 
-      startButton.style.visibility = "visible";
+      input_item.style.visibility = "visible";
       game_messsage.style.visibility = "visible";
 
       audioWin.play();
@@ -841,7 +840,6 @@ function stopTyping() {
     img3.style.visibility = "hidden";
     img4.style.visibility = "hidden";
     img5.style.visibility = "hidden";
-    input_item.style.visibility = "visible";
     $('.game_div').css({
         "border": "3px solid #ffcf00"
     });
