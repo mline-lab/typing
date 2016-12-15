@@ -379,7 +379,6 @@ var animation_random_state_number;
 window.onload = function() {
 
     //画像プリロード
-
     $(function(){
     jQuery.preloadImages = function(){
         for(var i = 0; i<arguments.length; i++){
