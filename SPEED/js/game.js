@@ -715,7 +715,7 @@ function moveImg() {
 
         //x座標に+1
         if (x < 500) {
-            x += 1.2;
+            x += 1.5;
         } else if (x >= 500) {
             audioTimeOver.currentTime = 0;
             audioTimeOver.play();
