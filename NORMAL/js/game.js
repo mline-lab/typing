@@ -833,7 +833,9 @@ document.onkeydown = function(e) {
             onStartButtonClick();
         }
     } else {
+      if (game_flag == 1) {
         moziHenkan(e);
+      }
     }
 };
 

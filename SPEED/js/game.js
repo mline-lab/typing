@@ -834,7 +834,9 @@ document.onkeydown = function(e) {
             onStartButtonClick();
         }
     } else {
-        moziHenkan(e);
+        if (game_flag == 1) {
+          moziHenkan(e);
+        }
     }
 };
 
