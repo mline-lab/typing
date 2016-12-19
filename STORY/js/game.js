@@ -797,6 +797,7 @@ function space_start() {
 // 開始
 function startTyping() {
     audioBGM.play();
+    wordArea_jp.style.fontSize = "1.5em";
 
     game_flag = 1;
     game_messsage.style.visibility = "hidden";
@@ -816,6 +817,7 @@ function stopTyping() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
+    wordArea_jp.style.fontSize = "0.9em";
     input_item.style.visibility = "visible";
     game_messsage.style.visibility = "visible";
     audioBGM.pause();

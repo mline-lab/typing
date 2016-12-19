@@ -328,24 +328,26 @@ a {
 }
 
 #word_hiragana {
-    background: rgb(148, 160, 176);
+    background: #383838;
+    color: white;
     height: 30px;
     font-size: 0.7em;
     line-height: 30px;
 }
 
 #word_jp {
-    background: rgb(148, 160, 176);
-    height: 30px;
+    background: #383838;
+    color: white;
+    height: 35px;
     font-size: 0.9em;
-    line-height: 30px;
+    line-height: 1;
 }
 
 #type {
     background: #383838;
-    height: 30px;
+    height: 45px;
     font-size: 0.9em;
-    line-height: 30px;
+    line-height: 45px;
 }
 
 #type_Before {
