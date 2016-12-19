@@ -357,6 +357,7 @@ var gauge;
 var textColor1;
 var textColor2;
 var missCount;
+var font_area;
 
 //タイムゲージ
 var time; //タイマーＩＤ用
@@ -405,6 +406,7 @@ window.onload = function() {
     game_messsage = document.getElementById("game_messsage");
     messageArea = document.getElementById("message");
     wordArea_jp = document.getElementById("word_jp");
+    font_area = document.getElementById("font_area");
     wordArea_hiragana = document.getElementById("word_hiragana");
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
@@ -798,6 +800,7 @@ function space_start() {
 function startTyping() {
     audioBGM.play();
     wordArea_jp.style.fontSize = "1.5em";
+    font_area.style.textAlign = "center";
 
     game_flag = 1;
     game_messsage.style.visibility = "hidden";
@@ -818,6 +821,7 @@ function stopTyping() {
     game_flag = 0;
     wordChars = [];
     wordArea_jp.style.fontSize = "0.9em";
+    font_area.style.textAlign = "left";
     input_item.style.visibility = "visible";
     game_messsage.style.visibility = "visible";
     audioBGM.pause();

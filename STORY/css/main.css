@@ -324,7 +324,7 @@ a {
 /* タイピングワードエリア */
 
 .font_area {
-    text-align: center;
+    text-align: left;
 }
 
 #word_hiragana {
