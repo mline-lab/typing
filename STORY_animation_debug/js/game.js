@@ -673,6 +673,7 @@ function startTyping() {
     teki_img.className = "left_img img";
     setTimeout("player_img.className = \"left_img img\";","1000");
 
+    animation_load();
     nextWord();
     countDown();
     timer1 = setInterval("countDown()", 1000);
@@ -1063,4 +1064,10 @@ function animation_random_state(state){
     var animation_random = Math.floor(Math.random() *3) +2;
   }
   return animation_random;
+}
+
+function animation_load(){
+  for(var i=0;i<6;i++){
+    animation(i);
+  }
 }
