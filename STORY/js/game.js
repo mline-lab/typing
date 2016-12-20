@@ -339,7 +339,7 @@ var mute = 0;
 var bgm_volume = 5;
 
 // 時間制限
-var timeLimit = 60;
+var timeLimit = 10;
 var game_flag = 0;
 
 var startcount;
@@ -448,6 +448,8 @@ window.onload = function() {
     getCSV_hira_File();
     //ストーリー読み込み
     getCSV_Story();
+    getCSV_hira_File();
+    getCSV_jp_File();
     set_audio();
 
     skil_gaze.style.width = "0px";
@@ -507,7 +509,7 @@ function SetCookie() {
 
 function getCSV_jp_File() {
     var xhr = new XMLHttpRequest();
-    xhr.open("get", "csv/word.csv", true);
+    xhr.open("get", "csv/word" + story_chapter + ".csv", true);
     xhr.send(null);
     xhr.onload = function() {
         wordList_jp = xhr.responseText.split(";");
@@ -516,7 +518,7 @@ function getCSV_jp_File() {
 
 function getCSV_hira_File() {
     var xhr2 = new XMLHttpRequest();
-    xhr2.open("get", "csv/word_hiragana.csv", true);
+    xhr2.open("get", "csv/word_hiragana" + story_chapter + ".csv", true);
     xhr2.send(null);
     xhr2.onload = function() {
         wordList_hiragana = xhr2.responseText.split(";");
@@ -610,8 +612,11 @@ function nextChapter() {
     story_flg = 1;
     story = [];
     story_chapter++;
+    end_chapter++;
     SetCookie();
     GetCookie();
+    getCSV_hira_File();
+    getCSV_jp_File();
     getCSV_Story();
     startButton.value = "第「" + story_chapter　+ "」話"
 }
@@ -675,6 +680,8 @@ function butonn_chapter(chapter_num){
     story = [];
     story_chapter = chapter_num;
     re_chapter();
+    getCSV_hira_File();
+    getCSV_jp_File();
     getCSV_Story();
     startButton.value = "第「" + story_chapter　+ "」話"
   }
@@ -843,7 +850,7 @@ function stopTyping() {
         "border": "3px solid #ffcf00"
     });
 
-    if (score >= 1000) {
+    if (score >= 100) {
       audioWin.play();
       condition.textContent = "第"+ story_chapter +"話クリア";
         if (end_chapter == story_chapter) {
