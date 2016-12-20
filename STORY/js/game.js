@@ -602,7 +602,7 @@ function story_Message() {
       wordArea_hiragana.textContent = "【 " + story[story_line][0] + " 】";
     }
 
-    wordArea_jp.textContent = story[story_line][1];
+    wordArea_jp.innerHTML = story[story_line][1];
 }
 
 function nextChapter() {

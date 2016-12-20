@@ -337,6 +337,8 @@ a {
 
 #word_jp {
     background: #383838;
+    padding-left: 10px;
+    padding-right: 10px;
     color: white;
     height: 35px;
     font-size: 0.9em;
@@ -345,9 +347,9 @@ a {
 
 #type {
     background: #383838;
-    height: 45px;
+    height: 40px;
     font-size: 0.9em;
-    line-height: 45px;
+    line-height: 40px;
 }
 
 #type_Before {
