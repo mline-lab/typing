@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ブラウザ判定</title>
+    <style>
+    	body {background-image: url("keikoku.png"); }
+    	h1 {font-color: white;}
+    </style>
+    <script type="text/javascript">
+/**
+ *  ブラウザ名を取得
+ *  
+ *  @return     ブラウザ名(chrome、safari、firefox、unknown)
+ *
+ */
+var getBrowser = function(){
+    var ua = window.navigator.userAgent.toLowerCase();
+    var ver = window.navigator.appVersion.toLowerCase();
+    var name = 'unknown';
+    var hantei;
+
+	 if (ua.indexOf("msie") != -1){
+        if (ver.indexOf("msie 6.") != -1){
+            name = 'IE6';
+        }else if (ver.indexOf("msie 7.") != -1){
+            name = 'IE7';
+        }else if (ver.indexOf("msie 8.") != -1){
+            name = 'IE8';
+        }else if (ver.indexOf("msie 9.") != -1){
+            name = 'IE9';
+        }else if (ver.indexOf("msie 10.") != -1){
+            name = 'IE10';
+        }else{
+            name = 'IE';
+        }
+    }else if(ua.indexOf('trident/7') != -1){
+        name = 'IE11';
+    }else if (ua.indexOf('chrome') != -1){
+        name = 'chrome';
+    }else if (ua.indexOf('opera') != -1){
+        name = 'opera';
+    }else if (ua.indexOf('firefox') != -1){
+        name = 'firefox';
+    }
+    return name;
+};
+
+
+/**
+ *  対応ブラウザかどうか判定
+ *  
+ *  @param  browsers    対応ブラウザ名を配列で渡す(chrome、opera、firefox)
+ *  @return             サポートしてるかどうか
+ *
+ */
+var isSupported = function(browsers){
+    var thusBrowser = getBrowser();
+    for(var i=0; i<browsers.length; i++){
+        if(browsers[i] == thusBrowser){
+        	document.write(thusBrowser);
+            return "対応してます";
+            exit;
+        }
+    }
+    document.write("<h1 align='center'>" + "今お使いの「" + thusBrowser + "」ではご利用いただけません。" + "</h1>");
+    return "対応してないです";
+};
+
+alert(isSupported(['chrome','opera','firefox']));
+
+</script>
+</head>
+<body>
+	<div>
+		<div class="content">
+
+		</div>
+	</div>
+</body>
+</html>
