@@ -861,7 +861,7 @@ function stopTyping() {
         if (end_chapter == story_chapter) {
             startButton.value = "END";
         } else {
-            nextChapter();
+            startButton.value = "END";
         }
     } else if (score <= 999) {
         //スコア低過ぎ
