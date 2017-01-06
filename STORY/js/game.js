@@ -379,9 +379,6 @@ var story_flg = 1;
 var end_chapter = 2;
 var message_end_flg = 99;
 
-//ストーリー中BGM
-audioStoryBGM = new Audio();
-
 //クッキー
 var CookieCheck;
 
@@ -487,9 +484,6 @@ window.onload = function() {
                       "img/story/bg/story01_05.jpg");
     });
 
-
-
-
     startButton.value = "第「１」話"
 }
 
@@ -582,6 +576,7 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
+            set_audio();
             img1.src = "";
             img2.src = "";
             img3.src = "";
@@ -643,10 +638,10 @@ function story_Message() {
 
     //BGM判定
     if (story[story_line][8] != "") {
-      audioStoryBGM.currentTime = 0;
-      audioStoryBGM.src = "../audio/BGM/" + story[story_line][8] + ".mp3";
-      audioStoryBGM.volume = 0.5;
-      audioStoryBGM.play();
+      audioBGM.currentTime = 0;
+      audioBGM.src = "../audio/BGM/" + story[story_line][8] + ".mp3";
+      audioBGM.volume = 0.5;
+      audioBGM.play();
     } else {
 
     }
