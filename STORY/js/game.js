@@ -1058,12 +1058,12 @@ function moziHenkan(e) {
 
 // 残り時間を計測
 function countDown() {
-    time_area.textContent = timeLeft + " sec.";
-    if (timeLeft <= 0) {
-        stopTyping();
-        return;
-    }
-    timeLeft--;
+  if (timeLeft <= -1) {
+      stopTyping();
+      return;
+  }
+  time_area.textContent = timeLeft + " sec.";
+  timeLeft--;
 }
 
 
