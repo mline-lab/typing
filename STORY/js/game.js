@@ -696,6 +696,7 @@ function butonn_chapter(chapter_num){
     getCSV_hira_File();
     getCSV_jp_File();
     getCSV_Story();
+    game_stop_refresh();
     startButton.value = "第「" + story_chapter　+ "」話"
   }
 }
@@ -787,6 +788,35 @@ function setvar() {
     skil_gaze.style.width = "0px";
 }
 
+function game_stop_refresh() {
+  gauge = 0;
+  deadly = 0;
+  game_flag = 0;
+  wordChars = [];
+  wordArea_jp.style.fontSize = "0.9em";
+  font_area.style.textAlign = "left";
+  input_item.style.visibility = "visible";
+  game_messsage.style.visibility = "visible";
+  audioBGM.pause();
+  audioBGM.currentTime = 0;
+  messageArea.textContent = "Score: " + score + "■ミスタイプ数" + missCount;
+  typeArea.textContent = "";
+  typeArea2.textContent = "";
+  wordArea_hiragana.textContent = "";
+  wordArea_jp.textContent = "";
+  time_gaze_id.style.width = 0 + "px";
+  img1.style.visibility = "hidden";
+  img2.style.visibility = "hidden";
+  img3.style.visibility = "hidden";
+  img4.style.visibility = "hidden";
+  img5.style.visibility = "hidden";
+  player_img.className = "right_img";
+  teki_img.className = "left_img";
+  $('.game_div').css({
+      "border": "3px solid #ffcf00"
+  });
+}
+
 function onStartButtonClick() {
     setvar();
     space_flag = 1;
@@ -836,32 +866,8 @@ function startTyping() {
 // 終了
 function stopTyping() {
     clearInterval(timer1);
-    gauge = 0;
-    deadly = 0;
-    game_flag = 0;
-    wordChars = [];
-    wordArea_jp.style.fontSize = "0.9em";
-    font_area.style.textAlign = "left";
-    input_item.style.visibility = "visible";
-    game_messsage.style.visibility = "visible";
-    audioBGM.pause();
-    audioBGM.currentTime = 0;
-    messageArea.textContent = "Score: " + score + "■ミスタイプ数" + missCount;
-    typeArea.textContent = "";
-    typeArea2.textContent = "";
-    wordArea_hiragana.textContent = "";
-    wordArea_jp.textContent = "";
-    time_gaze_id.style.width = 0 + "px";
-    img1.style.visibility = "hidden";
-    img2.style.visibility = "hidden";
-    img3.style.visibility = "hidden";
-    img4.style.visibility = "hidden";
-    img5.style.visibility = "hidden";
-    player_img.className = "right_img";
-    teki_img.className = "left_img";
-    $('.game_div').css({
-        "border": "3px solid #ffcf00"
-    });
+
+    game_stop_refresh();
 
     if (score >= 100) {
       audioWin.play();
