@@ -1032,7 +1032,7 @@ function moziHenkan(e) {
     townro_machange
     ro_ma = data[11];
     shiftdown = data[13];
-    if (game_flag == 1) {
+    if (game_flag == 1 && timeLeft >= 0) {
         if (seikaisuu != tempseikai) {
             hantei();
         } else {
