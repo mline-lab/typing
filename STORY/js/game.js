@@ -640,7 +640,6 @@ function story_Message() {
     if (story[story_line][8] != "") {
       audioBGM.currentTime = 0;
       audioBGM.src = "../audio/BGM/" + story[story_line][8] + ".mp3";
-      audioBGM.volume = 0.5;
       audioBGM.play();
     } else {
 
