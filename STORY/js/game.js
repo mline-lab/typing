@@ -660,7 +660,6 @@ function nextChapter() {
     getCSV_hira_File();
     getCSV_jp_File();
     getCSV_Story();
-    game_stop_refresh();
     startButton.value = "第「" + story_chapter　+ "」話"
 }
 
@@ -1169,52 +1168,54 @@ function hantei() {
 //■7:ボーナス2
 //■8:ボーナス3
 function animation(motion_number){
-  switch (motion_number) {
-      case 0:
-        right_img_lock = 0;
-        player_img.className = "kaede_right_img_defalt";
-        teki_img.className = "left_img_default";
+  if (timeLeft >= 1) {
+    switch (motion_number) {
+        case 0:
+          right_img_lock = 0;
+          player_img.className = "kaede_right_img_defalt";
+          teki_img.className = "left_img_default";
+        break;
+        case 1:
+          audioAtk1.currentTime = 0;
+          audioAtk1.play();
+          player_img.className = "kaede_right_img_atk";
+          teki_img.className = "left_img_dmg";
+          right_img_lock = 1;
+        break;
+        case 2:
+          audioAtk2.currentTime = 0;
+          audioAtk2.play();
+          player_img.className = "kaede_right_img_atk2";
+          teki_img.className = "left_img_dmg";
+          right_img_lock = 1;
+        break;
+        case 3:
+          audioAtk3.currentTime = 0;
+          audioAtk3.play();
+          player_img.className = "kaede_right_img_atk3";
+          teki_img.className = "left_img_dmg";
+          right_img_lock = 1;
+        break;
+        case 4:
+          audioAtk4.currentTime = 0;
+          audioAtk4.play();
+          player_img.className = "kaede_right_img_atk4";
+          teki_img.className = "left_img_dmg";
+          right_img_lock = 1;
+        break;
+        case 5:
+          player_img.className = "kaede_right_img_miss";
+          right_img_lock = 1;
+        break;
+        case 6:
+        break;
+        case 7:
+        break;
+        case 8:
+        break;
+      default:
       break;
-      case 1:
-        audioAtk1.currentTime = 0;
-        audioAtk1.play();
-        player_img.className = "kaede_right_img_atk";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 2:
-        audioAtk2.currentTime = 0;
-        audioAtk2.play();
-        player_img.className = "kaede_right_img_atk2";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 3:
-        audioAtk3.currentTime = 0;
-        audioAtk3.play();
-        player_img.className = "kaede_right_img_atk3";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 4:
-        audioAtk4.currentTime = 0;
-        audioAtk4.play();
-        player_img.className = "kaede_right_img_atk4";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 5:
-        player_img.className = "kaede_right_img_miss";
-        right_img_lock = 1;
-      break;
-      case 6:
-      break;
-      case 7:
-      break;
-      case 8:
-      break;
-    default:
-    break;
+    }
   }
 }
 
