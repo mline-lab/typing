@@ -858,7 +858,8 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
-    animation(0);
+    player_img.className = "kaede_right_img_defalt";
+    teki_img.className = "left_img_default";
     space_flag = 0;
     startcount--;
     if (startcount == 4) {
@@ -922,7 +923,7 @@ function stopTyping() {
 
 // 次の単語を表示
 function nextWord() {
-
+  if (timeLeft >= 1) {
     //テスト変数
     tableichi = 0;
     ichi = 0;
@@ -948,6 +949,7 @@ function nextWord() {
     typeArea2.textContent = textColor2;
     x = 0;
     moveImg();
+  }
 }
 
 function moveImg() {
