@@ -577,6 +577,7 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
+          if (story_chapter != 5) {
             img1.src = "";
             img2.src = "";
             img3.src = "";
@@ -594,6 +595,8 @@ function nextMessage() {
             condition.textContent = "クリア条件\n 　スコア１０００以上"
             space_flag = 1;
             message_end_flg = 1;
+          }
+
         } else {
           story_line++;
           story_Message();
@@ -657,6 +660,7 @@ function nextChapter() {
     getCSV_hira_File();
     getCSV_jp_File();
     getCSV_Story();
+    game_stop_refresh();
     startButton.value = "第「" + story_chapter　+ "」話"
 }
 
@@ -722,7 +726,6 @@ function butonn_chapter(chapter_num){
     getCSV_hira_File();
     getCSV_jp_File();
     getCSV_Story();
-    game_stop_refresh();
     startButton.value = "第「" + story_chapter　+ "」話"
   }
 }
