@@ -480,6 +480,7 @@ window.onload = function() {
                       "img/story/bg/siro_2.jpg",
                       "img/story/bg/story01_01.jpg",
                       "img/story/bg/story01_02.jpg",
+                      "img/story/bg/story01_03.jpg",
                       "img/story/bg/story01_04.jpg",
                       "img/story/bg/story01_05.jpg");
     });
@@ -576,7 +577,6 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
-            set_audio();
             img1.src = "";
             img2.src = "";
             img3.src = "";
@@ -874,6 +874,8 @@ function space_start() {
 
 // 開始
 function startTyping() {
+    audioBGM.src = "../audio/BGM/Reflect.mp3";
+    audioBGM.currentTime = 0;
     audioBGM.play();
     wordArea_jp.style.fontSize = "1.5em";
     font_area.style.textAlign = "center";
