@@ -923,7 +923,7 @@ function stopTyping() {
 
 // 次の単語を表示
 function nextWord() {
-  if (timeLeft >= 1) {
+  if (timeLeft >= 0) {
     //テスト変数
     tableichi = 0;
     ichi = 0;
@@ -1170,7 +1170,7 @@ function hantei() {
 //■7:ボーナス2
 //■8:ボーナス3
 function animation(motion_number){
-  if (timeLeft >= 1) {
+  if (timeLeft >= 0) {
     switch (motion_number) {
         case 0:
           right_img_lock = 0;
