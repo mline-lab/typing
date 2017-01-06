@@ -720,6 +720,8 @@ function butonn_chapter(chapter_num){
     story_line = -1;
     story_flg = 1;
     story = [];
+    story_chapter++;
+    end_chapter++;
     story_chapter = chapter_num;
     re_chapter();
     getCSV_hira_File();
