@@ -379,6 +379,9 @@ var story_flg = 1;
 var end_chapter = 2;
 var message_end_flg = 99;
 
+//ストーリー中BGM
+audioStoryBGM = new Audio();
+
 //クッキー
 var CookieCheck;
 
@@ -605,6 +608,16 @@ function story_Message() {
     }
 
     wordArea_jp.innerHTML = story[story_line][1];
+
+    //BGM判定
+    if (story[story_line][8] != "") {
+      audioStoryBGM.currentTime = 0;
+      audioStoryBGM.src = "../audio/BGM/" + story[story_line][8] + ".mp3";
+      audioStoryBGM.volume = 0.5;
+      audioStoryBGM.play();
+    } else {
+
+    }
 }
 
 function nextChapter() {
