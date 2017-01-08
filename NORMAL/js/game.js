@@ -376,6 +376,9 @@ var worddata
 var right_img_lock;
 var animation_random_state_number;
 
+//難易度でわける変数
+var move_speed;
+
 window.onload = function() {
 
     //画像プリロード
@@ -415,6 +418,7 @@ window.onload = function() {
     img5 = document.getElementById("img5");
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
+    rdo1 = document.getElementById("rdo1");
 
     shiftdown = 0;
     wordseikaisuu = 0;
@@ -447,6 +451,14 @@ function getCSV_hira_File() {
     xhr2.onload = function() {
         wordList_hiragana = xhr2.responseText.split(";");
     };
+}
+
+function set_move_speed() {
+    if (rdo1.checked == true) {
+        move_speed = 0.3;
+    } else {
+        move_speed = 0.9;
+    }
 }
 
 function on_mute() {
@@ -568,6 +580,7 @@ function setvar() {
 }
 
 function onStartButtonClick() {
+    set_move_speed();
     setvar();
     space_flag = 1;
     messageArea.textContent = "スペースキーでスタート";
@@ -714,7 +727,7 @@ function moveImg() {
 
         //x座標に+1
         if (x < 500) {
-            x += 0.8;
+            x += move_speed;
         } else if (x >= 500) {
             audioTimeOver.currentTime = 0;
             audioTimeOver.play();

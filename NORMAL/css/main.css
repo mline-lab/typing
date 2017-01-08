@@ -103,6 +103,45 @@ a {
   background: rgb(198, 255, 245);
 }
 
+/* ラジオボタンは非表示にする */
+.difficulty input[type=radio] {
+  display: none;
+}
+/* チェックされた時のスタイル */
+.difficulty input[type="radio"]:checked + label {
+  background: #0063A4;
+  color: #FFF;
+}
+.difficulty ul {
+  width: 100%;
+  list-style:none;
+  margin-left: 0;
+  padding-left: 0;
+  display: block;
+}
+.easy {
+  float: left;
+  width: 50%;
+}
+.normal {
+  float: left;
+  width: 50%;
+}
+/* マウスオーバーしたときのスタイル */
+.label:hover {
+  background-color: #E2EDF9;
+}
+/* lableのスタイル */
+.label {
+  color: #000;
+  border: #dddddd solid 2px;
+  display: block;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+
 
 .side02 {
     width: 200px;

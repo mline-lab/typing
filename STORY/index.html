@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>LostColor-STORY-</title>
     <meta charset="utf-8">
@@ -10,13 +11,22 @@
     <link rel="stylesheet" href="css/mrp.css" media="all">
     <script type="text/javascript" src="js/towntypelib.js"></script>
 </head>
+
 <body>
     <div class="head_menu">
         <ul id="menu">
-            <a href="../"><li>HOME</li></a>
-            <a href="#"><li>キャラクター</li></a>
-            <a href="#"><li>イントロ</li></a>
-            <a href="#"><li>PV</li></a>
+            <a href="../">
+                <li>HOME</li>
+            </a>
+            <a href="#">
+                <li>キャラクター</li>
+            </a>
+            <a href="#">
+                <li>イントロ</li>
+            </a>
+            <a href="#">
+                <li>PV</li>
+            </a>
             <li>ストーリー</li>
         </ul>
     </div>
@@ -39,33 +49,33 @@
                         </div>
                     </div>
                     <div class="game_main" id="bgimg">
-                      <!-- ゲーム中で使用するbutton -->
-                      <form id="input_item">
-                          <p>
-                              <input type="button" class="button" id="start_button" value="Start" onClick="onStartButtonClick()">
-                          </p>
-                      </form>
-                      <div id="game_messsage">
-                        <span id="message">スタート</span>
-                        <div style="font-weight: bold;" id="condition">&nbsp;</div>
-                      </div>
-                      <div id="ranking_item">
-                        <form name="ranking" id="form_ranking">
-                              <input type="text" id="name-text" name="username" class="rank_item">
-                              <br />
-                              <input type="submit" class="button" id="rank_button" value="ランキング登録" onClick="rank_push()">
+                        <!-- ゲーム中で使用するbutton -->
+                        <form id="input_item">
+                            <p>
+                                <input type="button" class="button" id="start_button" value="Start" onClick="onStartButtonClick()">
+                            </p>
                         </form>
-                      </div>
-                      <!-- -->
-                      <div class="left_img" id="teki_img">
-                        <img id="img1" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img2" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                      </div>
-                      <div class="right_img" id="player_img">
-                        <img id="img3" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img4" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img5" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                      </div>
+                        <div id="game_messsage">
+                            <span id="message">スタート</span>
+                            <div style="font-weight: bold;" id="condition">&nbsp;</div>
+                        </div>
+                        <div id="ranking_item">
+                            <form name="ranking" id="form_ranking">
+                                <input type="text" id="name-text" name="username" class="rank_item">
+                                <br />
+                                <input type="submit" class="button" id="rank_button" value="ランキング登録" onClick="rank_push()">
+                            </form>
+                        </div>
+                        <!-- -->
+                        <div class="left_img" id="teki_img">
+                            <img id="img1" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img2" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                        </div>
+                        <div class="right_img" id="player_img">
+                            <img id="img3" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img4" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img5" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                        </div>
                     </div>
                     <div class="font_area" id="font_area">
                         <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
@@ -76,32 +86,32 @@
                         </div>
                     </div>
                     <div class="time_fake">
-                      <div class="time_gaze" id="time_gaze_id">
-                      </div>
+                        <div class="time_gaze" id="time_gaze_id">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="side01">
-                    <p>マスターボリューム</p>
-                    <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button"/></div>
-                    <p>ＢＧＭボリューム</p>
-                    <div class="bgm_volume">
-                      <div class="right_volume" onclick="bgm_volume_down()">DOWN</div>
-                        <img src="img/volume/v5.png" id="bgm_volume_button"/>
-                      <div class="left_volume" onclick="bgm_volume_up()">UP</div>
-                    </div>
+                <p>マスターボリューム</p>
+                <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button" /></div>
+                <p>ＢＧＭボリューム</p>
+                <div class="bgm_volume">
+                    <div class="right_volume" onclick="bgm_volume_down()">DOWN</div>
+                    <img src="img/volume/v5.png" id="bgm_volume_button" />
+                    <div class="left_volume" onclick="bgm_volume_up()">UP</div>
+                </div>
             </div>
         </div>
         <div class="side02">
-                    <div class="back_button" onclick="BackMessage()">戻る</div>
-                    <div class="next_button" onclick="nextMessage()">進む</div>
-                    <div class="chapter_menu">
-                      <div class="chapter_item" id="chapter_1" onclick="butonn_chapter(1)">第１話 「ハジライ大地に立つ」</div>
-                      <div class="chapter_item" id="chapter_2" onclick="butonn_chapter(2)">第２話 「ハジライ破壊命令」</div>
-                      <div class="chapter_item" id="chapter_3" onclick="butonn_chapter(3)">第３話 「ハジライの補給艦を叩け！」</div>
-                      <div class="chapter_item" id="chapter_4" onclick="butonn_chapter(4)">第４話 「ハジライ脱出作戦」</div>
-                      <div class="chapter_item" id="chapter_5" onclick="butonn_chapter(5)">第５話 「ハジライ突入」</div>
-                    </div>
+            <div class="back_button" onclick="BackMessage()">戻る</div>
+            <div class="next_button" onclick="nextMessage()">進む</div>
+            <div class="chapter_menu">
+                <div class="chapter_item" id="chapter_1" onclick="butonn_chapter(1)">第１話 「ハジライ大地に立つ」</div>
+                <div class="chapter_item" id="chapter_2" onclick="butonn_chapter(2)">第２話 「ハジライ破壊命令」</div>
+                <div class="chapter_item" id="chapter_3" onclick="butonn_chapter(3)">第３話 「ハジライの補給艦を叩け！」</div>
+                <div class="chapter_item" id="chapter_4" onclick="butonn_chapter(4)">第４話 「ハジライ脱出作戦」</div>
+                <div class="chapter_item" id="chapter_5" onclick="butonn_chapter(5)">第５話 「ハジライ突入」</div>
+            </div>
         </div>
 
         <footer>
@@ -110,4 +120,5 @@
         </footer>
     </div>
 </body>
+
 </html>
