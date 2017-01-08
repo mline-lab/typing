@@ -850,9 +850,11 @@ function game_stop_refresh() {
 function onStartButtonClick() {
     setvar();
     space_flag = 1;
+    bgimg.style.backgroundImage = "";
     messageArea.textContent = "スペースキーでスタート";
     if (story_flg == 1) {
         load_Story();
+        bgimg.style.backgroundImage = "";
         story_flg = 0;
         message_end_flg = 0;
     }
@@ -860,6 +862,7 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
+    bgimg.style.backgroundImage = "url(img/story/bg/siro_2.jpg)";
     player_img.className = "kaede_right_img_defalt";
     teki_img.className = "left_img_default";
     space_flag = 0;
@@ -904,6 +907,7 @@ function stopTyping() {
 
     if (score >= 100) {
       audioWin.play();
+      bgimg.style.backgroundImage = "url(img/typing/bg/win.jpg)";
       condition.textContent = "第"+ story_chapter +"話クリア";
         if (end_chapter == story_chapter) {
             startButton.value = "Start";
@@ -912,8 +916,9 @@ function stopTyping() {
         } else {
             nextChapter();
         }
-    } else if (score <= 999) {
+    } else if (score <= 99) {
         //スコア低過ぎ
+        bgimg.style.backgroundImage = "url(img/typing/bg/lose.jpg)";
         audioLose.play();
         startButton.value = "Retry";
 
@@ -1061,6 +1066,11 @@ function countDown() {
   if (timeLeft <= -1) {
       stopTyping();
       return;
+  } else if (timeLeft == 0) {
+    typeArea.textContent = "";
+    typeArea2.textContent = "";
+    wordArea_hiragana.textContent = "";
+    wordArea_jp.textContent = "タイムアップ";
   }
   time_area.textContent = timeLeft + " sec.";
   timeLeft--;
