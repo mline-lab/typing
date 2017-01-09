@@ -326,6 +326,8 @@ var audioAtk1;
 var audioAtk2;
 var audioAtk3;
 var audioAtk4;
+//効果音
+var audioFunction;
 
 //勝ちボイス
 var audioWin;
@@ -646,8 +648,13 @@ function story_Message() {
         audioBGM.currentTime = 0;
         audioBGM.src = "../audio/BGM/" + story[story_line][8] + ".mp3";
         audioBGM.play();
-    } else {
+    }
 
+    //効果音判定
+    if (story[story_line][9] != "") {
+      audioFunction.currentTime = 0;
+      audioFunction.src = "../audio/function/" + story[story_line][9] + ".mp3";
+      audioFunction.play();
     }
 }
 
@@ -692,6 +699,7 @@ function on_mute() {
         audioWin.volume = 0;
         audioLose.volume = 0;
         audioTimeOver.volume = 0;
+        audioFunction.volume = 0;
         mute = 1;
     } else {
         mute_button.src = "img/volume_on.png";
@@ -705,6 +713,7 @@ function on_mute() {
         audioWin.volume = 0.3;
         audioLose.volume = 0.3;
         audioTimeOver.volume = 0.3;
+        audioFunction.volume = 1;
         mute = 0;
     }
 }
@@ -804,6 +813,9 @@ function set_audio() {
     audioTimeOver = new Audio();
     audioTimeOver.src = "../audio/kaede_voice/timeover.mp3";
     audioTimeOver.volume = 0.3;
+
+    audioFunction = new Audio();
+    audioFunction.volume = 1;
 
 }
 
