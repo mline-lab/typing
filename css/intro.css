@@ -94,11 +94,12 @@ a:hover {
 
 /*タイトル*/
 
-.game_content {
-    width: 980px;
-    height: 600px;
+.intro_content {
+    width: 840px;
+    height: 720px;
     margin: 0 auto;
-    background-image: url("../images/title_img.png");
+    margin-bottom: 20px;
+    background-image: url("../images/intoro_bg.png");
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -107,109 +108,6 @@ a:hover {
     -khtml-user-drag: none;
 }
 
-.game_select {
-    float: right;
-    margin-top: 30px;
-    margin-right: 100px;
-    font-size: 2em;
-}
-
-
-/*サブコンテンツ*/
-
-.introduction {
-    float: left;
-    width: 650px;
-    height: 850px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    margin-right: 48px;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.intro_btn {
-    width: 650px;
-    height: 150px;
-    background-image: url("../images/intro_btn.png");
-}
-
-.infor_caption {
-    width: 100%;
-    height: 20px;
-    text-align: center;
-    font-size:18px;
-  	font-weight:bold;/*追加*/
-}
-
-#news {
-    width: 650px;
-    height: 200px;
-    overflow: scroll;
-}
-
-#news li {
-    width: 100%;
-    height: 120px;
-    padding: 10px 10px 0px 0px;
-    border-bottom: 1px dotted #000000;
-    overflow: hidden;
-    box-sizing: border-box;
-    /*追加*/
-}
-
-.newstext{
-	float:none;
-	width:auto;
-	font-size:13px;
-}
-
-.newstext p > time, .newstext  nobr > time{
-	font-size:12px;
-	font-weight:bold;/*追加*/
-}
-
-
-.typing_h2 {
-    width: 650px;
-    height: 45px;
-    background-image: url("../images/typing_h2.png");
-}
-
-.sanserif {
-    font-size: 1em;
-    text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 3px #FFFFFF;
-    /*光沢*/
-    color: #424242;
-    margin: 10px;
-}
-
-.link {
-    float: left;
-    width: 322px;
-    height: 850px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-
-/**witter**/
-
-#twitter>h4 {
-    padding-left: 15px;
-    letter-spacing: 0em;
-    /*レス変更*/
-    color: #55acee;
-}
-
-.link_img {
-    text-align: center;
-}
-
-.link_img img {
-    height: 70px;
-    margin-top: 10px;
-}
 
 
 /*フッター設定
