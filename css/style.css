@@ -118,6 +118,21 @@ a:hover {
   margin-right: 48px;
   background: rgba(255, 255, 255, 0.8);
 }
+.introduction h1 {
+  width: 650px;
+  height: 60px;
+  background-image: url("../images/intoro.png");
+}
+.story_h2 {
+  width: 650px;
+  height: 45px;
+  background-image: url("../images/story_h2.png");
+}
+.typing_h2 {
+  width: 650px;
+  height: 45px;
+  background-image: url("../images/typing_h2.png");
+}
 .sanserif {
   font-size: 1em;
 	text-shadow: 0px 0px 3px #FFFFFF , 0px 0px 3px #FFFFFF;/*光沢*/
