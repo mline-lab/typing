@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+.sanserif{
+	  font-family:"Times New Roman", "游明朝体", "Yu Mincho",YuMincho, "メイリオ", Meiryo, "HG明朝E", serif;/*追加*/
+}
+
+/*フォントァカラー*/
+.red{
+	color:#ff5252;
+	/*text-decoration:underline;*/
+}
+
+.blue{
+	color:#0245cd;
+	/*text-decoration:underline;*/
+}
+
+.bold{
+	font-weight:bold;
+}
