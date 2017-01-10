@@ -19,9 +19,10 @@ body {
     /*文字サイズ*/
     line-height: 2;
     /*行間*/
-    /*背景色、背景画像の読み込み*/
-    -webkit-text-size-adjust: none;
-}
+    /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
+    background: linear-gradient(rgba(255, 255, 255, 0.5) 50%, rgba(87, 255, 119, 0.5)),
+    url(../images/gi01a201401031300.png);
+  }
 
 /*リンク（全般）設定
 ---------------------------------------------------------------------------*/
@@ -47,6 +48,13 @@ a:hover {
     height: 70px;
 }
 
+.head_img {
+  width: 170px;
+  height: 70px;
+  float: left;
+  background-image: url("../images/head_img_title.png");
+}
+
 #menu {
     width: 1024px;
     height: 70px;
@@ -57,18 +65,10 @@ a:hover {
 }
 
 #menu li {
-    width: 190px;
+    width: 170px;
     height: 70px;
     line-height: 70px;
     float: left;
-    border: 1px solid rgb(42, 42, 42);
-    /*枠線の幅、線種、色*/
-    border-radius: 10px;
-    /*角丸のサイズ*/
-    display: block;
-    margin-left: 10px;
-    text-decoration: none;
-    -webkit-transition: 0.5s;
     /*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
     transition: 0.5s;
     /*同上*/
@@ -77,7 +77,7 @@ a:hover {
 #menu li:hover {
     color: #c80000;
     /*文字色*/
-    background: #fff;
+    background: rgb(187, 247, 177);
     /*背景色*/
 }
 
@@ -117,19 +117,19 @@ a:hover {
   float: left;
   width: 650px;
   height: 800px;
-  border: 1px solid #4deafa;
   margin-right: 48px;
+  background: rgba(255, 255, 255, 0.8);
 }
 .sanserif {
   font-size: 1em;
 	text-shadow: 0px 0px 3px #FFFFFF , 0px 0px 3px #FFFFFF;/*光沢*/
   color: #424242;
+  margin: 10px;
 }
 .twitter {
   float: left;
   width: 322px;
   height: 800px;
-  border: 1px solid #4deafa;
 }
 
 /*フッター設定
