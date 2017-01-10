@@ -108,14 +108,13 @@ a:hover {
 }
 
 /*サブコンテンツ*/
-.sub_content {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+
 .introduction {
   float: left;
   width: 650px;
   height: 800px;
+  margin-top: 40px;
+  margin-bottom: 20px;
   margin-right: 48px;
   background: rgba(255, 255, 255, 0.8);
 }
@@ -129,6 +128,8 @@ a:hover {
   float: left;
   width: 322px;
   height: 800px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 /*フッター設定
@@ -144,10 +145,14 @@ footer {
 footer .pr {
     display: block;
     font-size: 80%;
-
 }
 
 footer a {
   color: #ffffff;
   text-decoration: none;
+}
+
+footer img {
+  width: 100px;
+  height: auto;
 }
