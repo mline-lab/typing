@@ -139,7 +139,7 @@ a:hover {
   color: #424242;
   margin: 10px;
 }
-.twitter {
+.link {
   float: left;
   width: 322px;
   height: 800px;
@@ -147,6 +147,13 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.link_img {
+  text-align: center;
+}
+.link_img img {
+  height: 90px;
+  margin-top: 10px;
+}
 /*フッター設定
 ---------------------------------------------------------------------------*/
 
