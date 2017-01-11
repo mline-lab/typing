@@ -159,6 +159,12 @@ a:hover {
   -moz-box-shadow: 2px 4px 5px 0px #dbdbdb;
   -webkit-box-shadow: 2px 4px 5px 0px #dbdbdb;
   box-shadow: 2px 4px 5px 0px #dbdbdb;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
 }
 
 .box-shadow:hover {
