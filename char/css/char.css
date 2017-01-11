@@ -22,7 +22,7 @@ body {
     line-height: 2;
     /*行間*/
     /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
-    background: linear-gradient(rgba(255, 255, 255, 0.5) 50%, rgba(87, 255, 119, 0.5)), url(../images/hane_bg.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.5) 50%, rgba(87, 255, 119, 0.5)), url(../../images/hane_bg.png);
 }
 
 
@@ -55,7 +55,7 @@ a:hover {
     width: 170px;
     height: 70px;
     float: left;
-    background-image: url("../images/pr/head_img_title.png");
+    background-image: url("../../images/cr/head_img_title.png");
 }
 
 #menu {
@@ -109,12 +109,45 @@ a:hover {
   box-shadow: 2px 4px 5px 0px #dbdbdb;
 }
 
-table{
+.char_select {
   width: 800px;
+  margin: 0 auto;
+}
+
+.char_icon img {
+  width: 50px;
+  border:1px solid #333;/* 外枠の色 */
+  padding:5px;/* 余白 */
+  background-color:#ffffff;/* 余白部分の色 */
+}
+
+.char_icon img:hover {
+  cursor:pointer;
+    filter: alpha(opacity=60);        /* ie lt 8 */
+    -ms-filter: "alpha(opacity=60)";  /* ie 8 */
+    -moz-opacity:0.6;                 /* FF lt 1.5, Netscape */
+    -khtml-opacity: 0.6;              /* Safari 1.x */
+    opacity:0.6;
+    zoom:1;
+}
+
+table{
+  width: 100%;
+  border: 2px #808080 solid;
 }
 
 td {
   border: 2px #808080 solid;
+}
+
+.prof {
+  width: 300px;
+  height: 550px;
+}
+
+.char_img {
+  width: 500px;
+  height: 550px;
 }
 
 /*フッター設定
