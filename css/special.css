@@ -118,10 +118,13 @@ a:hover {
 ---------------------------------------------------------------------------*/
 
 footer {
+    width: 100%;
     clear: both;
     text-align: center;
     background: #3e3e3e;
     color: #ffffff;
+    bottom: 0;
+    position: absolute;
 }
 
 footer .pr {
