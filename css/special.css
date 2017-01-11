@@ -89,56 +89,30 @@ a:hover {
 .container {
     width: 1024px;
     margin: 0 auto;
+    text-align: center;
 }
 
 
 /*タイトル*/
 
-.twitter_icon {
-    width: 700px;
-    height: auto;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    background: rgba(255, 239, 213, 0.7);
-    text-align: center;
+.box-shadow {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  -moz-box-shadow: 2px 4px 5px 0px #dbdbdb;
+  -webkit-box-shadow: 2px 4px 5px 0px #dbdbdb;
+  box-shadow: 2px 4px 5px 0px #dbdbdb;
 }
 
-.twitter_icon img{
-    width: 200px;
-    float: left;
-    margin-left: 16px;
-    margin-right: 10px;
-    margin-top: 20px;
-    border: 2px solid #888 ;
+.box-shadow:hover {
+  cursor:pointer;
+    filter: alpha(opacity=60);        /* ie lt 8 */
+    -ms-filter: "alpha(opacity=60)";  /* ie 8 */
+    -moz-opacity:0.6;                 /* FF lt 1.5, Netscape */
+    -khtml-opacity: 0.6;              /* Safari 1.x */
+    opacity:0.6;
+    zoom:1;
 }
-
-.twitter_head {
-    width: 700px;
-    height: auto;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    background: rgba(255, 239, 213, 0.7);
-    text-align: center;
-}
-
-.twitter_head img{
-  width: 50%;
-  border: 2px solid #888 ;
-}
-
-.web_ba{
-    width: 700px;
-    height: auto;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    background: rgba(255, 239, 213, 0.7);
-    text-align: center;
-}
-
-.web_ba img{
-  border: 2px solid #888 ;
-}
-
 
 /*フッター設定
 ---------------------------------------------------------------------------*/
