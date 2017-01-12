@@ -9,6 +9,7 @@
     <meta name="keywords" content="タイピング">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="js/btn_change.js"></script>
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-114x114.png">
     <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
@@ -43,20 +44,20 @@
         <div class="game_content">
             <div class="game_select">
                 <ul class="list_select list1">
-                    <a href="STORY/">
-                        <li>ストーリー</li>
+                    <a id="a_1" onclick="on_story()">
+                        <li id="li_1">ストーリー</li>
                     </a>
-                    <a href="NORMAL/">
-                        <li>ノーマル</li>
+                    <a href="NORMAL/" id="a_2">
+                        <li id="li_2">ノーマル</li>
                     </a>
-                    <a href="CORRECT/">
-                        <li>コレクト</li>
+                    <a href="CORRECT/" id="a_3">
+                        <li id="li_3">コレクト</li>
                     </a>
-                    <a href="SPEED">
-                        <li>スピード</li>
+                    <a href="SPEED" id="a_4">
+                        <li id="li_4">スピード</li>
                     </a>
-                    <a href="NOMISS">
-                        <li>ハザード</li>
+                    <a href="NOMISS" id="a_5">
+                        <li id="li_5">ノーミス</li>
                     </a>
                 </ul>
             </div>
@@ -83,32 +84,34 @@
                     </li>
                 </ul>
             </div>
-            <h2 class="typing_h2"></h2>
-            <p class="sanserif">
-                タイピングの練習をすることができるモードです。
-                </br>
-                初心者向けに簡単な用語のみで構成された初心者モードをご用意！
-                </br>
-                ビギナーな人でも安心して練習できます。
-                </br>
-                更に、4つのモードを選択可能！タイピングスタイルごとに練習できます。
-                </br>
-                【STANDAR】
-                </br>
-                ・制限のない標準モードです。
-                </br>
-                【CORRECT】
-                </br>
-                ・キー入力の正確さを重視したモードです。
-                </br>
-                【SPEED】
-                </br>
-                ・単語入力の速度を重視したモードです。
-                </br>
-                【HAZARD】
-                </br>
-                ・1度でも入力ミスをすると終了します。
-            </p>
+            <div class="mode_area">
+              <h2 class="typing_h2"></h2>
+              <p class="sanserif">
+                  タイピングの練習をすることができるモードです。
+                  </br>
+                  初心者向けに簡単な用語のみで構成された初心者モードをご用意！
+                  </br>
+                  ビギナーな人でも安心して練習できます。
+                  </br>
+                  更に、4つのモードを選択可能！タイピングスタイルごとに練習できます。
+                  </br>
+                  【STANDAR】
+                  </br>
+                  ・制限のない標準モードです。
+                  </br>
+                  【CORRECT】
+                  </br>
+                  ・キー入力の正確さを重視したモードです。
+                  </br>
+                  【SPEED】
+                  </br>
+                  ・単語入力の速度を重視したモードです。
+                  </br>
+                  【HAZARD】
+                  </br>
+                  ・1度でも入力ミスをすると終了します。
+              </p>
+            </div>
         </div>
         <div class="link">
             <div id="twitter">

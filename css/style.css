@@ -212,6 +212,11 @@ a:hover {
 	font-weight:bold;/*追加*/
 }
 
+.mode_area {
+  width: 650px;
+  height: 400px;
+  background-image: url("../images/mode_area.png");
+}
 
 .typing_h2 {
     width: 650px;
