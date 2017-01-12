@@ -22,10 +22,10 @@ function on_story() {
     li_3.textContent = "楓";
     li_4.textContent = "弥生";
     li_5.textContent = "雪乃";
-    a_2.href = "story/";
-    a_3.href = "story/";
-    a_4.href = "story/";
-    a_5.href = "story/";
+    a_2.href = "STORY/";
+    a_3.href = "STORY/";
+    a_4.href = "STORY/";
+    a_5.href = "STORY/";
   } else {
     check = 0;
     li_1.textContent = "ストーリー";
@@ -33,10 +33,10 @@ function on_story() {
     li_3.textContent = "コレクト";
     li_4.textContent = "スピード";
     li_5.textContent = "ノーミス";
-    a_2.href = "story/";
-    a_3.href = "story/";
-    a_4.href = "story/";
-    a_5.href = "story/";
+    a_2.href = "NORMAL/";
+    a_3.href = "CORRECT/";
+    a_4.href = "SPEED/";
+    a_5.href = "NOMISS/";
   }
 
 }
