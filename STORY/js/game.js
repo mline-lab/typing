@@ -837,8 +837,8 @@ function onStartButtonClick() {
     setvar();
     set_move_speed();
     space_flag = 1;
-    bgimg.style.backgroundImage = "";
-    messageArea.textContent = "スペースキーでスタート";
+    bgimg.style.backgroundImage = "img/start_bg.jpg";
+    messageArea.textContent = "";
     if (story_flg == 1) {
         load_Story();
         bgimg.style.backgroundImage = "";

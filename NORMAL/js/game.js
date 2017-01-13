@@ -419,6 +419,7 @@ window.onload = function() {
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
     rdo1 = document.getElementById("rdo1");
+    bgimg = document.getElementById("bgimg");
 
     shiftdown = 0;
     wordseikaisuu = 0;
@@ -583,7 +584,9 @@ function onStartButtonClick() {
     set_move_speed();
     setvar();
     space_flag = 1;
-    messageArea.textContent = "スペースキーでスタート";
+    bgimg.style.backgroundImage = "url(img/start_bg.jpg)";
+    messageArea.textContent = "";
+
 }
 
 function space_start() {
