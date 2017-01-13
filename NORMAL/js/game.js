@@ -698,7 +698,7 @@ function rank_push() {
                 'score': score,
                 'count': downcount,
                 'miss': missCount,
-                'mode': mode
+                'mode': mode,
                 'difficulty' : difficulty_check
             },
             success: function(data) {
