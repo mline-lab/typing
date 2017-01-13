@@ -22,7 +22,7 @@ body {
     line-height: 2;
     /*行間*/
     /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
-    background: linear-gradient(rgba(255, 255, 255, 0.5) 50%, rgba(87, 255, 119, 0.5)), url(../images/hane_bg.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../images/bg_bg_bg.png);
 }
 
 
