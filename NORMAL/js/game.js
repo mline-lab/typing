@@ -614,7 +614,7 @@ function onStartButtonClick() {
 }
 
 function space_start() {
-    condition.textContent = "";
+    bgimg.style.backgroundImage = "";
     animation(0);
     space_flag = 0;
     startcount--;
