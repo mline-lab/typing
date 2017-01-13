@@ -17,8 +17,8 @@
 
   $difficulty = $_POST['difficulty'];
 
-  $dsn = 'mysql:dbname=typing;host=localhost';
-  $user = 'root';
+  $dsn = 'mysql:dbname=lostcolor;host=localhost';
+  $user = 'mline';
   $password = 'manaki079';
 
 try{
