@@ -22,7 +22,7 @@ body {
     line-height: 2;
     /*行間*/
     /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
-    background: linear-gradient(rgba(255, 255, 255, 0.5) 50%, rgba(87, 255, 119, 0.5)), url(../../images/hane_bg.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../../images/bg_bg_bg.png);
 }
 
 
@@ -116,6 +116,7 @@ a:hover {
 
 .char_icon img {
   width: 50px;
+  height: 50px;
   border:1px solid #333;/* 外枠の色 */
   padding:5px;/* 余白 */
   background-color:#ffffff;/* 余白部分の色 */
