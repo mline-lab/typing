@@ -389,7 +389,7 @@ window.onload = function() {
                 jQuery("<img>").attr("src", arguments[i]);        
             }    
         };    
-        $.preloadImages("img/typing/budou_default.png", "img/typing/budou_default_dmg.png", "img/typing/kaede_atk.png", "img/typing/kaede_atk2.png", "img/typing/kaede_atk3.png", "img/typing/kaede_default.png", "img/typing/kaede_miss.png", "img/typing/kaede-atk2-animation.png", "img/typing/kaede-atk3-animation.png", "img/typing/kaede-atk4-animation.png");
+        $.preloadImages("start_bg.jpg","img/typing/budou_default.png", "img/typing/budou_default_dmg.png", "img/typing/kaede_atk.png", "img/typing/kaede_atk2.png", "img/typing/kaede_atk3.png", "img/typing/kaede_default.png", "img/typing/kaede_miss.png", "img/typing/kaede-atk2-animation.png", "img/typing/kaede-atk3-animation.png", "img/typing/kaede-atk4-animation.png");
     });
 
 
