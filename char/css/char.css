@@ -94,11 +94,6 @@ a:hover {
     padding-bottom: 57px;
 }
 
-.spec {
-  width: 900px;
-  margin: 0 auto;
-}
-
 /*タイトル*/
 
 .box-shadow {
@@ -146,6 +141,11 @@ td {
   padding:0;
   border: 2px #808080 solid;
 }
+
+.main_area {
+    height: 550px;
+}
+
 .prof {
   width: 300px;
   height: 550px;
