@@ -133,7 +133,62 @@
 
           $dbh->query('SET NAMES utf8');
 
-          $sql = 'SELECT * FROM score WHERE mode = 1 ORDER BY score DESC LIMIT 5';
+          $sql = 'SELECT * FROM score WHERE mode = 1 AND difficulty = 0 ORDER BY score DESC LIMIT 5';
+          $stmt = $dbh->query($sql);
+
+          while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+              $rank++;
+              echo "<tr id=\"list\">";
+              echo "<th>";
+              echo ($rank);
+              echo "<th class=\"name\">";
+              echo($result['name']);
+              echo "</th>";
+              echo "<th>";
+              echo($result['score']);
+              echo "</th>";
+              echo "</tr>";
+          }
+
+          }catch (PDOException $e){
+            print('Error:'.$e->getMessage());
+            die();
+          }
+
+      $dbh = null;
+
+       ?>
+       </table>
+          </div>
+
+          <div class="rank_top5">
+            <table>
+              <tr>
+                <img src="img/rank_logo.png" />
+              </tr>
+      <?php
+
+      $dsn = 'mysql:dbname=lostcolor;host=localhost';
+      $user = 'mline';
+      $password = 'manaki079';
+
+      $rank = 0;
+
+      $mode;
+
+      try{
+          $dbh = new PDO($dsn, $user, $password);
+
+          if ($dbh == null){
+              //接続失敗
+          }else{
+              //接続成功
+          }
+
+          $dbh->query('SET NAMES utf8');
+
+          $sql = 'SELECT * FROM score WHERE mode = 1 AND difficulty = 1 ORDER BY score DESC LIMIT 5';
           $stmt = $dbh->query($sql);
 
           while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
