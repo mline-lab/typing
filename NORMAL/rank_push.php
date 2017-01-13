@@ -32,7 +32,7 @@ try{
 
     $dbh->query('SET NAMES utf8');
 
-    $sql = 'insert into score (name, score, count,miss, mode) values (?, ?, ?, ?, ?, ?)';
+    $sql = 'insert into score (name, score, count,miss, mode, difficulty) values (?, ?, ?, ?, ?, ?)';
     $stmt = $dbh->prepare($sql);
     $flag = $stmt->execute(array($name, $score, $count, $miss, $mode, $difficulty));
 
