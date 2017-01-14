@@ -144,7 +144,7 @@ a:hover {
 
 .word_list {
   width: 1024px;
-  height: 160px;
+  height: 100px;
   margin: 0 auto;
   margin-top: 10px;
   background-image: url("../images/word_list.png");
