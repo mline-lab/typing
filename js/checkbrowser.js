@@ -22,23 +22,23 @@ var isIE = isMSIE || isIE11;
 
 // 使用例
 if(isIE) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE6) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE7) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE8) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE9) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE10) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }
 if(isIE11) {
-    location.href = "browser/nbg.html";
+    location.href = "https://lostcolor.tell.jp/browser/nbg.html";
 }

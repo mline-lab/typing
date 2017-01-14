@@ -4,9 +4,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  background: #ecfdff url(../images/bg.jpg);
-  /*背景色、背景画像の読み込み*/
-  -webkit-text-size-adjust: none;
+  background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../images/bg_bg_bg.png);
+
 }
 
 .main {

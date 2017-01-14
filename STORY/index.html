@@ -7,36 +7,69 @@
     <meta http-equiv="imagetoolbar" content="no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/imgload.js"></script>
+    <script>
+        $(function() {
+            var h = $(window).height();
+
+            $('#wrap').css('display', 'none');
+            $('#loader-bg ,#loader').height(h).css('display', 'block');
+        });
+
+        $(window).load(function() { //全ての読み込みが完了したら実行
+            $('#loader-bg').delay(900).fadeOut(800);
+            $('#loader').delay(600).fadeOut(300);
+            $('#wrap').css('display', 'block');
+        });
+
+        //10秒たったら強制的にロード画面を非表示
+        $(function() {
+            setTimeout('stopload()', 10000);
+        });
+
+        function stopload() {
+            $('#wrap').css('display', 'block');
+            $('#loader-bg').delay(900).fadeOut(800);
+            $('#loader').delay(600).fadeOut(300);
+        }
+    </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/towntypelib.js"></script>
+    <script type="text/javascript" src="js/checkbrowser.js"></script>
     <link rel="stylesheet" href="css/main.css" media="all">
     <link rel="stylesheet" href="css/mrp.css" media="all">
 </head>
 
 <body>
-  <div class="head_menu">
+    <div class="head_menu">
 
-      <ul id="menu">
-          <div class="head_img">
+        <ul id="menu">
+            <div class="head_img">
 
-          </div>
-          <a href="../">
-              <li><img src="../images/top-hed-top.png" /></li>
-          </a>
-          <a href="../char/">
-              <li><img src="../images/top-hed-char.png" /></li>
-          </a>
-          <a href="../howto.html">
-              <li><img src="../images/top-hed-howto.png" /></li>
-          </a>
-          <a href="../product.html">
-              <li><img src="../images/top-hed-product.png" /></li>
-          </a>
-          <a href="../special.html">
-              <li><img src="../images/top-hed-sp.png" /></li>
-          </a>
-      </ul>
-  </div>
+            </div>
+            <a href="../">
+                <li><img src="../images/top-hed-top.png" /></li>
+            </a>
+            <a href="../char/">
+                <li><img src="../images/top-hed-char.png" /></li>
+            </a>
+            <a href="../howto.html">
+                <li><img src="../images/top-hed-howto.png" /></li>
+            </a>
+            <a href="../product.html">
+                <li><img src="../images/top-hed-product.png" /></li>
+            </a>
+            <a href="../special.html">
+                <li><img src="../images/top-hed-sp.png" /></li>
+            </a>
+        </ul>
+    </div>
+    <div id="loader-bg">
+        <div id="loader">
+            <img src="../images/img-loading.gif" width="80" height="80" alt="Now Loading..." />
+            <p>Now Loading...</p>
+        </div>
+    </div>
+
     <div class="content">
         <div id="wrapper">
             <div class="main">

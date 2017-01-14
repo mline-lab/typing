@@ -1,7 +1,7 @@
 <?php
 $title = $_POST["title"];
 
-$db = new pdo("mysql:host=localhost;dbname=typing","root","manaki079");
+$db = new pdo("mysql:host=localhost;dbname=lostcolor","mline","manaki079");
 $db->query('SET NAMES utf8');
 $stmt = $db->prepare("SELECT * FROM word WHERE title = '$title'");
 $stmt->execute();
@@ -16,8 +16,8 @@ while ($row = $stmt->fetch()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
-<title>BacteriaDoctor</title>
-<meta name="keywords" content="mline,M||M,学生,プログラマ">
+<title>解説|LostColor</title>
+<meta name="keywords" content="LostColor">
 <meta name="description" content="">
 <link rel="stylesheet" href="css/result.css" type="text/css" media="screen">
 </head>
