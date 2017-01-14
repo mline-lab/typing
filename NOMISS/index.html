@@ -7,19 +7,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.imgloader.js"></script>
     <script>
+        $(function() {
+            var h = $(window).height();
+
+            $('#wrap').css('display', 'none');
+            $('#loader-bg ,#loader').height(h).css('display', 'block');
+        });
+
         var $preload = $('.preload');
         var imgSrcs = [
-          'img/typing/budou_default.png',
-          'img/typing/budou_default_dmg.png',
-          'img/typing/kaede_atk.png',
-          'img/typing/kaede_atk2.png',
-          'img/typing/kaede_atk3.png',
-          'img/typing/kaede_default.png',
-          'img/typing/kaede_miss.png',
-          'img/typing/kaede-atk2-animation.png',
-          'img/typing/kaede-atk3-animation.png',
-          'img/typing/kaede-atk4-animation.png',
-          'img/start_bg.jpg'
+            'img/typing/budou_default.png',
+            'img/typing/budou_default_dmg.png',
+            'img/typing/kaede_atk.png',
+            'img/typing/kaede_atk2.png',
+            'img/typing/kaede_atk3.png',
+            'img/typing/kaede_default.png',
+            'img/typing/kaede_miss.png',
+            'img/typing/kaede-atk2-animation.png',
+            'img/typing/kaede-atk3-animation.png',
+            'img/typing/kaede-atk4-animation.png',
+            'img/start_bg.jpg'
         ];
 
         $preload.each(function() {
@@ -44,23 +51,14 @@
 
         loader.on('allload', function($img) {
             console.log('complete');
+            $(function() {
+                $('#loader-bg').delay(900).fadeOut(800);
+                $('#loader').delay(600).fadeOut(300);
+                $('#wrap').css('display', 'block');
+            });
         });
 
         loader.load(); //ローディングを実行
-    </script>
-    <script>
-        $(function() {
-            var h = $(window).height();
-
-            $('#wrap').css('display', 'none');
-            $('#loader-bg ,#loader').height(h).css('display', 'block');
-        });
-
-        $(window).load(function() { //全ての読み込みが完了したら実行
-            $('#loader-bg').delay(900).fadeOut(800);
-            $('#loader').delay(600).fadeOut(300);
-            $('#wrap').css('display', 'block');
-        });
     </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="../js/checkbrowser.js"></script>

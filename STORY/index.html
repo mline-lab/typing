@@ -9,6 +9,13 @@
     <script type="text/javascript" src="js/jquery.imgloader.js"></script>
     <script>
 
+    $(function() {
+        var h = $(window).height();
+
+        $('#wrap').css('display', 'none');
+        $('#loader-bg ,#loader').height(h).css('display', 'block');
+    });
+
         var $preload = $('.preload');
         var imgSrcs = [
           'img/typing/budou_default.png',
@@ -69,16 +76,15 @@
 
         loader.on('allload', function($img) {
             console.log('complete');
+            $(function() {
+              $('#loader-bg').delay(900).fadeOut(800);
+              $('#loader').delay(600).fadeOut(300);
+              $('#wrap').css('display', 'block');
+            });
         });
 
-        var h = $(window).height();
-
-        $('#wrap').css('display', 'none');
-        $('#loader-bg ,#loader').height(h).css('display', 'block');
         loader.load(); //ローディングを実行
-        $('#loader-bg').delay(900).fadeOut(800);
-        $('#loader').delay(600).fadeOut(300);
-        $('#wrap').css('display', 'block');
+
     </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/towntypelib.js"></script>
