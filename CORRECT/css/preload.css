@@ -1,0 +1,16 @@
+#preloadedImages {
+       width: 0px;
+       height: 0px;
+       display: inline;
+       background-image: url(../img/typing/budou_default.png);
+       background-image: url(../img/typing/budou_default_dmg.png);
+       background-image: url(../img/typing/kaede_atk.png);
+       background-image: url(../img/typing/kaede_atk2.png);
+       background-image: url(../img/typing/kaede_atk3.png);
+       background-image: url(../img/typing/kaede_default.png);
+       background-image: url(../img/typing/kaede_miss.png);
+       background-image: url(../img/typing/kaede-atk2-animation.png);
+       background-image: url(../img/typing/kaede-atk3-animation.png);
+       background-image: url(../img/typing/kaede-atk4-animation.png);
+       background-image: url(../img/start_bg.jpg);
+}

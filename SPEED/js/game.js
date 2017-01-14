@@ -381,18 +381,6 @@ var difficulty_check;
 var move_speed;
 
 window.onload = function() {
-
-    //画像プリロード
-    $(function() {    
-        jQuery.preloadImages = function() {        
-            for (var i = 0; i < arguments.length; i++) {            
-                jQuery("<img>").attr("src", arguments[i]);        
-            }    
-        };    
-        $.preloadImages("img/start_bg.jpg","img/typing/budou_default.png", "img/typing/budou_default_dmg.png", "img/typing/kaede_atk.png", "img/typing/kaede_atk2.png", "img/typing/kaede_atk3.png", "img/typing/kaede_default.png", "img/typing/kaede_miss.png", "img/typing/kaede-atk2-animation.png", "img/typing/kaede-atk3-animation.png", "img/typing/kaede-atk4-animation.png");
-    });
-
-
     input_item = document.getElementById("input_item");
     game_messsage = document.getElementById("game_messsage");
     messageArea = document.getElementById("message");
