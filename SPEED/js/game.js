@@ -376,16 +376,20 @@ var worddata
 var right_img_lock;
 var animation_random_state_number;
 
+//難易度でわける変数
+var difficulty_check;
+var move_speed;
+
 window.onload = function() {
 
     //画像プリロード
-    $(function(){
-      jQuery.preloadImages = function(){
-          for(var i = 0; i<arguments.length; i++){
-              jQuery("<img>").attr("src", arguments[i]);
-          }
-      };
-      $.preloadImages("img/typing/budou_default.png","img/typing/budou_default_dmg.png","img/typing/kaede_atk.png","img/typing/kaede_atk2.png","img/typing/kaede_atk3.png","img/typing/kaede_default.png","img/typing/kaede_miss.png","img/typing/kaede-atk2-animation.png","img/typing/kaede-atk3-animation.png","img/typing/kaede-atk4-animation.png");
+    $(function() {    
+        jQuery.preloadImages = function() {        
+            for (var i = 0; i < arguments.length; i++) {            
+                jQuery("<img>").attr("src", arguments[i]);        
+            }    
+        };    
+        $.preloadImages("start_bg.jpg","img/typing/budou_default.png", "img/typing/budou_default_dmg.png", "img/typing/kaede_atk.png", "img/typing/kaede_atk2.png", "img/typing/kaede_atk3.png", "img/typing/kaede_default.png", "img/typing/kaede_miss.png", "img/typing/kaede-atk2-animation.png", "img/typing/kaede-atk3-animation.png", "img/typing/kaede-atk4-animation.png");
     });
 
 
@@ -393,10 +397,12 @@ window.onload = function() {
     game_messsage = document.getElementById("game_messsage");
     messageArea = document.getElementById("message");
     wordArea_jp = document.getElementById("word_jp");
+    font_area = document.getElementById("font_area");
     wordArea_hiragana = document.getElementById("word_hiragana");
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
     startButton = document.getElementById("start_button");
+    input_item = document.getElementById("input_item");
     rankButton = document.getElementById("rank_button");
     name_text = document.getElementById("name-text");
     ranking_item = document.getElementById("ranking_item");
@@ -415,14 +421,13 @@ window.onload = function() {
     img5 = document.getElementById("img5");
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
+    bgimg = document.getElementById("bgimg");
 
     shiftdown = 0;
     wordseikaisuu = 0;
     seikaisuu = 0;
     keysettei = 1;
 
-    getCSV_jp_File();
-    getCSV_hira_File();
     set_audio();
 
     skil_gaze.style.width = "0px";
@@ -431,112 +436,137 @@ window.onload = function() {
     startButton.value = "スタート"
 }
 
-
 function getCSV_jp_File() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("get", "../csv/word.csv", true);
-    xhr.send(null);
-    xhr.onload = function() {
-        wordList_jp = xhr.responseText.split(";");
-    };
+    if (difficulty_check == 1) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "../csv/word_easy.csv", true);
+        xhr.send(null);
+        xhr.onload = function() {
+            wordList_jp = xhr.responseText.split(";");
+        };
+    } else {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "../csv/word.csv", true);
+      xhr.send(null);
+      xhr.onload = function() {
+          wordList_jp = xhr.responseText.split(";");
+      };
+    }
 }
 
 function getCSV_hira_File() {
-    var xhr2 = new XMLHttpRequest();
-    xhr2.open("get", "../csv/word_hiragana.csv", true);
-    xhr2.send(null);
-    xhr2.onload = function() {
-        wordList_hiragana = xhr2.responseText.split(";");
-    };
+    if (difficulty_check == 1) {
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open("get", "../csv/word_easy_hiragana.csv", true);
+        xhr2.send(null);
+        xhr2.onload = function() {
+            wordList_hiragana = xhr2.responseText.split(";");
+        };
+    } else {
+      var xhr2 = new XMLHttpRequest();
+      xhr2.open("get", "../csv/word_hiragana.csv", true);
+      xhr2.send(null);
+      xhr2.onload = function() {
+          wordList_hiragana = xhr2.responseText.split(";");
+      };
+    }
+}
+
+function set_move_speed() {
+    if (difficulty_check == 1) {
+        move_speed = 0.3;
+    } else {
+        move_speed = 0.9;
+    }
 }
 
 function on_mute() {
-  if (mute == 0) {
-    mute_button.src = "img/volume_off.png";
-    audioBad.volume = 0;
-    audioBGM.volume = 0;
-    audioElem.volume = 0;
-    audioAtk1.volume = 0;
-    audioAtk2.volume = 0;
-    audioAtk3.volume = 0;
-    audioAtk4.volume = 0;
-    audioWin.volume = 0;
-    audioLose.volume = 0;
-    audioTimeOver.volume = 0;
-    mute = 1;
-  } else {
-    mute_button.src = "img/volume_on.png";
-    audioBad.volume = 0.3;
-    audioBGM.volume = 0.5;
-    audioElem.volume = 0.3;
-    audioAtk1.volume = 0.3;
-    audioAtk2.volume = 0.3;
-    audioAtk3.volume = 0.3;
-    audioAtk4.volume = 0.3;
-    audioWin.volume = 0.3;
-    audioLose.volume = 0.3;
-    audioTimeOver.volume = 0.3;
-    mute = 0;
-  }
+    if (mute == 0) {
+        mute_button.src = "img/volume_off.png";
+        audioBad.volume = 0;
+        audioBGM.volume = 0;
+        audioElem.volume = 0;
+        audioAtk1.volume = 0;
+        audioAtk2.volume = 0;
+        audioAtk3.volume = 0;
+        audioAtk4.volume = 0;
+        audioWin.volume = 0;
+        audioLose.volume = 0;
+        audioTimeOver.volume = 0;
+        mute = 1;
+    } else {
+        mute_button.src = "img/volume_on.png";
+        audioBad.volume = 0.3;
+        audioBGM.volume = 0.5;
+        audioElem.volume = 0.3;
+        audioAtk1.volume = 0.3;
+        audioAtk2.volume = 0.3;
+        audioAtk3.volume = 0.3;
+        audioAtk4.volume = 0.3;
+        audioWin.volume = 0.3;
+        audioLose.volume = 0.3;
+        audioTimeOver.volume = 0.3;
+        mute = 0;
+    }
 }
 
-function bgm_volume_up(){
-  if (bgm_volume != 10) {
-    bgm_volume++;
-    audioBGM.volume = bgm_volume / 10;
-    bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
-  }
+function bgm_volume_up() {
+    if (bgm_volume != 10) {
+        bgm_volume++;
+        audioBGM.volume = bgm_volume / 10;
+        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+    }
 }
 
-function bgm_volume_down(){
-  if (bgm_volume != 0) {
-    bgm_volume--;
-    audioBGM.volume = bgm_volume / 10;
-    bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
-  }
+function bgm_volume_down() {
+    if (bgm_volume != 0) {
+        bgm_volume--;
+        audioBGM.volume = bgm_volume / 10;
+        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+    }
 }
 
 function set_audio() {
 
-  audioBGM = new Audio();
-  audioBGM.src = "../audio/mangetunotikurin.mp3";
-  audioBGM.volume = 0.5;
+    audioBGM = new Audio();
+    audioBGM.src = "../audio/mangetunotikurin.mp3";
+    audioBGM.volume = 0.5;
 
-  audioBad = new Audio();
-  audioBad.src = "../audio/bad_se.mp3";
-  audioBad.volume = 0.3;
+    audioBad = new Audio();
+    audioBad.src = "../audio/bad_se.mp3";
+    audioBad.volume = 0.3;
 
-  audioElem = new Audio();
-  audioElem.src = "../audio/se_ok.mp3";
-  audioElem.volume = 0.3;
+    audioElem = new Audio();
+    audioElem.src = "../audio/se_ok.mp3";
+    audioElem.volume = 0.3;
 
-  audioAtk1 = new Audio();
-  audioAtk1.src = "../audio/kaede_voice/atk1.mp3";
-  audioAtk1.volume = 0.3;
+    audioAtk1 = new Audio();
+    audioAtk1.src = "../audio/kaede_voice/atk1.mp3";
+    audioAtk1.volume = 0.3;
 
-  audioAtk2 = new Audio();
-  audioAtk2.src = "../audio/kaede_voice/atk2.mp3";
-  audioAtk2.volume = 0.3;
+    audioAtk2 = new Audio();
+    audioAtk2.src = "../audio/kaede_voice/atk2.mp3";
+    audioAtk2.volume = 0.3;
 
-  audioAtk3 = new Audio();
-  audioAtk3.src = "../audio/kaede_voice/atk3.mp3";
-  audioAtk3.volume = 0.3;
+    audioAtk3 = new Audio();
+    audioAtk3.src = "../audio/kaede_voice/atk3.mp3";
+    audioAtk3.volume = 0.3;
 
-  audioAtk4 = new Audio();
-  audioAtk4.src = "../audio/kaede_voice/atk4.mp3"
-  audioAtk4.volume = 0.3;
+    audioAtk4 = new Audio();
+    audioAtk4.src = "../audio/kaede_voice/atk4.mp3"
+    audioAtk4.volume = 0.3;
 
-  audioWin  = new Audio();
-  audioWin.src = "../audio/kaede_voice/victory.mp3";
-  audioWin.volume = 0.3;
+    audioWin = new Audio();
+    audioWin.src = "../audio/kaede_voice/victory.mp3";
+    audioWin.volume = 0.3;
 
-  audioLose  = new Audio();
-  audioLose.src = "../audio/kaede_voice/lose.mp3";
-  audioLose.volume = 0.3;
+    audioLose = new Audio();
+    audioLose.src = "../audio/kaede_voice/lose.mp3";
+    audioLose.volume = 0.3;
 
-  audioTimeOver = new Audio();
-  audioTimeOver.src = "../audio/kaede_voice/timeover.mp3";
-  audioTimeOver.volume = 0.3;
+    audioTimeOver = new Audio();
+    audioTimeOver.src = "../audio/kaede_voice/timeover.mp3";
+    audioTimeOver.volume = 0.3;
 
 }
 
@@ -569,13 +599,23 @@ function setvar() {
 }
 
 function onStartButtonClick() {
+    if (rdo1.checked == true) {
+        difficulty_check = 1;
+    } else {
+        difficulty_check = 0;
+    }
+    getCSV_jp_File();
+    getCSV_hira_File();
+    set_move_speed();
     setvar();
     space_flag = 1;
-    messageArea.textContent = "スペースキーでスタート";
+    bgimg.style.backgroundImage = "url(img/start_bg.jpg)";
+    messageArea.textContent = "";
+
 }
 
 function space_start() {
-    condition.textContent = "";
+    bgimg.style.backgroundImage = "";
     animation(0);
     space_flag = 0;
     startcount--;
@@ -650,29 +690,30 @@ function rank_push() {
     if (username.match(/"/) || username.match(/'/)) {
 
     } else {
-      mode = "3";
-      $.ajax({
-          type: 'POST',
-          url: 'rank_push.php',
-          data: {
-              'name': username,
-              'score': score,
-              'count': downcount,
-              'miss': missCount,
-              'mode': mode
-          },
-          success: function(data) {
-              document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-              alert("ランキング登録しました。");
-          }
-      });
+        mode = "3";
+        $.ajax({
+            type: 'POST',
+            url: 'rank_push.php',
+            data: {
+                'name': username,
+                'score': score,
+                'count': downcount,
+                'miss': missCount,
+                'mode': mode,
+                'difficulty' : difficulty_check
+            },
+            success: function(data) {
+                document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
+                alert("ランキング登録しました。");
+            }
+        });
     }
 }
 
 
 // 次の単語を表示
 function nextWord() {
-
+if (timeLeft >= 0) {
     //テスト変数
     tableichi = 0;
     ichi = 0;
@@ -699,6 +740,7 @@ function nextWord() {
     x = 0;
     moveImg();
 }
+}
 
 function moveImg() {
     //画像移動
@@ -715,13 +757,13 @@ function moveImg() {
 
         //x座標に+1
         if (x < 500) {
-            x += 1.5;
+            x += move_speed;
         } else if (x >= 500) {
             audioTimeOver.currentTime = 0;
             audioTimeOver.play();
-            if(right_img_lock == 0){
-              animation(5);
-              setTimeout("animation(0)", 300);
+            if (right_img_lock == 0) {
+                animation(5);
+                setTimeout("animation(0)", 300);
             }
             $('.game_div').css({
                 "border": "3px solid #e24408"
@@ -778,7 +820,7 @@ function moziHenkan(e) {
     townro_machange
     ro_ma = data[11];
     shiftdown = data[13];
-    if (game_flag == 1) {
+    if (game_flag == 1 && timeLeft >= 0) {
         if (seikaisuu != tempseikai) {
             hantei();
         } else {
@@ -788,9 +830,9 @@ function moziHenkan(e) {
             audioBad.play();
             missCount++;
             animation_random_state_number = 0;
-            if(right_img_lock == 0){
-              animation(5);
-              setTimeout("animation(0)", 300);
+            if (right_img_lock == 0) {
+                animation(5);
+                setTimeout("animation(0)", 300);
             }
             $('.game_div').css({
                 "border": "3px solid #e24408"
@@ -801,14 +843,18 @@ function moziHenkan(e) {
 }
 
 
-
 // 残り時間を計測
 function countDown() {
-    time_area.textContent = timeLeft + " sec.";
-    if (timeLeft <= 0) {
+    if (timeLeft <= -1) {
         stopTyping();
         return;
+    } else if (timeLeft == 0) {
+        typeArea.textContent = "";
+        typeArea2.textContent = "";
+        wordArea_hiragana.textContent = "";
+        wordArea_jp.textContent = "タイムアップ";
     }
+    time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 
@@ -835,7 +881,7 @@ document.onkeydown = function(e) {
         }
     } else {
         if (game_flag == 1) {
-          moziHenkan(e);
+            moziHenkan(e);
         }
     }
 };
@@ -869,16 +915,16 @@ function hantei() {
         skil_gaze.style.width = gauge + "px";
         if (gauge == 25) {
             animation_random_state_number++;
-            if(right_img_lock == 0){
-              animation(animation_random_state(animation_random_state_number));
-              setTimeout("animation(0)",1000);
+            if (right_img_lock == 0) {
+                animation(animation_random_state(animation_random_state_number));
+                setTimeout("animation(0)", 1000);
             }
             timeLeft++;
         } else if (gauge == 50) {
             animation_random_state_number++;
-            if(right_img_lock == 0){
-              animation(animation_random_state(animation_random_state_number));
-              setTimeout("animation(0)",1000);
+            if (right_img_lock == 0) {
+                animation(animation_random_state(animation_random_state_number));
+                setTimeout("animation(0)", 1000);
             }
             timeLeft++;
         } else if (gauge >= 100) {
@@ -887,9 +933,9 @@ function hantei() {
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
             animation_random_state_number++;
-            if(right_img_lock == 0){
-              animation(animation_random_state(animation_random_state_number));
-              setTimeout("animation(0)",1000);
+            if (right_img_lock == 0) {
+                animation(animation_random_state(animation_random_state_number));
+                setTimeout("animation(0)", 1000);
             }
         }
 
@@ -904,9 +950,9 @@ function hantei() {
             wordArea_jp.textContent = "　"
             typeArea.textContent = textColor1;
             typeArea2.textContent = textColor2;
-            if(right_img_lock == 0){
-              animation(animation_random_state(animation_random_state_number));
-              setTimeout("animation(0)",1000);
+            if (right_img_lock == 0) {
+                animation(animation_random_state(animation_random_state_number));
+                setTimeout("animation(0)", 1000);
             }
             setTimeout("nextWord();", 200);
 
@@ -924,65 +970,65 @@ function hantei() {
 //■6:ボーナス1
 //■7:ボーナス2
 //■8:ボーナス3
-function animation(motion_number){
-  switch (motion_number) {
-      case 0:
-        right_img_lock = 0;
-        player_img.className = "kaede_right_img_defalt";
-        teki_img.className = "left_img_default";
-      break;
-      case 1:
-        audioAtk1.currentTime = 0;
-        audioAtk1.play();
-        player_img.className = "kaede_right_img_atk";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 2:
-        audioAtk2.currentTime = 0;
-        audioAtk2.play();
-        player_img.className = "kaede_right_img_atk2";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 3:
-        audioAtk3.currentTime = 0;
-        audioAtk3.play();
-        player_img.className = "kaede_right_img_atk3";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 4:
-        audioAtk4.currentTime = 0;
-        audioAtk4.play();
-        player_img.className = "kaede_right_img_atk4";
-        teki_img.className = "left_img_dmg";
-        right_img_lock = 1;
-      break;
-      case 5:
-        player_img.className = "kaede_right_img_miss";
-        right_img_lock = 1;
-      break;
-      case 6:
-      break;
-      case 7:
-      break;
-      case 8:
-      break;
-    default:
-    break;
-  }
+function animation(motion_number) {
+    switch (motion_number) {
+        case 0:
+            right_img_lock = 0;
+            player_img.className = "kaede_right_img_defalt";
+            teki_img.className = "left_img_default";
+            break;
+        case 1:
+            audioAtk1.currentTime = 0;
+            audioAtk1.play();
+            player_img.className = "kaede_right_img_atk";
+            teki_img.className = "left_img_dmg";
+            right_img_lock = 1;
+            break;
+        case 2:
+            audioAtk2.currentTime = 0;
+            audioAtk2.play();
+            player_img.className = "kaede_right_img_atk2";
+            teki_img.className = "left_img_dmg";
+            right_img_lock = 1;
+            break;
+        case 3:
+            audioAtk3.currentTime = 0;
+            audioAtk3.play();
+            player_img.className = "kaede_right_img_atk3";
+            teki_img.className = "left_img_dmg";
+            right_img_lock = 1;
+            break;
+        case 4:
+            audioAtk4.currentTime = 0;
+            audioAtk4.play();
+            player_img.className = "kaede_right_img_atk4";
+            teki_img.className = "left_img_dmg";
+            right_img_lock = 1;
+            break;
+        case 5:
+            player_img.className = "kaede_right_img_miss";
+            right_img_lock = 1;
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        default:
+            break;
+    }
 }
 
-function animation_random_state(state){
-  if(state == 0){
-    var animation_random = Math.floor(Math.random() *2) +1;
-  }else if(state == 1){
-    var animation_random = Math.floor(Math.random() *3) +1;
-  }else if(state == 2){
-    var animation_random = Math.floor(Math.random() *4) +1;
-  }else if(state >= 3){
-    var animation_random = Math.floor(Math.random() *3) +2;
-  }
-  return animation_random;
+function animation_random_state(state) {
+    if (state == 0) {
+        var animation_random = Math.floor(Math.random() * 2) + 1;
+    } else if (state == 1) {
+        var animation_random = Math.floor(Math.random() * 3) + 1;
+    } else if (state == 2) {
+        var animation_random = Math.floor(Math.random() * 4) + 1;
+    } else if (state >= 3) {
+        var animation_random = Math.floor(Math.random() * 3) + 2;
+    }
+    return animation_random;
 }

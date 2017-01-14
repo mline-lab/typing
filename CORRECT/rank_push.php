@@ -15,8 +15,10 @@
 
   $mode = $_POST['mode'];
 
-  $dsn = 'mysql:dbname=typing;host=localhost';
-  $user = 'root';
+  $difficulty = $_POST['difficulty'];
+
+  $dsn = 'mysql:dbname=lostcolor;host=localhost';
+  $user = 'mline';
   $password = 'manaki079';
 
 try{
@@ -30,9 +32,9 @@ try{
 
     $dbh->query('SET NAMES utf8');
 
-    $sql = 'insert into score (name, score, count,miss, mode) values (?, ?, ?, ?, ?)';
+    $sql = 'insert into score (name, score, count,miss, mode, difficulty) values (?, ?, ?, ?, ?, ?)';
     $stmt = $dbh->prepare($sql);
-    $flag = $stmt->execute(array($name, $score, $count, $miss, $mode));
+    $flag = $stmt->execute(array($name, $score, $count, $miss, $mode, $difficulty));
 
     if ($flag){
         //追加成功

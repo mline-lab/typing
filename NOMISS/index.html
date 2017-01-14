@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>LostColor-ノーミス-</title>
+    <title>LostColor-ノーマル-</title>
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -12,33 +12,47 @@
 </head>
 <body>
   <div class="head_menu">
-          <ul id="menu">
-              <a href="../"><li>HOME</li></a>
-              <a href="ranking_view.html"><li>ランキング</li></a>
-              <a href="../ranking/bacteria_ranking.html"><li>ALLランキング</li></a>
-              <a href="../wordadd/list.html"><li>タイピングワード集</li></a>
-              <li id="mode_img"><img src="img/mode1_logo.png" /></li>
-          </ul>
+
+      <ul id="menu">
+          <div class="head_img">
+
+          </div>
+          <a href="../">
+              <li><img src="../images/top-hed-top.png" /></li>
+          </a>
+          <a href="../char/">
+              <li><img src="../images/top-hed-char.png" /></li>
+          </a>
+          <a href="../howto.html">
+              <li><img src="../images/top-hed-howto.png" /></li>
+          </a>
+          <a href="../product.html">
+              <li><img src="../images/top-hed-product.png" /></li>
+          </a>
+          <a href="../special.html">
+              <li><img src="../images/top-hed-sp.png" /></li>
+          </a>
+      </ul>
   </div>
     <div class="content">
         <div id="wrapper">
-            <div class="main">
-                <div class="game_div" id="gamebody" onClick="nextMessage()">
-                    <div class="data_var">
-                        <div class="box">
-                            <span id="score_area">0000</span>
-                        </div>
-                        <div class="box">
-                            <span id="time_area">Sec.</span>
-                        </div>
-                        <div class="box">
-                            <div class="skil_gaze_bord">
-                                <div class="skil_gaze" id="skil_gaze_id">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game_main">
+          <div class="main">
+              <div class="game_div" id="gamebody" onClick="nextMessage()">
+                  <div class="data_var">
+                      <div class="box">
+                          <span id="score_area">0000</span>
+                      </div>
+                      <div class="box">
+                          <span id="time_area">Sec.</span>
+                      </div>
+                      <div class="box">
+                          <div class="skil_gaze_bord">
+                              <div class="skil_gaze" id="skil_gaze_id">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="game_main" id="bgimg">
                       <!-- ゲーム中で使用するbutton -->
                       <form id="input_item">
                           <p>
@@ -46,41 +60,41 @@
                           </p>
                       </form>
                       <div id="game_messsage">
-                        <span id="message">スタート</span>
-                        <div style="font-weight: bold;" id="condition">&nbsp;</div>
+                          <span id="message">スタート</span>
+                          <div style="font-weight: bold;" id="condition">&nbsp;</div>
                       </div>
                       <div id="ranking_item">
-                        <form name="ranking" id="form_ranking">
+                          <form name="ranking" id="form_ranking">
                               <input type="text" id="name-text" name="username" class="rank_item">
                               <br />
                               <input type="submit" class="button" id="rank_button" value="ランキング登録" onClick="rank_push()">
-                        </form>
+                          </form>
                       </div>
                       <!-- -->
                       <div class="left_img" id="teki_img">
-                        <img id="img1" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img2" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
+                          <img id="img1" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img2" src="" ondragstart="return false;" oncontextmenu="return false;" />
                       </div>
                       <div class="right_img" id="player_img">
-                        <img id="img3" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img4" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img5" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
+                          <img id="img3" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img4" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img5" src="" ondragstart="return false;" oncontextmenu="return false;" />
                       </div>
-                    </div>
-                    <div class="font_area">
-                        <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
-                        <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
-                        <div id="type">
-                            <span id="type_Before">&nbsp;</span>
-                            <span id="type_After">&nbsp;</span>
-                        </div>
-                    </div>
-                    <div class="time_fake">
+                  </div>
+                  <div class="font_area" id="font_area">
+                      <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+                      <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+                      <div id="type">
+                          <span id="type_Before">&nbsp;</span>
+                          <span id="type_After">&nbsp;</span>
+                      </div>
+                  </div>
+                  <div class="time_fake">
                       <div class="time_gaze" id="time_gaze_id">
                       </div>
-                    </div>
-                </div>
-            </div>
+                  </div>
+              </div>
+          </div>
             <div class="side01">
                     <p>マスターボリューム</p>
                     <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button"/></div>
@@ -90,6 +104,20 @@
                         <img src="img/volume/v5.png" id="bgm_volume_button"/>
                       <div class="left_volume" onclick="bgm_volume_up()">UP</div>
                     </div>
+
+                    <div class="difficulty" style="overflow: hidden;">
+                      <p>難易度</p>
+                      <ul>
+                        <li class="easy">
+                          <input type="radio" name="rdo" value="easy" id="rdo1">
+                            <label for="rdo1" class="label">かんたん</label>
+                        </li>
+                        <li class="normal">
+                          <input type="radio" name="rdo" value="normal" id="rdo2" checked>
+                            <label for="rdo2" class="label">ふつう</label>
+                        </li>
+                      </ul>
+                  </div>
             </div>
         </div>
         <div class="side02">
@@ -100,8 +128,8 @@
               </tr>
       <?php
 
-      $dsn = 'mysql:dbname=typing;host=localhost';
-      $user = 'root';
+      $dsn = 'mysql:dbname=lostcolor;host=localhost';
+      $user = 'mline';
       $password = 'manaki079';
 
       $rank = 0;
@@ -119,7 +147,62 @@
 
           $dbh->query('SET NAMES utf8');
 
-          $sql = 'SELECT * FROM score WHERE mode = 4 ORDER BY score DESC LIMIT 5';
+          $sql = 'SELECT * FROM score WHERE mode = 4 AND difficulty = 0 ORDER BY score DESC LIMIT 5';
+          $stmt = $dbh->query($sql);
+
+          while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+
+              $rank++;
+              echo "<tr id=\"list\">";
+              echo "<th>";
+              echo ($rank);
+              echo "<th class=\"name\">";
+              echo($result['name']);
+              echo "</th>";
+              echo "<th>";
+              echo($result['score']);
+              echo "</th>";
+              echo "</tr>";
+          }
+
+          }catch (PDOException $e){
+            print('Error:'.$e->getMessage());
+            die();
+          }
+
+      $dbh = null;
+
+       ?>
+       </table>
+          </div>
+
+          <div class="rank_top5">
+            <table>
+              <tr>
+                <img src="img/rank_logo.png" />
+              </tr>
+      <?php
+
+      $dsn = 'mysql:dbname=lostcolor;host=localhost';
+      $user = 'mline';
+      $password = 'manaki079';
+
+      $rank = 0;
+
+      $mode;
+
+      try{
+          $dbh = new PDO($dsn, $user, $password);
+
+          if ($dbh == null){
+              //接続失敗
+          }else{
+              //接続成功
+          }
+
+          $dbh->query('SET NAMES utf8');
+
+          $sql = 'SELECT * FROM score WHERE mode = 4 AND difficulty = 1 ORDER BY score DESC LIMIT 5';
           $stmt = $dbh->query($sql);
 
           while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
