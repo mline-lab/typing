@@ -391,9 +391,6 @@ var worddata
 var right_img_lock;
 var animation_random_state_number;
 
-//難易度でわける変数
-var move_speed;
-
 window.onload = function() {
 
     input_item = document.getElementById("input_item");

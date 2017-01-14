@@ -12,33 +12,47 @@
 </head>
 <body>
   <div class="head_menu">
-          <ul id="menu">
-              <a href="../"><li>HOME</li></a>
-              <a href="ranking_view.html"><li>ランキング</li></a>
-              <a href="../ranking/bacteria_ranking.html"><li>ALLランキング</li></a>
-              <a href="../wordadd/list.html"><li>タイピングワード集</li></a>
-              <li id="mode_img"><img src="img/mode1_logo.png" /></li>
-          </ul>
+
+      <ul id="menu">
+          <div class="head_img">
+
+          </div>
+          <a href="../">
+              <li><img src="../images/top-hed-top.png" /></li>
+          </a>
+          <a href="../char/">
+              <li><img src="../images/top-hed-char.png" /></li>
+          </a>
+          <a href="../howto.html">
+              <li><img src="../images/top-hed-howto.png" /></li>
+          </a>
+          <a href="../product.html">
+              <li><img src="../images/top-hed-product.png" /></li>
+          </a>
+          <a href="../special.html">
+              <li><img src="../images/top-hed-sp.png" /></li>
+          </a>
+      </ul>
   </div>
     <div class="content">
         <div id="wrapper">
-            <div class="main">
-                <div class="game_div" id="gamebody" onClick="nextMessage()">
-                    <div class="data_var">
-                        <div class="box">
-                            <span id="score_area">0000</span>
-                        </div>
-                        <div class="box">
-                            <span id="time_area">Sec.</span>
-                        </div>
-                        <div class="box">
-                            <div class="skil_gaze_bord">
-                                <div class="skil_gaze" id="skil_gaze_id">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="game_main" id="bgimg">
+          <div class="main">
+              <div class="game_div" id="gamebody" onClick="nextMessage()">
+                  <div class="data_var">
+                      <div class="box">
+                          <span id="score_area">0000</span>
+                      </div>
+                      <div class="box">
+                          <span id="time_area">Sec.</span>
+                      </div>
+                      <div class="box">
+                          <div class="skil_gaze_bord">
+                              <div class="skil_gaze" id="skil_gaze_id">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="game_main" id="bgimg">
                       <!-- ゲーム中で使用するbutton -->
                       <form id="input_item">
                           <p>
@@ -46,41 +60,41 @@
                           </p>
                       </form>
                       <div id="game_messsage">
-                        <span id="message">スタート</span>
-                        <div style="font-weight: bold;" id="condition">&nbsp;</div>
+                          <span id="message">スタート</span>
+                          <div style="font-weight: bold;" id="condition">&nbsp;</div>
                       </div>
                       <div id="ranking_item">
-                        <form name="ranking" id="form_ranking">
+                          <form name="ranking" id="form_ranking">
                               <input type="text" id="name-text" name="username" class="rank_item">
                               <br />
                               <input type="submit" class="button" id="rank_button" value="ランキング登録" onClick="rank_push()">
-                        </form>
+                          </form>
                       </div>
                       <!-- -->
                       <div class="left_img" id="teki_img">
-                        <img id="img1" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img2" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
+                          <img id="img1" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img2" src="" ondragstart="return false;" oncontextmenu="return false;" />
                       </div>
                       <div class="right_img" id="player_img">
-                        <img id="img3" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img4" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
-                        <img id="img5" src="" ondragstart="return false;"  oncontextmenu="return false;"/>
+                          <img id="img3" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img4" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                          <img id="img5" src="" ondragstart="return false;" oncontextmenu="return false;" />
                       </div>
-                    </div>
-                    <div class="font_area">
-                        <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
-                        <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
-                        <div id="type">
-                            <span id="type_Before">&nbsp;</span>
-                            <span id="type_After">&nbsp;</span>
-                        </div>
-                    </div>
-                    <div class="time_fake">
+                  </div>
+                  <div class="font_area" id="font_area">
+                      <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+                      <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+                      <div id="type">
+                          <span id="type_Before">&nbsp;</span>
+                          <span id="type_After">&nbsp;</span>
+                      </div>
+                  </div>
+                  <div class="time_fake">
                       <div class="time_gaze" id="time_gaze_id">
                       </div>
-                    </div>
-                </div>
-            </div>
+                  </div>
+              </div>
+          </div>
             <div class="side01">
                     <p>マスターボリューム</p>
                     <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button"/></div>

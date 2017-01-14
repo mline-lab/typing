@@ -397,10 +397,12 @@ window.onload = function() {
     game_messsage = document.getElementById("game_messsage");
     messageArea = document.getElementById("message");
     wordArea_jp = document.getElementById("word_jp");
+    font_area = document.getElementById("font_area");
     wordArea_hiragana = document.getElementById("word_hiragana");
     typeArea = document.getElementById("type_Before");
     typeArea2 = document.getElementById("type_After");
     startButton = document.getElementById("start_button");
+    input_item = document.getElementById("input_item");
     rankButton = document.getElementById("rank_button");
     name_text = document.getElementById("name-text");
     ranking_item = document.getElementById("ranking_item");
@@ -419,7 +421,6 @@ window.onload = function() {
     img5 = document.getElementById("img5");
     mute_button = document.getElementById("mute_button");
     bgm_volume_button = document.getElementById("bgm_volume_button");
-    rdo1 = document.getElementById("rdo1");
     bgimg = document.getElementById("bgimg");
 
     shiftdown = 0;
@@ -712,7 +713,7 @@ function rank_push() {
 
 // 次の単語を表示
 function nextWord() {
-
+if (timeLeft >= 0) {
     //テスト変数
     tableichi = 0;
     ichi = 0;
@@ -738,6 +739,7 @@ function nextWord() {
     typeArea2.textContent = textColor2;
     x = 0;
     moveImg();
+}
 }
 
 function moveImg() {
@@ -818,7 +820,7 @@ function moziHenkan(e) {
     townro_machange
     ro_ma = data[11];
     shiftdown = data[13];
-    if (game_flag == 1) {
+    if (game_flag == 1 && timeLeft >= 0) {
         if (seikaisuu != tempseikai) {
             hantei();
         } else {
@@ -841,14 +843,18 @@ function moziHenkan(e) {
 }
 
 
-
 // 残り時間を計測
 function countDown() {
-    time_area.textContent = timeLeft + " sec.";
-    if (timeLeft <= 0) {
+    if (timeLeft <= -1) {
         stopTyping();
         return;
+    } else if (timeLeft == 0) {
+        typeArea.textContent = "";
+        typeArea2.textContent = "";
+        wordArea_hiragana.textContent = "";
+        wordArea_jp.textContent = "タイムアップ";
     }
+    time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
 
