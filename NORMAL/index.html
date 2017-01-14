@@ -5,6 +5,49 @@
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.imgloader.js"></script>
+    <script>
+        var $preload = $('.preload');
+        var imgSrcs = [
+          'img/typing/budou_default.png',
+          'img/typing/budou_default_dmg.png',
+          'img/typing/kaede_atk.png',
+          'img/typing/kaede_atk2.png',
+          'img/typing/kaede_atk3.png',
+          'img/typing/kaede_default.png',
+          'img/typing/kaede_miss.png',
+          'img/typing/kaede-atk2-animation.png',
+          'img/typing/kaede-atk3-animation.png',
+          'img/typing/kaede-atk4-animation.png',
+          'img/start_bg.jpg'
+        ];
+
+        $preload.each(function() {
+            imgSrcs.push($(this).attr('src'));
+        });
+
+        var loader = new $.ImgLoader({
+            srcs: imgSrcs, //画像などのパスを配列に格納
+            pipesize: 2, //同時にロードできる数の上限
+            delay: 500, //次のロードまでの遅延をミリ秒で指定
+            timeout: 500, //タイムアウトまでの時間をミリ秒で指定
+            useXHR2: false //XMLHttpRequestVersion2を利用するかどうか
+        });
+
+        loader.on('progress', function(progress) {
+            var prog = progress.loadedRatio; //進捗率を取得
+        });
+
+        loader.on('itemload', function($img) {
+            console.log($img);
+        });
+
+        loader.on('allload', function($img) {
+            console.log('complete');
+        });
+
+        loader.load(); //ローディングを実行
+    </script>
     <script>
         $(function() {
             var h = $(window).height();
@@ -23,7 +66,6 @@
     <script type="text/javascript" src="js/checkbrowser.js"></script>
     <link rel="stylesheet" href="css/main.css" media="all">
     <link rel="stylesheet" href="css/mrp.css" media="all">
-    <link rel="stylesheet" href="css/preload.css" media="all">
     <script type="text/javascript" src="js/towntypelib.js"></script>
 </head>
 <body>
