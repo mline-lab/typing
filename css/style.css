@@ -140,6 +140,16 @@ a:hover {
 }
 
 
+/*ワードリスト*/
+
+.word_list {
+  width: 980px;
+  height: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-image: url("../images/word_list.png");
+}
+
 
 /*サブコンテンツ*/
 
@@ -147,7 +157,7 @@ a:hover {
     float: left;
     width: 650px;
     height: 850px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 48px;
     background: rgba(255, 255, 255, 0.8);
