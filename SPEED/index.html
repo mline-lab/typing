@@ -5,6 +5,20 @@
     <meta charset="utf-8">
     <meta http-equiv="imagetoolbar" content="no">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var h = $(window).height();
+
+            $('#wrap').css('display', 'none');
+            $('#loader-bg ,#loader').height(h).css('display', 'block');
+        });
+
+        $(window).load(function() { //全ての読み込みが完了したら実行
+            $('#loader-bg').delay(900).fadeOut(800);
+            $('#loader').delay(600).fadeOut(300);
+            $('#wrap').css('display', 'block');
+        });
+    </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/checkbrowser.js"></script>
     <link rel="stylesheet" href="css/main.css" media="all">
@@ -248,18 +262,5 @@
     </div>
     <div id="preloadedImages"></div>
 </body>
-<script>
-    $(function() {
-        var h = $(window).height();
 
-        $('#wrap').css('display', 'none');
-        $('#loader-bg ,#loader').height(h).css('display', 'block');
-    });
-
-    $(window).load(function() { //全ての読み込みが完了したら実行
-        $('#loader-bg').delay(900).fadeOut(800);
-        $('#loader').delay(600).fadeOut(300);
-        $('#wrap').css('display', 'block');
-    });
-</script>
 </html>
