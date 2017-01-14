@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.imgloader.js"></script>
     <script>
+
         var $preload = $('.preload');
         var imgSrcs = [
           'img/typing/budou_default.png',
@@ -70,25 +71,18 @@
             console.log('complete');
         });
 
+        var h = $(window).height();
+
+        $('#wrap').css('display', 'none');
+        $('#loader-bg ,#loader').height(h).css('display', 'block');
         loader.load(); //ローディングを実行
-    </script>
-    <script>
-        $(function() {
-            var h = $(window).height();
-
-            $('#wrap').css('display', 'none');
-            $('#loader-bg ,#loader').height(h).css('display', 'block');
-        });
-
-        $(window).load(function() { //全ての読み込みが完了したら実行
-            $('#loader-bg').delay(900).fadeOut(800);
-            $('#loader').delay(600).fadeOut(300);
-            $('#wrap').css('display', 'block');
-        });
+        $('#loader-bg').delay(900).fadeOut(800);
+        $('#loader').delay(600).fadeOut(300);
+        $('#wrap').css('display', 'block');
     </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/towntypelib.js"></script>
-    <script type="text/javascript" src="js/checkbrowser.js"></script>
+    <script type="text/javascript" src="../js/checkbrowser.js"></script>
     <link rel="stylesheet" href="css/main.css" media="all">
     <link rel="stylesheet" href="css/mrp.css" media="all">
 
