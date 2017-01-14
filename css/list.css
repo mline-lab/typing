@@ -1,0 +1,121 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'myWebFont';
+    /* お好きな名前にしましょう */
+    url('font/yuminl.woff') format('woff'), /* モダンブラウザ用 */
+    url('font/yuminl.ttf') format('truetype');
+    /* iOS, Android用 */
+    font-weight: normal;
+    /* 念の為指定しておきます */
+    font-style: normal;
+}
+
+body {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: rgb(42, 42, 42);
+    /*全体の文字色*/
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 14px;
+    /*文字サイズ*/
+    line-height: 2;
+    /*行間*/
+    /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
+    background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../images/bg_bg_bg.png);
+}
+
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+
+a {
+    color: rgb(42, 42, 42);
+    text-decoration: none;
+    /*リンクテキストの色*/
+}
+
+a:hover {
+    color: #c80000 !important;
+    /*マウスオン時の文字色（全体）*/
+    text-decoration: none;
+    /*マウスオン時に下線を消す設定。残したいならこの１行削除。*/
+}
+
+
+/* 上部ヘッダー */
+
+.head_menu {
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
+}
+
+.head_img {
+    width: 170px;
+    height: 70px;
+    float: left;
+    background-image: url("../images/head_img_title.png");
+}
+
+#menu {
+    width: 1024px;
+    height: 70px;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    text-align: center;
+}
+
+#menu li {
+    width: 170px;
+    height: 71px;
+    float: left;
+    /*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+    transition: 0.5s;
+    /*同上*/
+}
+
+#menu li:hover {
+    color: #c80000;
+    /*文字色*/
+    background: rgb(187, 247, 177);
+    /*背景色*/
+}
+
+.pager span{
+
+}
+.pager span:hover{
+  color:#E48E00;
+}
+
+
+.main {
+    width: 100%;
+    font-size: 1.3em;
+}
+
+.main div {
+    width: 80%;
+    margin: 0 auto;
+}
+.content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.t-line tr:nth-child(odd) {
+    background-color: #a5d8f6;
+}
+
+.t-line tr:nth-child(even) {
+    background-color: #fbffd9;
+}
+
+td {
+  width: 400px;
+}
+.num {
+  width: 50px;
+}
