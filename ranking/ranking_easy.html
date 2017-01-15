@@ -41,6 +41,7 @@ $(function(){
     <div>
 
       <div class="content">
+        <a href="ranking.html">ノーマルランキング</a>
         <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
           <tr>
             <th bgcolor="#81fcf1">順位</th>
@@ -71,7 +72,7 @@ $(function(){
 
       $dbh->query('SET NAMES utf8');
 
-      $sql = 'SELECT * FROM score ORDER BY score DESC';
+      $sql = 'SELECT * FROM score AND difficulty = 1 AND NOT score = 0 ORDER BY score DESC';
       $stmt = $dbh->query($sql);
 
       while($result = $stmt->fetch(PDO::FETCH_ASSOC)){

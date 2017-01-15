@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>コレクトランキング_EASY|LostColor</title>
+<title>LostColor-トータルランキング-</title>
 <meta charset="utf-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="stylesheet" href="../css/ranking.css" type="text/css">
@@ -31,7 +31,7 @@ $(function(){
   <div class="head_menu">
           <ul id="menu">
               <a href="../"><li>HOME</li></a>
-              <a href="../ranking/ranking_easy.html"><li>ALLランキング</li></a>
+              <a href="../NORMAL/ranking_view.html"><li>ノーマル</li></a>
               <a href="../CORRECT/ranking_view.html"><li>正確重視</li></a>
               <a href="../SPEED/ranking_view.html"><li>速度重視</li></a>
               <a href="../NOMISS/ranking_view.html"><li>ノーミス</li></a>
@@ -41,8 +41,7 @@ $(function(){
     <div>
 
       <div class="content">
-        <a href="ranking_view.html">ふつうランキング</a>
-
+        <a href="ranking_easy.html">かんたんランキング</a>
         <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
           <tr>
             <th bgcolor="#81fcf1">順位</th>
@@ -50,6 +49,7 @@ $(function(){
             <th bgcolor="#81fcf1">スコア</th>
             <th bgcolor="#81fcf1">討伐数</th>
             <th bgcolor="#81fcf1">ミス数</th>
+            <th bgcolor="#81fcf1">モード</th>
           </tr>
   <?php
 
@@ -72,11 +72,27 @@ $(function(){
 
       $dbh->query('SET NAMES utf8');
 
-      $sql = 'SELECT * FROM score WHERE mode = 2 AND difficulty = 1 AND NOT score = 0 ORDER BY score DESC';
+      $sql = 'SELECT * FROM score AND difficulty = 0 AND NOT score = 0 ORDER BY score DESC';
       $stmt = $dbh->query($sql);
 
       while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-
+        switch ($result['mode']) {
+          case 1:
+            $mode = "ノーマル";
+            break;
+          case 2:
+            $mode = "正確重視";
+            break;
+          case 3:
+            $mode = "速度重視";
+            break;
+          case 4:
+            $mode = "ノーミス";
+            break;
+          default:
+            # code...
+            break;
+        }
           $rank++;
           echo "<tr id=\"list\">";
           echo "<th>";
@@ -92,6 +108,9 @@ $(function(){
           echo "</th>";
           echo "<th>";
           echo($result['miss']);
+          echo "</th>";
+          echo "<th>";
+          echo($mode);
           echo "</th>";
           echo "</tr>";
       }
