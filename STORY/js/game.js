@@ -583,13 +583,13 @@ function story_Message() {
     img4.style.visibility = "visible";
     img5.style.visibility = "visible";
 
-    img1.src = "img/story/" + story[story_line][2] + ".png";
-    img2.src = "img/story/" + story[story_line][3] + ".png";
-    img3.src = "img/story/" + story[story_line][4] + ".png";
-    img4.src = "img/story/" + story[story_line][5] + ".png";
-    img5.src = "img/story/" + story[story_line][6] + ".png";
+    img1.src = "../images/typing/story/" + story[story_line][2] + ".png";
+    img2.src = "../images/typing/story/" + story[story_line][3] + ".png";
+    img3.src = "../images/typing/story/" + story[story_line][4] + ".png";
+    img4.src = "../images/typing/story/" + story[story_line][5] + ".png";
+    img5.src = "../images/typing/story/" + story[story_line][6] + ".png";
 
-    bgimg.style.backgroundImage = "url(" + "img/story/bg/" + story[story_line][7] + ".jpg" + ")";
+    bgimg.style.backgroundImage = "url(" + "../images/typing/story/bg/" + story[story_line][7] + ".jpg" + ")";
     if (story[story_line][0] == "") {
         wordArea_hiragana.textContent = story[story_line][0];
     } else {
@@ -643,7 +643,7 @@ function set_move_speed() {
 
 function on_mute() {
     if (mute == 0) {
-        mute_button.src = "img/volume_off.png";
+        mute_button.src = "../images/typing/volume/volume_off.png";
         audioBad.volume = 0;
         audioBGM.volume = 0;
         audioElem.volume = 0;
@@ -657,7 +657,7 @@ function on_mute() {
         audioFunction.volume = 0;
         mute = 1;
     } else {
-        mute_button.src = "img/volume_on.png";
+        mute_button.src = "../images/typing/volume/volume_on.png";
         audioBad.volume = 0.3;
         audioBGM.volume = 0.5;
         audioElem.volume = 0.3;
@@ -715,7 +715,7 @@ function bgm_volume_up() {
     if (bgm_volume != 10) {
         bgm_volume++;
         audioBGM.volume = bgm_volume / 10;
-        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+        bgm_volume_button.src = "../images/typing/volume/v" + bgm_volume + ".png";
     }
 }
 
@@ -723,7 +723,7 @@ function bgm_volume_down() {
     if (bgm_volume != 0) {
         bgm_volume--;
         audioBGM.volume = bgm_volume / 10;
-        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+        bgm_volume_button.src = "../images/typing/volume/v" + bgm_volume + ".png";
     }
 }
 
@@ -834,7 +834,7 @@ function onStartButtonClick() {
     setvar();
     set_move_speed();
     space_flag = 1;
-    bgimg.style.backgroundImage = "img/start_bg.jpg";
+    bgimg.style.backgroundImage = "../images/typing/bg/start_bg.jpg";
     messageArea.textContent = "";
     if (story_flg == 1) {
         load_Story();
@@ -846,7 +846,7 @@ function onStartButtonClick() {
 
 function space_start() {
     condition.textContent = "";
-    bgimg.style.backgroundImage = "url(img/story/bg/siro_2.jpg)";
+    bgimg.style.backgroundImage = "url(../images/typing/story/bg/siro_2.jpg)";
     player_img.className = "kaede_right_img_defalt";
     teki_img.className = "left_img_default";
     space_flag = 0;
@@ -891,7 +891,7 @@ function stopTyping() {
 
     if (score >= 100) {
         audioWin.play();
-        bgimg.style.backgroundImage = "url(img/typing/bg/win.jpg)";
+        bgimg.style.backgroundImage = "url(../images/typing/bg/win.jpg)";
         condition.textContent = "第" + story_chapter + "話クリア";
         if (end_chapter == story_chapter) {
             startButton.value = "Start";
@@ -902,7 +902,7 @@ function stopTyping() {
         }
     } else if (score <= 99) {
         //スコア低過ぎ
-        bgimg.style.backgroundImage = "url(img/typing/bg/lose.jpg)";
+        bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
         startButton.value = "Retry";
 

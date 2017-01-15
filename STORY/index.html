@@ -8,50 +8,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.imgloader.js"></script>
     <script>
+        $(function() {
+            var h = $(window).height();
 
-    $(function() {
-        var h = $(window).height();
-
-        $('#wrap').css('display', 'none');
-        $('#loader-bg ,#loader').height(h).css('display', 'block');
-    });
+            $('#wrap').css('display', 'none');
+            $('#loader-bg ,#loader').height(h).css('display', 'block');
+        });
 
         var $preload = $('.preload');
         var imgSrcs = [
-          'img/typing/budou_default.png',
-          'img/typing/budou_default_dmg.png',
-          'img/typing/kaede_atk.png',
-          'img/typing/kaede_atk2.png',
-          'img/typing/kaede_atk3.png',
-          'img/typing/kaede_default.png',
-          'img/typing/kaede_miss.png',
-          'img/typing/kaede-atk2-animation.png',
-          'img/typing/kaede-atk3-animation.png',
-          'img/typing/kaede-atk4-animation.png',
-          'img/story/kaede.png',
-          'img/story/kaede_off.png',
-          'img/story/nasi.png',
-          'img/story/sipses.png',
-          'img/story/sipses_off.png',
-          'img/story/tiharu.png',
-          'img/story/tiharu_off.png',
-          'img/story/yayoi.png',
-          'img/story/yayoi_off.png',
-          'img/story/yukino.png',
-          'img/story/yukino_off.png',
-          'img/story/bg/kouen_1.jpg',
-          'img/story/bg/sai_1.jpg',
-          'img/story/bg/sipses_cg_1.jpg',
-          'img/story/bg/siro_1.jpg',
-          'img/story/bg/siro_2.jpg',
-          'img/story/bg/story01_01.jpg',
-          'img/story/bg/story01_02.jpg',
-          'img/story/bg/story01_03.jpg',
-          'img/story/bg/story01_04.jpg',
-          'img/story/bg/story01_05.jpg',
-          'img/typing/bg/win.jpg',
-          'img/typing/bg/lose.jpg',
-          'img/start_bg.jpg'
+            '../images/typing/bacteria/budou_default.png',
+            '../images/typing/bacteria/budou_default_dmg.png',
+            '../images/typing/kaede/kaede_atk.png',
+            '../images/typing/kaede/kaede_default.png',
+            '../images/typing/kaede/kaede_miss.png',
+            '../images/typing/kaede/kaede-atk2-animation.png',
+            '../images/typing/kaede/kaede-atk3-animation.png',
+            '../images/typing/kaede/kaede-atk4-animation.png',
+            '../images/typing/story/kaede.png',
+            '../images/typing/story/kaede_off.png',
+            '../images/typing/story/nasi.png',
+            '../images/typing/story/sipses.png',
+            '../images/typing/story/sipses_off.png',
+            '../images/typing/story/tiharu.png',
+            '../images/typing/story/tiharu_off.png',
+            '../images/typing/story/yayoi.png',
+            '../images/typing/story/yayoi_off.png',
+            '../images/typing/story/yukino.png',
+            '../images/typing/story/yukino_off.png',
+            '../images/typing/story/bg/kouen_1.jpg',
+            '../images/typing/story/bg/sai_1.jpg',
+            '../images/typing/story/bg/sipses_cg_1.jpg',
+            '../images/typing/story/bg/siro_1.jpg',
+            '../images/typing/story/bg/siro_2.jpg',
+            '../images/typing/story/bg/story01_01.jpg',
+            '../images/typing/story/bg/story01_02.jpg',
+            '../images/typing/story/bg/story01_03.jpg',
+            '../images/typing/story/bg/story01_04.jpg',
+            '../images/typing/story/bg/story01_05.jpg',
+            '../images/typing/bg/win.jpg',
+            '../images/typing/bg/lose.jpg',
+            '../images/typing/start_bg.jpg'
         ];
 
         $preload.each(function() {
@@ -77,14 +74,13 @@
         loader.on('allload', function($img) {
             console.log('complete');
             $(function() {
-              $('#loader-bg').delay(900).fadeOut(800);
-              $('#loader').delay(600).fadeOut(300);
-              $('#wrap').css('display', 'block');
+                $('#loader-bg').delay(900).fadeOut(800);
+                $('#loader').delay(600).fadeOut(300);
+                $('#wrap').css('display', 'block');
             });
         });
 
         loader.load(); //ローディングを実行
-
     </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/towntypelib.js"></script>
@@ -189,11 +185,11 @@
             </div>
             <div class="side01">
                 <p>マスターボリューム</p>
-                <div class="mas_volume" onclick="on_mute()"><img src="img/volume_on.png" id="mute_button" /></div>
+                <div class="mas_volume" onclick="on_mute()"><img src="../images/typing/volume/volume_on.png" id="mute_button" /></div>
                 <p>ＢＧＭボリューム</p>
                 <div class="bgm_volume">
                     <div class="right_volume" onclick="bgm_volume_down()">DOWN</div>
-                    <img src="img/volume/v5.png" id="bgm_volume_button" />
+                    <img src="../images/typing/volume/v5.png" id="bgm_volume_button" />
                     <div class="left_volume" onclick="bgm_volume_up()">UP</div>
                 </div>
             </div>
@@ -212,7 +208,7 @@
 
         <footer>
             <small>Copyright&copy; <a href="https://mline.tell.jp/">mline</a> All Rights Reserved.</small></br>
-            <a href="https://mline.tell.jp/"><img src="img/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" /></a>
+            <a href="https://mline.tell.jp/"><img src="../images/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" /></a>
         </footer>
     </div>
     <div id="preloadedImages"></div>

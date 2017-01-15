@@ -470,7 +470,7 @@ function set_move_speed() {
 
 function on_mute() {
     if (mute == 0) {
-        mute_button.src = "img/volume_off.png";
+        mute_button.src = "../images/typing/volume/volume_off.png";
         audioBad.volume = 0;
         audioBGM.volume = 0;
         audioElem.volume = 0;
@@ -483,7 +483,7 @@ function on_mute() {
         audioTimeOver.volume = 0;
         mute = 1;
     } else {
-        mute_button.src = "img/volume_on.png";
+        mute_button.src = "../images/typing/volume/volume_on.png";
         audioBad.volume = 0.3;
         audioBGM.volume = 0.5;
         audioElem.volume = 0.3;
@@ -502,7 +502,7 @@ function bgm_volume_up() {
     if (bgm_volume != 10) {
         bgm_volume++;
         audioBGM.volume = bgm_volume / 10;
-        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+        bgm_volume_button.src = "../images/typing/volume/v" + bgm_volume + ".png";
     }
 }
 
@@ -510,7 +510,7 @@ function bgm_volume_down() {
     if (bgm_volume != 0) {
         bgm_volume--;
         audioBGM.volume = bgm_volume / 10;
-        bgm_volume_button.src = "img/volume/v" + bgm_volume + ".png";
+        bgm_volume_button.src = "../images/typing/volume/v" + bgm_volume + ".png";
     }
 }
 
@@ -597,7 +597,7 @@ function onStartButtonClick() {
     set_move_speed();
     setvar();
     space_flag = 1;
-    bgimg.style.backgroundImage = "url(img/start_bg.jpg)";
+    bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg.jpg)";
     messageArea.textContent = "";
 
 }
