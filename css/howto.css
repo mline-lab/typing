@@ -95,12 +95,16 @@ a:hover {
 /*タイトル*/
 
 .intro_content {
-    width: 500px;
-    height: 350px;
+    width: 960px;
+    height: 3360px;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 20px;
-    background-image: url("../images/hw/howto_bg.jpg");
+    border: 1px solid #EBEBEB;
+    -moz-box-shadow: 2px 4px 5px 0px #dbdbdb;
+    -webkit-box-shadow: 2px 4px 5px 0px #dbdbdb;
+    box-shadow: 2px 4px 5px 0px #dbdbdb;
+    background-image: url("../images/hw/howto.jpg");
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
