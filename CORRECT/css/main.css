@@ -161,6 +161,7 @@ a {
 
 .rank_top5 table{
   width: 200px;
+  height: 120px;
 }
 /* 上部ヘッダー */
 
@@ -243,7 +244,13 @@ a {
 #ranking_item input {
     margin-top: 10px;
 }
+.rank_link {
+  color: rgb(17, 193, 224) ;
+}
 
+.rank_link:hover {
+  color: rgb(17, 31, 224) ;
+}
 /* ゲーム枠 */
 
 .game_div {
