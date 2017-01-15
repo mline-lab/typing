@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
+<url>
+  <loc>https://lostcolor.tell.jp/</loc>
+  <priority>1.0</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/char/</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/howto.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/product.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/special.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/NORMAL/</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/CORRECT/</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/list.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/intro.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/movie.html</loc>
+  <priority>0.8</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/download.html</loc>
+  <priority>0.7</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/NORMAL/ranking_view.html</loc>
+  <priority>0.7</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/NORMAL/ranking_view_easy.html</loc>
+  <priority>0.7</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/CORRECT/ranking_view.html</loc>
+  <priority>0.7</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/CORRECT/ranking_view_easy.html</loc>
+  <priority>0.7</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/ranking/ranking.html</loc>
+  <priority>0.6</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/SPEED/ranking_view.html</loc>
+  <priority>0.6</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/NOMISS/ranking_view.html</loc>
+  <priority>0.6</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/ranking/ranking_easy.html</loc>
+  <priority>0.6</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/SPEED/ranking_view_easy.html</loc>
+  <priority>0.5</priority>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>https://lostcolor.tell.jp/NOMISS/ranking_view_easy.html</loc>
+  <priority>0.5</priority>
+  <changefreq>always</changefreq>
+</url>
+
+</urlset>
