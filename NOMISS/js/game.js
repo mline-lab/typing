@@ -597,7 +597,7 @@ function onStartButtonClick() {
     set_move_speed();
     setvar();
     space_flag = 1;
-    bgimg.style.backgroundImage = "url(../images/bg/start_bg.jpg)";
+    bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg.jpg)";
     messageArea.textContent = "";
 
 }

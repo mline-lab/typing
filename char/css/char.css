@@ -101,6 +101,12 @@ a:hover {
 .char_select {
     width: 800px;
     height: 80px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
 }
 
 .char_select img {
@@ -125,6 +131,12 @@ a:hover {
 
 .main {
     width: 800px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
 }
 
 .prof_area {
