@@ -816,7 +816,6 @@ function moziHenkan(e) {
             skil_gaze.style.width = gauge + "px";
             audioBad.currentTime = 0;
             audioBad.play();
-            missCount++;
             animation_random_state_number = 0;
             if (right_img_lock == 0) {
                 animation(5);
@@ -825,6 +824,7 @@ function moziHenkan(e) {
             $('.game_div').css({
                 "border": "3px solid #e24408"
             });
+            stopTyping();
         }
     }
 
