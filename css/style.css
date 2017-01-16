@@ -87,6 +87,7 @@ a:hover {
     width: 980px;
     height: 600px;
     margin: 0 auto;
+    margin-top: 20px;
     background-image: url("../images/title_img.png");
     user-select: none;
     -webkit-user-select: none;
