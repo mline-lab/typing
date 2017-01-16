@@ -1,22 +1,12 @@
 @charset "utf-8";
-@font-face {
-    font-family: 'myWebFont';
-    /* お好きな名前にしましょう */
-    url('font/yuminl.woff') format('woff'), /* モダンブラウザ用 */
-    url('font/yuminl.ttf') format('truetype');
-    /* iOS, Android用 */
-    font-weight: normal;
-    /* 念の為指定しておきます */
-    font-style: normal;
-}
 
 body {
     width: 100%;
     margin: 0px;
     padding: 0px;
     color: rgb(42, 42, 42);
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
     /*全体の文字色*/
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     font-size: 14px;
     /*background: linear-gradient(#ffffff 50%, #86ff8b),url(../images/hane_bg.png);*/
     background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../../images/bg_bg_bg.png);
@@ -131,6 +121,8 @@ a:hover {
 
 .main {
     width: 800px;
+    height: 550px;
+    background-image: url("../img/chara_bg.png");
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -139,17 +131,47 @@ a:hover {
     -khtml-user-drag: none;
 }
 
-.prof_area {
+.char_area {
     width: 300px;
+    height: 550px;
+    float: left;
+    text-align: center;
+}
+
+.char_area img {
+    width: auto;
+    height: 550px;
+}
+
+.prof_area {
+    width: 500px;
     height: 550px;
     float: left;
 }
 
-.char_area {
-    width: 500px;
-    height: 550px;
-    float: left;
-    background-image: url("../img/chara_bg.png");
+.name {
+  line-height: 0.4;
+  text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 3px #FFFFFF;
+  /*光沢*/
+  color: #424242;
+}
+
+.detailed {
+  padding-top: 20px;
+}
+
+.detailed p{
+  text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 3px #FFFFFF;
+}
+
+.catchcopy h1{
+  text-shadow: 0px 0px 10px #FFFFFF, 0px 0px 10px #FFFFFF;
+  /*光沢*/
+  color: #424242;
+}
+
+.message {
+  text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 3px #FFFFFF;
 }
 
 
@@ -180,28 +202,30 @@ footer img {
     height: auto;
 }
 
+
 /*Load*/
 
 #loader-bg {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  background: #000;
-  z-index: 1;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #000;
+    z-index: 1;
 }
+
 #loader {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  margin-top: -100px;
-  margin-left: -100px;
-  text-align: center;
-  color: #fff;
-  z-index: 2;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
 }
