@@ -391,6 +391,9 @@ var worddata
 var right_img_lock;
 var animation_random_state_number;
 
+//分岐
+var check_branch;
+
 window.onload = function() {
 
     input_item = document.getElementById("input_item");
@@ -526,6 +529,30 @@ function getCSV_Story() {
     };
 }
 
+function getCSV_Story_good() {
+    var xhr3 = new XMLHttpRequest();
+    xhr3.open("get", "csv/story" + story_chapter + "_good.csv", true);
+    xhr3.send(null);
+    xhr3.onload = function() {
+        var csv = xhr3.responseText.split("\n");
+        for (var i = 0; i < csv.length; i++) {
+            story[i] = csv[i].split(";");
+        }
+    };
+}
+
+function getCSV_Story_bad() {
+    var xhr3 = new XMLHttpRequest();
+    xhr3.open("get", "csv/story" + story_chapter + "_bad.csv", true);
+    xhr3.send(null);
+    xhr3.onload = function() {
+        var csv = xhr3.responseText.split("\n");
+        for (var i = 0; i < csv.length; i++) {
+            story[i] = csv[i].split(";");
+        }
+    };
+}
+
 function load_Story() {
     //anten();
     messageArea.textContent = "";
@@ -536,7 +563,7 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
-            if (story_chapter != 5) {
+            if (story_chapter != 7) {
                 img1.src = "";
                 img2.src = "";
                 img3.src = "";
@@ -623,7 +650,15 @@ function nextChapter() {
     GetCookie();
     getCSV_hira_File();
     getCSV_jp_File();
-    getCSV_Story();
+    if (story_chapter == 6 || story_chapter == 7) {
+      if (check_branch == "good") {
+        getCSV_Story_good();
+      } else if (check_branch == "bad") {
+        getCSV_Story_bad();
+      }
+    } else {
+      getCSV_Story();
+    }
     startButton.value = "第「" + story_chapter　 + "」話"
 }
 
@@ -635,9 +670,16 @@ function set_move_speed() {
     } else if (story_chapter == 3) {
         move_speed = 0.5;
     } else if (story_chapter == 4) {
-        move_speed = 0.6;
+        move_speed = 2;
     } else if (story_chapter == 5) {
+        move_speed = 0.7;
+    } else if (story_chapter == 6) {
+      if (check_branch == "good") {
         move_speed = 0.9;
+      } else if (check_branch == "bad") {
+        move_speed = 2;
+      }
+
     }
 }
 
@@ -898,9 +940,16 @@ function stopTyping() {
             story_flg = 0;
             story_line = 0
         } else {
+            if (story_chapter == 5) {
+              check_branch = "good";
+            }
             nextChapter();
         }
     } else if (score <= 99) {
+      if (story_chapter == 5) {
+        check_branch = "bad";
+        nextChapter();
+      }
         //スコア低過ぎ
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
