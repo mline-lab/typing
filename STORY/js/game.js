@@ -646,7 +646,6 @@ function nextChapter() {
     story = [];
     story_chapter++;
     end_chapter++;
-    SetCookie();
     GetCookie();
     getCSV_hira_File();
     getCSV_jp_File();
@@ -657,6 +656,7 @@ function nextChapter() {
         getCSV_Story_bad();
       }
     } else {
+      SetCookie();
       getCSV_Story();
     }
     startButton.value = "第「" + story_chapter　 + "」話"
@@ -670,14 +670,14 @@ function set_move_speed() {
     } else if (story_chapter == 3) {
         move_speed = 0.5;
     } else if (story_chapter == 4) {
-        move_speed = 2;
+        move_speed = 3;
     } else if (story_chapter == 5) {
         move_speed = 0.7;
     } else if (story_chapter == 6) {
       if (check_branch == "good") {
         move_speed = 0.9;
       } else if (check_branch == "bad") {
-        move_speed = 2;
+        move_speed = 3;
       }
 
     }
@@ -946,6 +946,9 @@ function stopTyping() {
             nextChapter();
         }
     } else if (score <= 99) {
+      if (story_chapter == 4) {
+        nextChapter();
+      }
       if (story_chapter == 5) {
         check_branch = "bad";
         nextChapter();
