@@ -874,7 +874,6 @@ function game_stop_refresh() {
 
 function onStartButtonClick() {
     setvar();
-    set_move_speed();
     space_flag = 1;
     bgimg.style.backgroundImage = "../images/typing/bg/start_bg.jpg";
     messageArea.textContent = "";
@@ -887,6 +886,7 @@ function onStartButtonClick() {
 }
 
 function space_start() {
+    set_move_speed();
     condition.textContent = "";
     bgimg.style.backgroundImage = "url(../images/typing/story/bg/siro_2.jpg)";
     player_img.className = "kaede_right_img_defalt";
