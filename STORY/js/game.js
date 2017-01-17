@@ -946,7 +946,7 @@ function stopTyping() {
             nextChapter();
         }
     } else if (score <= 99) {
-      if (story_chapter == 4) {
+      if (story_chapter == 4 || story_chapter == 6) {
         nextChapter();
       }
       if (story_chapter == 5) {
