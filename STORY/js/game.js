@@ -581,7 +581,7 @@ function nextMessage() {
                 img5.style.visibility = "hidden";
                 wordArea_hiragana.textContent = "";
                 wordArea_jp.textContent = "";
-                bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
+                bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.png)";
                 space_flag = 1;
                 message_end_flg = 1;
             }
