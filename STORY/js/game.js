@@ -574,7 +574,6 @@ function nextMessage() {
                 img3.src = "";
                 img4.src = "";
                 img5.src = "";
-                bgimg.style.backgroundImage = "";
                 img1.style.visibility = "hidden";
                 img2.style.visibility = "hidden";
                 img3.style.visibility = "hidden";
@@ -582,8 +581,7 @@ function nextMessage() {
                 img5.style.visibility = "hidden";
                 wordArea_hiragana.textContent = "";
                 wordArea_jp.textContent = "";
-                messageArea.textContent = "スペースキーでスタート";
-                condition.textContent = "クリア条件\n 　スコア１０００以上"
+                bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
                 space_flag = 1;
                 message_end_flg = 1;
             }
@@ -639,9 +637,9 @@ function story_Message() {
 
     //効果音判定
     if (story[story_line][9] != "") {
-      audioFunction.currentTime = 0;
-      audioFunction.src = "../audio/function/" + story[story_line][9] + ".mp3";
-      audioFunction.play();
+        audioFunction.currentTime = 0;
+        audioFunction.src = "../audio/function/" + story[story_line][9] + ".mp3";
+        audioFunction.play();
     }
 }
 
@@ -655,14 +653,14 @@ function nextChapter() {
     getCSV_hira_File();
     getCSV_jp_File();
     if (story_chapter == 6 || story_chapter == 7) {
-      if (check_branch == "good") {
-        getCSV_Story_good();
-      } else if (check_branch == "bad") {
-        getCSV_Story_bad();
-      }
+        if (check_branch == "good") {
+            getCSV_Story_good();
+        } else if (check_branch == "bad") {
+            getCSV_Story_bad();
+        }
     } else {
-      SetCookie();
-      getCSV_Story();
+        SetCookie();
+        getCSV_Story();
     }
     startButton.value = "第「" + story_chapter　 + "」話"
 }
@@ -684,13 +682,13 @@ function set_move_speed() {
         move_speed = 0.7;
         bacteri_hp = 25;
     } else if (story_chapter == 6) {
-      if (check_branch == "good") {
-        move_speed = 0.9;
-        bacteri_hp = 30;
-      } else if (check_branch == "bad") {
-        move_speed = 0.7;
-        bacteri_hp = 100;
-      }
+        if (check_branch == "good") {
+            move_speed = 0.9;
+            bacteri_hp = 30;
+        } else if (check_branch == "bad") {
+            move_speed = 0.7;
+            bacteri_hp = 100;
+        }
 
     }
 }
@@ -890,7 +888,7 @@ function game_stop_refresh() {
 function onStartButtonClick() {
     setvar();
     space_flag = 1;
-    bgimg.style.backgroundImage = "../images/typing/bg/start_bg.jpg";
+    bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
     messageArea.textContent = "";
     if (story_flg == 1) {
         load_Story();
@@ -958,18 +956,18 @@ function stopTyping() {
             story_line = 0
         } else {
             if (story_chapter == 5) {
-              check_branch = "good";
+                check_branch = "good";
             }
             nextChapter();
         }
     } else if (bacteri_hp >= 1) {
-      if (story_chapter == 4 || story_chapter == 6) {
-        nextChapter();
-      }
-      if (story_chapter == 5) {
-        check_branch = "bad";
-        nextChapter();
-      }
+        if (story_chapter == 4 || story_chapter == 6) {
+            nextChapter();
+        }
+        if (story_chapter == 5) {
+            check_branch = "bad";
+            nextChapter();
+        }
         //スコア低過ぎ
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
@@ -1042,22 +1040,26 @@ function moveImg() {
             skil_gaze.style.width = gauge + "px";
             hitpoint--;
             if (hitpoint == 4) {
-              score_area.textContent = "❤❤❤❤";
+                score_area.textContent = "❤❤❤❤";
+                nextWord();
             } else if (hitpoint == 3) {
-              score_area.textContent = "❤❤❤";
+                score_area.textContent = "❤❤❤";
+                nextWord();
             } else if (hitpoint == 2) {
-              score_area.textContent = "❤❤";
+                score_area.textContent = "❤❤";
+                nextWord();
             } else if (hitpoint == 1) {
-              score_area.textContent = "❤";
+                score_area.textContent = "❤";
+                nextWord();
             } else if (hitpoint == 0) {
-              typeArea.textContent = "";
-              typeArea2.textContent = "";
-              wordArea_hiragana.textContent = "";
-              wordArea_jp.textContent = "タイムアップ";
-              setTimeout("stopTyping()",1000);
+              score_area.textContent = "";
+                typeArea.textContent = "";
+                typeArea2.textContent = "";
+                wordArea_hiragana.textContent = "";
+                wordArea_jp.textContent = "";
+                stopTyping();
             }
 
-            nextWord();
         }
 
         //変数ｘの値をCSSに適用
@@ -1135,15 +1137,16 @@ function moziHenkan(e) {
 function countDown() {
     if (timeLeft <= -1) {
         stopTyping();
-        //return;
+        return;
     } else if (timeLeft == 0) {
         typeArea.textContent = "";
         typeArea2.textContent = "";
         wordArea_hiragana.textContent = "";
         wordArea_jp.textContent = "タイムアップ";
     }
-    time_area.textContent = timeLeft + " sec.";
-    timeLeft--;
+        time_area.textContent = timeLeft + " sec.";
+        timeLeft--;
+
 }
 
 
@@ -1223,25 +1226,26 @@ function hantei() {
             score = score + (word.length * 7);
             bacteri_hp--;
             if (bacteri_hp == 0) {
-              typeArea.textContent = "";
-              typeArea2.textContent = "";
-              wordArea_hiragana.textContent = "";
-              wordArea_jp.textContent = "タイムアップ";
-              setTimeout("stopTyping()",1000);
+                typeArea.textContent = "";
+                typeArea2.textContent = "";
+                wordArea_hiragana.textContent = "";
+                wordArea_jp.textContent = "";
+                stopTyping();
+            } else {
+                downcount++;
+                //0.2秒間空白文字を表示してから次の文字を表示する。
+                textColor1 = "　";
+                textColor2 = "　";
+                wordArea_hiragana.textContent = "";
+                wordArea_jp.textContent = "　"
+                typeArea.textContent = textColor1;
+                typeArea2.textContent = textColor2;
+                if (right_img_lock == 0) {
+                    animation(animation_random_state(animation_random_state_number));
+                    setTimeout("animation(0)", 1000);
+                }
+                setTimeout("nextWord();", 200);
             }
-            downcount++;
-            //0.2秒間空白文字を表示してから次の文字を表示する。
-            textColor1 = "　";
-            textColor2 = "　";
-            wordArea_hiragana.textContent = "";
-            wordArea_jp.textContent = "　"
-            typeArea.textContent = textColor1;
-            typeArea2.textContent = textColor2;
-            if (right_img_lock == 0) {
-                animation(animation_random_state(animation_random_state_number));
-                setTimeout("animation(0)", 1000);
-            }
-            setTimeout("nextWord();", 200);
 
         }
     }
