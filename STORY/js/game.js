@@ -1132,6 +1132,15 @@ function moziHenkan(e) {
 
 // 残り時間を計測
 function countDown() {
+    if (timeLeft <= 0) {
+      typeArea.textContent = "";
+      typeArea2.textContent = "";
+      wordArea_hiragana.textContent = "";
+      wordArea_jp.textContent = "タイムアップ";
+    } else if (timeLeft <= -1) {
+      stopTyping();
+    }
+    /*
     if (timeLeft <= -1) {
         stopTyping();
         return;
@@ -1141,6 +1150,7 @@ function countDown() {
         wordArea_hiragana.textContent = "";
         wordArea_jp.textContent = "タイムアップ";
     }
+    */
     time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
