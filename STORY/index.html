@@ -12,6 +12,8 @@
         $(function() {
             var h = $(window).height();
 
+            var progress_area = document.getElementById( "progress_area" );
+
             $('#wrap').css('display', 'none');
             $('#loader-bg ,#loader').height(h).css('display', 'block');
         });
@@ -54,7 +56,8 @@
             '../images/typing/story/bg/kaede_4.jpg',
             '../images/typing/bg/win.jpg',
             '../images/typing/bg/lose.jpg',
-            '../images/typing/start_bg.jpg'
+            '../images/typing/start_bg.jpg',
+            '../images/typing/start_bg_typing.png'
         ];
 
         $preload.each(function() {
@@ -63,14 +66,15 @@
 
         var loader = new $.ImgLoader({
             srcs: imgSrcs, //画像などのパスを配列に格納
-            pipesize: 2, //同時にロードできる数の上限
-            delay: 500, //次のロードまでの遅延をミリ秒で指定
+            pipesize: 5, //同時にロードできる数の上限
+            delay: 10, //次のロードまでの遅延をミリ秒で指定
             timeout: 500, //タイムアウトまでの時間をミリ秒で指定
             useXHR2: false //XMLHttpRequestVersion2を利用するかどうか
         });
 
         loader.on('progress', function(progress) {
             var prog = progress.loadedRatio; //進捗率を取得
+            progress_area.textContent = prog + "%";
         });
 
         loader.on('itemload', function($img) {
@@ -80,8 +84,8 @@
         loader.on('allload', function($img) {
             console.log('complete');
             $(function() {
-                $('#loader-bg').delay(900).fadeOut(800);
-                $('#loader').delay(600).fadeOut(300);
+                $('#loader-bg').delay(90).fadeOut(80);
+                $('#loader').delay(60).fadeOut(30);
                 $('#wrap').css('display', 'block');
             });
         });
@@ -133,6 +137,7 @@
             <img src="../images/img-loading.gif" width="80" height="80" alt="Now Loading..." />
             <p>Now Loading...</p>
             <p>※初回時のみ時間がかかります。</p>
+            <p id="progress_area">0%</p>
         </div>
     </div>
 
