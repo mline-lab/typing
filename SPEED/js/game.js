@@ -638,37 +638,39 @@ function startTyping() {
 // 終了
 function stopTyping() {
     clearInterval(timer1);
-    gauge = 0;
-    deadly = 0;
-    game_flag = 0;
-    wordChars = [];
 
     audioBGM.pause();
     audioBGM.currentTime = 0;
-    player_img.className = "kaede_right_img";
-    teki_img.className = "left_img";
-    game_messsage.style.visibility = "visible";
-    startButton.style.visibility = "visible";
-    ranking_item.style.visibility = "visible";
-    messageArea.textContent = "Score: " + score + "■倒した数" + downcount + "■ミスタイプ数" + missCount;
-    condition.textContent = "";
-    typeArea.textContent = "";
-    typeArea2.textContent = "";
-    wordArea_hiragana.textContent = "";
-    wordArea_jp.textContent = "";
-    time_gaze_id.style.width = 0 + "px";
-    img1.style.visibility = "hidden";
-    img2.style.visibility = "hidden";
-    img3.style.visibility = "hidden";
-    img4.style.visibility = "hidden";
-    img5.style.visibility = "hidden";
 
-    input_item.style.visibility = "visible";
-    $('.game_div').css({
-        "border": "3px solid #ffcf00"
-    });
+    setInterval("stop_refresh()", 1010);
+
     clearInterval(time);
 
+}
+
+function stop_refresh() {
+  gauge = 0;
+  deadly = 0;
+  game_flag = 0;
+  wordChars = [];
+  timeLeft = 60;
+  time_area.textContent = timeLeft + " sec.";
+  player_img.className = "kaede_right_img";
+  teki_img.className = "left_img";
+  game_messsage.style.visibility = "visible";
+  startButton.style.visibility = "visible";
+  ranking_item.style.visibility = "visible";
+  messageArea.textContent = "Score: " + score + "■倒した数" + downcount + "■ミスタイプ数" + missCount;
+  condition.textContent = "";
+  typeArea.textContent = "";
+  typeArea2.textContent = "";
+  wordArea_hiragana.textContent = "";
+  wordArea_jp.textContent = "";
+  time_gaze_id.style.width = 0 + "px";
+  input_item.style.visibility = "visible";
+  $('.game_div').css({
+      "border": "3px solid #ffcf00"
+  });
 }
 
 function rank_push() {
