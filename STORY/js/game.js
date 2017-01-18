@@ -861,6 +861,8 @@ function game_stop_refresh() {
     deadly = 0;
     game_flag = 0;
     wordChars = [];
+    timeLeft = 60;
+    time_area.textContent = timeLeft + " sec.";
     wordArea_jp.style.fontSize = "0.9em";
     font_area.style.textAlign = "left";
     input_item.style.visibility = "visible";
@@ -1046,6 +1048,7 @@ function moveImg() {
             } else if (hitpoint == 1) {
               score_area.textContent = "❤";
             } else if (hitpoint == 0) {
+              score_area.textContent = "";
               typeArea.textContent = "";
               typeArea2.textContent = "";
               wordArea_hiragana.textContent = "";
