@@ -678,7 +678,7 @@ function set_move_speed() {
         move_speed = 0.5;
         bacteri_hp = 20;
     } else if (story_chapter == 4) {
-        move_speed = 3.0;
+        move_speed = 2.0;
         bacteri_hp = 100;
     } else if (story_chapter == 5) {
         move_speed = 0.7;
@@ -688,7 +688,7 @@ function set_move_speed() {
         move_speed = 0.9;
         bacteri_hp = 30;
       } else if (check_branch == "bad") {
-        move_speed = 3.0;
+        move_speed = 0.7;
         bacteri_hp = 100;
       }
 

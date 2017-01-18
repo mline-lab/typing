@@ -673,6 +673,32 @@ function stop_refresh() {
   });
 }
 
+function esc() {
+  clearInterval(timer1);
+  audioBGM.pause();
+  audioBGM.currentTime = 0;
+  gauge = 0;
+  deadly = 0;
+  game_flag = 0;
+  wordChars = [];
+  timeLeft = 60;
+  time_area.textContent = timeLeft + " sec.";
+  player_img.className = "kaede_right_img";
+  teki_img.className = "left_img";
+  game_messsage.style.visibility = "visible";
+  condition.textContent = "";
+  typeArea.textContent = "";
+  typeArea2.textContent = "";
+  wordArea_hiragana.textContent = "";
+  wordArea_jp.textContent = "";
+  time_gaze_id.style.width = 0 + "px";
+  $('.game_div').css({
+      "border": "3px solid #ffcf00"
+  });
+  clearInterval(time);
+  onStartButtonClick();
+}
+
 function rank_push() {
 
     username = document.ranking.username.value;
@@ -866,8 +892,7 @@ document.onkeydown = function(e) {
         }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
-            stopTyping();
-            onStartButtonClick();
+            setTimeout(esc(),500);
         }
     } else {
         if (game_flag == 1) {
