@@ -642,7 +642,7 @@ function stopTyping() {
     audioBGM.pause();
     audioBGM.currentTime = 0;
 
-    setInterval("stop_refresh()", 1010);
+    setTimeout("stop_refresh()", 1010);
 
     clearInterval(time);
 
