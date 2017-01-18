@@ -944,7 +944,9 @@ function startTyping() {
 function stopTyping() {
     clearInterval(timer1);
 
-    setTimeout("game_stop_refresh()", 2000);
+    game_stop_refresh();
+
+    clearInterval(time);
 
     if (bacteri_hp == 0) {
         audioWin.play();
@@ -974,7 +976,7 @@ function stopTyping() {
         startButton.value = "Retry";
 
     }
-    clearInterval(time);
+
 
 }
 
@@ -1048,12 +1050,11 @@ function moveImg() {
             } else if (hitpoint == 1) {
               score_area.textContent = "❤";
             } else if (hitpoint == 0) {
-              score_area.textContent = "";
               typeArea.textContent = "";
               typeArea2.textContent = "";
               wordArea_hiragana.textContent = "";
-              wordArea_jp.textContent = "";
-              stopTyping();
+              wordArea_jp.textContent = "タイムアップ";
+              setTimeout("stopTyping()",1000);
             }
 
             nextWord();
@@ -1132,25 +1133,15 @@ function moziHenkan(e) {
 
 // 残り時間を計測
 function countDown() {
-    if (timeLeft <= 0) {
-      typeArea.textContent = "";
-      typeArea2.textContent = "";
-      wordArea_hiragana.textContent = "";
-      wordArea_jp.textContent = "タイムアップ";
-    } else if (timeLeft <= -1) {
-      stopTyping();
-    }
-    /*
     if (timeLeft <= -1) {
         stopTyping();
-        return;
+        //return;
     } else if (timeLeft == 0) {
         typeArea.textContent = "";
         typeArea2.textContent = "";
         wordArea_hiragana.textContent = "";
         wordArea_jp.textContent = "タイムアップ";
     }
-    */
     time_area.textContent = timeLeft + " sec.";
     timeLeft--;
 }
@@ -1235,8 +1226,8 @@ function hantei() {
               typeArea.textContent = "";
               typeArea2.textContent = "";
               wordArea_hiragana.textContent = "";
-              wordArea_jp.textContent = "";
-              stopTyping();
+              wordArea_jp.textContent = "タイムアップ";
+              setTimeout("stopTyping()",1000);
             }
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
