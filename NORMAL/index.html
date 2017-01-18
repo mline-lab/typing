@@ -44,7 +44,7 @@
 
         loader.on('progress', function(progress) {
             var prog = progress.loadedRatio; //進捗率を取得
-            progress_area.textContent = prog + "%";
+            progress_area.textContent = (prog * 100) + "%";
         });
 
         loader.on('itemload', function($img) {
