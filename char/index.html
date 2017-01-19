@@ -47,6 +47,30 @@
         ga('create', 'UA-90338280-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script>
+      function GetCookie() {
+          var result = null;
+
+          var cookieName = "chiharu_cv" + '=';
+          var allcookies = document.cookie;
+
+          var position = allcookies.indexOf(cookieName);
+          if (position != -1) {
+              var startIndex = position + cookieName.length;
+
+              var endIndex = allcookies.indexOf(';', startIndex);
+              if (endIndex == -1) {
+                  endIndex = allcookies.length;
+              }
+              result = decodeURIComponent(allcookies.substring(startIndex, endIndex));
+          }
+
+          document.getElementById("cv").value = result;
+
+      }
+
+    </script>
+    <script src="../js/bcv.js"></script>
     <link rel="stylesheet" href="css/char.css">
     <link rel="stylesheet" href="../css/common.css">
 </head>
@@ -97,6 +121,10 @@
                 <div class="name">
                     <h2>Chiharu Kusunoki</h2>
                     <h1>楠城　千遥</h1>
+                    <div class="BCV">
+                      <h3>CV:</h3>
+                      <input type="text" id="cv" class="cv_str" name="chiharu_CV"><input type="submit" class="submit" value="設定" onclick="bcv_set();">
+                    </div>
                 </div>
                 <div class="detailed">
                     <p>誕生日:5月11日</p>
