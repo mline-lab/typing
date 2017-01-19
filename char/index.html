@@ -47,29 +47,6 @@
         ga('create', 'UA-90338280-1', 'auto');
         ga('send', 'pageview');
     </script>
-    <script>
-      function GetCookie() {
-          var result = null;
-
-          var cookieName = "chiharu_cv" + '=';
-          var allcookies = document.cookie;
-
-          var position = allcookies.indexOf(cookieName);
-          if (position != -1) {
-              var startIndex = position + cookieName.length;
-
-              var endIndex = allcookies.indexOf(';', startIndex);
-              if (endIndex == -1) {
-                  endIndex = allcookies.length;
-              }
-              result = decodeURIComponent(allcookies.substring(startIndex, endIndex));
-          }
-
-          document.getElementById("cv").value = result;
-
-      }
-
-    </script>
     <script src="../js/bcv.js"></script>
     <link rel="stylesheet" href="css/char.css">
     <link rel="stylesheet" href="../css/common.css">
