@@ -173,6 +173,8 @@ a:hover {
 .cv_str{
   width: 150px;
   height: 29px;
+  text-align: center;
+  font-size: 1.3em;
 }
 
 .submit {

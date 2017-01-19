@@ -857,7 +857,6 @@ function setvar() {
 function game_stop_refresh() {
     gauge = 0;
     deadly = 0;
-    game_flag = 0;
     wordChars = [];
     timeLeft = 60;
     time_area.textContent = timeLeft + " sec.";
@@ -941,7 +940,7 @@ function startTyping() {
 // 終了
 function stopTyping() {
     clearInterval(timer1);
-
+    game_flag = 0;
     game_stop_refresh();
 
     clearInterval(time);

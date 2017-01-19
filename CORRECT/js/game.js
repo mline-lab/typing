@@ -638,7 +638,7 @@ function startTyping() {
 // 終了
 function stopTyping() {
     clearInterval(timer1);
-
+    game_flag = 0;
     audioBGM.pause();
     audioBGM.currentTime = 0;
 
@@ -651,7 +651,6 @@ function stopTyping() {
 function stop_refresh() {
   gauge = 0;
   deadly = 0;
-  game_flag = 0;
   wordChars = [];
   timeLeft = 60;
   time_area.textContent = timeLeft + " sec.";
@@ -846,6 +845,7 @@ function moziHenkan(e) {
             audioBad.play();
             missCount++;
             score = score - 10;
+            score_area.textContent = ('000' + score).slice(-4);
             animation_random_state_number = 0;
             if (right_img_lock == 0) {
                 animation(5);
