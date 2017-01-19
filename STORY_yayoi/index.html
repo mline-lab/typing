@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ストーリー|LostColor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="description" content="LostColor-細菌タイピイングADV-">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.imgloader.js"></script>
+    <script type="text/javascript" src="../js/TweenMax.min.js"></script>
+    <script>
+        $(function() {
+            var h = $(window).height();
+
+            var progress_area = document.getElementById( "progress_area" );
+
+            $('#wrap').css('display', 'none');
+            $('#loader-bg ,#loader').height(h).css('display', 'block');
+        });
+
+        var $preload = $('.preload');
+        var imgSrcs = [
+            '../images/typing/bacteria/budou_default.png',
+            '../images/typing/bacteria/budou_default_dmg.png',
+            '../images/typing/kaede/kaede_atk.png',
+            '../images/typing/kaede/kaede_default.png',
+            '../images/typing/kaede/kaede_miss.png',
+            '../images/typing/kaede/kaede-atk2-animation.png',
+            '../images/typing/kaede/kaede-atk3-animation.png',
+            '../images/typing/kaede/kaede-atk4-animation.png',
+            '../images/typing/story/kaede.png',
+            '../images/typing/story/kaede_off.png',
+            '../images/typing/story/kaede2.png',
+            '../images/typing/story/kaede2_off.png',
+            '../images/typing/story/nasi.png',
+            '../images/typing/story/sipses.png',
+            '../images/typing/story/sipses_off.png',
+            '../images/typing/story/tiharu.png',
+            '../images/typing/story/tiharu_off.png',
+            '../images/typing/story/yayoi.png',
+            '../images/typing/story/yayoi_off.png',
+            '../images/typing/story/yukino.png',
+            '../images/typing/story/yukino_off.png',
+            '../images/typing/story/yukino2.png',
+            '../images/typing/story/yukino2_off.png',
+            '../images/typing/story/bg/kouen_1.jpg',
+            '../images/typing/story/bg/sai_1.jpg',
+            '../images/typing/story/bg/sipses_cg_1.jpg',
+            '../images/typing/story/bg/siro_1.jpg',
+            '../images/typing/story/bg/siro_2.jpg',
+            '../images/typing/story/bg/story01_01.jpg',
+            '../images/typing/story/bg/story01_02.jpg',
+            '../images/typing/story/bg/story01_03.jpg',
+            '../images/typing/story/bg/story01_04.jpg',
+            '../images/typing/story/bg/story01_05.jpg',
+            '../images/typing/story/bg/kaede_4.jpg',
+            '../images/typing/story/bg/cg1.jpg',
+            '../images/typing/story/bg/yayoi_cg1.jpg',
+            '../images/typing/bg/win.jpg',
+            '../images/typing/bg/lose.jpg',
+            '../images/typing/start_bg.jpg',
+            '../images/typing/start_bg_typing.png'
+        ];
+
+        $preload.each(function() {
+            imgSrcs.push($(this).attr('src'));
+        });
+
+        var loader = new $.ImgLoader({
+            srcs: imgSrcs, //画像などのパスを配列に格納
+            pipesize: 5, //同時にロードできる数の上限
+            delay: 10, //次のロードまでの遅延をミリ秒で指定
+            timeout: 500, //タイムアウトまでの時間をミリ秒で指定
+            useXHR2: false //XMLHttpRequestVersion2を利用するかどうか
+        });
+
+        loader.on('progress', function(progress) {
+            var prog = progress.loadedRatio; //進捗率を取得
+            progress_area.textContent = (prog * 100) + "%";
+        });
+
+        loader.on('itemload', function($img) {
+            console.log($img);
+        });
+
+        loader.on('allload', function($img) {
+            console.log('complete');
+            $(function() {
+                $('#loader-bg').delay(90).fadeOut(80);
+                $('#loader').delay(60).fadeOut(30);
+                $('#wrap').css('display', 'block');
+            });
+        });
+
+        loader.load(); //ローディングを実行
+    </script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/towntypelib.js"></script>
+    <script type="text/javascript" src="../js/checkbrowser.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90338280-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <link rel="stylesheet" href="css/main.css" media="all">
+    <link rel="stylesheet" href="css/mrp.css" media="all">
+
+</head>
+
+<body>
+    <div class="head_menu">
+
+        <ul id="menu">
+            <div class="head_img">
+
+            </div>
+            <a href="../">
+                <li><img src="../images/top-hed-top.png" /></li>
+            </a>
+            <a href="../char/">
+                <li><img src="../images/top-hed-char.png" /></li>
+            </a>
+            <a href="../howto.html">
+                <li><img src="../images/top-hed-howto.png" /></li>
+            </a>
+            <a href="../product.html">
+                <li><img src="../images/top-hed-product.png" /></li>
+            </a>
+            <a href="../special.html">
+                <li><img src="../images/top-hed-sp.png" /></li>
+            </a>
+        </ul>
+    </div>
+    <div id="loader-bg">
+        <div id="loader">
+            <img src="../images/img-loading.gif" width="80" height="80" alt="Now Loading..." />
+            <p>Now Loading...</p>
+            <p id="progress_area">0%</p>
+            <p>※途中で止まった場合、一度更新をお願いします。</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="wrapper">
+            <div class="main">
+                <div class="game_div" id="gamebody" onClick="nextMessage()">
+                    <div class="data_var">
+                        <div class="box">
+                            <span id="score_area">❤❤❤❤❤</span>
+                        </div>
+                        <div class="box">
+                            <span id="time_area">Sec.</span>
+                        </div>
+                        <div class="box">
+                            <div class="skil_gaze_bord">
+                                <div class="skil_gaze" id="skil_gaze_id">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game_main" id="bgimg">
+                        <!-- ゲーム中で使用するbutton -->
+                        <form id="input_item">
+                            <p>
+                                <input type="button" class="button" id="start_button" value="Start" onClick="onStartButtonClick()">
+                            </p>
+                        </form>
+                        <div id="game_messsage">
+                            <span id="message">スタート</span>
+                            <div style="font-weight: bold;" id="condition">&nbsp;</div>
+                        </div>
+                        <div id="ranking_item">
+                            <form name="ranking" id="form_ranking">
+                                <input type="text" id="name-text" name="username" class="rank_item">
+                                <br />
+                                <input type="submit" class="button" id="rank_button" value="ランキング登録" onClick="rank_push()">
+                            </form>
+                        </div>
+                        <!-- -->
+                        <div class="left_img" id="teki_img">
+                            <img id="img1" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img2" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                        </div>
+                        <div class="right_img" id="player_img">
+                            <img id="img3" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img4" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                            <img id="img5" src="" ondragstart="return false;" oncontextmenu="return false;" />
+                        </div>
+                    </div>
+                    <div class="font_area" id="font_area">
+                        <div style="font-weight: bold;" id="word_hiragana">&nbsp;</div>
+                        <div style="font-weight: bold;" id="word_jp">&nbsp;</div>
+                        <div id="type">
+                            <span id="type_Before">&nbsp;</span>
+                            <span id="type_After">&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="time_fake">
+                        <div class="time_gaze" id="time_gaze_id">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="side01">
+                <p>マスターボリューム</p>
+                <div class="mas_volume" onclick="on_mute()"><img src="../images/typing/volume/volume_on.png" id="mute_button" /></div>
+                <p>ＢＧＭボリューム</p>
+                <div class="bgm_volume">
+                    <div class="right_volume" onclick="bgm_volume_down()">DOWN</div>
+                    <img src="../images/typing/volume/v5.png" id="bgm_volume_button" />
+                    <div class="left_volume" onclick="bgm_volume_up()">UP</div>
+                </div>
+            </div>
+        </div>
+        <div class="side02">
+            <div class="back_button" onclick="BackMessage()">戻る</div>
+            <div class="next_button" onclick="nextMessage()">進む</div>
+            <div class="chapter_menu">
+                <div class="chapter_item" id="chapter_1" onclick="butonn_chapter(1)">第１話 「ハジライ大地に立つ」</div>
+                <div class="chapter_item" id="chapter_2" onclick="butonn_chapter(2)">第２話 「ハジライ破壊命令」</div>
+                <div class="chapter_item" id="chapter_3" onclick="butonn_chapter(3)">第３話 「ハジライの補給艦を叩け！」</div>
+                <div class="chapter_item" id="chapter_4" onclick="butonn_chapter(4)">第４話 「ハジライ脱出作戦」</div>
+                <div class="chapter_item" id="chapter_5" onclick="butonn_chapter(5)">第５話 「ハジライ突入」</div>
+            </div>
+        </div>
+
+        <footer>
+            <small>Copyright&copy; <a href="https://mline.tell.jp/">mline</a> All Rights Reserved.</small></br>
+            <a href="https://mline.tell.jp/"><img src="../images/mline.png" width="100" onMouseDown="return false;" onSelectStart="return false" oncontextmenu="return false;" /></a>
+        </footer>
+    </div>
+    <div id="preloadedImages"></div>
+</body>
+
+</html>

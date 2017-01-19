@@ -18,14 +18,14 @@ function on_story() {
   if (check == 0) {
     check = 1;
     li_1.textContent = "BACK";
-    li_2.textContent = "千遥";
+    li_2.textContent = "Coming Soon";
     li_3.textContent = "楓";
     li_4.textContent = "弥生";
-    li_5.textContent = "雪乃";
-    a_2.href = "STORY/";
+    li_5.textContent = "Coming Soon";
+    a_2.href = "#";
     a_3.href = "STORY/";
-    a_4.href = "STORY/";
-    a_5.href = "STORY/";
+    a_4.href = "STORY_yayoi/";
+    a_5.href = "#";
   } else {
     check = 0;
     li_1.textContent = "ストーリー";
