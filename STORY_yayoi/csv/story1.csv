@@ -23,7 +23,7 @@
 楓;奇跡...起きるといいねっ;yayoi_off;kaede;nasi;yukino_off;tiharu_off;zinzya;;;
 弥生;神頼みで治るとか甘い考えだ;yayoi;kaede_off;nasi;yukino_off;tiharu_off;zinzya;;;
 千遥;そんなことないよっ<br>信じることが大事なのっ;yayoi_off;kaede_off;nasi;yukino_off;tiharu;zinzya;;;
-弥生;彩も言ってたでしょ？<br>発見が遅れると...死亡率が高いんだよ!<br>簡単に言わないで！;yayoi;kaede_off;nasi;yukino_off;tiharu_off;zinzya;;;
+弥生;彩も言ってたでしょ？<br>発見が遅れると...死亡率が高いんだよ<br>簡単に言わないで！;yayoi;kaede_off;nasi;yukino_off;tiharu_off;zinzya;;;
 ;なんで怒ってるんだ私、バカだな...<br>辛いのは彩なのに...<br>私だって助けたいよ...;nasi;nasi;nasi;nasi;nasi;zinzya;;;
 ;もっとたくさん話したかった...一緒にいたかった...;nasi;nasi;nasi;nasi;nasi;zinzya;;;
 ;どうしたらいいの...助からないの？...;nasi;nasi;nasi;nasi;nasi;zinzya;;;
@@ -79,9 +79,8 @@
 シプセス;そしてもう長くはないということを...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 楓;彩くん...;yukino_off;kaede;yayoi_off;tiharu_off;sipses_off;siro_2;;;
 シプセス;その結果、彼は諦めてしまいます...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
-シプセス;生きることを...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
+シプセス;生きることを;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 千遥;生きることを...;yukino_off;kaede_off;yayoi_off;tiharu;sipses_off;siro_2;;;
-雪乃;諦めた？;yukino;kaede_off;yayoi_off;tiharu_off;sipses_off;siro_2;;;
 弥生;諦めた...;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
 シプセス;しかし、先ほども言いました。;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 シプセス;あなたたち次第でそれは変わる...と...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
@@ -92,7 +91,7 @@
 シプセス;心のどこかで...生きたいと思っている;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 シプセス;それは、あなたたちという存在があるから...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 弥生;どうしたらいいの！？;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
-;いつもなら落ち着いている弥生が声を上げた;nasi;nasi;nasi;nasi;nasi;siro_2;;;
+;いつもは冷静な弥生が一番に声を上げた;nasi;nasi;nasi;nasi;nasi;siro_2;;;
 シプセス;この世界のどこかに彩さんはいる...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 シプセス;今も彩さんは多数の病原菌...細菌に蝕まれています...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 シプセス;その細菌を倒すことができれば、彩さんは一命をとりとめる...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
@@ -101,11 +100,10 @@
 弥生;私は一人でもやるよ;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
 楓;弥生ちゃん...;yukino_off;kaede;yayoi_off;tiharu_off;sipses_off;siro_2;;;
 雪乃;私も行くよ！;yukino;kaede_off;yayoi_off;tiharu_off;sipses_off;siro_2;;;
-弥生;やれるだけやってみよう;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
 千遥;一人でもだなんて言わないで<br>みんなで行こ？;yukino_off;kaede_off;yayoi_off;tiharu;sipses_off;siro_2;;;
 シプセス;決まったようですね..<br>細菌の増殖速度は侮れないから...;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
 シプセス;急ぎましょう..<br>....??;yukino_off;kaede_off;yayoi_off;tiharu_off;sipses;siro_2;;;
-弥生;シプセス...私は橘　弥生<br>彩を助けたいのよろしくね;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
+弥生;シプセス...<br>私は橘　弥生(たちばな　やよい)<br>彩を助けたいのよろしくね;yukino_off;kaede_off;yayoi;tiharu_off;sipses_off;siro_2;;;
 千遥;楠城　千遥(くすのき　ちはる)です;yukino_off;kaede_off;yayoi_off;tiharu;sipses_off;siro_2;;;
 雪乃;七海　雪乃(ななみ　ゆきの);yukino;kaede_off;yayoi_off;tiharu_off;sipses_off;siro_2;;;
 楓;綾瀬　楓(あやせ　かえで)や、よろしくね;yukino_off;kaede;yayoi_off;tiharu_off;sipses_off;siro_2;;;
