@@ -558,12 +558,6 @@ function getCSV_Story_bad() {
     };
 }
 
-function load_Story() {
-    //anten();
-    messageArea.textContent = "";
-    space_flag = 0;
-}
-
 function nextMessage() {
     if (message_end_flg == 0) {
 
@@ -641,10 +635,11 @@ function story_Message() {
         audioFunction.src = "../audio/function/" + story[story_line][9] + ".mp3";
         audioFunction.play();
     }
+
 }
 
 function nextChapter() {
-    story_line = 0;
+    story_line = -1;
     story_flg = 1;
     story = [];
     story_chapter++;
@@ -890,7 +885,6 @@ function onStartButtonClick() {
     bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
     messageArea.textContent = "";
     if (story_flg == 1) {
-        load_Story();
         bgimg.style.backgroundImage = "";
         story_flg = 0;
         message_end_flg = 0;

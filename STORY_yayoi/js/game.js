@@ -644,7 +644,7 @@ function story_Message() {
 }
 
 function nextChapter() {
-    story_line = 0;
+    story_line = -1;
     story_flg = 1;
     story = [];
     story_chapter++;
