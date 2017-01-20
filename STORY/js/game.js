@@ -662,7 +662,7 @@ function nextChapter() {
         SetCookie();
         getCSV_Story();
     }
-    startButton.value = "第「" + story_chapter　 + "」話"
+    startButton.value = "第「" + story_chapter　 + "」話";
 }
 
 function set_move_speed() {
@@ -941,7 +941,7 @@ function startTyping() {
 function stopTyping() {
     clearInterval(timer1);
     game_flag = 0;
-    game_stop_refresh();
+    setTimeout("game_stop_refresh()", 1010);
 
     clearInterval(time);
 

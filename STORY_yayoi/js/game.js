@@ -662,7 +662,7 @@ function nextChapter() {
         SetCookie();
         getCSV_Story();
     }
-    startButton.value = "第「" + story_chapter　 + "」話"
+    startButton.value = "第「" + story_chapter　 + "」話";
 }
 
 function set_move_speed() {
