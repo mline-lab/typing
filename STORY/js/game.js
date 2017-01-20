@@ -954,17 +954,22 @@ function stopTyping() {
             nextChapter();
         }
     } else if (bacteri_hp >= 1) {
+        bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
+        audioLose.play();
         if (story_chapter == 4 || story_chapter == 6) {
+            story_flg = 0;
+            story_line = 0
             nextChapter();
         }
         if (story_chapter == 5) {
+            story_flg = 0;
+            story_line = 0
             check_branch = "bad";
             nextChapter();
+        } else {
+            //もう一度
+            startButton.value = "Retry";
         }
-        //スコア低過ぎ
-        bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
-        audioLose.play();
-        startButton.value = "Retry";
 
     }
 
@@ -1045,7 +1050,7 @@ function moveImg() {
                 score_area.textContent = "❤";
                 nextWord();
             } else if (hitpoint == 0) {
-              score_area.textContent = "";
+                score_area.textContent = "";
                 typeArea.textContent = "";
                 typeArea2.textContent = "";
                 wordArea_hiragana.textContent = "";
@@ -1137,8 +1142,8 @@ function countDown() {
         wordArea_hiragana.textContent = "";
         wordArea_jp.textContent = "タイムアップ";
     }
-        time_area.textContent = timeLeft + " sec.";
-        timeLeft--;
+    time_area.textContent = timeLeft + " sec.";
+    timeLeft--;
 
 }
 
