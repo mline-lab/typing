@@ -957,13 +957,9 @@ function stopTyping() {
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
         if (story_chapter == 4 || story_chapter == 6) {
-            story_flg = 0;
-            story_line = 0
             nextChapter();
         }
         if (story_chapter == 5) {
-            story_flg = 0;
-            story_line = 0
             check_branch = "bad";
             nextChapter();
         } else {
