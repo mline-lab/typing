@@ -644,6 +644,7 @@ function story_Message() {
 }
 
 function nextChapter() {
+    console.log('キャプチャー、インクリ前' + story_chapter);
     story_line = -1;
     story_flg = 1;
     story = [];
@@ -662,6 +663,7 @@ function nextChapter() {
         SetCookie();
         getCSV_Story();
     }
+    console.log('キャプチャー、読み込み後' + story_chapter);
     startButton.value = "第「" + story_chapter　 + "」話";
 }
 
