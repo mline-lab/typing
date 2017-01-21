@@ -12,6 +12,8 @@ window.onload = function() {
   li_3 = document.getElementById("li_3");
   li_4 = document.getElementById("li_4");
   li_5 = document.getElementById("li_5");
+
+  select_bg = document.getElementById("select_bg_img");
 }
 
 function on_story() {
@@ -26,10 +28,6 @@ function on_story() {
     a_3.href = "STORY/";
     a_4.href = "#";
     a_5.href = "STORY_yayoi/";
-    li_2.className="chiharu_story";
-    li_3.className="kaede_story";
-    li_4.className="yukino_story";
-    li_5.className="yayoi_story";
   } else {
     check = 0;
     li_1.textContent = "ストーリー";
@@ -41,10 +39,44 @@ function on_story() {
     a_3.href = "CORRECT/";
     a_4.href = "SPEED/";
     a_5.href = "NOMISS/";
-    li_2.className="normal_typing";
-    li_3.className="correct_typing";
-    li_4.className="speed_typing";
-    li_5.className="nomiss_typing";
   }
 
+}
+
+function on_img2() {
+  if (check == 1) {
+    select_bg.style.backgroundImage = "url(images/select/chiharu_coming.jpg)";
+  } else {
+    select_bg.style.backgroundImage = "url(images/select/normal.jpg)";
+  }
+}
+
+function on_img3() {
+  if (check == 1) {
+    select_bg.style.backgroundImage = "url(images/select/kaede.jpg)";
+  } else {
+    select_bg.style.backgroundImage = "url(images/select/correct.jpg)";
+  }
+}
+
+
+function on_img4() {
+  if (check == 1) {
+    select_bg.style.backgroundImage = "url(images/select/yukino_coming.jpg)";
+  } else {
+    select_bg.style.backgroundImage = "url(images/select/speed.jpg)";
+  }
+}
+
+
+function on_img5() {
+  if (check == 1) {
+    select_bg.style.backgroundImage = "url(images/select/yayoi.jpg)";
+  } else {
+    select_bg.style.backgroundImage = "url(images/select/nomiss.jpg)";
+  }
+}
+
+function out_img() {
+  select_bg.style.backgroundImage = "url(images/title_img.png)";
 }

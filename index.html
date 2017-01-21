@@ -33,15 +33,7 @@
       ga('create', 'UA-90338280-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script type="text/javascript">
-      $("#li_2").mouseover(function(){
-        //マウスオーバー処理
-                $(".game_content").css('background-image', 'url(../images/select/chiharu.jpg)');
-        }).mouseout(function(){
-          //マウスアウト処理
-                  $(".game_content").css('background-image', 'url(../images/title_img.png)');
-      });
-    </script>
+
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-114x114.png">
     <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
@@ -79,23 +71,23 @@
         </div>
     </div>
     <div class="container">
-        <div class="game_content">
+        <div id="select_bg_img" class="game_content">
             <div class="game_select">
                 <ul class="list_select list1">
                     <a id="a_1" onclick="on_story()">
                         <li id="li_1">ストーリー</li>
                     </a>
                     <a href="NORMAL/" id="a_2">
-                        <li id="li_2" class="normal_typing">ノーマル</li>
+                        <li id="li_2" onmouseover="on_img2()" onmouseout="out_img()">ノーマル</li>
                     </a>
                     <a href="CORRECT/" id="a_3">
-                        <li id="li_3" class="correct_typing">コレクト</li>
+                        <li id="li_3" onmouseover="on_img3()" onmouseout="out_img()">コレクト</li>
                     </a>
                     <a href="SPEED" id="a_4">
-                        <li id="li_4" class="speed_typing">スピード</li>
+                        <li id="li_4" onmouseover="on_img4()" onmouseout="out_img()">スピード</li>
                     </a>
                     <a href="NOMISS" id="a_5">
-                        <li id="li_5" class="nomiss_typing">ノーミス</li>
+                        <li id="li_5" onmouseover="on_img5()" onmouseout="out_img()">ノーミス</li>
                     </a>
                 </ul>
             </div>
