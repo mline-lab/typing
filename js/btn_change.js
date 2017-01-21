@@ -26,10 +26,10 @@ function on_story() {
     a_3.href = "STORY/";
     a_4.href = "#";
     a_5.href = "STORY_yayoi/";
-    a_2.className="chiharu_story";
-    a_3.className="kaede_story";
-    a_4.className="yukino_story";
-    a_5.className="yayoi_story";
+    li_2.className="chiharu_story";
+    li_3.className="kaede_story";
+    li_4.className="yukino_story";
+    li_5.className="yayoi_story";
   } else {
     check = 0;
     li_1.textContent = "ストーリー";
@@ -41,10 +41,10 @@ function on_story() {
     a_3.href = "CORRECT/";
     a_4.href = "SPEED/";
     a_5.href = "NOMISS/";
-    a_2.className="normal_typing";
-    a_3.className="correct_typing";
-    a_4.className="speed_typing";
-    a_5.className="nomiss_typing";
+    li_2.className="normal_typing";
+    li_3.className="correct_typing";
+    li_4.className="speed_typing";
+    li_5.className="nomiss_typing";
   }
 
 }

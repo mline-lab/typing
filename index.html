@@ -34,12 +34,12 @@
       ga('send', 'pageview');
     </script>
     <script type="text/javascript">
-      $(function() {
-        $(".chiharu_story").mouseover(function(){
-          $(".game_content").css('background-image', 'url(images/select/chiharu.jpg)');
+      $("#li_2").mouseover(function(){
+        //マウスオーバー処理
+                $(".game_content").css('background-image', 'url(../images/select/chiharu.jpg)');
         }).mouseout(function(){
-          $(".game_content").css('background-image', 'url(images/title_img.png)');
-        });
+          //マウスアウト処理
+                  $(".game_content").css('background-image', 'url(../images/title_img.png)');
       });
     </script>
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-114x114.png">
@@ -85,17 +85,17 @@
                     <a id="a_1" onclick="on_story()">
                         <li id="li_1">ストーリー</li>
                     </a>
-                    <a href="NORMAL/" id="a_2" class="normal_typing">
-                        <li id="li_2">ノーマル</li>
+                    <a href="NORMAL/" id="a_2">
+                        <li id="li_2" class="normal_typing">ノーマル</li>
                     </a>
-                    <a href="CORRECT/" id="a_3" class="correct_typing">
-                        <li id="li_3">コレクト</li>
+                    <a href="CORRECT/" id="a_3">
+                        <li id="li_3" class="correct_typing">コレクト</li>
                     </a>
-                    <a href="SPEED" id="a_4" class="speed_typing">
-                        <li id="li_4">スピード</li>
+                    <a href="SPEED" id="a_4">
+                        <li id="li_4" class="speed_typing">スピード</li>
                     </a>
-                    <a href="NOMISS" id="a_5" class="nomiss_typing">
-                        <li id="li_5">ノーミス</li>
+                    <a href="NOMISS" id="a_5">
+                        <li id="li_5" class="nomiss_typing">ノーミス</li>
                     </a>
                 </ul>
             </div>
