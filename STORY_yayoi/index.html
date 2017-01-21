@@ -78,7 +78,7 @@
         var loader = new $.ImgLoader({
             srcs: imgSrcs, //画像などのパスを配列に格納
             pipesize: 5, //同時にロードできる数の上限
-            delay: 10, //次のロードまでの遅延をミリ秒で指定
+            delay: 100, //次のロードまでの遅延をミリ秒で指定
             timeout: 500, //タイムアウトまでの時間をミリ秒で指定
             useXHR2: false //XMLHttpRequestVersion2を利用するかどうか
         });

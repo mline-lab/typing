@@ -965,8 +965,7 @@ function stopTyping() {
         audioLose.play();
         if (story_chapter == 4 || story_chapter == 6) {
             nextChapter();
-        }
-        if (story_chapter == 5) {
+        } else if (story_chapter == 5) {
             check_branch = "bad";
             nextChapter();
         } else {
