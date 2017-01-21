@@ -34,11 +34,13 @@
       ga('send', 'pageview');
     </script>
     <script type="text/javascript">
-  　　$("chiharu_story.class").hover(
-  　　　　function() {　　　　　　// マウスが乗ったとき
-  　　　　　　document.getElementById("title_img_bg").style.backgroundImage = "url(images/select/chiharu.jpg)";
-  　　　　}
-      　　);
+      $(function() {
+        $(".chiharu_story").mouseover(function(){
+          $(".game_content").css('background-image', 'url(images/select/chiharu.jpg)');
+        }).mouseout(function(){
+          $(".game_content").css('background-image', 'url(images/title_img.png)');
+        });
+      });
     </script>
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-114x114.png">
     <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
@@ -77,7 +79,7 @@
         </div>
     </div>
     <div class="container">
-        <div id="title_img_bg" class="game_content">
+        <div class="game_content">
             <div class="game_select">
                 <ul class="list_select list1">
                     <a id="a_1" onclick="on_story()">
