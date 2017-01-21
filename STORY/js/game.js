@@ -935,7 +935,7 @@ function startTyping() {
 function stopTyping() {
     clearInterval(timer1);
     game_flag = 0;
-    setTimeout("game_stop_refresh()", 1010);
+    setTimeout("game_stop_refresh()", 500);
 
     clearInterval(time);
 
