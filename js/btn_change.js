@@ -20,12 +20,16 @@ function on_story() {
     li_1.textContent = "BACK";
     li_2.textContent = "Coming Soon";
     li_3.textContent = "楓";
-    li_4.textContent = "弥生";
-    li_5.textContent = "Coming Soon";
+    li_4.textContent = "Coming Soon";
+    li_5.textContent = "弥生";
     a_2.href = "#";
     a_3.href = "STORY/";
-    a_4.href = "STORY_yayoi/";
-    a_5.href = "#";
+    a_4.href = "#";
+    a_5.href = "STORY_yayoi/";
+    a_2.className="chiharu_story";
+    a_3.className="kaede_story";
+    a_4.className="yukino_story";
+    a_5.className="yayoi_story";
   } else {
     check = 0;
     li_1.textContent = "ストーリー";
@@ -37,6 +41,10 @@ function on_story() {
     a_3.href = "CORRECT/";
     a_4.href = "SPEED/";
     a_5.href = "NOMISS/";
+    a_2.className="normal_typing";
+    a_3.className="correct_typing";
+    a_4.className="speed_typing";
+    a_5.className="nomiss_typing";
   }
 
 }

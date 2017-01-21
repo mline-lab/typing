@@ -33,6 +33,13 @@
       ga('create', 'UA-90338280-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script type="text/javascript">
+  　　$("chiharu_story.class").hover(
+  　　　　function() {　　　　　　// マウスが乗ったとき
+  　　　　　　document.getElementById("title_img_bg").style.backgroundImage = "url(images/select/chiharu.jpg)";
+  　　　　}
+      　　);
+    </script>
     <link rel="apple-touch-icon" href="images/favicons/apple-touch-icon-114x114.png">
     <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
     <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
@@ -70,22 +77,22 @@
         </div>
     </div>
     <div class="container">
-        <div class="game_content">
+        <div id="title_img_bg" class="game_content">
             <div class="game_select">
                 <ul class="list_select list1">
                     <a id="a_1" onclick="on_story()">
                         <li id="li_1">ストーリー</li>
                     </a>
-                    <a href="NORMAL/" id="a_2">
+                    <a href="NORMAL/" id="a_2" class="normal_typing">
                         <li id="li_2">ノーマル</li>
                     </a>
-                    <a href="CORRECT/" id="a_3">
+                    <a href="CORRECT/" id="a_3" class="correct_typing">
                         <li id="li_3">コレクト</li>
                     </a>
-                    <a href="SPEED" id="a_4">
+                    <a href="SPEED" id="a_4" class="speed_typing">
                         <li id="li_4">スピード</li>
                     </a>
-                    <a href="NOMISS" id="a_5">
+                    <a href="NOMISS" id="a_5" class="nomiss_typing">
                         <li id="li_5">ノーミス</li>
                     </a>
                 </ul>
