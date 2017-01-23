@@ -462,7 +462,7 @@ function getCSV_hira_File() {
 
 function set_move_speed() {
     if (difficulty_check == 1) {
-        move_speed = 0.3;
+        move_speed = 0.5;
     } else {
         move_speed = 1.3;
     }
@@ -718,7 +718,6 @@ function rank_push() {
                 'difficulty' : difficulty_check
             },
             success: function(data) {
-                document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
                 alert("ランキング登録しました。");
             }
         });
@@ -906,7 +905,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        score = score + 5;
+        score = score + 2;
         score_area.textContent = ('000' + score).slice(-4);
 
         charIndex++;
@@ -942,7 +941,7 @@ function hantei() {
             }
             timeLeft++;
         } else if (gauge >= 100) {
-            timeLeft = timeLeft + 2;
+            timeLeft = timeLeft + 3;
             score = score + 500;
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
@@ -954,7 +953,7 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-            score = score + (word.length * 16);
+            score = score + (word.length * 13);
             score_area.textContent = ('000' + score).slice(-4);
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
