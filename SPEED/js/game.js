@@ -942,7 +942,7 @@ function hantei() {
             }
             timeLeft++;
         } else if (gauge >= 100) {
-            timeLeft = timeLeft + 3;
+            timeLeft = timeLeft + 2;
             score = score + 500;
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
