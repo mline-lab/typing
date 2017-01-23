@@ -462,9 +462,9 @@ function getCSV_hira_File() {
 
 function set_move_speed() {
     if (difficulty_check == 1) {
-        move_speed = 0.3;
+        move_speed = 0.5;
     } else {
-        move_speed = 0.9;
+        move_speed = 1.3;
     }
 }
 
@@ -718,8 +718,7 @@ function rank_push() {
                 'difficulty' : difficulty_check
             },
             success: function(data) {
-                document.getElementById("debug").innerHTML = "FOOOOOOOOOOOOOOOOO";
-                alert("ランキング登録しました。");
+                console.log('登録成功');
             }
         });
     }
@@ -906,7 +905,7 @@ function hantei() {
         audioElem.currentTime = 0;
         audioElem.play();
 
-        score = score + 1;
+        score = score + 2;
         score_area.textContent = ('000' + score).slice(-4);
 
         charIndex++;
@@ -954,7 +953,7 @@ function hantei() {
         }
 
         if (tableichi >= word.length) {
-            score = score + (word.length * 12);
+            score = score + (word.length * 13);
             score_area.textContent = ('000' + score).slice(-4);
             downcount++;
             //0.2秒間空白文字を表示してから次の文字を表示する。
