@@ -718,7 +718,7 @@ function rank_push() {
                 'difficulty' : difficulty_check
             },
             success: function(data) {
-                alert("ランキング登録しました。");
+                console.log('登録成功');
             }
         });
     }
