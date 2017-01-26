@@ -86,9 +86,7 @@
           $num = count($data);
           $row++;
           for ($c=0; $c < $num-1; $c++) {
-              echo "<tr id=\"list\"><td class=\"num\">";
-              echo $c;
-              echo "</td><td><a href=\"javascript:void(0)\" onclick=\"document.link" .$c.".submit(); return false;\" >".$word[$c]."</a>";
+              echo "<td><a href=\"javascript:void(0)\" onclick=\"document.link" .$c.".submit(); return false;\" >".$word[$c]."</a>";
               echo "<form name=\"link".$c."\" method=\"POST\" action=\"../bacteria/index.html\">";
               echo "<input type=hidden name=\"title\" value=\"".$word[$c]."\" /></form>";
               echo "</td><td>";
@@ -103,7 +101,7 @@
 
         <div class="pager"></div>
         <div class="pageNum">
-          <span class="nownum"></span>/<span class="totalnum"></span>pages
+          <span class="nownum"></span>/<span class="totalnum"></span>
         </div>
       </div>
   </div>
