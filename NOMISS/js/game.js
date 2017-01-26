@@ -781,7 +781,7 @@ function moveImg() {
             });
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
-            nextWord();
+            stopTyping();
         }
 
         //変数ｘの値をCSSに適用
