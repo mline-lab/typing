@@ -380,6 +380,9 @@ var animation_random_state_number;
 var difficulty_check;
 var move_speed;
 
+//ランダムで敵の画像を変える
+var bacteria_random;
+
 window.onload = function() {
     input_item = document.getElementById("input_item");
     game_messsage = document.getElementById("game_messsage");
@@ -586,6 +589,10 @@ function setvar() {
     skil_gaze.style.width = "0px";
 }
 
+function set_bacteria_img() {
+  bacteria_random = Math.floor(Math.random() * 3);
+}
+
 function onStartButtonClick() {
     if (rdo1.checked == true) {
         difficulty_check = 1;
@@ -595,6 +602,7 @@ function onStartButtonClick() {
     getCSV_jp_File();
     getCSV_hira_File();
     set_move_speed();
+    set_bacteria_img()
     setvar();
     space_flag = 1;
     bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg.jpg)";
@@ -984,53 +992,73 @@ function hantei() {
 //■7:ボーナス2
 //■8:ボーナス3
 function animation(motion_number) {
-    switch (motion_number) {
-        case 0:
-            right_img_lock = 0;
-            player_img.className = "kaede_right_img_defalt";
+  switch (motion_number) {
+      case 0:
+          right_img_lock = 0;
+          player_img.className = "kaede_right_img_defalt";
+          if (bacteria_random == 1) {
             teki_img.className = "left_img_default";
-            break;
-        case 1:
-            audioAtk1.currentTime = 0;
-            audioAtk1.play();
-            player_img.className = "kaede_right_img_atk";
+          } else if (bacteria_random == 2) {
+            teki_img.className = "left_img_default2";
+          }
+          break;
+      case 1:
+          audioAtk1.currentTime = 0;
+          audioAtk1.play();
+          player_img.className = "kaede_right_img_atk";
+          if (bacteria_random == 1) {
             teki_img.className = "left_img_dmg";
-            right_img_lock = 1;
-            break;
-        case 2:
-            audioAtk2.currentTime = 0;
-            audioAtk2.play();
-            player_img.className = "kaede_right_img_atk2";
+          } else if (bacteria_random == 2) {
+            teki_img.className = "left_img_dmg2";
+          }
+          right_img_lock = 1;
+          break;
+      case 2:
+          audioAtk2.currentTime = 0;
+          audioAtk2.play();
+          player_img.className = "kaede_right_img_atk2";
+          if (bacteria_random == 1) {
             teki_img.className = "left_img_dmg";
-            right_img_lock = 1;
-            break;
-        case 3:
-            audioAtk3.currentTime = 0;
-            audioAtk3.play();
-            player_img.className = "kaede_right_img_atk3";
+          } else if (bacteria_random == 2) {
+            teki_img.className = "left_img_dmg2";
+          }
+          right_img_lock = 1;
+          break;
+      case 3:
+          audioAtk3.currentTime = 0;
+          audioAtk3.play();
+          player_img.className = "kaede_right_img_atk3";
+          if (bacteria_random == 1) {
             teki_img.className = "left_img_dmg";
-            right_img_lock = 1;
-            break;
-        case 4:
-            audioAtk4.currentTime = 0;
-            audioAtk4.play();
-            player_img.className = "kaede_right_img_atk4";
+          } else if (bacteria_random == 2) {
+            teki_img.className = "left_img_dmg2";
+          }
+          right_img_lock = 1;
+          break;
+      case 4:
+          audioAtk4.currentTime = 0;
+          audioAtk4.play();
+          player_img.className = "kaede_right_img_atk4";
+          if (bacteria_random == 1) {
             teki_img.className = "left_img_dmg";
-            right_img_lock = 1;
-            break;
-        case 5:
-            player_img.className = "kaede_right_img_miss";
-            right_img_lock = 1;
-            break;
-        case 6:
-            break;
-        case 7:
-            break;
-        case 8:
-            break;
-        default:
-            break;
-    }
+          } else if (bacteria_random == 2) {
+            teki_img.className = "left_img_dmg2";
+          }
+          right_img_lock = 1;
+          break;
+      case 5:
+          player_img.className = "kaede_right_img_miss";
+          right_img_lock = 1;
+          break;
+      case 6:
+          break;
+      case 7:
+          break;
+      case 8:
+          break;
+      default:
+          break;
+  }
 }
 
 function animation_random_state(state) {
