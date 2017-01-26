@@ -1,0 +1,422 @@
+body {
+    width: 100%;
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    font-family: Avenir, "Open Sans", "Helvetica Neue", Helvetica, Arial, Verdana, Roboto, "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.7) 70%, rgba(87, 255, 119, 0.5)), url(../../images/bg_bg_bg.png);    /*背景色、背景画像の読み込み*/
+}
+
+a {
+    text-decoration: none;
+    color: rgb(33, 33, 33);
+}
+
+
+/* コンテンツ */
+
+.content {
+    width: 1024px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+#wrapper {
+    float: left;
+}
+
+.main {
+    width: 624px;
+    height: 550px;
+    float: right;
+}
+
+
+/* 左右メニュー */
+
+.side01 {
+    width: 200px;
+    height: 500px;
+    float: left;
+    background: rgba(255, 255, 255, 0.5);
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
+}
+
+.side01 p {
+  width: 200px;
+  text-align: center;
+}
+
+.mas_volume{
+    width: 200px;
+    text-align: center;
+}
+
+#mute_button {
+  width: 60px;
+  height: auto;
+}
+.mas_volume:hover {
+  background: rgb(198, 255, 245);
+}
+
+.bgm_volume {
+  width: 200px;
+  text-align: center;
+}
+
+.left_volume {
+  width: 75px;
+  height: 50px;
+  height: auto;
+  float: left;
+  text-align: center;
+  line-height: 50px;
+}
+
+.left_volume:hover{
+  background: rgb(198, 255, 245);
+}
+
+#bgm_volume_button {
+  width: 50px;
+  height: auto;
+}
+
+.right_volume {
+  width: 75px;
+  height: 50px;
+  height: auto;
+  float: right;
+  text-align: center;
+  line-height: 50px;
+}
+
+.right_volume:hover{
+  background: rgb(198, 255, 245);
+}
+
+
+.side02 {
+    width: 200px;
+    height: 500px;
+    float: right;
+    background: rgba(255, 255, 255, 0.5);
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
+}
+
+.back_button {
+  width: 100px;
+  margin-top: 20px;
+  float: left;
+  text-align: center;
+}
+
+.back_button:hover{
+  background: rgb(198, 255, 245);
+}
+
+.next_button {
+  width: 100px;
+  margin-top: 20px;
+  float: right;
+  text-align: center;
+}
+
+.next_button:hover{
+  background: rgb(198, 255, 245);
+}
+
+.chapter_menu {
+  width: 200px;
+  font-size: 0.7rem;
+  margin-top: 50px;
+}
+
+.chapter_item {
+  width: 190px;
+  margin: 15px 5px 0px 5px;
+  visibility: hidden;
+}
+
+.chapter_item:hover {
+  background: rgb(198, 255, 245);
+}
+
+/* 上部ヘッダー */
+
+.head_menu {
+    margin-top: 10px;
+    width: 100%;
+    height: 70px;
+}
+
+.head_img {
+    width: 170px;
+    height: 70px;
+    float: left;
+    background-image: url("../img/head_img_title.png");
+}
+
+#menu {
+    width: 1024px;
+    height: 70px;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+    text-align: center;
+}
+
+#menu li {
+    width: 170px;
+    height: 71px;
+    float: left;
+    /*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
+    transition: 0.5s;
+    /*同上*/
+}
+
+#menu li:hover {
+    color: #c80000;
+    /*文字色*/
+    background: rgb(187, 247, 177);
+    /*背景色*/
+}
+
+/* ゲーム中使用のボタン等 */
+#input_item {
+  width: 500px;
+  height: 50px;
+  position:absolute;
+  top:50px;
+  text-align: center;
+}
+.button {
+    width: 200px;
+    height: 50px;
+    background-color: #333;
+    border: 2px solid #333;
+    color: #fff;
+    line-height: 50px;
+}
+
+.button:hover {
+    background-color: #fff;
+    border-color: #59b1eb;
+    color: #59b1eb;
+}
+
+#game_messsage {
+  width: 500px;
+  height: 100px;
+  position:absolute;
+  top:130px;
+  text-align: center;
+}
+
+#ranking_item {
+  width: 500px;
+  height: 100px;
+  position:absolute;
+  top:200px;
+  text-align: center;
+  visibility: hidden;
+}
+#ranking_item input {
+    margin-top: 10px;
+}
+
+/* ゲーム枠 */
+
+.game_div {
+    position:relative;
+    width: 500px;
+    height: auto;
+    border: 3px solid #ffcf00;
+    font-size: 1.2em;
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-drag:none;
+}
+
+
+/* ゲーム内ヘッダー */
+
+.data_var {
+    width: 100%;
+    height: 50px;
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+    box-pack: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    background-color: rgb(27, 59, 88);
+}
+
+.box {
+    width: 30%;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #444;
+    margin: 10px;
+}
+
+#time_area {
+  color: rgb(255, 255, 255);
+  padding: .5em .75em;
+  background-color: rgb(17, 41, 65);
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+}
+
+.skil_gaze_bord {
+    width: 100px;
+    height: 20px;
+    border: medium solid #242424;
+    margin: 0 auto;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+}
+
+.skil_gaze {
+    height: 20px;
+    background: linear-gradient(-90deg, #fbffb9 30%, #f8ff74 60%, #ffae6b 90%);
+    float: left;
+}
+
+#score_area {
+    height: 30px;
+    color: rgb(255, 255, 255);
+    padding: .5em .75em;
+  	background-color: rgb(17, 41, 65);
+  	border-radius: 6px;
+  	box-shadow: 2px 2px 4px rgba(0, 0, 0, .1) inset;
+}
+
+/* ゲームメイン画面 */
+
+.game_main {
+  width: 500px;
+  height: 350px;
+  background-repeat: no-repeat;
+}
+
+.right_img img {
+  width: 100px;
+  height: 350px;
+  float: left;
+  visibility: hidden;
+}
+
+.left_img img {
+  width: 100px;
+  height: 350px;
+  float: left;
+  visibility: hidden;
+}
+
+/* タイピングワードエリア */
+
+.font_area {
+    text-align: left;
+}
+
+#word_hiragana {
+    background: #383838;
+    color: white;
+    height: 30px;
+    font-size: 0.7em;
+    line-height: 30px;
+}
+
+#word_jp {
+    background: #383838;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    height: 35px;
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+#type {
+    background: #383838;
+    height: 40px;
+    font-size: 0.9em;
+    line-height: 40px;
+}
+
+#type_Before {
+    color: #565656;
+}
+
+#type_After {
+    color: white;
+}
+
+/* タイムゲージ */
+
+.time_fake {
+    width: 100%;
+    height: 10px;
+    margin: 0 auto;
+    background: rgb(84, 244, 196);
+}
+
+.time_gaze {
+    height: 10px;
+    background: linear-gradient(-90deg, #06668a, #75eeff);
+    float: left;
+}
+
+/* フッター */
+
+footer {
+    text-align: center;
+    width: 600px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/*Load*/
+
+#loader-bg {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background: #000;
+  z-index: 1;
+}
+#loader {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}

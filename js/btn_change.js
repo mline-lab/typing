@@ -20,11 +20,11 @@ function on_story() {
   if (check == 0) {
     check = 1;
     li_1.textContent = "BACK";
-    li_2.textContent = "Coming Soon";
+    li_2.textContent = "千遥";
     li_3.textContent = "楓";
     li_4.textContent = "Coming Soon";
     li_5.textContent = "弥生";
-    a_2.href = "#";
+    a_2.href = "STORY_chiharu/";
     a_3.href = "STORY/";
     a_4.href = "#";
     a_5.href = "STORY_yayoi/";
