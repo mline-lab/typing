@@ -520,7 +520,7 @@ function bgm_volume_down() {
 function set_audio() {
 
     audioBGM = new Audio();
-    audioBGM.src = "../audio/mangetunotikurin.mp3";
+    audioBGM.src = "../audio/BGM/Reflect.mp3";
     audioBGM.volume = 0.5;
 
     audioBad = new Audio();
