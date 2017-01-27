@@ -135,11 +135,21 @@ a:hover {
 /*ワードリスト*/
 
 .word_list {
-  width: 1024px;
+  width: 500px;
   height: 100px;
+  float: left;
   margin: 0 auto;
   margin-top: 10px;
   background-image: url("../images/word_list.png");
+}
+
+.ranking_btn {
+  width: 500px;
+  height: 100px;
+  float: right;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-image: url("../images/rank_btn.png");
 }
 
 
