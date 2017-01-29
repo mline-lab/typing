@@ -54,22 +54,11 @@ body{
 
 p{
   text-align: center;
-  width: 50%;
   font-family: "メイリオ", sans-serif;
   font-weight: bolder;
   font-size: 20px;
 }
-#search{
-  font-family: "メイリオ", sans-serif;
-  font-weight: bolder;
-  font-size: 20px;
-}
-#select_op{
-  text-align: center;
-  width: 60%;
-  padding-left:20%;
-  padding-right: 20%;
-}
+
 
 .btn{
   background: #EEE;
