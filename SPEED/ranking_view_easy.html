@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>スピードランキング_EASY|LostColor</title>
+<title>スピードランキング|LostColor</title>
 <meta charset="utf-8">
 <meta name="description" content="LostColor-細菌タイピイングADV-">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -38,20 +38,41 @@ $(function(){
 </head>
 <body>
   <div class="head_menu">
-          <ul id="menu">
-              <a href="../"><li>HOME</li></a>
-              <a href="../ranking/ranking_easy.html"><li>ALLランキング</li></a>
-              <a href="../CORRECT/ranking_view.html"><li>正確重視</li></a>
-              <a href="../SPEED/ranking_view.html"><li>速度重視</li></a>
-              <a href="../NOMISS/ranking_view.html"><li>ノーミス</li></a>
-          </ul>
+
+      <ul id="menu">
+          <div class="head_img">
+
+          </div>
+          <a href="../">
+              <li><img src="../images/top-hed-top.png" /></li>
+          </a>
+          <a href="../char/">
+              <li><img src="../images/top-hed-char.png" /></li>
+          </a>
+          <a href="../howto.html">
+              <li><img src="../images/top-hed-howto.png" /></li>
+          </a>
+          <a href="../product.html">
+              <li><img src="../images/top-hed-product.png" /></li>
+          </a>
+          <a href="../special.html">
+              <li><img src="../images/top-hed-sp.png" /></li>
+          </a>
+      </ul>
   </div>
   <div class="main">
-    <div>
-
-      <div class="content">
-        <a href="ranking_view.html">ふつうランキング</a>
-
+    <div class="content">
+      <div class="select_mode">
+        <ul>
+          <li><a href="../ranking/ranking.html">ALL</a></li>
+          <li><a href="../NORMAL/ranking_view.html">NORMAL</a></li>
+          <li><a href="../CORRECT/ranking_view.html">CORRECT</a></li>
+          <li><a href="ranking_view.html">SPEED</a></li>
+          <li><a href="../NOMISS/ranking_view.html">NOMISS</a></li>
+        </ul>
+      </div>
+      <div class="rank_list">
+        <a href="ranking_view.html"><img src="../images/rk/rank-easy.png"/></a>
         <table border="1" cellspacing="0" cellpadding="5" bordercolor="#333333">
           <tr>
             <th bgcolor="#81fcf1">順位</th>
@@ -59,6 +80,7 @@ $(function(){
             <th bgcolor="#81fcf1">スコア</th>
             <th bgcolor="#81fcf1">討伐数</th>
             <th bgcolor="#81fcf1">ミス数</th>
+            <th bgcolor="#81fcf1">モード</th>
           </tr>
   <?php
 
@@ -85,7 +107,23 @@ $(function(){
       $stmt = $dbh->query($sql);
 
       while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-
+        switch ($result['mode']) {
+          case 1:
+            $mode = "ノーマル";
+            break;
+          case 2:
+            $mode = "正確重視";
+            break;
+          case 3:
+            $mode = "速度重視";
+            break;
+          case 4:
+            $mode = "ノーミス";
+            break;
+          default:
+            # code...
+            break;
+        }
           $rank++;
           echo "<tr id=\"list\">";
           echo "<th>";
@@ -101,6 +139,9 @@ $(function(){
           echo "</th>";
           echo "<th>";
           echo($result['miss']);
+          echo "</th>";
+          echo "<th>";
+          echo($mode);
           echo "</th>";
           echo "</tr>";
       }

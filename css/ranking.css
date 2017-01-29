@@ -65,6 +65,42 @@ a {
     /*背景色*/
 }
 
+
+.select_mode ul{
+position: relative;
+left: 50%;
+float:left;
+margin: 0;
+padding: 0;
+list-style: none;
+}
+.select_mode li{
+padding: 0;
+margin: 0;
+position: relative;
+left: -50%;
+float:left;
+}
+.select_mode li a{
+display: block;
+background: url() no-repeat;
+border: 0px;
+padding: 3px;
+text-decoration: none;
+color: #333;
+width: 100px;
+height: 31px;
+margin: 0px 0px 2px 0px;
+padding: 4px;
+text-align: center;
+font-size: 14px;
+}
+.select_mode li a:hover{
+display: block;
+text-decoration: underline;
+}
+
+
 .pager span{
 
 }
