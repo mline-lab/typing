@@ -95,6 +95,10 @@ a:hover {
   text-align: center;
 }
 
+table {
+  width: 100%;
+}
+
 .t-line tr:nth-child(odd) {
     background-color: #a5d8f6;
 }
