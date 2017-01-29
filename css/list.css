@@ -90,7 +90,14 @@ a:hover {
     width: 80%;
     margin: 0 auto;
 }
+
+.select {
+  float: left;
+}
+
 .content {
+  float: left;
+
   margin: 0 auto;
   text-align: center;
 }
