@@ -91,15 +91,17 @@ a:hover {
     margin: 0 auto;
 }
 
+.content {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .select {
   float: left;
 }
 
-.content {
+.rank_list {
   float: left;
-
-  margin: 0 auto;
-  text-align: center;
 }
 
 table {
