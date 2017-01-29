@@ -96,16 +96,13 @@ a:hover {
   text-align: center;
 }
 
-.select {
-  float: left;
-}
-
-.rank_list {
-  float: left;
-}
 
 table {
-  width: 700px;
+  width: 800px;
+}
+
+.name {
+  width: 100px;
 }
 
 .t-line tr:nth-child(odd) {
