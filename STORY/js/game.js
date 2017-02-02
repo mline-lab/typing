@@ -941,7 +941,7 @@ function stopTyping() {
 
     if (bacteri_hp == 0) {
         audioWin.play();
-        bgimg.style.backgroundImage = "url(../images/typing/bg/win.jpg)";
+        bgimg.style.backgroundImage = "url(../images/typing/bg/kaede_win.jpg)";
         condition.textContent = "第" + story_chapter + "話クリア";
         if (end_chapter == story_chapter) {
             startButton.value = "Start";
