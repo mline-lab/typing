@@ -590,7 +590,7 @@ function setvar() {
 }
 
 function set_bacteria_img() {
-  bacteria_random = Math.floor(Math.random() * 3);
+  bacteria_random = Math.floor(Math.random() * 3) + 1;
 }
 
 function onStartButtonClick() {
@@ -900,7 +900,7 @@ document.onkeydown = function(e) {
         }
     } else if (e.keyCode == 27) {
         if (game_flag == 1) {
-            setTimeout(esc(),500);
+            setTimeout(esc(),1010);
         }
     } else {
         if (game_flag == 1) {
