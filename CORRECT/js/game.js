@@ -590,7 +590,7 @@ function setvar() {
 }
 
 function set_bacteria_img() {
-  bacteria_random = Math.floor(Math.random() * 3) + 1;
+  bacteria_random = Math.floor(Math.random() * 2) + 1;
 }
 
 function onStartButtonClick() {
@@ -937,6 +937,7 @@ function hantei() {
         gauge = gauge + 0.5;
         skil_gaze.style.width = gauge + "px";
         if (gauge == 25) {
+            timeLeft = timeLeft + 1;
             animation_random_state_number++;
             if (right_img_lock == 0) {
                 animation(animation_random_state(animation_random_state_number));
@@ -944,6 +945,7 @@ function hantei() {
             }
             timeLeft++;
         } else if (gauge == 50) {
+            timeLeft = timeLeft + 2;
             animation_random_state_number++;
             if (right_img_lock == 0) {
                 animation(animation_random_state(animation_random_state_number));
@@ -952,7 +954,6 @@ function hantei() {
             timeLeft++;
         } else if (gauge >= 100) {
             timeLeft = timeLeft + 3;
-            score = score + 500;
             gauge = 0;
             skil_gaze.style.width = gauge + "px";
             animation_random_state_number++;
