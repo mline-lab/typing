@@ -902,7 +902,7 @@ function onStartButtonClick() {
 function space_start() {
     set_move_speed();
     condition.textContent = "";
-    bgimg.style.backgroundImage = "url(../images/typing/story/bg/siro_2.jpg)";
+    bgimg.style.backgroundImage = "";
     player_img.className = "kaede_right_img_defalt";
     teki_img.className = "left_img_default";
     space_flag = 0;
@@ -973,6 +973,7 @@ function stopTyping() {
         } else {
             //もう一度
             startButton.value = "Retry";
+            bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.png)";
         }
 
     }
