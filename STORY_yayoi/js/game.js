@@ -686,7 +686,7 @@ function set_move_speed() {
     } else if (story_chapter == 6) {
         if (check_branch == "good") {
             move_speed = 0.9;
-            bacteri_hp = 25;
+            bacteri_hp = 20;
         } else if (check_branch == "bad") {
             move_speed = 0.7;
             bacteri_hp = 100;
@@ -974,10 +974,7 @@ function stopTyping() {
             //もう一度
             startButton.value = "Retry";
         }
-
     }
-
-
 }
 
 
