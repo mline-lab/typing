@@ -889,7 +889,7 @@ function game_stop_refresh() {
 function onStartButtonClick() {
     setvar();
     space_flag = 1;
-    bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
+    bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.png)";
     messageArea.textContent = "";
     if (story_flg == 1) {
         load_Story();
