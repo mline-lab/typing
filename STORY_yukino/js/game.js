@@ -959,9 +959,8 @@ function stopTyping() {
     } else if (bacteri_hp >= 1) {
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
-        if (story_chapter == 4) {
-            nextChapter();
-        } else if (story_chapter == 5) {
+
+        if (story_chapter == 5) {
             check_branch = "bad";
             nextChapter();
         } else if (story_chapter == 6 && check_branch == "bad"){
