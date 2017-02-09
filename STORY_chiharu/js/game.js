@@ -973,7 +973,8 @@ function stopTyping() {
         } else {
             //もう一度
             startButton.value = "Retry";
-            bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.png)";
+            story_flg = 0;
+            story_line = 0
         }
 
     }
