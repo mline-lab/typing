@@ -22,11 +22,11 @@ function on_story() {
     li_1.textContent = "BACK";
     li_2.textContent = "千遥";
     li_3.textContent = "楓";
-    li_4.textContent = "Coming Soon";
+    li_4.textContent = "雪乃";
     li_5.textContent = "弥生";
     a_2.href = "STORY_chiharu/";
     a_3.href = "STORY/";
-    a_4.href = "#";
+    a_4.href = "STORY_yukino/";
     a_5.href = "STORY_yayoi/";
   } else {
     check = 0;
@@ -45,7 +45,7 @@ function on_story() {
 
 function on_img2() {
   if (check == 1) {
-    select_bg.style.backgroundImage = "url(images/select/chiharu_coming.jpg)";
+    select_bg.style.backgroundImage = "url(images/select/chiharu.jpg)";
   } else {
     select_bg.style.backgroundImage = "url(images/select/normal.jpg)";
   }
@@ -62,7 +62,7 @@ function on_img3() {
 
 function on_img4() {
   if (check == 1) {
-    select_bg.style.backgroundImage = "url(images/select/yukino_coming.jpg)";
+    select_bg.style.backgroundImage = "url(images/select/yukino.jpg)";
   } else {
     select_bg.style.backgroundImage = "url(images/select/speed.jpg)";
   }
