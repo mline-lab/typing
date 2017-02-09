@@ -460,7 +460,7 @@ window.onload = function() {
 function GetCookie() {
     var result = null;
 
-    var cookieName = "chapter_save" + '=';
+    var cookieName = "kaede_chapter_save" + '=';
     var allcookies = document.cookie;
 
     var position = allcookies.indexOf(cookieName);
@@ -501,7 +501,7 @@ function SetCookie() {
     var expire = new Date();
     expire.setTime(expire.getTime() + 60 * 24 * 60 * 60 * 1000);
 
-    document.cookie = "chapter_save=" + story_chapter + "; expires=" + expire.toUTCString();
+    document.cookie = "kaede_chapter_save=" + story_chapter + "; expires=" + expire.toUTCString();
 }
 
 function getCSV_jp_File() {
@@ -556,6 +556,12 @@ function getCSV_Story_bad() {
             story[i] = csv[i].split(";");
         }
     };
+}
+
+function load_Story() {
+    //anten();
+    messageArea.textContent = "";
+    space_flag = 0;
 }
 
 function nextMessage() {
@@ -635,10 +641,10 @@ function story_Message() {
         audioFunction.src = "../audio/function/" + story[story_line][9] + ".mp3";
         audioFunction.play();
     }
-
 }
 
 function nextChapter() {
+    console.log('キャプチャー、インクリ前' + story_chapter);
     story_line = -1;
     story_flg = 1;
     story = [];
@@ -657,6 +663,7 @@ function nextChapter() {
         SetCookie();
         getCSV_Story();
     }
+    console.log('キャプチャー、読み込み後' + story_chapter);
     startButton.value = "第「" + story_chapter　 + "」話";
 }
 
@@ -669,17 +676,17 @@ function set_move_speed() {
         bacteri_hp = 15;
     } else if (story_chapter == 3) {
         move_speed = 0.5;
-        bacteri_hp = 20;
+        bacteri_hp = 15;
     } else if (story_chapter == 4) {
         move_speed = 2.0;
         bacteri_hp = 100;
     } else if (story_chapter == 5) {
         move_speed = 0.7;
-        bacteri_hp = 25;
+        bacteri_hp = 20;
     } else if (story_chapter == 6) {
         if (check_branch == "good") {
             move_speed = 0.9;
-            bacteri_hp = 30;
+            bacteri_hp = 25;
         } else if (check_branch == "bad") {
             move_speed = 0.7;
             bacteri_hp = 100;
@@ -885,6 +892,7 @@ function onStartButtonClick() {
     bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
     messageArea.textContent = "";
     if (story_flg == 1) {
+        load_Story();
         bgimg.style.backgroundImage = "";
         story_flg = 0;
         message_end_flg = 0;
@@ -935,8 +943,7 @@ function startTyping() {
 function stopTyping() {
     clearInterval(timer1);
     game_flag = 0;
-    setTimeout("game_stop_refresh()", 500);
-
+    setTimeout("game_stop_refresh()", 1010);
     clearInterval(time);
 
     if (bacteri_hp == 0) {
@@ -956,11 +963,13 @@ function stopTyping() {
     } else if (bacteri_hp >= 1) {
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
-        if (story_chapter == 4 || story_chapter == 6) {
+        if (story_chapter == 4) {
             nextChapter();
         } else if (story_chapter == 5) {
             check_branch = "bad";
             nextChapter();
+        } else if (story_chapter == 6 && check_branch == "bad"){
+          nextChapter();
         } else {
             //もう一度
             startButton.value = "Retry";
