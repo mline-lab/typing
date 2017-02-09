@@ -685,7 +685,7 @@ function set_move_speed() {
             move_speed = 0.9;
             bacteri_hp = 20;
         } else if (check_branch == "bad") {
-            move_speed = 0.7;
+            move_speed = 1.5;
             bacteri_hp = 100;
         }
     }
