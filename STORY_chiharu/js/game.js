@@ -974,7 +974,7 @@ function stopTyping() {
             //もう一度
             startButton.value = "Retry";
             story_flg = 0;
-            story_line = 0
+            story_line = 0;
         }
 
     }
