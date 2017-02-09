@@ -887,11 +887,13 @@ function game_stop_refresh() {
 }
 
 function onStartButtonClick() {
+    console.log('スタートボタンクリック');
     setvar();
     space_flag = 1;
     bgimg.style.backgroundImage = "url(../images/typing/bg/start_bg_story.jpg)";
     messageArea.textContent = "";
     if (story_flg == 1) {
+        console.log('ロードストーリー');
         load_Story();
         bgimg.style.backgroundImage = "";
         story_flg = 0;
