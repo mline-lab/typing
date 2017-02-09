@@ -951,7 +951,7 @@ function stopTyping() {
             story_flg = 0;
             story_line = 0
         } else {
-            if (story_chapter == 5) {
+            if (story_chapter == 4) {
                 check_branch = "good";
             }
             nextChapter();
@@ -960,10 +960,10 @@ function stopTyping() {
         bgimg.style.backgroundImage = "url(../images/typing/bg/lose.jpg)";
         audioLose.play();
 
-        if (story_chapter == 5) {
+        if (story_chapter == 4) {
             check_branch = "bad";
             nextChapter();
-        } else if (story_chapter == 6 && check_branch == "bad"){
+        } else if (story_chapter == 5 && check_branch == "bad"){
           nextChapter();
         } else {
             //もう一度
