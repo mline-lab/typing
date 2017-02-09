@@ -568,7 +568,7 @@ function nextMessage() {
     if (message_end_flg == 0) {
 
         if (story_line > story.length - 1) {
-            if (story_chapter != 7) {
+            if (story_chapter != 6) {
                 img1.src = "";
                 img2.src = "";
                 img3.src = "";
