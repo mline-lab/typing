@@ -1266,7 +1266,7 @@ function animation(motion_number) {
             case 0:
                 right_img_lock = 0;
                 player_img.className = "kaede_right_img_defalt";
-                if (story_chapter == 6) {
+                if (story_chapter == 5 || story_chapter == 6) {
                   teki_img.className = "sepu_img_default";
                 } else {
                   teki_img.className = "left_img_default";
@@ -1276,7 +1276,7 @@ function animation(motion_number) {
                 audioAtk1.currentTime = 0;
                 audioAtk1.play();
                 player_img.className = "kaede_right_img_atk";
-                if (story_chapter == 6) {
+                if (story_chapter == 5 || story_chapter == 6) {
                   teki_img.className = "sepu_img_dmg";
                 } else {
                   teki_img.className = "left_img_dmg";
@@ -1298,7 +1298,7 @@ function animation(motion_number) {
                 audioAtk3.currentTime = 0;
                 audioAtk3.play();
                 player_img.className = "kaede_right_img_atk3";
-                if (story_chapter == 6) {
+                if (story_chapter == 5 || story_chapter == 6) {
                   teki_img.className = "sepu_img_dmg";
                 } else {
                   teki_img.className = "left_img_dmg";
@@ -1309,7 +1309,7 @@ function animation(motion_number) {
                 audioAtk4.currentTime = 0;
                 audioAtk4.play();
                 player_img.className = "kaede_right_img_atk4";
-                if (story_chapter == 6) {
+                if (story_chapter == 5 || story_chapter == 6) {
                   teki_img.className = "sepu_img_dmg";
                 } else {
                   teki_img.className = "left_img_dmg";
