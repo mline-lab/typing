@@ -1266,34 +1266,54 @@ function animation(motion_number) {
             case 0:
                 right_img_lock = 0;
                 player_img.className = "kaede_right_img_defalt";
-                teki_img.className = "left_img_default";
+                if (story_chapter == 6) {
+                  teki_img.className = "sepu_img_default";
+                } else {
+                  teki_img.className = "left_img_default";
+                }
                 break;
             case 1:
                 audioAtk1.currentTime = 0;
                 audioAtk1.play();
                 player_img.className = "kaede_right_img_atk";
-                teki_img.className = "left_img_dmg";
+                if (story_chapter == 6) {
+                  teki_img.className = "sepu_img_dmg";
+                } else {
+                  teki_img.className = "left_img_dmg";
+                }
                 right_img_lock = 1;
                 break;
             case 2:
                 audioAtk2.currentTime = 0;
                 audioAtk2.play();
                 player_img.className = "kaede_right_img_atk2";
-                teki_img.className = "left_img_dmg";
+                if (story_chapter == 6) {
+                  teki_img.className = "sepu_img_dmg";
+                } else {
+                  teki_img.className = "left_img_dmg";
+                }
                 right_img_lock = 1;
                 break;
             case 3:
                 audioAtk3.currentTime = 0;
                 audioAtk3.play();
                 player_img.className = "kaede_right_img_atk3";
-                teki_img.className = "left_img_dmg";
+                if (story_chapter == 6) {
+                  teki_img.className = "sepu_img_dmg";
+                } else {
+                  teki_img.className = "left_img_dmg";
+                }
                 right_img_lock = 1;
                 break;
             case 4:
                 audioAtk4.currentTime = 0;
                 audioAtk4.play();
                 player_img.className = "kaede_right_img_atk4";
-                teki_img.className = "left_img_dmg";
+                if (story_chapter == 6) {
+                  teki_img.className = "sepu_img_dmg";
+                } else {
+                  teki_img.className = "left_img_dmg";
+                }
                 right_img_lock = 1;
                 break;
             case 5:
