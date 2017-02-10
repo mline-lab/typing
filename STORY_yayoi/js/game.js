@@ -684,6 +684,7 @@ function set_move_speed() {
         move_speed = 0.7;
         bacteri_hp = 20;
     } else if (story_chapter == 6) {
+      teki_img.className = "sepu_img_default";
         if (check_branch == "good") {
             move_speed = 0.9;
             bacteri_hp = 20;
