@@ -8,11 +8,12 @@ $stmt->execute();
 
 while ($row = $stmt->fetch()){
 
-        if ($row["content"] != "") {
-          $content = $row["content"];
-        } else {
-          $content = "準備中！！ごめん！";
-        }
+  $content = $row["content"];
+
+}
+
+if ($content == "") {
+  $content = "勉強中！ごめんね！"
 }
 ?>
 
