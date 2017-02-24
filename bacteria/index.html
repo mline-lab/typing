@@ -9,7 +9,7 @@ $stmt->execute();
 while ($row = $stmt->fetch()){
         $content = $row["content"];
 
-        if ($content == "" || $content !== null) {
+        if ($content == "" || $content == null) {
           $content = "準備中！！ごめん！";
         }
 }
