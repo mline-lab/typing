@@ -7,8 +7,8 @@ $stmt = $db->prepare("SELECT * FROM word WHERE title = '$title'");
 $stmt->execute();
 
 while ($row = $stmt->fetch()){
-  
-        if ($row["content"] !== null) {
+
+        if ($row["content"] != "") {
           $content = $row["content"];
         } else {
           $content = "準備中！！ごめん！";
