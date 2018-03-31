@@ -4,7 +4,6 @@
 <head>
     <title>コレクト|LostColor</title>
     <meta charset="utf-8">
-    <meta http-equiv=”Cache-Control” content=”no-cache”>
     <meta http-equiv="imagetoolbar" content="no">
     <meta name="description" content="LostColor-細菌タイピイングADV-">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -64,7 +63,12 @@
             });
         });
 
-        loader.load(); //ローディングを実行
+        var tmp = document.cookie.split( '; ' )[ 0 ].split( '=' )[ 1 ];
+        if (tmp != '123' ) {
+          document.cookie = 'data1=123';
+          loader.load(); //ローディングを実行
+        }
+
     </script>
     <script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="../js/checkbrowser.js"></script>
