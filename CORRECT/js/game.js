@@ -850,7 +850,6 @@ function moziHenkan(e) {
             skil_gaze.style.width = gauge + "px";
             audioBad.currentTime = 0;
             audioBad.play();
-            missCount++;
             score = score - 10;
             score_area.textContent = ('000' + score).slice(-4);
             animation_random_state_number = 0;
