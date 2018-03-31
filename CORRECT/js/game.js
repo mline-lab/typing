@@ -707,7 +707,7 @@ function esc() {
 }
 
 function rank_push() {
-
+  ranking_item.style.visibility = "hidden";
     username = document.ranking.username.value;
 
     if (username.match(/"/) || username.match(/'/)) {
@@ -729,7 +729,6 @@ function rank_push() {
                 console.log('登録成功');
             }
         });
-        location.reload(true);
     }
 }
 
