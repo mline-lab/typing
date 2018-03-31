@@ -49,4 +49,8 @@ try{
 
 $dbh = null;
 
+// リダイレクト
+header( "Location: ./index.html" ) ;
+exit ;
+
  ?>
