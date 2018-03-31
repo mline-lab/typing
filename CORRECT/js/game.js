@@ -745,6 +745,11 @@ window.sessionStorage.setItem(['key_mode'],mode);
 window.sessionStorage.setItem(['key_difficulty_check'],difficulty_check);
 }
 
+function hidden_scoreadd()
+{
+  ranking_item.style.visibility = "hidden";
+}
+
 
 // 次の単語を表示
 function nextWord() {

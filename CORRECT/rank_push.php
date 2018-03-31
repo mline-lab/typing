@@ -9,8 +9,7 @@ if ($name == "") {
 //セッションスタート
     session_start();
 
-    //セッションデータ破棄
-    session_destroy ();
+
 
   //データの受け取り
   $score = $_SESSION[key_score ];
@@ -18,6 +17,9 @@ if ($name == "") {
   $miss        = $_SESSION[key_missCount];
   $mode      = $_SESSION[key_mode];
   $difficulty = $_SESSION[key_difficulty_check];
+
+  //セッションデータ破棄
+  session_destroy ();
 
   $dsn = 'mysql:dbname=lostcolor;host=localhost';
   $user = 'mline';
@@ -52,5 +54,7 @@ try{
 $dbh = null;
 
 echo "登録完了";
+
+echo "<script type='text/javascript'>window.close();</script>";
 
  ?>
