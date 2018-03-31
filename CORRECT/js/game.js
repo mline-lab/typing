@@ -678,8 +678,6 @@ function stop_refresh() {
   $('.game_div').css({
       "border": "3px solid #ffcf00"
   });
-
-  rank_push();
 }
 
 function esc() {
@@ -709,7 +707,7 @@ function esc() {
 }
 
 function rank_push() {
-/*
+
     username = document.ranking.username.value;
 
     if (username.match(/"/) || username.match(/'/)) {
@@ -732,22 +730,6 @@ function rank_push() {
             }
         });
     }
-*/
-// セッションの格納
-window.sessionStorage.setItem(['key_score'],score);
-// セッションの格納
-window.sessionStorage.setItem(['key_downcount'],downcount);
-// セッションの格納
-window.sessionStorage.setItem(['key_missCount'],missCount);
-// セッションの格納
-window.sessionStorage.setItem(['key_mode'],mode);
-// セッションの格納
-window.sessionStorage.setItem(['key_difficulty_check'],difficulty_check);
-}
-
-function hidden_scoreadd()
-{
-  ranking_item.style.visibility = "hidden";
 }
 
 

@@ -1,25 +1,21 @@
 <?php
-$name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
-if ($name == "") {
-  $name = "名無し";
-} elseif (strpos($name,'script&') !== false) {
-  $name = "このサイトに攻撃を仕掛けた愚か者";
-}
 
-//セッションスタート
-    session_start();
+  $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
+  if ($name == "") {
+    $name = "名無し";
+  } elseif (strpos($name,'script&') !== false) {
+    $name = "このサイトに攻撃を仕掛けた愚か者";
+  }
 
+  $score = $_POST['score'];
 
+  $count = $_POST['count'];
 
-  //データの受け取り
-  $score = $_SESSION[key_score ];
-  $count      = $_SESSION[key_downcount];
-  $miss        = $_SESSION[key_missCount];
-  $mode      = $_SESSION[key_mode];
-  $difficulty = $_SESSION[key_difficulty_check];
+  $miss = $_POST['miss'];
 
-  //セッションデータ破棄
-  session_destroy ();
+  $mode = $_POST['mode'];
+
+  $difficulty = $_POST['difficulty'];
 
   $dsn = 'mysql:dbname=lostcolor;host=localhost';
   $user = 'mline';
@@ -52,9 +48,5 @@ try{
     }
 
 $dbh = null;
-
-echo "登録完了";
-
-echo "<script type='text/javascript'>window.close();</script>";
 
  ?>
