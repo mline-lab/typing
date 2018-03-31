@@ -729,6 +729,7 @@ function rank_push() {
                 console.log('登録成功');
             }
         });
+        location.reload(true);
     }
 }
 
