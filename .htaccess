@@ -1,7 +1,2 @@
 AddType application/x-httpd-php .php .html
 Options -Indexes
-
-# HTTPSでアクセスされた場合、
-RewriteEngine on
-RewriteCond %{HTTPS} on
-RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [R,L]
