@@ -131,6 +131,21 @@ a:hover {
 	background: rgba(250, 228, 194, 1);
 }
 
+/* ラベル */
+.label {
+    width: 980px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #ffff80;
+    text-align: center;
+    color: #c80000;
+    vertical-align: middle;
+    border: solid 3px #c80000;
+    border-radius: 10px;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px #FFFFFF, 0px 0px 3px #FFFFFF;
+}
 
 /*ワードリスト*/
 
